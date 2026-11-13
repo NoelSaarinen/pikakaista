@@ -39,7 +39,7 @@ Hoitopolku etenee näin: **oire → terveyskeskus → lähete → diagnoosi → 
 
 ### 1. Teemmekö tämän haasteen?
 
-Toinen hyvä vaihtoehto on Tiedon *Earned Trust in AI Code*, jossa konsepti painaa enemmän kuin tekninen toteutus.
+Vertailu Aallon mielenterveyshaasteeseen *Beyond the Clinic* on sivulla [haastevertailu](HAASTEVERTAILU.md). Toinen vaihtoehto on Tiedon *Earned Trust in AI Code*, jossa konsepti painaa enemmän kuin tekninen toteutus.
 
 - Noel:
 - Joel:
