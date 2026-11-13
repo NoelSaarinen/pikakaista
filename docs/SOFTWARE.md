@@ -20,5 +20,14 @@ Checked 2026-11-13. **Installed** means the CLI returned a version or the macOS 
 | LeRobot | Robotics control, teleoperation and learning | Unknown | — | Unknown | Python and supported robot/driver combinations | [Docs](https://huggingface.co/docs/lerobot/index) |
 | NVIDIA JetPack | Jetson board SDK and drivers | Unknown | — | Unknown | Linux on supported Jetson targets | [JetPack](https://developer.nvidia.com/embedded/jetpack) |
 | OpenVINO | Edge inference toolkit | Unknown | — | Unknown | Depends on target and release | [Docs](https://docs.openvino.ai/) |
+| Tinkercad | Browser-based CAD for quick parts | Web app | — | Patrik (account reported) | Browser | [Tinkercad](https://www.tinkercad.com/) |
+| Tailscale | Private networking between development or demo devices | Unknown | — | Patrik (reported) | Desktop and mobile clients | [Tailscale](https://tailscale.com/) |
+| Blender | 3D modeling and rendering | Unknown | — | Patrik (reported) | macOS, Windows, Linux | [Blender](https://www.blender.org/) |
+| Hermes Agent | AI agent for tool-assisted workflows | Unknown | — | Patrik (reported) | See upstream setup guide | [Hermes Agent](https://github.com/NousResearch/hermes-agent) |
+| Notion | Shared notes and planning | Unknown (web or app) | — | Patrik (reported) | Browser and apps | [Notion](https://www.notion.com/) |
+| PowerPoint | Pitch deck and demo slides | Unknown (web or app) | — | Patrik (reported) | Browser and apps | [PowerPoint](https://www.microsoft.com/en-us/microsoft-365/powerpoint) |
+| Google Workspace tools | Shared documents, slides and files | Web apps | — | Patrik (reported) | Browser | [Google Workspace](https://workspace.google.com/) |
+
+Patrik reported the tools above on 2026-11-13. Local installs, versions and project-specific access remain unverified where marked unknown. See [RESOURCES.md](RESOURCES.md#team-accounts) for OpenRouter and Vercel accounts.
 
 Record each confirmed teammate/device, version, and check date. Pick compatible runtime versions after stack selection. In particular, check native dependencies before adopting the installed Python or Node major version. Confirm GitHub clone/push access and the actual printer or board connection before relying on a local installation.
