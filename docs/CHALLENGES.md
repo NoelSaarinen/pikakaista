@@ -38,6 +38,17 @@ Build an AI-powered decision-support solution for equitable and effective cancer
 4. **Recommend an implementable action.** Recommendations are the sponsor’s top priority. Make the proposed change concrete enough for its intended decision-maker to act on.
 5. **Submit a working demo.** Slides alone are insufficient. A non-technical decision-maker should understand the finding and proposed action within two minutes. Suggested formats include an AI analyst, monitoring dashboard with recommendations, early-warning tool or intervention simulation.
 
+#### Yksinkertaistettu hoitopolku
+
+Tiimin toimittama yksinkertaistus (2026-11-13).
+
+1. **Oireet ja hoitoon hakeutuminen** — Potilas tunnistaa oireet ja ottaa yhteyttä.
+2. **Perusterveydenhuolto** — Hoidontarpeen arvio → lääkärikäynti → tutkimukset.
+3. **Lähete erikoissairaanhoitoon** — Kirjoittaminen → tarkastus → hyväksyminen.
+4. **Diagnostiikka** — Kuvantaminen → näytteet → patologin lausunto.
+5. **Hoitopäätös** — Levinneisyyden selvitys → asiantuntija-arvio.
+6. **Hoidon aloitus** — Leikkaus, lääkehoito tai sädehoito.
+
 #### Evidence and source material
 
 | Resource | Use |
