@@ -1,6 +1,6 @@
 # Hardware
 
-Last verified against public sources on 2026-11-13. **Announced** describes organizer or sponsor information. Team checkout, bench stock and exact models are separate checks.
+Public sources and the Hardware Lab catalogue checked on 2026-11-13. **Announced** describes organizer or sponsor information. Team checkout, bench stock and exact models are separate checks.
 
 ## Hardware Lab by Arduino
 
@@ -14,8 +14,8 @@ The event schedule places hardware sessions on the fifth floor. Arduino’s Frid
 | Electronics | Assorted prototyping components. Exact sensors, wiring, modules and counts unknown. | Category announced. | Depends on component and bus. | Confirm part numbers, voltage and connectors at the bench. [Event](https://2026.hackjunction.com/) |
 | Robot arms | **LeRobot** arms announced. Exact model, degrees of freedom and payload unknown. | Announced. Ignite Next × Intel’s challenge also mentions robot arms and cameras. Whether those are the same units is unknown. | Check the arm model, serial adapters, firmware and vendor-supplied environment before setup. | Ask staff about checkout, calibration and supervision. [Event](https://2026.hackjunction.com/) · [Junction announcements](https://gt.linkedin.com/company/hackjunction) · [LeRobot docs](https://huggingface.co/docs/lerobot/index) |
 | Robotics cameras | Camera models, resolution and interface unknown. | Announced for Ignite Next × Intel’s challenge. General checkout unknown. | Confirm whether USB/UVC or a vendor SDK is required. | Confirm whether cameras are reserved for challenge teams. [Junction announcements](https://gt.linkedin.com/company/hackjunction) |
-| Motion capture | Rokoko gear for translating movement into data. Models and accessories unknown. | Announced for participants in the partner post. Allocation unknown. | Confirm Rokoko Studio and export workflow at the booth. | Ask Rokoko for access and mentoring. [Junction announcements](https://gt.linkedin.com/company/hackjunction) · [Rokoko help](https://support.rokoko.com/) |
-| 3D printing | On-site printers for mounts, enclosures and custom parts. Exact models, materials and nozzle sizes unknown. | Announced. Queue and per-team time limits unknown. | Use the lab’s approved slicer, profile and file format. | Ask who operates printers and how jobs are queued. [Event](https://2026.hackjunction.com/) |
+| Motion capture | ROKOKO Smartgloves and ROKOKO Suit. Exact versions and accessories unspecified. | Listed in the Hardware Lab catalogue. Allocation unknown. | Confirm Rokoko Studio and export workflow at the booth. | Ask Rokoko for access and mentoring. [Junction announcements](https://gt.linkedin.com/company/hackjunction) · [Rokoko help](https://support.rokoko.com/) |
+| 3D printing | On-site printers for mounts, enclosures and custom parts. See the catalogue printer list below. Materials and nozzle sizes unknown. | Announced. Queue and per-team time limits unknown. | Use the lab’s approved slicer, profile and file format. | Ask who operates printers and how jobs are queued. [Event](https://2026.hackjunction.com/) |
 | Other fabrication and bench tools | Soldering stations, multimeters, hand tools, laser cutting and CNC are possibilities. Exact capabilities unknown. | Unknown. | Depends on equipment. | Ask lab staff about access and training before including a tool in the design. |
 | Other MCU boards | ESP32, Raspberry Pi and other Arduino boards are possible alternatives. | Unknown. | Model-specific. | Confirm local stock or record a teammate-owned unit in [TEAM.md](TEAM.md). |
 
@@ -33,6 +33,21 @@ The Arduino participant brief lists these items on 2026-11-13:
 - Modulino Thermo
 
 Kits can be borrowed from the Arduino Hardware Lab on the 5th floor. Stock and team allocation need confirmation. [Booking and pickup instructions](https://2026.hackjunction.com/hardware) · [Arduino participant brief](https://hackjunction.app/participate/45/hackerpacks/65)
+
+### Other equipment in the Hardware Lab catalogue
+
+Catalogue checked on 2026-11-13. Availability and team allocation can change. [Live catalogue and checkout](https://2026.hackjunction.com/hardware#catalogue)
+
+| Equipment | Listed models or kit contents | Loan limit |
+| --- | --- | --- |
+| Atech dev kit | Motherboard, 4 DC motors, 1 distance module (catalogue wording does not identify the model), 2 LED arrays, 2 orientation sensors, 2 buttons, speaker, knob and screen. | No time limit listed |
+| Intel Core Ultra X9 Series 3 AI PC | Dell XPS 16 (DA16260) and HP OmniBook Ultra (C2NM8AV). | No time limit listed |
+| Meta Ray-Ban Display | Black Standard Frame. | 120 min |
+| Ray-Ban Meta GEN2 | Wayfarer, Shiny Black Frame, Transitions Graphite Green Lens. | 240 min |
+| ROKOKO Smartgloves | Model generation unspecified. | No time limit listed |
+| ROKOKO Suit | Model unspecified. | No time limit listed |
+
+**Desk-managed 3D printers** listed on the same page: Prusa Core One (2), Bambu Lab P1S (5), Original Prusa MK4 (2), Original Prusa I3 (1), Bambu Lab P2S (1) and Prusa Core One Plus (2). Ask at the desk about the queue, materials and printer profiles.
 
 ## Keep the prototype quick to build
 
