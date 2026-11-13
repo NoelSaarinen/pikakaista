@@ -2,7 +2,7 @@
 
 | Name / GitHub handle | Technical skills | Preferred responsibilities | Available equipment | Development environment (OS, architecture, tools) | Availability (EET) |
 | --- | --- | --- | --- | --- | --- |
-| Patrik / `patw1kkkk` | | | | macOS · [verified tools](SOFTWARE.md) | |
+| Patrik / `patw1kkkk` | Python prototyping, including small language-model experiments (n-gram, GRU and Transformer). Web app prototyping with StudyOS. Aalto coursework in circuit analysis and programming. | Prefers hands-on Arduino hardware prototyping. Interested in wiring and testing sensors, bringing up the board and integrating it with the demo. | | macOS · [verified tools](SOFTWARE.md) | |
 | Joel Äyrälä / `joelayr12` | Web prototyping with Next.js, TypeScript, Tailwind CSS and Supabase. Scala coursework at Aalto (Information Networks). | To confirm | MacBook Air (Apple M4) | macOS 26.6.2 · arm64 · [verified tools](SOFTWARE.md) | To confirm |
 | | | | | | |
 | | | | | | |
