@@ -18,6 +18,15 @@ Last verified against public sources on 2026-11-13. **Announced** means the offe
 | Arduino and Intel developer tools | App Lab for UNO Q. Intel workshop covers OpenVINO and Physical AI Studio. | Use [SOFTWARE.md](SOFTWARE.md) for the toolchain and ask the [Hardware Lab](HARDWARE.md) for exact device setup. | Public docs verified. Toolchain compatibility on lab units unknown. |
 | MLH × GitHub | Fri 21:00 session, venue details to confirm | Check the [workshop schedule](https://2026.hackjunction.com/#workshops) and use the [repo workflow](../README.md#work-together). | Patrik’s repository ownership verified. Teammate access and event perks unknown. |
 
+## Team accounts
+
+Account availability reported by Patrik on 2026-11-13.
+
+| Resource | Potential use | How to access | Team access |
+| --- | --- | --- | --- |
+| OpenRouter | Hosted model API for AI prototypes | [OpenRouter docs](https://openrouter.ai/docs/quickstart) | Patrik has an account. API key setup, test requests, model access and quotas are unverified. |
+| Vercel | Deploy web prototypes and demos | [Vercel docs](https://vercel.com/docs) | Patrik has an account. Repository connection, deployment and teammate access are unverified. |
+
 ## Technical support and workshops
 
 Hardware mentors are announced on site. Ask for the lab’s actual stock, operating hours and checkout rules before designing around a device. Confirm workshop capacity, signup and location with the official schedule.
