@@ -16,12 +16,57 @@ Checked against the [Junction participant portal](https://hackjunction.app/parti
 
 | Challenge / sponsor and track | Goal and demo | Key requirements | Judging and prizes | Official brief |
 | --- | --- | --- | --- | --- |
-| **Equal Care Across Finland** · AstraZeneca · Healthcare | Build a working AI demo that detects regional differences in cancer care, locates where they arise (detection, referral, diagnosis or treatment start), and proposes concrete, evidence-based improvements. | Cover at least one indicator under Goal 3 of Finland’s national cancer strategy. Use public aggregate data and/or mentor insights and cite evidence for each claim. | Actionability 30%, insight 25%, data quality and transparency 20%, execution 15%, clarity 10%. Prizes €1,000 / €750 / €250. | [Participant brief](https://hackjunction.app/participate/45/challenges/344) |
+| **Equal Care Across Finland** · AstraZeneca · Healthcare | Build a working AI demo that detects regional differences in cancer care, locates where they arise (detection, referral, diagnosis or treatment start), and proposes concrete, evidence-based improvements. | Cover at least one indicator under Goal 3 of Finland’s national cancer strategy. Use public aggregate data and/or mentor insights and cite evidence for each claim. | Actionability 30%, insight 25%, data quality and transparency 20%, execution 15%, clarity 10%. Prizes €1,000 / €750 / €250. | [Participant brief](https://hackjunction.app/participate/45/challenges/344) · [Detailed brief](#astrazeneca--equal-care-across-finland) |
 | **Trusted Trade Agents** · Valio Aimo · Agentic AI | Prototype an interface that lets an external purchasing agent look up products, prices and availability, then place a fixed-price order or route it to a human for approval. | Mock the current webshop and backend with synthetic data. Define agent permissions and use open, documented interfaces. Substitutions, delivery and sustainability comparisons are optional. | End-to-end demo 30%, user need 20%, autonomy and controls 20%, exception handling 15%, openness and path to production 15%. Prizes €4,000 / €2,000 / €1,000. | [Participant brief](https://hackjunction.app/participate/45/challenges/327) |
 | **Spread** · Bahn Express · Agentic AI | Run a simulated Finnish car transport company for a week. Quote dealers, set driver fees and maximize gross margin with at least 90% of deliveries on time. | Ranking opens Fri 19:30. Final registration closes Sun 07:30 and the final simulation begins Sun 08:00. The [Spread portal](https://spread.bahnexpress.com/join) offers rules, API docs and TypeScript/Python kits. | Top 10 by qualifying margin present 5–10 slides or a short video. Jury then judges clarity, elegance, creativity and robustness. Prizes €2,000 / €1,000 / €500. | [Participant brief](https://hackjunction.app/participate/45/challenges/349) |
 | **Earned Trust in AI Code** · Tieto · Agentic AI | Design an AI review concept and demo it on one agent-written change tied to a requirement ID. Show findings, decisions deferred by AI, and the evidence a named human uses to approve the change. | Use synthetic or cleared samples. Deliver a concept card, live walkthrough, lessons and decision log, and a demo video or presentation. | Clarity 30%, practicality 25%, measurement 25%, evidence 20%. Prizes €2,000 / €1,000 / €500. | [Participant brief](https://hackjunction.app/participate/45/challenges/351) |
 | **Wikipedia Through Time.** · MariaDB · Data | Build a Wikipedia tool around MariaDB. Use native vector search for RAG with source-cited answers, system-versioned tables for exploring how articles changed over time, or both. | Use Wikipedia data. Show a useful workflow for readers or editors and an implementation that scales across the provided datasets. | MariaDB use, implementation, usefulness, design and demo, and originality each count for 20%. Prizes €1,000 plus €1,000 UpCloud credits and MariaDB certification / €500 / €250. | [Participant brief](https://hackjunction.app/participate/45/challenges/307) |
 | **Rethinking Recruitment** · City of Espoo · Data | Prototype how companies and job seekers can find more relevant matches before, during or after Espoo recruitment events, using clearer signals about real skills and hiring needs. | Use synthetic data, minimize personal data processing and show how privacy and fairness would be protected. Keep people involved in profiling and decisions about individuals. Technology is open. | Impact and relevance 45%, innovation and UX 35%, responsible and feasible execution 20%. Prizes €1,500 / €1,000 / €500. | [Participant brief](https://hackjunction.app/participate/45/challenges/319) |
+
+### AstraZeneca — Equal Care Across Finland
+
+Source: [official participant brief](https://hackjunction.app/participate/45/challenges/344), cross-checked against the supplied full brief on 2026-11-13. Main Challenge in the Healthcare track.
+
+#### Objective and minimum requirements
+
+Build an AI-powered decision-support solution for equitable and effective cancer care across Finland. Identify a meaningful difference in access or outcomes, show where it emerges along the care pathway, and recommend a concrete, evidence-based improvement that can be implemented nationally or locally, for example by a health centre or wellbeing services county.
+
+1. **Find and locate the gap.** Relevant stages include early detection, referral from primary to specialist care, diagnosis, and treatment initiation. The sponsor highlights late detection, slow or fragmented referrals, and delays between diagnosis and treatment as starting points.
+2. **Cover at least one indicator tied to Goal 3** of Finland’s national cancer strategy. Record the exact indicator definition and the source that supports the connection.
+3. **Use reliable evidence.** Use public aggregate data and/or insights from AstraZeneca mentors. Cite the evidence supporting each substantive claim and make limitations visible. The brief specifies aggregate public data only and says no patient-level or personal data will be provided or required. Limited data is part of the challenge.
+4. **Recommend an implementable action.** Recommendations are the sponsor’s top priority. Make the proposed change concrete enough for its intended decision-maker to act on.
+5. **Submit a working demo.** Slides alone are insufficient. A non-technical decision-maker should understand the finding and proposed action within two minutes. Suggested formats include an AI analyst, monitoring dashboard with recommendations, early-warning tool or intervention simulation.
+
+#### Evidence and source material
+
+| Resource | Use |
+| --- | --- |
+| [National Cancer Strategy 2026–2035 (Finnish PDF)](https://files.hackjunction.app/resources/Kansallinen_syopastrategia_2026_2035_FINAL.pdf) | Sponsor background pack and starting point for Goal 3. |
+| [Implementation roadmap 2026–2031 (Finnish PDF)](https://files.hackjunction.app/resources/Kansallinen_syopastrategia_toimeenpanon_tiekartta_2026_2031.pdf) | Implementation context for actions, responsibilities and timelines. |
+| [Curated source list (PDF)](https://files.hackjunction.app/resources/Sy%C3%B6p%C3%A4strategiat%20ja%20sy%C3%B6p%C3%A4data_linkkikokoelma.pdf) | Sponsor collection of reports, statistics and articles. |
+| Finnish Cancer Registry and THL regional health indicators | Public aggregate data sources named by the sponsor. Confirm which Goal 3 indicator has usable data, its years, geographic coverage and comparability before making claims. |
+| AstraZeneca mentors | Oncology, diagnostics and medical affairs context. Record insights and distinguish them from measured data. |
+
+The brief does not establish a specific open regional dataset for referral or treatment-start intervals. Exact indicator selection, data access and coverage, and challenge-specific submission fields remain open. See [event deadlines](STATUS.md#event-deadlines) and the [submission checklist](PROJECT.md#submission-checklist).
+
+#### Briefing and mentors (EET)
+
+- **Fri 13 Nov, 20:00:** AstraZeneca booth briefing. Mentors available from 18:00: Hanna Rusila (Marketing), Hanna Toivola (Diagnostics), Kaisa Kaitila (Medical Affairs), Laura Aaltonen (Marketing) and Joanna Tuormaa (Business Excellence).
+- **Sat 14 Nov, daytime:** Kaisa Kaitila (Medical Affairs).
+- **Sun 15 Nov, 14:00, judging:** Hanna Rusila, Laura Aaltonen and Joanna Tuormaa.
+- **Contacts:** Joanna Tuormaa, Innovation and Business Excellence Director, Nordics, is the main contact. Laura Aaltonen handles questions. Contact details are in the [participant brief](https://hackjunction.app/participate/45/challenges/344).
+
+#### Judging and prizes
+
+| Criterion | Weight | What judges look for |
+| --- | ---: | --- |
+| Actionability | 30% | A health centre or wellbeing services county could implement the recommendation. |
+| Insight | 25% | The demo reveals a meaningful gap and locates it in the care pathway. |
+| Data quality and transparency | 20% | Sources and limitations are visible, and conclusions are supported. |
+| Clarity | 10% | A decision-maker grasps the finding and proposed action within two minutes. |
+| Execution | 15% | The solution works in a live demonstration. |
+
+Prizes are €1,000, €750 and €250 for the top three teams. AstraZeneca may explore promising concepts after Junction with a Finnish wellbeing services county.
 
 ## Tech Challenges
 
