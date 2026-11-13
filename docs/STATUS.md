@@ -6,9 +6,9 @@ Updated 2026-11-13 · All times EET (UTC+02:00).
 
 | Area | State |
 | --- | --- |
-| Completed | Repository scaffold and Codex guidance. Public event research and local software inventories for Patrik and Joel. Joel’s GitHub handle and development environment are recorded in [TEAM.md](TEAM.md). |
+| Completed | Repository scaffold and Codex guidance. Public event research and local software inventories for Patrik and Joel. Joel’s GitHub handle and development environment are recorded in [TEAM.md](TEAM.md). Six official participant briefs are summarized in [CHALLENGES.md](CHALLENGES.md#verified-participant-briefs). |
 | In progress | Challenge discovery and teammate onboarding. Team availability and responsibilities are still open. |
-| Blockers for selection | Full challenge briefs, credentials/quotas for sponsor services, and team access to specific lab equipment still need verification. |
+| Blockers for selection | Briefs for other candidates, sponsor access and quotas, and team access to specific lab equipment still need verification as relevant. |
 | Next priorities | Review the opening challenge videos and participant briefs, fill [TEAM.md](TEAM.md), verify the demo’s critical dependencies, then shortlist in [IDEAS.md](IDEAS.md). |
 
 ## Event deadlines
