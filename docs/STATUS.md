@@ -7,9 +7,9 @@ Updated 2026-11-13 · All times EET (UTC+02:00).
 | Area | State |
 | --- | --- |
 | Completed | Repository scaffold and Codex guidance. Public event research and local software inventories for Patrik and Joel. Joel’s GitHub handle and development environment are recorded in [TEAM.md](TEAM.md). Six official participant briefs are summarized in [CHALLENGES.md](CHALLENGES.md#verified-participant-briefs). All 19 tech challenges are summarized in [CHALLENGES.md](CHALLENGES.md#tech-challenges). All 20 developer tool listings are summarized in [RESOURCES.md](RESOURCES.md#developer-tools-and-assets). The Hardware Lab catalogue models and listed kit components are recorded in [HARDWARE.md](HARDWARE.md). |
-| In progress | Challenge discovery and teammate onboarding. Team availability and responsibilities are still open. |
+| In progress | Challenge discovery and teammate onboarding. Team availability and responsibilities are still open. Five ideas for AstraZeneca's *Equal Care Across Finland* are shortlisted in [IDEAS.md](IDEAS.md#equal-care-across-finland), with source findings from the national cancer strategy and roadmap. A short Finnish summary for the team is in [SYOPAHAASTE_IDEOINTI.md](SYOPAHAASTE_IDEOINTI.md). The challenge is not selected yet. |
 | Blockers for selection | Briefs for other candidates, sponsor access and quotas, and team access to specific lab equipment still need verification as relevant. |
-| Next priorities | Review the opening challenge videos and participant briefs, fill [TEAM.md](TEAM.md), verify the demo’s critical dependencies, then shortlist in [IDEAS.md](IDEAS.md). |
+| Next priorities | Verify the open data questions with AstraZeneca mentors (listed in [IDEAS.md](IDEAS.md#unknowns-to-verify-with-mentors)), choose the idea and record it in [DECISIONS.md](DECISIONS.md) and [PROJECT.md](PROJECT.md), then make the preliminary submission before Fri 23:55. Fill [TEAM.md](TEAM.md). |
 
 ## Event deadlines
 
