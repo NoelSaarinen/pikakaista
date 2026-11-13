@@ -4,6 +4,8 @@ Updated 2026-11-13 · All times EET (UTC+02:00).
 
 **Current phase** Challenge discovery and team setup.
 
+**Likely Main Challenge** [AstraZeneca — Equal Care Across Finland](CHALLENGES.md#astrazeneca--equal-care-across-finland). Team selection is pending. The key open dependency is a Goal 3 indicator with usable public aggregate evidence.
+
 | Area | State |
 | --- | --- |
 | Completed | Repository scaffold and Codex guidance. Public event research and local software inventories for Patrik and Joel. Joel’s GitHub handle and development environment are recorded in [TEAM.md](TEAM.md). Six official participant briefs are summarized in [CHALLENGES.md](CHALLENGES.md#verified-participant-briefs). All 19 tech challenges are summarized in [CHALLENGES.md](CHALLENGES.md#tech-challenges). All 20 developer tool listings are summarized in [RESOURCES.md](RESOURCES.md#developer-tools-and-assets). The Hardware Lab catalogue models and listed kit components are recorded in [HARDWARE.md](HARDWARE.md). |
