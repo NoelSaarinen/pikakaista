@@ -1,6 +1,6 @@
 # Software inventory
 
-Checked 2026-11-13. **Installed** means the CLI returned a version or the macOS app bundle was present on Patrik’s machine. App versions come from bundle metadata. Hardware connections, account entitlements and project compatibility require their own checks. Other teammates’ installations are **Unknown** until they report them.
+Checked 2026-11-13. **Installed** means the CLI returned a version or the macOS app bundle was present on the listed teammate’s machine. App versions come from bundle metadata. Hardware connections, account entitlements and project compatibility require their own checks.
 
 | Tool | Purpose | Installation | Version | Team member | Platforms | Source |
 | --- | --- | --- | --- | --- | --- | --- |
@@ -29,5 +29,19 @@ Checked 2026-11-13. **Installed** means the CLI returned a version or the macOS 
 | Google Workspace tools | Shared documents, slides and files | Web apps | — | Patrik (reported) | Browser | [Google Workspace](https://workspace.google.com/) |
 
 Patrik reported the tools above on 2026-11-13. Local installs, versions and project-specific access remain unverified where marked unknown. See [RESOURCES.md](RESOURCES.md#team-accounts) for OpenRouter and Vercel accounts.
+
+## Joel’s development environment
+
+Verified locally on 2026-11-13 on macOS 26.6.2 (arm64).
+
+| Tool | Version | Verification |
+| --- | --- | --- |
+| ChatGPT desktop with Codex | 26.1029.61003 | App bundle and active Codex session in this repository |
+| VS Code | 1.145.2 | App bundle |
+| Git | 2.50.1 (Apple Git-155) | CLI |
+| Node.js | 26.9.0 | CLI |
+| npm | 11.19.1 | CLI |
+| pnpm | 12.5.1 | CLI |
+| Python | 3.9.6 | System CLI (`/usr/bin/python3`) |
 
 Record each confirmed teammate/device, version, and check date. Pick compatible runtime versions after stack selection. In particular, check native dependencies before adopting the installed Python or Node major version. Confirm GitHub clone/push access and the actual printer or board connection before relying on a local installation.
