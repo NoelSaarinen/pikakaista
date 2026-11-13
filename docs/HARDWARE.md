@@ -8,9 +8,9 @@ The event schedule places hardware sessions on the fifth floor. Arduino’s Frid
 
 | Equipment | Model and capability | Event status | Software / drivers | Access and source |
 | --- | --- | --- | --- | --- |
-| Arduino development board | **UNO Q**. Qualcomm QRB2210 runs Debian; STM32U585 runs real-time Arduino sketches over Zephyr. Vendor variants have 2/4 GB RAM and 16/32 GB eMMC. | Announced. Lab variant, count and team allocation unknown. | Arduino App Lab for Linux + MCU apps. Arduino IDE 2+ supports MCU sketches only. | Confirm a bench unit and USB-C data/power setup. [Event](https://2026.hackjunction.com/) · [Arduino manual](https://docs.arduino.cc/tutorials/uno-q/user-manual/) |
+| Arduino development board | **UNO Q**. Qualcomm QRB2210 runs Debian; STM32U585 runs real-time Arduino sketches over Zephyr. Vendor variants have 2/4 GB RAM and 16/32 GB eMMC. | The loan brief lists 2 GB RAM and 16 GB eMMC. Count and team allocation unknown. | Arduino App Lab for Linux + MCU apps. Arduino IDE 2+ supports MCU sketches only. | Confirm a bench unit and USB-C data/power setup. [Event](https://2026.hackjunction.com/) · [Arduino manual](https://docs.arduino.cc/tutorials/uno-q/user-manual/) |
 | NVIDIA edge AI boards | **Jetson** family. Exact dev kit, RAM and accelerators depend on model. | Announced in Junction’s lab launch post. On-site stock and allocation unknown. | Match JetPack to the exact board and existing image. | Confirm kit, power supply and approved imaging workflow. [Junction launch post reproduced on Arduino’s page](https://gb.linkedin.com/company/arduino/) · [JetPack](https://developer.nvidia.com/embedded/jetpack) |
-| Arduino sensors | **Modulino** family for UNO Q hands-on exercises. Sensor variants unknown. | Announced for the Arduino workshop. Takeaway and general checkout unknown. | App Lab or compatible Arduino libraries as directed by staff. | Limited workshop seats. [Workshop schedule](https://2026.hackjunction.com/#workshops) · [Modulino docs](https://docs.arduino.cc/hardware/modulino/) |
+| Arduino modules | **Modulino Buzzer, Modulino Knob and Modulino Thermo**. | Listed in the Arduino loan brief. Stock and team allocation unknown. | App Lab or compatible Arduino libraries as directed by staff. | Limited workshop seats. [Workshop schedule](https://2026.hackjunction.com/#workshops) · [Modulino docs](https://docs.arduino.cc/hardware/modulino/) |
 | Electronics | Assorted prototyping components. Exact sensors, wiring, modules and counts unknown. | Category announced. | Depends on component and bus. | Confirm part numbers, voltage and connectors at the bench. [Event](https://2026.hackjunction.com/) |
 | Robot arms | **LeRobot** arms announced. Exact model, degrees of freedom and payload unknown. | Announced. Ignite Next × Intel’s challenge also mentions robot arms and cameras. Whether those are the same units is unknown. | Check the arm model, serial adapters, firmware and vendor-supplied environment before setup. | Ask staff about checkout, calibration and supervision. [Event](https://2026.hackjunction.com/) · [Junction announcements](https://gt.linkedin.com/company/hackjunction) · [LeRobot docs](https://huggingface.co/docs/lerobot/index) |
 | Robotics cameras | Camera models, resolution and interface unknown. | Announced for Ignite Next × Intel’s challenge. General checkout unknown. | Confirm whether USB/UVC or a vendor SDK is required. | Confirm whether cameras are reserved for challenge teams. [Junction announcements](https://gt.linkedin.com/company/hackjunction) |
@@ -18,6 +18,21 @@ The event schedule places hardware sessions on the fifth floor. Arduino’s Frid
 | 3D printing | On-site printers for mounts, enclosures and custom parts. Exact models, materials and nozzle sizes unknown. | Announced. Queue and per-team time limits unknown. | Use the lab’s approved slicer, profile and file format. | Ask who operates printers and how jobs are queued. [Event](https://2026.hackjunction.com/) |
 | Other fabrication and bench tools | Soldering stations, multimeters, hand tools, laser cutting and CNC are possibilities. Exact capabilities unknown. | Unknown. | Depends on equipment. | Ask lab staff about access and training before including a tool in the design. |
 | Other MCU boards | ESP32, Raspberry Pi and other Arduino boards are possible alternatives. | Unknown. | Model-specific. | Confirm local stock or record a teammate-owned unit in [TEAM.md](TEAM.md). |
+
+### Arduino UNO Q loan kit
+
+The Arduino participant brief lists these items on 2026-11-13:
+
+- Arduino UNO Q (2 GB RAM, 16 GB eMMC)
+- Arduino USB-C Cable
+- Arduino USB-C Hub (8 in 1)
+- USB-C Power Supply (45 W)
+- Arduino USB Camera
+- Modulino Buzzer
+- Modulino Knob
+- Modulino Thermo
+
+Kits can be borrowed from the Arduino Hardware Lab on the 5th floor. Stock and team allocation need confirmation. [Booking and pickup instructions](https://2026.hackjunction.com/hardware) · [Arduino participant brief](https://hackjunction.app/participate/45/hackerpacks/65)
 
 ## Keep the prototype quick to build
 
