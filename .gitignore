@@ -1,0 +1,32 @@
+# Local credentials and overrides
+.env
+.env.*
+!.env.example
+!.env.*.example
+*.pem
+*.key
+*.p12
+*.pfx
+credentials.local.json
+secrets.local.*
+
+# Editor and OS files
+.DS_Store
+Thumbs.db
+.idea/
+.vscode/*.local.json
+*.swp
+
+# Dependencies, caches and build outputs
+node_modules/
+.venv/
+__pycache__/
+*.py[cod]
+.pytest_cache/
+.mypy_cache/
+.ruff_cache/
+.pio/
+dist/
+build/
+coverage/
+*.log
