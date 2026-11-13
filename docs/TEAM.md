@@ -7,4 +7,6 @@
 | Delun Li / `delunli-spec` | Researcher at HUS. Medical student at University of Helsinki. Information Networks at Aalto University. | Pitching | | Windows · IntelliJ | |
 | | | | | | |
 
+**Team composition** (reported in chat 2026-11-13): two Information Networks students, one medical student and one electrical engineering student. Strong AI-tool users, without deep technical experience.
+
 When a project is selected, name owners for submission, integration/demo, and any hardware or external service the demo depends on.
