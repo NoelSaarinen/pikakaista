@@ -2,6 +2,8 @@
 
 JYNKKARIT JUNCTION’s private development workspace and shared knowledge base for the 13–15 November hackathon at Hype Areena, Espoo. We’re preparing for challenge selection. The project and stack are open.
 
+**First team task** [TODO before hacking](docs/TODO_BEFORE_HACKING.md) covers team setup, challenge briefs, hardware, software and submission checks.
+
 ## Get started
 
 1. Accept the GitHub collaborator invitation. Owners can send one from **Settings → Collaborators → Add people**. [GitHub instructions](https://docs.github.com/en/repositories/managing-your-repositorys-settings-and-features/repository-access-and-collaboration/inviting-collaborators-to-a-personal-repository)
