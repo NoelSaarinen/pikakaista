@@ -1,6 +1,6 @@
 # Syöpähaaste: ideointi
 
-AstraZeneca · *Equal Care Across Finland* · luonnos 13.11.2026. Haastetta ei ole vielä valittu. Lähteet ja tarkemmat tiedot ovat tiedostossa [IDEAS.md](IDEAS.md#equal-care-across-finland).
+AstraZeneca · *Equal Care Across Finland* · luonnos 13.11.2026. Haastetta ei ole vielä valittu. Lähteet ja tarkemmat tiedot ovat tiedostossa [IDEAS.md](IDEAS.md#equal-care-across-finland). **Vastatkaa myös tiimin [kysymyksiin](SYOPAHAASTE_KYSYMYKSET.md).**
 
 ## Haaste lyhyesti
 
