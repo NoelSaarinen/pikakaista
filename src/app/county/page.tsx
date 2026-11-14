@@ -159,6 +159,8 @@ export default function CountyPage() {
         </section>
       </div>
 
+      <PilotPanel county={county} />
+
       <ol className="grid gap-4 md:grid-cols-3">
         <li className="rounded-lg border border-slate-200 bg-white p-4">
           <p className="text-xs font-semibold uppercase tracking-wide text-rose-700">1 · Aukko</p>
@@ -285,7 +287,6 @@ export default function CountyPage() {
         </p>
       </section>
 
-      <PilotPanel county={county} />
 
       <section className="rounded-lg border border-slate-200 bg-white p-4">
         <h2 className="font-semibold">Tavoite 3: {county.name} verrattuna koko maahan</h2>
