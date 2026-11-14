@@ -78,7 +78,7 @@ export default function CountyPage() {
   const county = counties.find((c) => c.id === countyId)!;
   const range = useMemo(() => simulateRange(county, overrides), [county, overrides]);
   const doors = useMemo(() => simulateDoors(county, { ...SCENARIOS.base, ...overrides }), [county, overrides]);
-  const usesMock = [county.population_55_80, county.ever_smoker_share, county.lung_cancer_cases_per_year].some((v) => v.source_id === "mock");
+  const usesMock = [county.population_50_74, county.ever_smoker_share, county.lung_cancer_cases_per_year].some((v) => v.source_id === "mock");
   const maxDays = Math.max(doors.publicDaysToCt, doors.privateDaysToCt, doors.fastLaneDaysToCt);
   const findings = useMemo(() => regionalFindings(countyId), [countyId]);
   const langs = useMemo(() => regionLanguages(countyId, SURVEY_LANGS.map((l) => l.code)), [countyId]);
@@ -189,7 +189,7 @@ export default function CountyPage() {
           </p>
           <p className="text-sm text-slate-600">aika TT-kuvaukseen, nyt → pikakaistalla</p>
           <p className="mt-3 text-sm">
-            Kysely alueen kielillä ({langs.primary.map((l) => l.name).join(", ")}) tavoittaa <strong>{pct(langs.coverage)}</strong> 55–79-vuotiaista äidinkielellään
+            Kysely alueen kielillä ({langs.primary.map((l) => l.name).join(", ")}) tavoittaa <strong>{pct(langs.coverage)}</strong> 50–74-vuotiaista äidinkielellään
             {langs.sharedRegion ? ` (${langs.regionName}, koko maakunta)` : ""}.
             <SourceTag id="statfin-11rl" />
           </p>

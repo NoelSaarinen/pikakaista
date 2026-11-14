@@ -3,7 +3,7 @@
 // instead of trusting the code that produced them.
 import { describe, expect, it } from "vitest";
 import countiesData from "@/data/counties.json";
-import statfin from "@/data/raw/statfin-population-55-80.json";
+import statfin from "@/data/raw/statfin-population-50-74.json";
 import sotkanet from "@/data/raw/sotkanet.json";
 import registry from "@/data/raw/syoparekisteri-lung-c33-c34.json";
 import synthetic from "@/data/synthetic/responses.json";
@@ -18,11 +18,11 @@ const counties = countiesData as County[];
 const people = synthetic as SurveyResponse[];
 
 describe("regional data matches the raw snapshots", () => {
-  it("population 55–80 is the sum of the county's municipalities (StatFin 11re)", () => {
-    const munis = statfin.municipalities as { hva: string; pop_55_80: number }[];
+  it("population 50–74 is the sum of the county's municipalities (StatFin 11re)", () => {
+    const munis = statfin.municipalities as { hva: string; pop_50_74: number }[];
     for (const c of counties) {
-      const sum = munis.filter((m) => m.hva === (c as County & { code: string }).code).reduce((s, m) => s + m.pop_55_80, 0);
-      expect(c.population_55_80.value, c.id).toBe(sum);
+      const sum = munis.filter((m) => m.hva === (c as County & { code: string }).code).reduce((s, m) => s + m.pop_50_74, 0);
+      expect(c.population_50_74.value, c.id).toBe(sum);
     }
   });
 
@@ -82,7 +82,7 @@ describe("benefit calculation", () => {
     for (const c of counties) {
       for (const p of Object.values(SCENARIOS)) {
         const r = simulate(c, p);
-        const riskGroup = c.population_55_80.value * c.ever_smoker_share.value * (1 + p.formerPerCurrentSmoker) * p.heavySmokerShareOfEver;
+        const riskGroup = c.population_50_74.value * c.ever_smoker_share.value * (1 + p.formerPerCurrentSmoker) * p.heavySmokerShareOfEver;
         const fast = riskGroup * p.responseRate * p.alarmShare;
         const ct = fast * p.directCtShare + fast * (1 - p.directCtShare) * p.ctAfterVisitShare;
         expect(r.riskGroup).toBeCloseTo(riskGroup, 6);
@@ -118,7 +118,7 @@ describe("prioritisation", () => {
 
   it("gives no alarm points for age or smoking", () => {
     const base = people.find((p) => !evaluate(p).symptomReviewRequired && p.smoking.status === "never")!;
-    const older = { ...base, age: 80, smoking: { status: "current" as const, pack_years: 60 } };
+    const older = { ...base, age: 74, smoking: { status: "current" as const, pack_years: 60 } };
     expect(evaluate(older).score).toBe(evaluate(base).score);
     expect(evaluate(older).redFlag).toBe(false);
   });

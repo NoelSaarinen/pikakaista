@@ -29,7 +29,7 @@ export function PilotPanel({ county }: { county: County }) {
   const points = [
     { pilot: `Alle ${Math.ceil(coverage * 100)} % riskiryhmästä mahtuu mukaan.`, survey: "Tavoittaa koko riskiryhmän joka vuosi." },
     { pilot: "Ei voi kutsua: tupakointi ei näy rekistereissä.", survey: "Tunnistaa kelpoiset ja voi ohjata pilottiin." },
-    { pilot: "Vain nykyiset tupakoitsijat, 50–74 v.", survey: "Myös lopettaneet, 75–80-vuotiaat ja oireiset." },
+    { pilot: "Vain nykyiset tupakoitsijat, 50–74 v.", survey: "Myös lopettaneet ja oireiset, samalla ikärajalla 50–74." },
   ];
 
   return (

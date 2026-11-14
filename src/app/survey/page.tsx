@@ -212,7 +212,7 @@ export default function SurveyPage() {
             </select>
           </label>
           <p className="mt-1">
-            Kielet alueen 55–79-vuotiaiden äidinkielten mukaan{regionLangs.sharedRegion ? ` (${regionLangs.regionName}, koko maakunta)` : ""}. Käännetyt kielet kattavat {pctFi(regionLangs.coverage)}.
+            Kielet alueen 50–74-vuotiaiden äidinkielten mukaan{regionLangs.sharedRegion ? ` (${regionLangs.regionName}, koko maakunta)` : ""}. Käännetyt kielet kattavat {pctFi(regionLangs.coverage)}.
             {regionLangs.interpreter.length > 0 &&
               ` Ilman käännöstä: ${regionLangs.interpreter.map((l) => `${l.name} ${l.count.toLocaleString("fi-FI")}`).join(", ")}. Heille hoitajan soitto tulkin kanssa.`}
           </p>

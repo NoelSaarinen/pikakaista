@@ -94,7 +94,7 @@ export function pilotEligibility(r: SurveyResponse): PilotEligibility {
     : { eligible: false, reason: "intensity" };
 }
 
-/** Population aged 55–80 in the pilot areas (StatFin), for the coverage comparison. */
+/** Population aged 50–74 in the pilot areas (StatFin), for the coverage comparison. */
 export function pilotAreaPopulation(): number {
-  return (countiesData as County[]).filter((c) => isPilotCounty(c.id)).reduce((s, c) => s + c.population_55_80.value, 0);
+  return (countiesData as County[]).filter((c) => isPilotCounty(c.id)).reduce((s, c) => s + c.population_50_74.value, 0);
 }

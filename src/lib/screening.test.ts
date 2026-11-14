@@ -24,9 +24,9 @@ function person(id: string, overrides: Partial<SurveyResponse> = {}, symptoms: P
 }
 
 describe("screening list (tier 2)", () => {
-  it("keeps symptomatic people, never-smokers and people outside 55–80 out of the ranking", () => {
+  it("keeps symptomatic people, never-smokers and people outside 50–74 out of the ranking", () => {
     const s = screeningList(
-      [person("sym", {}, { breathlessness: true }), person("never", { smoking: { status: "never", pack_years: 0 }, plco: undefined }), person("young", { age: 50 }), person("ok")],
+      [person("sym", {}, { breathlessness: true }), person("never", { smoking: { status: "never", pack_years: 0 }, plco: undefined }), person("young", { age: 45 }), person("ok")],
       { ctSlotsPerWeek: 10, weeks: 1, mode: "absolute" },
     );
     const status = Object.fromEntries(s.rows.map((r) => [r.person.response.id, r.status]));
@@ -60,8 +60,8 @@ describe("screening list (tier 2)", () => {
     expect(s.expectedCancersInvited).toBeGreaterThanOrEqual(s.expectedCancersByCriteria);
   });
 
-  it("flags missing key inputs and ages over 74", () => {
-    const s = screeningList([person("missing", { plco: { race: "white" } }), person("old", { age: 78 })], { ctSlotsPerWeek: 10, weeks: 1, mode: "absolute" });
+  it("flags missing key inputs and ages outside the model's 55–74", () => {
+    const s = screeningList([person("missing", { plco: { race: "white" } }), person("old", { age: 52 })], { ctSlotsPerWeek: 10, weeks: 1, mode: "absolute" });
     const byId = Object.fromEntries(s.rows.map((r) => [r.person.response.id, r]));
     expect(byId.missing.missingInputs.length).toBeGreaterThan(0);
     expect(byId.old.outsideModelAge).toBe(true);
@@ -105,6 +105,6 @@ describe("equity ranking (age-standardised)", () => {
   it("invites a younger group than absolute ranking for the same capacity", () => {
     const s = screeningList(people, { ctSlotsPerWeek: 5, weeks: 4, mode: "equity" });
     expect(s.byMode.equity.meanAge).toBeLessThan(s.byMode.absolute.meanAge);
-    expect(s.byMode.equity.aged75plus).toBeLessThanOrEqual(s.byMode.absolute.aged75plus);
+    expect(s.byMode.equity.aged65plus).toBeLessThanOrEqual(s.byMode.absolute.aged65plus);
   });
 });

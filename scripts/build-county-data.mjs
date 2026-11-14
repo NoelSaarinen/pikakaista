@@ -15,14 +15,23 @@ import { fileURLToPath } from "node:url";
 
 const root = join(dirname(fileURLToPath(import.meta.url)), "..");
 const RAW = join(root, "src/data/raw");
-const POP_FILE = join(RAW, "statfin-population-55-80.json");
+const POP_FILE = join(RAW, "statfin-population-50-74.json");
 const SOTKA_FILE = join(RAW, "sotkanet.json");
 const LUNG_FILE = join(RAW, "syoparekisteri-lung-c33-c34.json");
 const OUT_FILE = join(root, "src/data/counties.json");
 
+/** Hand-filled pilot fields from the current output, kept across rebuilds. */
+const previousPilot = (() => {
+  try {
+    return Object.fromEntries(JSON.parse(readFileSync(OUT_FILE, "utf8")).map((c) => [c.id, c.in_ldct_pilot]));
+  } catch {
+    return {};
+  }
+})();
+
 const POP_YEAR = 2025;
-const AGE_MIN = 55;
-const AGE_MAX = 80;
+const AGE_MIN = 50;
+const AGE_MAX = 74;
 const SMOKING = { indicator: 4404, year: 2024, previousYear: 2022 };
 const OCC_HEALTH = { indicator: 2371, year: 2025 };
 const LUNG_YEARS = [2020, 2021, 2022, 2023, 2024];
@@ -70,7 +79,7 @@ async function getJson(url, body) {
   return res.json();
 }
 
-// ---------- Fetch: StatFin population 55–80 by municipality ----------
+// ---------- Fetch: StatFin population 50–74 by municipality ----------
 
 const PX = "https://pxdata.stat.fi/PxWeb/api/v1/fi/StatFin/vaerak";
 const pxItem = (code, values) => ({ code, selection: { filter: "item", values } });
@@ -128,10 +137,10 @@ async function fetchPopulation() {
     reference_date: `${POP_YEAR}-12-31`,
     ages: `${AGE_MIN}-${AGE_MAX}`,
     sex: "both",
-    national: { pop_55_80: sumAges("SSS"), pop_total: cell("SSS", "SSS") },
+    national: { pop_50_74: sumAges("SSS"), pop_total: cell("SSS", "SSS") },
     hva_names: hvaNames,
     hva_totals_11ra: Object.fromEntries(hvaCodes.map((h) => [h, jsonStatCell(ra, { [areaVar.code]: h })])),
-    municipalities: municipalities.map((m) => ({ code: m.code, name: m.name, hva: kuToHva[m.code] ?? null, pop_55_80: sumAges(m.code), pop_total: cell(m.code, "SSS") })),
+    municipalities: municipalities.map((m) => ({ code: m.code, name: m.name, hva: kuToHva[m.code] ?? null, pop_50_74: sumAges(m.code), pop_total: cell(m.code, "SSS") })),
   });
 }
 
@@ -189,15 +198,15 @@ function build() {
   const popByHva = {};
   for (const m of pop.municipalities) {
     if (!m.hva) errors.push(`StatFin municipality ${m.code} has no county in the key`);
-    const agg = (popByHva[m.hva] ??= { pop_55_80: 0, pop_total: 0 });
-    agg.pop_55_80 += m.pop_55_80;
+    const agg = (popByHva[m.hva] ??= { pop_50_74: 0, pop_total: 0 });
+    agg.pop_50_74 += m.pop_50_74;
     agg.pop_total += m.pop_total;
   }
   for (const [hva, total] of Object.entries(pop.hva_totals_11ra)) {
     if (popByHva[hva]?.pop_total !== total) errors.push(`${hva}: municipality sum ${popByHva[hva]?.pop_total} differs from StatFin 11ra total ${total}`);
   }
-  const sum55 = Object.values(popByHva).reduce((s, v) => s + v.pop_55_80, 0);
-  if (sum55 !== pop.national.pop_55_80) errors.push(`55–80 county sum ${sum55} differs from national ${pop.national.pop_55_80}`);
+  const sum55 = Object.values(popByHva).reduce((s, v) => s + v.pop_50_74, 0);
+  if (sum55 !== pop.national.pop_50_74) errors.push(`50–74 county sum ${sum55} differs from national ${pop.national.pop_50_74}`);
 
   // Lung cancer: rows by county name, columns by year.
   const lungRows = Object.fromEntries(lung.rows.map(([name, ...values]) => [name, Object.fromEntries(lung.years.map((y, i) => [y, values[i]]))]));
@@ -230,8 +239,8 @@ function build() {
       id: c.id,
       name: c.name,
       code: c.code,
-      population_55_80: {
-        value: p?.pop_55_80,
+      population_50_74: {
+        value: p?.pop_50_74,
         source_id: "statfin-11re",
         year: POP_YEAR,
         is_estimate: false,
@@ -242,7 +251,7 @@ function build() {
         source_id: "thl-sotkanet-4404",
         year: SMOKING.year,
         is_estimate: true,
-        note: `Proxy: daily smokers among residents aged 20 or over, ${pct(smoke)} (${SMOKING.previousYear}: ${smokePrev === undefined ? "no value" : pct(smokePrev)}), THL Healthy Finland survey. Not the ever-smoker share of 55–80-year-olds: former and occasional smokers are excluded, so the risk group is understated. No regional ever-smoker indicator was found. Survey estimate with sampling error.`,
+        note: `Proxy: daily smokers among residents aged 20 or over, ${pct(smoke)} (${SMOKING.previousYear}: ${smokePrev === undefined ? "no value" : pct(smokePrev)}), THL Healthy Finland survey. Not the ever-smoker share of 50–74-year-olds: former and occasional smokers are excluded, so the risk group is understated. No regional ever-smoker indicator was found. Survey estimate with sampling error.`,
       },
       lung_cancer_cases_per_year: {
         value: Number(lungMean.toFixed(1)),
@@ -258,7 +267,8 @@ function build() {
         is_estimate: OCC_HEALTH_GAPS.has(c.code),
         note: `Occupational health doctor visits per 1,000 residents aged 15–64 (THL primary care statistics). Measures use, not coverage: Kela's regional coverage figures were not found.${OCC_HEALTH_GAPS.has(c.code) ? " THL notes gaps in the Helsinki, Vantaa and Kerava data." : ""}`,
       },
-      in_ldct_pilot: { value: null, source_id: "mock", note: "Ask mentors which counties are in the screening pilot." },
+      // Pilot areas are filled by hand from press releases (see docs/seulontapilotti); keep them.
+      in_ldct_pilot: previousPilot[c.id] ?? { value: null, source_id: "mock", note: "Ask mentors which counties are in the screening pilot." },
     };
   });
 

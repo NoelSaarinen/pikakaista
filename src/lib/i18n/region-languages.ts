@@ -1,5 +1,5 @@
 // Survey languages chosen per region from data (StatFin 11rl, mother tongue of
-// 55–79-year-olds by region). Finnish and Swedish are always offered; the region's other
+// 50–74-year-olds by region). Finnish and Swedish are always offered; the region's other
 // translated languages follow in order of local size. Large local languages without a
 // translation are named, so the region can arrange a nurse's call with an interpreter.
 
@@ -47,7 +47,7 @@ const COUNTY_TO_REGION: Record<string, string> = {
   lappi: "MK19",
 };
 
-/** A translated language is listed first for the region when at least this many 55–79-year-olds speak it. */
+/** A translated language is listed first for the region when at least this many 50–74-year-olds speak it. */
 export const MIN_SPEAKERS = 10;
 /** Untranslated languages with at least this many speakers are named for interpreter calls. */
 export const INTERPRETER_MIN = 50;
@@ -62,7 +62,7 @@ export interface RegionLanguages {
   primary: { code: SurveyLang; name: string; count: number }[];
   /** Other translated languages, behind "more languages". */
   more: SurveyLang[];
-  /** Share of 55–79-year-olds whose mother tongue is one of the translated languages. */
+  /** Share of 50–74-year-olds whose mother tongue is one of the translated languages. */
   coverage: number;
   /** Largest local languages without a translation: offer a nurse's call with an interpreter. */
   interpreter: { name: string; count: number }[];

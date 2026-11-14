@@ -83,7 +83,9 @@ Merkinnät:
 
 ## Säännöt
 
-13. **Riskiryhmä:** 55–80-vuotiaat, joilla vähintään 20 askivuotta.
+13. **Riskiryhmä:** ~~55–80~~ → **50–74-vuotiaat (demossa nyt, 14.11. illalla)**, joilla vähintään 20 askivuotta.
+    - Ikäraja on sama kuin kansallisessa seulontapilotissa ISC-LDCT ([SEULONTAPILOTTI.md](../seulontapilotti/SEULONTAPILOTTI.md)). Kysely täydentää pilottia tavoittamalla myös lopettaneet ja oireiset.
+    - Väestöluku on nyt 50–74-vuotiaat (StatFin 11re): koko maa 1 695 391, Lappi 58 881. Lapin perusskenaariossa riskiryhmä on noin 16 100, syöpiä löytyy noin 12,6 vuodessa, ja kierroksella tarvitaan noin 56 lääkäri- ja 52 TT-aikaa viikossa.
     - 🌍 Englannin Lung Health Check: tupakoineet 55–74-vuotiaat.
     - 🌍 CHEST Australia: vähintään 55 vuotta ja 20 askivuotta.
     - **Löytyi 14.11.:** 🇫🇮 Satakunnan keuhkosyöpäpotilaista 88 % oli tupakoinut, miehistä 94 % ja naisista 76 % [2]. Tupakoineisiin rajattu kysely voi siis tavoittaa enintään noin 88 % potilaista, ja tupakoimattomat naiset jäävät sen ulkopuolelle.

@@ -29,7 +29,11 @@ describe("risk group", () => {
   });
   it("excludes never-smokers, the too young and light smokers", () => {
     expect(isInRiskGroup(person({ smoking: { status: "never", pack_years: 0 } }))).toBe(false);
-    expect(isInRiskGroup(person({ age: 50 }))).toBe(false);
+    // Ages match the national screening pilot ISC-LDCT: 50–74.
+    expect(isInRiskGroup(person({ age: 49 }))).toBe(false);
+    expect(isInRiskGroup(person({ age: 75 }))).toBe(false);
+    expect(isInRiskGroup(person({ age: 50 }))).toBe(true);
+    expect(isInRiskGroup(person({ age: 74 }))).toBe(true);
     expect(isInRiskGroup(person({ smoking: { status: "current", pack_years: 10 } }))).toBe(false);
   });
 });

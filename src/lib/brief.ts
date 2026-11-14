@@ -22,7 +22,7 @@ const span = (r: Range, key: keyof SimulationResult) => {
 };
 
 export function briefFacts(county: County, range: Range, doors: DoorsResult, mode: BriefMode) {
-  const usesMock = [county.population_55_80, county.ever_smoker_share, county.lung_cancer_cases_per_year].some((v) => v.source_id === "mock");
+  const usesMock = [county.population_50_74, county.ever_smoker_share, county.lung_cancer_cases_per_year].some((v) => v.source_id === "mock");
   const g3 = regionalFindings(county.id);
   const f1 = new Intl.NumberFormat("fi-FI", { maximumFractionDigits: 1 });
   const pct = (share: number) => `${f1.format(share * 100)} %`;

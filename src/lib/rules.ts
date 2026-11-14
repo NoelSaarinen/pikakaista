@@ -12,8 +12,8 @@ import { plcoRisk } from "./plco";
 
 export const RULES_CONFIG = {
   /** Risk group: ages for the survey invitation (assumption, see PROJECT.md). */
-  minAge: 55,
-  maxAge: 80,
+  minAge: 50,
+  maxAge: 74,
   /** Ever-smokers with at least this many pack-years are in the risk group (assumption). */
   minPackYears: 20,
   /** Cough lasting at least this many weeks counts as an alarm sign (assumption). */

@@ -3,19 +3,19 @@
     "id": "pirkanmaa",
     "name": "Pirkanmaa",
     "code": "HVA08",
-    "population_55_80": {
-      "value": 158422,
+    "population_50_74": {
+      "value": 154873,
       "source_id": "statfin-11re",
       "year": 2025,
       "is_estimate": false,
-      "note": "Residents aged 55–80 on 31 Dec 2025, both sexes. Municipalities summed to the county with the Statistics Finland 2026 key. The county's total population matches StatFin 11ra."
+      "note": "Residents aged 50–74 on 31 Dec 2025, both sexes. Municipalities summed to the county with the Statistics Finland 2026 key. The county's total population matches StatFin 11ra."
     },
     "ever_smoker_share": {
       "value": 0.074,
       "source_id": "thl-sotkanet-4404",
       "year": 2024,
       "is_estimate": true,
-      "note": "Proxy: daily smokers among residents aged 20 or over, 7.4% (2022: 7.2%), THL Healthy Finland survey. Not the ever-smoker share of 55–80-year-olds: former and occasional smokers are excluded, so the risk group is understated. No regional ever-smoker indicator was found. Survey estimate with sampling error."
+      "note": "Proxy: daily smokers among residents aged 20 or over, 7.4% (2022: 7.2%), THL Healthy Finland survey. Not the ever-smoker share of 50–74-year-olds: former and occasional smokers are excluded, so the risk group is understated. No regional ever-smoker indicator was found. Survey estimate with sampling error."
     },
     "lung_cancer_cases_per_year": {
       "value": 259.6,
@@ -41,19 +41,19 @@
     "id": "pohjois-savo",
     "name": "Pohjois-Savo",
     "code": "HVA13",
-    "population_55_80": {
-      "value": 86860,
+    "population_50_74": {
+      "value": 81401,
       "source_id": "statfin-11re",
       "year": 2025,
       "is_estimate": false,
-      "note": "Residents aged 55–80 on 31 Dec 2025, both sexes. Municipalities summed to the county with the Statistics Finland 2026 key. The county's total population matches StatFin 11ra."
+      "note": "Residents aged 50–74 on 31 Dec 2025, both sexes. Municipalities summed to the county with the Statistics Finland 2026 key. The county's total population matches StatFin 11ra."
     },
     "ever_smoker_share": {
       "value": 0.09,
       "source_id": "thl-sotkanet-4404",
       "year": 2024,
       "is_estimate": true,
-      "note": "Proxy: daily smokers among residents aged 20 or over, 9.0% (2022: 10.7%), THL Healthy Finland survey. Not the ever-smoker share of 55–80-year-olds: former and occasional smokers are excluded, so the risk group is understated. No regional ever-smoker indicator was found. Survey estimate with sampling error."
+      "note": "Proxy: daily smokers among residents aged 20 or over, 9.0% (2022: 10.7%), THL Healthy Finland survey. Not the ever-smoker share of 50–74-year-olds: former and occasional smokers are excluded, so the risk group is understated. No regional ever-smoker indicator was found. Survey estimate with sampling error."
     },
     "lung_cancer_cases_per_year": {
       "value": 127,
@@ -79,19 +79,19 @@
     "id": "lappi",
     "name": "Lappi",
     "code": "HVA21",
-    "population_55_80": {
-      "value": 62353,
+    "population_50_74": {
+      "value": 58881,
       "source_id": "statfin-11re",
       "year": 2025,
       "is_estimate": false,
-      "note": "Residents aged 55–80 on 31 Dec 2025, both sexes. Municipalities summed to the county with the Statistics Finland 2026 key. The county's total population matches StatFin 11ra."
+      "note": "Residents aged 50–74 on 31 Dec 2025, both sexes. Municipalities summed to the county with the Statistics Finland 2026 key. The county's total population matches StatFin 11ra."
     },
     "ever_smoker_share": {
       "value": 0.114,
       "source_id": "thl-sotkanet-4404",
       "year": 2024,
       "is_estimate": true,
-      "note": "Proxy: daily smokers among residents aged 20 or over, 11.4% (2022: 10.7%), THL Healthy Finland survey. Not the ever-smoker share of 55–80-year-olds: former and occasional smokers are excluded, so the risk group is understated. No regional ever-smoker indicator was found. Survey estimate with sampling error."
+      "note": "Proxy: daily smokers among residents aged 20 or over, 11.4% (2022: 10.7%), THL Healthy Finland survey. Not the ever-smoker share of 50–74-year-olds: former and occasional smokers are excluded, so the risk group is understated. No regional ever-smoker indicator was found. Survey estimate with sampling error."
     },
     "lung_cancer_cases_per_year": {
       "value": 134.8,
@@ -117,19 +117,19 @@
     "id": "ita-uusimaa",
     "name": "Itä-Uusimaa",
     "code": "HVA01",
-    "population_55_80": {
-      "value": 33184,
+    "population_50_74": {
+      "value": 33414,
       "source_id": "statfin-11re",
       "year": 2025,
       "is_estimate": false,
-      "note": "Residents aged 55–80 on 31 Dec 2025, both sexes. Municipalities summed to the county with the Statistics Finland 2026 key. The county's total population matches StatFin 11ra."
+      "note": "Residents aged 50–74 on 31 Dec 2025, both sexes. Municipalities summed to the county with the Statistics Finland 2026 key. The county's total population matches StatFin 11ra."
     },
     "ever_smoker_share": {
       "value": 0.107,
       "source_id": "thl-sotkanet-4404",
       "year": 2024,
       "is_estimate": true,
-      "note": "Proxy: daily smokers among residents aged 20 or over, 10.7% (2022: 10.0%), THL Healthy Finland survey. Not the ever-smoker share of 55–80-year-olds: former and occasional smokers are excluded, so the risk group is understated. No regional ever-smoker indicator was found. Survey estimate with sampling error."
+      "note": "Proxy: daily smokers among residents aged 20 or over, 10.7% (2022: 10.0%), THL Healthy Finland survey. Not the ever-smoker share of 50–74-year-olds: former and occasional smokers are excluded, so the risk group is understated. No regional ever-smoker indicator was found. Survey estimate with sampling error."
     },
     "lung_cancer_cases_per_year": {
       "value": 58.2,
@@ -155,19 +155,19 @@
     "id": "keski-uusimaa",
     "name": "Keski-Uusimaa",
     "code": "HVA02",
-    "population_55_80": {
-      "value": 62970,
+    "population_50_74": {
+      "value": 64676,
       "source_id": "statfin-11re",
       "year": 2025,
       "is_estimate": false,
-      "note": "Residents aged 55–80 on 31 Dec 2025, both sexes. Municipalities summed to the county with the Statistics Finland 2026 key. The county's total population matches StatFin 11ra."
+      "note": "Residents aged 50–74 on 31 Dec 2025, both sexes. Municipalities summed to the county with the Statistics Finland 2026 key. The county's total population matches StatFin 11ra."
     },
     "ever_smoker_share": {
       "value": 0.093,
       "source_id": "thl-sotkanet-4404",
       "year": 2024,
       "is_estimate": true,
-      "note": "Proxy: daily smokers among residents aged 20 or over, 9.3% (2022: 9.0%), THL Healthy Finland survey. Not the ever-smoker share of 55–80-year-olds: former and occasional smokers are excluded, so the risk group is understated. No regional ever-smoker indicator was found. Survey estimate with sampling error."
+      "note": "Proxy: daily smokers among residents aged 20 or over, 9.3% (2022: 9.0%), THL Healthy Finland survey. Not the ever-smoker share of 50–74-year-olds: former and occasional smokers are excluded, so the risk group is understated. No regional ever-smoker indicator was found. Survey estimate with sampling error."
     },
     "lung_cancer_cases_per_year": {
       "value": 99.2,
@@ -193,19 +193,19 @@
     "id": "lansi-uusimaa",
     "name": "Länsi-Uusimaa",
     "code": "HVA03",
-    "population_55_80": {
-      "value": 135218,
+    "population_50_74": {
+      "value": 140818,
       "source_id": "statfin-11re",
       "year": 2025,
       "is_estimate": false,
-      "note": "Residents aged 55–80 on 31 Dec 2025, both sexes. Municipalities summed to the county with the Statistics Finland 2026 key. The county's total population matches StatFin 11ra."
+      "note": "Residents aged 50–74 on 31 Dec 2025, both sexes. Municipalities summed to the county with the Statistics Finland 2026 key. The county's total population matches StatFin 11ra."
     },
     "ever_smoker_share": {
       "value": 0.08,
       "source_id": "thl-sotkanet-4404",
       "year": 2024,
       "is_estimate": true,
-      "note": "Proxy: daily smokers among residents aged 20 or over, 8.0% (2022: 9.6%), THL Healthy Finland survey. Not the ever-smoker share of 55–80-year-olds: former and occasional smokers are excluded, so the risk group is understated. No regional ever-smoker indicator was found. Survey estimate with sampling error."
+      "note": "Proxy: daily smokers among residents aged 20 or over, 8.0% (2022: 9.6%), THL Healthy Finland survey. Not the ever-smoker share of 50–74-year-olds: former and occasional smokers are excluded, so the risk group is understated. No regional ever-smoker indicator was found. Survey estimate with sampling error."
     },
     "lung_cancer_cases_per_year": {
       "value": 213.2,
@@ -231,19 +231,19 @@
     "id": "vantaa-kerava",
     "name": "Vantaa ja Kerava",
     "code": "HVA04",
-    "population_55_80": {
-      "value": 71823,
+    "population_50_74": {
+      "value": 75758,
       "source_id": "statfin-11re",
       "year": 2025,
       "is_estimate": false,
-      "note": "Residents aged 55–80 on 31 Dec 2025, both sexes. Municipalities summed to the county with the Statistics Finland 2026 key. The county's total population matches StatFin 11ra."
+      "note": "Residents aged 50–74 on 31 Dec 2025, both sexes. Municipalities summed to the county with the Statistics Finland 2026 key. The county's total population matches StatFin 11ra."
     },
     "ever_smoker_share": {
       "value": 0.125,
       "source_id": "thl-sotkanet-4404",
       "year": 2024,
       "is_estimate": true,
-      "note": "Proxy: daily smokers among residents aged 20 or over, 12.5% (2022: 9.6%), THL Healthy Finland survey. Not the ever-smoker share of 55–80-year-olds: former and occasional smokers are excluded, so the risk group is understated. No regional ever-smoker indicator was found. Survey estimate with sampling error."
+      "note": "Proxy: daily smokers among residents aged 20 or over, 12.5% (2022: 9.6%), THL Healthy Finland survey. Not the ever-smoker share of 50–74-year-olds: former and occasional smokers are excluded, so the risk group is understated. No regional ever-smoker indicator was found. Survey estimate with sampling error."
     },
     "lung_cancer_cases_per_year": {
       "value": 118.6,
@@ -269,19 +269,19 @@
     "id": "varsinais-suomi",
     "name": "Varsinais-Suomi",
     "code": "HVA05",
-    "population_55_80": {
-      "value": 154087,
+    "population_50_74": {
+      "value": 148611,
       "source_id": "statfin-11re",
       "year": 2025,
       "is_estimate": false,
-      "note": "Residents aged 55–80 on 31 Dec 2025, both sexes. Municipalities summed to the county with the Statistics Finland 2026 key. The county's total population matches StatFin 11ra."
+      "note": "Residents aged 50–74 on 31 Dec 2025, both sexes. Municipalities summed to the county with the Statistics Finland 2026 key. The county's total population matches StatFin 11ra."
     },
     "ever_smoker_share": {
       "value": 0.102,
       "source_id": "thl-sotkanet-4404",
       "year": 2024,
       "is_estimate": true,
-      "note": "Proxy: daily smokers among residents aged 20 or over, 10.2% (2022: 10.5%), THL Healthy Finland survey. Not the ever-smoker share of 55–80-year-olds: former and occasional smokers are excluded, so the risk group is understated. No regional ever-smoker indicator was found. Survey estimate with sampling error."
+      "note": "Proxy: daily smokers among residents aged 20 or over, 10.2% (2022: 10.5%), THL Healthy Finland survey. Not the ever-smoker share of 50–74-year-olds: former and occasional smokers are excluded, so the risk group is understated. No regional ever-smoker indicator was found. Survey estimate with sampling error."
     },
     "lung_cancer_cases_per_year": {
       "value": 277.6,
@@ -307,19 +307,19 @@
     "id": "satakunta",
     "name": "Satakunta",
     "code": "HVA06",
-    "population_55_80": {
-      "value": 74982,
+    "population_50_74": {
+      "value": 69574,
       "source_id": "statfin-11re",
       "year": 2025,
       "is_estimate": false,
-      "note": "Residents aged 55–80 on 31 Dec 2025, both sexes. Municipalities summed to the county with the Statistics Finland 2026 key. The county's total population matches StatFin 11ra."
+      "note": "Residents aged 50–74 on 31 Dec 2025, both sexes. Municipalities summed to the county with the Statistics Finland 2026 key. The county's total population matches StatFin 11ra."
     },
     "ever_smoker_share": {
       "value": 0.125,
       "source_id": "thl-sotkanet-4404",
       "year": 2024,
       "is_estimate": true,
-      "note": "Proxy: daily smokers among residents aged 20 or over, 12.5% (2022: 11.6%), THL Healthy Finland survey. Not the ever-smoker share of 55–80-year-olds: former and occasional smokers are excluded, so the risk group is understated. No regional ever-smoker indicator was found. Survey estimate with sampling error."
+      "note": "Proxy: daily smokers among residents aged 20 or over, 12.5% (2022: 11.6%), THL Healthy Finland survey. Not the ever-smoker share of 50–74-year-olds: former and occasional smokers are excluded, so the risk group is understated. No regional ever-smoker indicator was found. Survey estimate with sampling error."
     },
     "lung_cancer_cases_per_year": {
       "value": 142.4,
@@ -345,19 +345,19 @@
     "id": "kanta-hame",
     "name": "Kanta-Häme",
     "code": "HVA07",
-    "population_55_80": {
-      "value": 59913,
+    "population_50_74": {
+      "value": 56999,
       "source_id": "statfin-11re",
       "year": 2025,
       "is_estimate": false,
-      "note": "Residents aged 55–80 on 31 Dec 2025, both sexes. Municipalities summed to the county with the Statistics Finland 2026 key. The county's total population matches StatFin 11ra."
+      "note": "Residents aged 50–74 on 31 Dec 2025, both sexes. Municipalities summed to the county with the Statistics Finland 2026 key. The county's total population matches StatFin 11ra."
     },
     "ever_smoker_share": {
       "value": 0.102,
       "source_id": "thl-sotkanet-4404",
       "year": 2024,
       "is_estimate": true,
-      "note": "Proxy: daily smokers among residents aged 20 or over, 10.2% (2022: 13.9%), THL Healthy Finland survey. Not the ever-smoker share of 55–80-year-olds: former and occasional smokers are excluded, so the risk group is understated. No regional ever-smoker indicator was found. Survey estimate with sampling error."
+      "note": "Proxy: daily smokers among residents aged 20 or over, 10.2% (2022: 13.9%), THL Healthy Finland survey. Not the ever-smoker share of 50–74-year-olds: former and occasional smokers are excluded, so the risk group is understated. No regional ever-smoker indicator was found. Survey estimate with sampling error."
     },
     "lung_cancer_cases_per_year": {
       "value": 109.2,
@@ -383,19 +383,19 @@
     "id": "paijat-hame",
     "name": "Päijät-Häme",
     "code": "HVA09",
-    "population_55_80": {
-      "value": 73289,
+    "population_50_74": {
+      "value": 68271,
       "source_id": "statfin-11re",
       "year": 2025,
       "is_estimate": false,
-      "note": "Residents aged 55–80 on 31 Dec 2025, both sexes. Municipalities summed to the county with the Statistics Finland 2026 key. The county's total population matches StatFin 11ra."
+      "note": "Residents aged 50–74 on 31 Dec 2025, both sexes. Municipalities summed to the county with the Statistics Finland 2026 key. The county's total population matches StatFin 11ra."
     },
     "ever_smoker_share": {
       "value": 0.099,
       "source_id": "thl-sotkanet-4404",
       "year": 2024,
       "is_estimate": true,
-      "note": "Proxy: daily smokers among residents aged 20 or over, 9.9% (2022: 11.1%), THL Healthy Finland survey. Not the ever-smoker share of 55–80-year-olds: former and occasional smokers are excluded, so the risk group is understated. No regional ever-smoker indicator was found. Survey estimate with sampling error."
+      "note": "Proxy: daily smokers among residents aged 20 or over, 9.9% (2022: 11.1%), THL Healthy Finland survey. Not the ever-smoker share of 50–74-year-olds: former and occasional smokers are excluded, so the risk group is understated. No regional ever-smoker indicator was found. Survey estimate with sampling error."
     },
     "lung_cancer_cases_per_year": {
       "value": 136.6,
@@ -421,19 +421,19 @@
     "id": "kymenlaakso",
     "name": "Kymenlaakso",
     "code": "HVA10",
-    "population_55_80": {
-      "value": 59881,
+    "population_50_74": {
+      "value": 55654,
       "source_id": "statfin-11re",
       "year": 2025,
       "is_estimate": false,
-      "note": "Residents aged 55–80 on 31 Dec 2025, both sexes. Municipalities summed to the county with the Statistics Finland 2026 key. The county's total population matches StatFin 11ra."
+      "note": "Residents aged 50–74 on 31 Dec 2025, both sexes. Municipalities summed to the county with the Statistics Finland 2026 key. The county's total population matches StatFin 11ra."
     },
     "ever_smoker_share": {
       "value": 0.12,
       "source_id": "thl-sotkanet-4404",
       "year": 2024,
       "is_estimate": true,
-      "note": "Proxy: daily smokers among residents aged 20 or over, 12.0% (2022: 11.0%), THL Healthy Finland survey. Not the ever-smoker share of 55–80-year-olds: former and occasional smokers are excluded, so the risk group is understated. No regional ever-smoker indicator was found. Survey estimate with sampling error."
+      "note": "Proxy: daily smokers among residents aged 20 or over, 12.0% (2022: 11.0%), THL Healthy Finland survey. Not the ever-smoker share of 50–74-year-olds: former and occasional smokers are excluded, so the risk group is understated. No regional ever-smoker indicator was found. Survey estimate with sampling error."
     },
     "lung_cancer_cases_per_year": {
       "value": 118,
@@ -459,19 +459,19 @@
     "id": "etela-karjala",
     "name": "Etelä-Karjala",
     "code": "HVA11",
-    "population_55_80": {
-      "value": 45157,
+    "population_50_74": {
+      "value": 42416,
       "source_id": "statfin-11re",
       "year": 2025,
       "is_estimate": false,
-      "note": "Residents aged 55–80 on 31 Dec 2025, both sexes. Municipalities summed to the county with the Statistics Finland 2026 key. The county's total population matches StatFin 11ra."
+      "note": "Residents aged 50–74 on 31 Dec 2025, both sexes. Municipalities summed to the county with the Statistics Finland 2026 key. The county's total population matches StatFin 11ra."
     },
     "ever_smoker_share": {
       "value": 0.101,
       "source_id": "thl-sotkanet-4404",
       "year": 2024,
       "is_estimate": true,
-      "note": "Proxy: daily smokers among residents aged 20 or over, 10.1% (2022: 12.7%), THL Healthy Finland survey. Not the ever-smoker share of 55–80-year-olds: former and occasional smokers are excluded, so the risk group is understated. No regional ever-smoker indicator was found. Survey estimate with sampling error."
+      "note": "Proxy: daily smokers among residents aged 20 or over, 10.1% (2022: 12.7%), THL Healthy Finland survey. Not the ever-smoker share of 50–74-year-olds: former and occasional smokers are excluded, so the risk group is understated. No regional ever-smoker indicator was found. Survey estimate with sampling error."
     },
     "lung_cancer_cases_per_year": {
       "value": 72.6,
@@ -497,19 +497,19 @@
     "id": "etela-savo",
     "name": "Etelä-Savo",
     "code": "HVA12",
-    "population_55_80": {
-      "value": 52736,
+    "population_50_74": {
+      "value": 47905,
       "source_id": "statfin-11re",
       "year": 2025,
       "is_estimate": false,
-      "note": "Residents aged 55–80 on 31 Dec 2025, both sexes. Municipalities summed to the county with the Statistics Finland 2026 key. The county's total population matches StatFin 11ra."
+      "note": "Residents aged 50–74 on 31 Dec 2025, both sexes. Municipalities summed to the county with the Statistics Finland 2026 key. The county's total population matches StatFin 11ra."
     },
     "ever_smoker_share": {
       "value": 0.072,
       "source_id": "thl-sotkanet-4404",
       "year": 2024,
       "is_estimate": true,
-      "note": "Proxy: daily smokers among residents aged 20 or over, 7.2% (2022: 11.5%), THL Healthy Finland survey. Not the ever-smoker share of 55–80-year-olds: former and occasional smokers are excluded, so the risk group is understated. No regional ever-smoker indicator was found. Survey estimate with sampling error."
+      "note": "Proxy: daily smokers among residents aged 20 or over, 7.2% (2022: 11.5%), THL Healthy Finland survey. Not the ever-smoker share of 50–74-year-olds: former and occasional smokers are excluded, so the risk group is understated. No regional ever-smoker indicator was found. Survey estimate with sampling error."
     },
     "lung_cancer_cases_per_year": {
       "value": 91,
@@ -535,19 +535,19 @@
     "id": "pohjois-karjala",
     "name": "Pohjois-Karjala",
     "code": "HVA14",
-    "population_55_80": {
-      "value": 58320,
+    "population_50_74": {
+      "value": 53892,
       "source_id": "statfin-11re",
       "year": 2025,
       "is_estimate": false,
-      "note": "Residents aged 55–80 on 31 Dec 2025, both sexes. Municipalities summed to the county with the Statistics Finland 2026 key. The county's total population matches StatFin 11ra."
+      "note": "Residents aged 50–74 on 31 Dec 2025, both sexes. Municipalities summed to the county with the Statistics Finland 2026 key. The county's total population matches StatFin 11ra."
     },
     "ever_smoker_share": {
       "value": 0.1,
       "source_id": "thl-sotkanet-4404",
       "year": 2024,
       "is_estimate": true,
-      "note": "Proxy: daily smokers among residents aged 20 or over, 10.0% (2022: 9.0%), THL Healthy Finland survey. Not the ever-smoker share of 55–80-year-olds: former and occasional smokers are excluded, so the risk group is understated. No regional ever-smoker indicator was found. Survey estimate with sampling error."
+      "note": "Proxy: daily smokers among residents aged 20 or over, 10.0% (2022: 9.0%), THL Healthy Finland survey. Not the ever-smoker share of 50–74-year-olds: former and occasional smokers are excluded, so the risk group is understated. No regional ever-smoker indicator was found. Survey estimate with sampling error."
     },
     "lung_cancer_cases_per_year": {
       "value": 98.8,
@@ -573,19 +573,19 @@
     "id": "keski-suomi",
     "name": "Keski-Suomi",
     "code": "HVA15",
-    "population_55_80": {
-      "value": 86906,
+    "population_50_74": {
+      "value": 82736,
       "source_id": "statfin-11re",
       "year": 2025,
       "is_estimate": false,
-      "note": "Residents aged 55–80 on 31 Dec 2025, both sexes. Municipalities summed to the county with the Statistics Finland 2026 key. The county's total population matches StatFin 11ra."
+      "note": "Residents aged 50–74 on 31 Dec 2025, both sexes. Municipalities summed to the county with the Statistics Finland 2026 key. The county's total population matches StatFin 11ra."
     },
     "ever_smoker_share": {
       "value": 0.076,
       "source_id": "thl-sotkanet-4404",
       "year": 2024,
       "is_estimate": true,
-      "note": "Proxy: daily smokers among residents aged 20 or over, 7.6% (2022: 7.0%), THL Healthy Finland survey. Not the ever-smoker share of 55–80-year-olds: former and occasional smokers are excluded, so the risk group is understated. No regional ever-smoker indicator was found. Survey estimate with sampling error."
+      "note": "Proxy: daily smokers among residents aged 20 or over, 7.6% (2022: 7.0%), THL Healthy Finland survey. Not the ever-smoker share of 50–74-year-olds: former and occasional smokers are excluded, so the risk group is understated. No regional ever-smoker indicator was found. Survey estimate with sampling error."
     },
     "lung_cancer_cases_per_year": {
       "value": 125.4,
@@ -611,19 +611,19 @@
     "id": "etela-pohjanmaa",
     "name": "Etelä-Pohjanmaa",
     "code": "HVA16",
-    "population_55_80": {
-      "value": 64785,
+    "population_50_74": {
+      "value": 60923,
       "source_id": "statfin-11re",
       "year": 2025,
       "is_estimate": false,
-      "note": "Residents aged 55–80 on 31 Dec 2025, both sexes. Municipalities summed to the county with the Statistics Finland 2026 key. The county's total population matches StatFin 11ra."
+      "note": "Residents aged 50–74 on 31 Dec 2025, both sexes. Municipalities summed to the county with the Statistics Finland 2026 key. The county's total population matches StatFin 11ra."
     },
     "ever_smoker_share": {
       "value": 0.076,
       "source_id": "thl-sotkanet-4404",
       "year": 2024,
       "is_estimate": true,
-      "note": "Proxy: daily smokers among residents aged 20 or over, 7.6% (2022: 9.7%), THL Healthy Finland survey. Not the ever-smoker share of 55–80-year-olds: former and occasional smokers are excluded, so the risk group is understated. No regional ever-smoker indicator was found. Survey estimate with sampling error."
+      "note": "Proxy: daily smokers among residents aged 20 or over, 7.6% (2022: 9.7%), THL Healthy Finland survey. Not the ever-smoker share of 50–74-year-olds: former and occasional smokers are excluded, so the risk group is understated. No regional ever-smoker indicator was found. Survey estimate with sampling error."
     },
     "lung_cancer_cases_per_year": {
       "value": 111.2,
@@ -649,19 +649,19 @@
     "id": "pohjanmaa",
     "name": "Pohjanmaa",
     "code": "HVA17",
-    "population_55_80": {
-      "value": 52471,
+    "population_50_74": {
+      "value": 50556,
       "source_id": "statfin-11re",
       "year": 2025,
       "is_estimate": false,
-      "note": "Residents aged 55–80 on 31 Dec 2025, both sexes. Municipalities summed to the county with the Statistics Finland 2026 key. The county's total population matches StatFin 11ra."
+      "note": "Residents aged 50–74 on 31 Dec 2025, both sexes. Municipalities summed to the county with the Statistics Finland 2026 key. The county's total population matches StatFin 11ra."
     },
     "ever_smoker_share": {
       "value": 0.077,
       "source_id": "thl-sotkanet-4404",
       "year": 2024,
       "is_estimate": true,
-      "note": "Proxy: daily smokers among residents aged 20 or over, 7.7% (2022: 8.5%), THL Healthy Finland survey. Not the ever-smoker share of 55–80-year-olds: former and occasional smokers are excluded, so the risk group is understated. No regional ever-smoker indicator was found. Survey estimate with sampling error."
+      "note": "Proxy: daily smokers among residents aged 20 or over, 7.7% (2022: 8.5%), THL Healthy Finland survey. Not the ever-smoker share of 50–74-year-olds: former and occasional smokers are excluded, so the risk group is understated. No regional ever-smoker indicator was found. Survey estimate with sampling error."
     },
     "lung_cancer_cases_per_year": {
       "value": 95.6,
@@ -687,19 +687,19 @@
     "id": "keski-pohjanmaa",
     "name": "Keski-Pohjanmaa",
     "code": "HVA18",
-    "population_55_80": {
-      "value": 21167,
+    "population_50_74": {
+      "value": 19906,
       "source_id": "statfin-11re",
       "year": 2025,
       "is_estimate": false,
-      "note": "Residents aged 55–80 on 31 Dec 2025, both sexes. Municipalities summed to the county with the Statistics Finland 2026 key. The county's total population matches StatFin 11ra."
+      "note": "Residents aged 50–74 on 31 Dec 2025, both sexes. Municipalities summed to the county with the Statistics Finland 2026 key. The county's total population matches StatFin 11ra."
     },
     "ever_smoker_share": {
       "value": 0.087,
       "source_id": "thl-sotkanet-4404",
       "year": 2024,
       "is_estimate": true,
-      "note": "Proxy: daily smokers among residents aged 20 or over, 8.7% (2022: 12.0%), THL Healthy Finland survey. Not the ever-smoker share of 55–80-year-olds: former and occasional smokers are excluded, so the risk group is understated. No regional ever-smoker indicator was found. Survey estimate with sampling error."
+      "note": "Proxy: daily smokers among residents aged 20 or over, 8.7% (2022: 12.0%), THL Healthy Finland survey. Not the ever-smoker share of 50–74-year-olds: former and occasional smokers are excluded, so the risk group is understated. No regional ever-smoker indicator was found. Survey estimate with sampling error."
     },
     "lung_cancer_cases_per_year": {
       "value": 32.8,
@@ -725,19 +725,19 @@
     "id": "pohjois-pohjanmaa",
     "name": "Pohjois-Pohjanmaa",
     "code": "HVA19",
-    "population_55_80": {
-      "value": 119004,
+    "population_50_74": {
+      "value": 117971,
       "source_id": "statfin-11re",
       "year": 2025,
       "is_estimate": false,
-      "note": "Residents aged 55–80 on 31 Dec 2025, both sexes. Municipalities summed to the county with the Statistics Finland 2026 key. The county's total population matches StatFin 11ra."
+      "note": "Residents aged 50–74 on 31 Dec 2025, both sexes. Municipalities summed to the county with the Statistics Finland 2026 key. The county's total population matches StatFin 11ra."
     },
     "ever_smoker_share": {
       "value": 0.095,
       "source_id": "thl-sotkanet-4404",
       "year": 2024,
       "is_estimate": true,
-      "note": "Proxy: daily smokers among residents aged 20 or over, 9.5% (2022: 8.5%), THL Healthy Finland survey. Not the ever-smoker share of 55–80-year-olds: former and occasional smokers are excluded, so the risk group is understated. No regional ever-smoker indicator was found. Survey estimate with sampling error."
+      "note": "Proxy: daily smokers among residents aged 20 or over, 9.5% (2022: 8.5%), THL Healthy Finland survey. Not the ever-smoker share of 50–74-year-olds: former and occasional smokers are excluded, so the risk group is understated. No regional ever-smoker indicator was found. Survey estimate with sampling error."
     },
     "lung_cancer_cases_per_year": {
       "value": 207.8,
@@ -763,19 +763,19 @@
     "id": "kainuu",
     "name": "Kainuu",
     "code": "HVA20",
-    "population_55_80": {
-      "value": 27013,
+    "population_50_74": {
+      "value": 24902,
       "source_id": "statfin-11re",
       "year": 2025,
       "is_estimate": false,
-      "note": "Residents aged 55–80 on 31 Dec 2025, both sexes. Municipalities summed to the county with the Statistics Finland 2026 key. The county's total population matches StatFin 11ra."
+      "note": "Residents aged 50–74 on 31 Dec 2025, both sexes. Municipalities summed to the county with the Statistics Finland 2026 key. The county's total population matches StatFin 11ra."
     },
     "ever_smoker_share": {
       "value": 0.089,
       "source_id": "thl-sotkanet-4404",
       "year": 2024,
       "is_estimate": true,
-      "note": "Proxy: daily smokers among residents aged 20 or over, 8.9% (2022: 10.6%), THL Healthy Finland survey. Not the ever-smoker share of 55–80-year-olds: former and occasional smokers are excluded, so the risk group is understated. No regional ever-smoker indicator was found. Survey estimate with sampling error."
+      "note": "Proxy: daily smokers among residents aged 20 or over, 8.9% (2022: 10.6%), THL Healthy Finland survey. Not the ever-smoker share of 50–74-year-olds: former and occasional smokers are excluded, so the risk group is understated. No regional ever-smoker indicator was found. Survey estimate with sampling error."
     },
     "lung_cancer_cases_per_year": {
       "value": 47.2,
@@ -801,19 +801,19 @@
     "id": "helsinki",
     "name": "Helsinki",
     "code": "HVA90",
-    "population_55_80": {
-      "value": 170777,
+    "population_50_74": {
+      "value": 175327,
       "source_id": "statfin-11re",
       "year": 2025,
       "is_estimate": false,
-      "note": "Residents aged 55–80 on 31 Dec 2025, both sexes. Municipalities summed to the county with the Statistics Finland 2026 key. The county's total population matches StatFin 11ra."
+      "note": "Residents aged 50–74 on 31 Dec 2025, both sexes. Municipalities summed to the county with the Statistics Finland 2026 key. The county's total population matches StatFin 11ra."
     },
     "ever_smoker_share": {
       "value": 0.068,
       "source_id": "thl-sotkanet-4404",
       "year": 2024,
       "is_estimate": true,
-      "note": "Proxy: daily smokers among residents aged 20 or over, 6.8% (2022: 9.7%), THL Healthy Finland survey. Not the ever-smoker share of 55–80-year-olds: former and occasional smokers are excluded, so the risk group is understated. No regional ever-smoker indicator was found. Survey estimate with sampling error."
+      "note": "Proxy: daily smokers among residents aged 20 or over, 6.8% (2022: 9.7%), THL Healthy Finland survey. Not the ever-smoker share of 50–74-year-olds: former and occasional smokers are excluded, so the risk group is understated. No regional ever-smoker indicator was found. Survey estimate with sampling error."
     },
     "lung_cancer_cases_per_year": {
       "value": 299.8,

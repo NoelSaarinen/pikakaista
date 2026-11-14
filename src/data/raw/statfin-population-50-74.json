@@ -6,10 +6,10 @@
   "retrieved": "2026-11-14",
   "year": 2025,
   "reference_date": "2025-12-31",
-  "ages": "55-80",
+  "ages": "50-74",
   "sex": "both",
   "national": {
-    "pop_55_80": 1741258,
+    "pop_50_74": 1695391,
     "pop_total": 5652881
   },
   "hva_names": {
@@ -67,2156 +67,2156 @@
       "code": "KU020",
       "name": "Akaa",
       "hva": "HVA08",
-      "pop_55_80": 5633,
+      "pop_50_74": 5509,
       "pop_total": 16429
     },
     {
       "code": "KU005",
       "name": "Alajärvi",
       "hva": "HVA16",
-      "pop_55_80": 3470,
+      "pop_50_74": 3192,
       "pop_total": 8982
     },
     {
       "code": "KU009",
       "name": "Alavieska",
       "hva": "HVA19",
-      "pop_55_80": 807,
+      "pop_50_74": 785,
       "pop_total": 2384
     },
     {
       "code": "KU010",
       "name": "Alavus",
       "hva": "HVA16",
-      "pop_55_80": 4016,
+      "pop_50_74": 3730,
       "pop_total": 10634
     },
     {
       "code": "KU016",
       "name": "Asikkala",
       "hva": "HVA09",
-      "pop_55_80": 3320,
+      "pop_50_74": 2954,
       "pop_total": 7841
     },
     {
       "code": "KU018",
       "name": "Askola",
       "hva": "HVA01",
-      "pop_55_80": 1585,
+      "pop_50_74": 1583,
       "pop_total": 4677
     },
     {
       "code": "KU019",
       "name": "Aura",
       "hva": "HVA05",
-      "pop_55_80": 1233,
+      "pop_50_74": 1259,
       "pop_total": 3937
     },
     {
       "code": "KU035",
       "name": "Brändö",
       "hva": "HVA91",
-      "pop_55_80": 210,
+      "pop_50_74": 197,
       "pop_total": 430
     },
     {
       "code": "KU043",
       "name": "Eckerö",
       "hva": "HVA91",
-      "pop_55_80": 372,
+      "pop_50_74": 359,
       "pop_total": 961
     },
     {
       "code": "KU046",
       "name": "Enonkoski",
       "hva": "HVA12",
-      "pop_55_80": 610,
+      "pop_50_74": 503,
       "pop_total": 1273
     },
     {
       "code": "KU047",
       "name": "Enontekiö",
       "hva": "HVA21",
-      "pop_55_80": 755,
+      "pop_50_74": 725,
       "pop_total": 1769
     },
     {
       "code": "KU049",
       "name": "Espoo",
       "hva": "HVA03",
-      "pop_55_80": 73778,
+      "pop_50_74": 79522,
       "pop_total": 325716
     },
     {
       "code": "KU050",
       "name": "Eura",
       "hva": "HVA06",
-      "pop_55_80": 4106,
+      "pop_50_74": 3771,
       "pop_total": 11005
     },
     {
       "code": "KU051",
       "name": "Eurajoki",
       "hva": "HVA06",
-      "pop_55_80": 3197,
+      "pop_50_74": 3013,
       "pop_total": 8920
     },
     {
       "code": "KU052",
       "name": "Evijärvi",
       "hva": "HVA16",
-      "pop_55_80": 854,
+      "pop_50_74": 796,
       "pop_total": 2267
     },
     {
       "code": "KU060",
       "name": "Finström",
       "hva": "HVA91",
-      "pop_55_80": 827,
+      "pop_50_74": 834,
       "pop_total": 2625
     },
     {
       "code": "KU061",
       "name": "Forssa",
       "hva": "HVA07",
-      "pop_55_80": 6366,
+      "pop_50_74": 5595,
       "pop_total": 16307
     },
     {
       "code": "KU062",
       "name": "Föglö",
       "hva": "HVA91",
-      "pop_55_80": 190,
+      "pop_50_74": 178,
       "pop_total": 512
     },
     {
       "code": "KU065",
       "name": "Geta",
       "hva": "HVA91",
-      "pop_55_80": 176,
+      "pop_50_74": 182,
       "pop_total": 512
     },
     {
       "code": "KU069",
       "name": "Haapajärvi",
       "hva": "HVA19",
-      "pop_55_80": 2376,
+      "pop_50_74": 2220,
       "pop_total": 6441
     },
     {
       "code": "KU071",
       "name": "Haapavesi",
       "hva": "HVA19",
-      "pop_55_80": 2107,
+      "pop_50_74": 1971,
       "pop_total": 6298
     },
     {
       "code": "KU072",
       "name": "Hailuoto",
       "hva": "HVA19",
-      "pop_55_80": 440,
+      "pop_50_74": 377,
       "pop_total": 912
     },
     {
       "code": "KU074",
       "name": "Halsua",
       "hva": "HVA18",
-      "pop_55_80": 413,
+      "pop_50_74": 376,
       "pop_total": 975
     },
     {
       "code": "KU075",
       "name": "Hamina",
       "hva": "HVA10",
-      "pop_55_80": 7591,
+      "pop_50_74": 7058,
       "pop_total": 19113
     },
     {
       "code": "KU076",
       "name": "Hammarland",
       "hva": "HVA91",
-      "pop_55_80": 522,
+      "pop_50_74": 523,
       "pop_total": 1644
     },
     {
       "code": "KU077",
       "name": "Hankasalmi",
       "hva": "HVA15",
-      "pop_55_80": 1883,
+      "pop_50_74": 1713,
       "pop_total": 4436
     },
     {
       "code": "KU078",
       "name": "Hanko",
       "hva": "HVA03",
-      "pop_55_80": 3348,
+      "pop_50_74": 3017,
       "pop_total": 7620
     },
     {
       "code": "KU079",
       "name": "Harjavalta",
       "hva": "HVA06",
-      "pop_55_80": 2556,
+      "pop_50_74": 2266,
       "pop_total": 6565
     },
     {
       "code": "KU081",
       "name": "Hartola",
       "hva": "HVA09",
-      "pop_55_80": 1258,
+      "pop_50_74": 1114,
       "pop_total": 2401
     },
     {
       "code": "KU082",
       "name": "Hattula",
       "hva": "HVA07",
-      "pop_55_80": 3221,
+      "pop_50_74": 3155,
       "pop_total": 9346
     },
     {
       "code": "KU086",
       "name": "Hausjärvi",
       "hva": "HVA07",
-      "pop_55_80": 2903,
+      "pop_50_74": 2919,
       "pop_total": 7862
     },
     {
       "code": "KU111",
       "name": "Heinola",
       "hva": "HVA09",
-      "pop_55_80": 8113,
+      "pop_50_74": 7229,
       "pop_total": 17694
     },
     {
       "code": "KU090",
       "name": "Heinävesi",
       "hva": "HVA14",
-      "pop_55_80": 1455,
+      "pop_50_74": 1291,
       "pop_total": 2888
     },
     {
       "code": "KU091",
       "name": "Helsinki",
       "hva": "HVA90",
-      "pop_55_80": 170777,
+      "pop_50_74": 175327,
       "pop_total": 694392
     },
     {
       "code": "KU097",
       "name": "Hirvensalmi",
       "hva": "HVA12",
-      "pop_55_80": 1028,
+      "pop_50_74": 929,
       "pop_total": 2023
     },
     {
       "code": "KU098",
       "name": "Hollola",
       "hva": "HVA09",
-      "pop_55_80": 8215,
+      "pop_50_74": 7892,
       "pop_total": 22775
     },
     {
       "code": "KU102",
       "name": "Huittinen",
       "hva": "HVA06",
-      "pop_55_80": 3657,
+      "pop_50_74": 3318,
       "pop_total": 9546
     },
     {
       "code": "KU103",
       "name": "Humppila",
       "hva": "HVA07",
-      "pop_55_80": 873,
+      "pop_50_74": 837,
       "pop_total": 2074
     },
     {
       "code": "KU105",
       "name": "Hyrynsalmi",
       "hva": "HVA20",
-      "pop_55_80": 1058,
+      "pop_50_74": 917,
       "pop_total": 1984
     },
     {
       "code": "KU106",
       "name": "Hyvinkää",
       "hva": "HVA02",
-      "pop_55_80": 15515,
+      "pop_50_74": 15201,
       "pop_total": 47015
     },
     {
       "code": "KU108",
       "name": "Hämeenkyrö",
       "hva": "HVA08",
-      "pop_55_80": 3676,
+      "pop_50_74": 3567,
       "pop_total": 10249
     },
     {
       "code": "KU109",
       "name": "Hämeenlinna",
       "hva": "HVA07",
-      "pop_55_80": 23430,
+      "pop_50_74": 21995,
       "pop_total": 68614
     },
     {
       "code": "KU139",
       "name": "Ii",
       "hva": "HVA19",
-      "pop_55_80": 3026,
+      "pop_50_74": 2973,
       "pop_total": 9755
     },
     {
       "code": "KU140",
       "name": "Iisalmi",
       "hva": "HVA13",
-      "pop_55_80": 7555,
+      "pop_50_74": 6988,
       "pop_total": 20205
     },
     {
       "code": "KU142",
       "name": "Iitti",
       "hva": "HVA09",
-      "pop_55_80": 2668,
+      "pop_50_74": 2436,
       "pop_total": 6329
     },
     {
       "code": "KU143",
       "name": "Ikaalinen",
       "hva": "HVA08",
-      "pop_55_80": 2716,
+      "pop_50_74": 2436,
       "pop_total": 6704
     },
     {
       "code": "KU145",
       "name": "Ilmajoki",
       "hva": "HVA16",
-      "pop_55_80": 3695,
+      "pop_50_74": 3622,
       "pop_total": 12405
     },
     {
       "code": "KU146",
       "name": "Ilomantsi",
       "hva": "HVA14",
-      "pop_55_80": 2330,
+      "pop_50_74": 1990,
       "pop_total": 4293
     },
     {
       "code": "KU153",
       "name": "Imatra",
       "hva": "HVA11",
-      "pop_55_80": 9785,
+      "pop_50_74": 9092,
       "pop_total": 24345
     },
     {
       "code": "KU148",
       "name": "Inari",
       "hva": "HVA21",
-      "pop_55_80": 2785,
+      "pop_50_74": 2695,
       "pop_total": 7244
     },
     {
       "code": "KU149",
       "name": "Inkoo",
       "hva": "HVA03",
-      "pop_55_80": 2096,
+      "pop_50_74": 2096,
       "pop_total": 5391
     },
     {
       "code": "KU151",
       "name": "Isojoki",
       "hva": "HVA16",
-      "pop_55_80": 793,
+      "pop_50_74": 730,
       "pop_total": 1771
     },
     {
       "code": "KU152",
       "name": "Isokyrö",
       "hva": "HVA16",
-      "pop_55_80": 1612,
+      "pop_50_74": 1548,
       "pop_total": 4261
     },
     {
       "code": "KU165",
       "name": "Janakkala",
       "hva": "HVA07",
-      "pop_55_80": 5572,
+      "pop_50_74": 5483,
       "pop_total": 15867
     },
     {
       "code": "KU167",
       "name": "Joensuu",
       "hva": "HVA14",
-      "pop_55_80": 23348,
+      "pop_50_74": 21947,
       "pop_total": 79129
     },
     {
       "code": "KU169",
       "name": "Jokioinen",
       "hva": "HVA07",
-      "pop_55_80": 1897,
+      "pop_50_74": 1817,
       "pop_total": 4795
     },
     {
       "code": "KU170",
       "name": "Jomala",
       "hva": "HVA91",
-      "pop_55_80": 1536,
+      "pop_50_74": 1691,
       "pop_total": 5817
     },
     {
       "code": "KU171",
       "name": "Joroinen",
       "hva": "HVA13",
-      "pop_55_80": 1934,
+      "pop_50_74": 1767,
       "pop_total": 4494
     },
     {
       "code": "KU172",
       "name": "Joutsa",
       "hva": "HVA15",
-      "pop_55_80": 1985,
+      "pop_50_74": 1728,
       "pop_total": 4079
     },
     {
       "code": "KU176",
       "name": "Juuka",
       "hva": "HVA14",
-      "pop_55_80": 2103,
+      "pop_50_74": 1831,
       "pop_total": 4059
     },
     {
       "code": "KU177",
       "name": "Juupajoki",
       "hva": "HVA08",
-      "pop_55_80": 697,
+      "pop_50_74": 625,
       "pop_total": 1663
     },
     {
       "code": "KU178",
       "name": "Juva",
       "hva": "HVA12",
-      "pop_55_80": 2547,
+      "pop_50_74": 2271,
       "pop_total": 5569
     },
     {
       "code": "KU179",
       "name": "Jyväskylä",
       "hva": "HVA15",
-      "pop_55_80": 38269,
+      "pop_50_74": 37698,
       "pop_total": 149895
     },
     {
       "code": "KU181",
       "name": "Jämijärvi",
       "hva": "HVA06",
-      "pop_55_80": 667,
+      "pop_50_74": 637,
       "pop_total": 1663
     },
     {
       "code": "KU182",
       "name": "Jämsä",
       "hva": "HVA15",
-      "pop_55_80": 8250,
+      "pop_50_74": 7446,
       "pop_total": 19020
     },
     {
       "code": "KU186",
       "name": "Järvenpää",
       "hva": "HVA02",
-      "pop_55_80": 13804,
+      "pop_50_74": 13726,
       "pop_total": 46944
     },
     {
       "code": "KU202",
       "name": "Kaarina",
       "hva": "HVA05",
-      "pop_55_80": 10904,
+      "pop_50_74": 10866,
       "pop_total": 36675
     },
     {
       "code": "KU204",
       "name": "Kaavi",
       "hva": "HVA13",
-      "pop_55_80": 1223,
+      "pop_50_74": 1089,
       "pop_total": 2547
     },
     {
       "code": "KU205",
       "name": "Kajaani",
       "hva": "HVA20",
-      "pop_55_80": 11736,
+      "pop_50_74": 11137,
       "pop_total": 36370
     },
     {
       "code": "KU208",
       "name": "Kalajoki",
       "hva": "HVA19",
-      "pop_55_80": 4274,
+      "pop_50_74": 4007,
       "pop_total": 12155
     },
     {
       "code": "KU211",
       "name": "Kangasala",
       "hva": "HVA08",
-      "pop_55_80": 9995,
+      "pop_50_74": 10215,
       "pop_total": 34379
     },
     {
       "code": "KU213",
       "name": "Kangasniemi",
       "hva": "HVA12",
-      "pop_55_80": 2352,
+      "pop_50_74": 2041,
       "pop_total": 4952
     },
     {
       "code": "KU214",
       "name": "Kankaanpää",
       "hva": "HVA06",
-      "pop_55_80": 4917,
+      "pop_50_74": 4500,
       "pop_total": 12508
     },
     {
       "code": "KU216",
       "name": "Kannonkoski",
       "hva": "HVA15",
-      "pop_55_80": 570,
+      "pop_50_74": 525,
       "pop_total": 1137
     },
     {
       "code": "KU217",
       "name": "Kannus",
       "hva": "HVA18",
-      "pop_55_80": 1822,
+      "pop_50_74": 1713,
       "pop_total": 5246
     },
     {
       "code": "KU218",
       "name": "Karijoki",
       "hva": "HVA16",
-      "pop_55_80": 505,
+      "pop_50_74": 450,
       "pop_total": 1134
     },
     {
       "code": "KU224",
       "name": "Karkkila",
       "hva": "HVA03",
-      "pop_55_80": 3177,
+      "pop_50_74": 3026,
       "pop_total": 8274
     },
     {
       "code": "KU226",
       "name": "Karstula",
       "hva": "HVA15",
-      "pop_55_80": 1609,
+      "pop_50_74": 1441,
       "pop_total": 3514
     },
     {
       "code": "KU230",
       "name": "Karvia",
       "hva": "HVA06",
-      "pop_55_80": 913,
+      "pop_50_74": 797,
       "pop_total": 2133
     },
     {
       "code": "KU231",
       "name": "Kaskinen",
       "hva": "HVA17",
-      "pop_55_80": 536,
+      "pop_50_74": 459,
       "pop_total": 1248
     },
     {
       "code": "KU232",
       "name": "Kauhajoki",
       "hva": "HVA16",
-      "pop_55_80": 4811,
+      "pop_50_74": 4414,
       "pop_total": 12429
     },
     {
       "code": "KU233",
       "name": "Kauhava",
       "hva": "HVA16",
-      "pop_55_80": 5702,
+      "pop_50_74": 5245,
       "pop_total": 14909
     },
     {
       "code": "KU235",
       "name": "Kauniainen",
       "hva": "HVA03",
-      "pop_55_80": 2983,
+      "pop_50_74": 3056,
       "pop_total": 10318
     },
     {
       "code": "KU236",
       "name": "Kaustinen",
       "hva": "HVA18",
-      "pop_55_80": 1325,
+      "pop_50_74": 1256,
       "pop_total": 4074
     },
     {
       "code": "KU239",
       "name": "Keitele",
       "hva": "HVA13",
-      "pop_55_80": 960,
+      "pop_50_74": 838,
       "pop_total": 1922
     },
     {
       "code": "KU240",
       "name": "Kemi",
       "hva": "HVA21",
-      "pop_55_80": 7337,
+      "pop_50_74": 6792,
       "pop_total": 19339
     },
     {
       "code": "KU320",
       "name": "Kemijärvi",
       "hva": "HVA21",
-      "pop_55_80": 3352,
+      "pop_50_74": 2952,
       "pop_total": 6919
     },
     {
       "code": "KU241",
       "name": "Keminmaa",
       "hva": "HVA21",
-      "pop_55_80": 2783,
+      "pop_50_74": 2587,
       "pop_total": 7576
     },
     {
       "code": "KU322",
       "name": "Kemiönsaari",
       "hva": "HVA05",
-      "pop_55_80": 2807,
+      "pop_50_74": 2506,
       "pop_total": 6340
     },
     {
       "code": "KU244",
       "name": "Kempele",
       "hva": "HVA19",
-      "pop_55_80": 4804,
+      "pop_50_74": 5020,
       "pop_total": 19702
     },
     {
       "code": "KU245",
       "name": "Kerava",
       "hva": "HVA04",
-      "pop_55_80": 11214,
+      "pop_50_74": 11124,
       "pop_total": 38767
     },
     {
       "code": "KU249",
       "name": "Keuruu",
       "hva": "HVA15",
-      "pop_55_80": 3879,
+      "pop_50_74": 3429,
       "pop_total": 9014
     },
     {
       "code": "KU250",
       "name": "Kihniö",
       "hva": "HVA08",
-      "pop_55_80": 803,
+      "pop_50_74": 725,
       "pop_total": 1670
     },
     {
       "code": "KU256",
       "name": "Kinnula",
       "hva": "HVA15",
-      "pop_55_80": 636,
+      "pop_50_74": 570,
       "pop_total": 1472
     },
     {
       "code": "KU257",
       "name": "Kirkkonummi",
       "hva": "HVA03",
-      "pop_55_80": 12088,
+      "pop_50_74": 13037,
       "pop_total": 41725
     },
     {
       "code": "KU260",
       "name": "Kitee",
       "hva": "HVA14",
-      "pop_55_80": 4549,
+      "pop_50_74": 4024,
       "pop_total": 9397
     },
     {
       "code": "KU261",
       "name": "Kittilä",
       "hva": "HVA21",
-      "pop_55_80": 2201,
+      "pop_50_74": 2200,
       "pop_total": 6973
     },
     {
       "code": "KU263",
       "name": "Kiuruvesi",
       "hva": "HVA13",
-      "pop_55_80": 3051,
+      "pop_50_74": 2738,
       "pop_total": 7255
     },
     {
       "code": "KU265",
       "name": "Kivijärvi",
       "hva": "HVA15",
-      "pop_55_80": 463,
+      "pop_50_74": 401,
       "pop_total": 1001
     },
     {
       "code": "KU271",
       "name": "Kokemäki",
       "hva": "HVA06",
-      "pop_55_80": 2666,
+      "pop_50_74": 2488,
       "pop_total": 6583
     },
     {
       "code": "KU272",
       "name": "Kokkola",
       "hva": "HVA18",
-      "pop_55_80": 14324,
+      "pop_50_74": 13591,
       "pop_total": 48338
     },
     {
       "code": "KU273",
       "name": "Kolari",
       "hva": "HVA21",
-      "pop_55_80": 1483,
+      "pop_50_74": 1398,
       "pop_total": 4001
     },
     {
       "code": "KU275",
       "name": "Konnevesi",
       "hva": "HVA15",
-      "pop_55_80": 1061,
+      "pop_50_74": 957,
       "pop_total": 2404
     },
     {
       "code": "KU276",
       "name": "Kontiolahti",
       "hva": "HVA14",
-      "pop_55_80": 4358,
+      "pop_50_74": 4539,
       "pop_total": 15060
     },
     {
       "code": "KU280",
       "name": "Korsnäs",
       "hva": "HVA17",
-      "pop_55_80": 762,
+      "pop_50_74": 696,
       "pop_total": 1984
     },
     {
       "code": "KU284",
       "name": "Koski Tl",
       "hva": "HVA05",
-      "pop_55_80": 847,
+      "pop_50_74": 765,
       "pop_total": 2144
     },
     {
       "code": "KU285",
       "name": "Kotka",
       "hva": "HVA10",
-      "pop_55_80": 18426,
+      "pop_50_74": 17207,
       "pop_total": 50029
     },
     {
       "code": "KU286",
       "name": "Kouvola",
       "hva": "HVA10",
-      "pop_55_80": 29926,
+      "pop_50_74": 27716,
       "pop_total": 77625
     },
     {
       "code": "KU287",
       "name": "Kristiinankaupunki",
       "hva": "HVA17",
-      "pop_55_80": 2680,
+      "pop_50_74": 2347,
       "pop_total": 6113
     },
     {
       "code": "KU288",
       "name": "Kruunupyy",
       "hva": "HVA17",
-      "pop_55_80": 2083,
+      "pop_50_74": 1964,
       "pop_total": 6268
     },
     {
       "code": "KU290",
       "name": "Kuhmo",
       "hva": "HVA20",
-      "pop_55_80": 3615,
+      "pop_50_74": 3209,
       "pop_total": 7300
     },
     {
       "code": "KU291",
       "name": "Kuhmoinen",
       "hva": "HVA08",
-      "pop_55_80": 1002,
+      "pop_50_74": 833,
       "pop_total": 1979
     },
     {
       "code": "KU295",
       "name": "Kumlinge",
       "hva": "HVA91",
-      "pop_55_80": 132,
+      "pop_50_74": 118,
       "pop_total": 271
     },
     {
       "code": "KU297",
       "name": "Kuopio",
       "hva": "HVA13",
-      "pop_55_80": 37544,
+      "pop_50_74": 36063,
       "pop_total": 126572
     },
     {
       "code": "KU300",
       "name": "Kuortane",
       "hva": "HVA16",
-      "pop_55_80": 1309,
+      "pop_50_74": 1211,
       "pop_total": 3306
     },
     {
       "code": "KU301",
       "name": "Kurikka",
       "hva": "HVA16",
-      "pop_55_80": 7645,
+      "pop_50_74": 6995,
       "pop_total": 19441
     },
     {
       "code": "KU304",
       "name": "Kustavi",
       "hva": "HVA05",
-      "pop_55_80": 526,
+      "pop_50_74": 469,
       "pop_total": 972
     },
     {
       "code": "KU305",
       "name": "Kuusamo",
       "hva": "HVA19",
-      "pop_55_80": 5887,
+      "pop_50_74": 5584,
       "pop_total": 14800
     },
     {
       "code": "KU312",
       "name": "Kyyjärvi",
       "hva": "HVA15",
-      "pop_55_80": 544,
+      "pop_50_74": 462,
       "pop_total": 1129
     },
     {
       "code": "KU316",
       "name": "Kärkölä",
       "hva": "HVA09",
-      "pop_55_80": 1726,
+      "pop_50_74": 1599,
       "pop_total": 4052
     },
     {
       "code": "KU317",
       "name": "Kärsämäki",
       "hva": "HVA19",
-      "pop_55_80": 872,
+      "pop_50_74": 805,
       "pop_total": 2324
     },
     {
       "code": "KU318",
       "name": "Kökar",
       "hva": "HVA91",
-      "pop_55_80": 100,
+      "pop_50_74": 94,
       "pop_total": 211
     },
     {
       "code": "KU398",
       "name": "Lahti",
       "hva": "HVA09",
-      "pop_55_80": 39295,
+      "pop_50_74": 36960,
       "pop_total": 121832
     },
     {
       "code": "KU399",
       "name": "Laihia",
       "hva": "HVA17",
-      "pop_55_80": 2474,
+      "pop_50_74": 2375,
       "pop_total": 7534
     },
     {
       "code": "KU400",
       "name": "Laitila",
       "hva": "HVA05",
-      "pop_55_80": 2790,
+      "pop_50_74": 2725,
       "pop_total": 8400
     },
     {
       "code": "KU407",
       "name": "Lapinjärvi",
       "hva": "HVA01",
-      "pop_55_80": 965,
+      "pop_50_74": 883,
       "pop_total": 2430
     },
     {
       "code": "KU402",
       "name": "Lapinlahti",
       "hva": "HVA13",
-      "pop_55_80": 3539,
+      "pop_50_74": 3263,
       "pop_total": 8803
     },
     {
       "code": "KU403",
       "name": "Lappajärvi",
       "hva": "HVA16",
-      "pop_55_80": 1173,
+      "pop_50_74": 1033,
       "pop_total": 2704
     },
     {
       "code": "KU405",
       "name": "Lappeenranta",
       "hva": "HVA11",
-      "pop_55_80": 23307,
+      "pop_50_74": 22289,
       "pop_total": 73241
     },
     {
       "code": "KU408",
       "name": "Lapua",
       "hva": "HVA16",
-      "pop_55_80": 4708,
+      "pop_50_74": 4537,
       "pop_total": 13927
     },
     {
       "code": "KU410",
       "name": "Laukaa",
       "hva": "HVA15",
-      "pop_55_80": 5711,
+      "pop_50_74": 5694,
       "pop_total": 18808
     },
     {
       "code": "KU416",
       "name": "Lemi",
       "hva": "HVA11",
-      "pop_55_80": 1055,
+      "pop_50_74": 1029,
       "pop_total": 2878
     },
     {
       "code": "KU417",
       "name": "Lemland",
       "hva": "HVA91",
-      "pop_55_80": 653,
+      "pop_50_74": 666,
       "pop_total": 2139
     },
     {
       "code": "KU418",
       "name": "Lempäälä",
       "hva": "HVA08",
-      "pop_55_80": 6376,
+      "pop_50_74": 6727,
       "pop_total": 25041
     },
     {
       "code": "KU420",
       "name": "Leppävirta",
       "hva": "HVA13",
-      "pop_55_80": 3816,
+      "pop_50_74": 3543,
       "pop_total": 8924
     },
     {
       "code": "KU421",
       "name": "Lestijärvi",
       "hva": "HVA18",
-      "pop_55_80": 298,
+      "pop_50_74": 273,
       "pop_total": 656
     },
     {
       "code": "KU422",
       "name": "Lieksa",
       "hva": "HVA14",
-      "pop_55_80": 4910,
+      "pop_50_74": 4302,
       "pop_total": 9846
     },
     {
       "code": "KU423",
       "name": "Lieto",
       "hva": "HVA05",
-      "pop_55_80": 6185,
+      "pop_50_74": 6238,
       "pop_total": 20732
     },
     {
       "code": "KU425",
       "name": "Liminka",
       "hva": "HVA19",
-      "pop_55_80": 1845,
+      "pop_50_74": 2222,
       "pop_total": 10116
     },
     {
       "code": "KU426",
       "name": "Liperi",
       "hva": "HVA14",
-      "pop_55_80": 4141,
+      "pop_50_74": 4064,
       "pop_total": 11980
     },
     {
       "code": "KU444",
       "name": "Lohja",
       "hva": "HVA03",
-      "pop_55_80": 16473,
+      "pop_50_74": 16026,
       "pop_total": 45435
     },
     {
       "code": "KU430",
       "name": "Loimaa",
       "hva": "HVA05",
-      "pop_55_80": 5904,
+      "pop_50_74": 5330,
       "pop_total": 15124
     },
     {
       "code": "KU433",
       "name": "Loppi",
       "hva": "HVA07",
-      "pop_55_80": 2879,
+      "pop_50_74": 2778,
       "pop_total": 7574
     },
     {
       "code": "KU434",
       "name": "Loviisa",
       "hva": "HVA01",
-      "pop_55_80": 5712,
+      "pop_50_74": 5376,
       "pop_total": 14196
     },
     {
       "code": "KU435",
       "name": "Luhanka",
       "hva": "HVA15",
-      "pop_55_80": 375,
+      "pop_50_74": 327,
       "pop_total": 695
     },
     {
       "code": "KU436",
       "name": "Lumijoki",
       "hva": "HVA19",
-      "pop_55_80": 531,
+      "pop_50_74": 545,
       "pop_total": 2018
     },
     {
       "code": "KU438",
       "name": "Lumparland",
       "hva": "HVA91",
-      "pop_55_80": 147,
+      "pop_50_74": 142,
       "pop_total": 371
     },
     {
       "code": "KU440",
       "name": "Luoto",
       "hva": "HVA17",
-      "pop_55_80": 1210,
+      "pop_50_74": 1226,
       "pop_total": 5955
     },
     {
       "code": "KU441",
       "name": "Luumäki",
       "hva": "HVA11",
-      "pop_55_80": 1954,
+      "pop_50_74": 1792,
       "pop_total": 4304
     },
     {
       "code": "KU475",
       "name": "Maalahti",
       "hva": "HVA17",
-      "pop_55_80": 1831,
+      "pop_50_74": 1715,
       "pop_total": 5392
     },
     {
       "code": "KU478",
       "name": "Maarianhamina - Mariehamn",
       "hva": "HVA91",
-      "pop_55_80": 3881,
+      "pop_50_74": 3775,
       "pop_total": 11957
     },
     {
       "code": "KU480",
       "name": "Marttila",
       "hva": "HVA05",
-      "pop_55_80": 686,
+      "pop_50_74": 641,
       "pop_total": 1890
     },
     {
       "code": "KU481",
       "name": "Masku",
       "hva": "HVA05",
-      "pop_55_80": 2944,
+      "pop_50_74": 3095,
       "pop_total": 9612
     },
     {
       "code": "KU483",
       "name": "Merijärvi",
       "hva": "HVA19",
-      "pop_55_80": 338,
+      "pop_50_74": 299,
       "pop_total": 1031
     },
     {
       "code": "KU484",
       "name": "Merikarvia",
       "hva": "HVA06",
-      "pop_55_80": 1222,
+      "pop_50_74": 1099,
       "pop_total": 2834
     },
     {
       "code": "KU489",
       "name": "Miehikkälä",
       "hva": "HVA10",
-      "pop_55_80": 791,
+      "pop_50_74": 708,
       "pop_total": 1664
     },
     {
       "code": "KU491",
       "name": "Mikkeli",
       "hva": "HVA12",
-      "pop_55_80": 18575,
+      "pop_50_74": 17344,
       "pop_total": 51551
     },
     {
       "code": "KU494",
       "name": "Muhos",
       "hva": "HVA19",
-      "pop_55_80": 2553,
+      "pop_50_74": 2601,
       "pop_total": 8767
     },
     {
       "code": "KU495",
       "name": "Multia",
       "hva": "HVA15",
-      "pop_55_80": 656,
+      "pop_50_74": 605,
       "pop_total": 1386
     },
     {
       "code": "KU498",
       "name": "Muonio",
       "hva": "HVA21",
-      "pop_55_80": 816,
+      "pop_50_74": 791,
       "pop_total": 2323
     },
     {
       "code": "KU499",
       "name": "Mustasaari",
       "hva": "HVA17",
-      "pop_55_80": 5920,
+      "pop_50_74": 5855,
       "pop_total": 19792
     },
     {
       "code": "KU500",
       "name": "Muurame",
       "hva": "HVA15",
-      "pop_55_80": 3088,
+      "pop_50_74": 3203,
       "pop_total": 10646
     },
     {
       "code": "KU503",
       "name": "Mynämäki",
       "hva": "HVA05",
-      "pop_55_80": 2810,
+      "pop_50_74": 2683,
       "pop_total": 7424
     },
     {
       "code": "KU504",
       "name": "Myrskylä",
       "hva": "HVA01",
-      "pop_55_80": 666,
+      "pop_50_74": 619,
       "pop_total": 1692
     },
     {
       "code": "KU505",
       "name": "Mäntsälä",
       "hva": "HVA02",
-      "pop_55_80": 6563,
+      "pop_50_74": 6815,
       "pop_total": 20861
     },
     {
       "code": "KU508",
       "name": "Mänttä-Vilppula",
       "hva": "HVA08",
-      "pop_55_80": 3998,
+      "pop_50_74": 3543,
       "pop_total": 9109
     },
     {
       "code": "KU507",
       "name": "Mäntyharju",
       "hva": "HVA12",
-      "pop_55_80": 3287,
+      "pop_50_74": 2927,
       "pop_total": 7034
     },
     {
       "code": "KU529",
       "name": "Naantali",
       "hva": "HVA05",
-      "pop_55_80": 7744,
+      "pop_50_74": 7444,
       "pop_total": 20390
     },
     {
       "code": "KU531",
       "name": "Nakkila",
       "hva": "HVA06",
-      "pop_55_80": 1865,
+      "pop_50_74": 1689,
       "pop_total": 4890
     },
     {
       "code": "KU535",
       "name": "Nivala",
       "hva": "HVA19",
-      "pop_55_80": 2952,
+      "pop_50_74": 2761,
       "pop_total": 10300
     },
     {
       "code": "KU536",
       "name": "Nokia",
       "hva": "HVA08",
-      "pop_55_80": 10625,
+      "pop_50_74": 10709,
       "pop_total": 36571
     },
     {
       "code": "KU538",
       "name": "Nousiainen",
       "hva": "HVA05",
-      "pop_55_80": 1442,
+      "pop_50_74": 1502,
       "pop_total": 4667
     },
     {
       "code": "KU541",
       "name": "Nurmes",
       "hva": "HVA14",
-      "pop_55_80": 3917,
+      "pop_50_74": 3453,
       "pop_total": 8760
     },
     {
       "code": "KU543",
       "name": "Nurmijärvi",
       "hva": "HVA02",
-      "pop_55_80": 12996,
+      "pop_50_74": 13927,
       "pop_total": 45333
     },
     {
       "code": "KU545",
       "name": "Närpiö",
       "hva": "HVA17",
-      "pop_55_80": 3098,
+      "pop_50_74": 2920,
       "pop_total": 9538
     },
     {
       "code": "KU560",
       "name": "Orimattila",
       "hva": "HVA09",
-      "pop_55_80": 5607,
+      "pop_50_74": 5427,
       "pop_total": 15575
     },
     {
       "code": "KU561",
       "name": "Oripää",
       "hva": "HVA05",
-      "pop_55_80": 425,
+      "pop_50_74": 417,
       "pop_total": 1264
     },
     {
       "code": "KU562",
       "name": "Orivesi",
       "hva": "HVA08",
-      "pop_55_80": 3478,
+      "pop_50_74": 3148,
       "pop_total": 8858
     },
     {
       "code": "KU563",
       "name": "Oulainen",
       "hva": "HVA19",
-      "pop_55_80": 2463,
+      "pop_50_74": 2283,
       "pop_total": 6832
     },
     {
       "code": "KU564",
       "name": "Oulu",
       "hva": "HVA19",
-      "pop_55_80": 53417,
+      "pop_50_74": 55223,
       "pop_total": 217469
     },
     {
       "code": "KU309",
       "name": "Outokumpu",
       "hva": "HVA14",
-      "pop_55_80": 2638,
+      "pop_50_74": 2336,
       "pop_total": 6365
     },
     {
       "code": "KU576",
       "name": "Padasjoki",
       "hva": "HVA09",
-      "pop_55_80": 1323,
+      "pop_50_74": 1123,
       "pop_total": 2656
     },
     {
       "code": "KU577",
       "name": "Paimio",
       "hva": "HVA05",
-      "pop_55_80": 3429,
+      "pop_50_74": 3329,
       "pop_total": 11284
     },
     {
       "code": "KU578",
       "name": "Paltamo",
       "hva": "HVA20",
-      "pop_55_80": 1391,
+      "pop_50_74": 1250,
       "pop_total": 2941
     },
     {
       "code": "KU445",
       "name": "Parainen",
       "hva": "HVA05",
-      "pop_55_80": 5684,
+      "pop_50_74": 5419,
       "pop_total": 14712
     },
     {
       "code": "KU580",
       "name": "Parikkala",
       "hva": "HVA11",
-      "pop_55_80": 2164,
+      "pop_50_74": 1857,
       "pop_total": 4235
     },
     {
       "code": "KU581",
       "name": "Parkano",
       "hva": "HVA08",
-      "pop_55_80": 2516,
+      "pop_50_74": 2187,
       "pop_total": 6011
     },
     {
       "code": "KU599",
       "name": "Pedersören kunta",
       "hva": "HVA17",
-      "pop_55_80": 2839,
+      "pop_50_74": 2769,
       "pop_total": 11289
     },
     {
       "code": "KU583",
       "name": "Pelkosenniemi",
       "hva": "HVA21",
-      "pop_55_80": 428,
+      "pop_50_74": 381,
       "pop_total": 932
     },
     {
       "code": "KU854",
       "name": "Pello",
       "hva": "HVA21",
-      "pop_55_80": 1610,
+      "pop_50_74": 1382,
       "pop_total": 3146
     },
     {
       "code": "KU584",
       "name": "Perho",
       "hva": "HVA18",
-      "pop_55_80": 776,
+      "pop_50_74": 679,
       "pop_total": 2547
     },
     {
       "code": "KU592",
       "name": "Petäjävesi",
       "hva": "HVA15",
-      "pop_55_80": 1274,
+      "pop_50_74": 1192,
       "pop_total": 3511
     },
     {
       "code": "KU593",
       "name": "Pieksämäki",
       "hva": "HVA12",
-      "pop_55_80": 7293,
+      "pop_50_74": 6599,
       "pop_total": 17124
     },
     {
       "code": "KU595",
       "name": "Pielavesi",
       "hva": "HVA13",
-      "pop_55_80": 1835,
+      "pop_50_74": 1552,
       "pop_total": 3873
     },
     {
       "code": "KU598",
       "name": "Pietarsaari",
       "hva": "HVA17",
-      "pop_55_80": 6151,
+      "pop_50_74": 5869,
       "pop_total": 19657
     },
     {
       "code": "KU601",
       "name": "Pihtipudas",
       "hva": "HVA15",
-      "pop_55_80": 1521,
+      "pop_50_74": 1392,
       "pop_total": 3676
     },
     {
       "code": "KU604",
       "name": "Pirkkala",
       "hva": "HVA08",
-      "pop_55_80": 5572,
+      "pop_50_74": 5785,
       "pop_total": 21373
     },
     {
       "code": "KU607",
       "name": "Polvijärvi",
       "hva": "HVA14",
-      "pop_55_80": 1760,
+      "pop_50_74": 1592,
       "pop_total": 3942
     },
     {
       "code": "KU608",
       "name": "Pomarkku",
       "hva": "HVA06",
-      "pop_55_80": 785,
+      "pop_50_74": 702,
       "pop_total": 1893
     },
     {
       "code": "KU609",
       "name": "Pori",
       "hva": "HVA06",
-      "pop_55_80": 27901,
+      "pop_50_74": 26092,
       "pop_total": 83010
     },
     {
       "code": "KU611",
       "name": "Pornainen",
       "hva": "HVA02",
-      "pop_55_80": 1606,
+      "pop_50_74": 1765,
       "pop_total": 4919
     },
     {
       "code": "KU638",
       "name": "Porvoo",
       "hva": "HVA01",
-      "pop_55_80": 16660,
+      "pop_50_74": 16863,
       "pop_total": 51863
     },
     {
       "code": "KU614",
       "name": "Posio",
       "hva": "HVA21",
-      "pop_55_80": 1539,
+      "pop_50_74": 1362,
       "pop_total": 2826
     },
     {
       "code": "KU615",
       "name": "Pudasjärvi",
       "hva": "HVA19",
-      "pop_55_80": 3137,
+      "pop_50_74": 2804,
       "pop_total": 7168
     },
     {
       "code": "KU616",
       "name": "Pukkila",
       "hva": "HVA01",
-      "pop_55_80": 673,
+      "pop_50_74": 692,
       "pop_total": 1720
     },
     {
       "code": "KU619",
       "name": "Punkalaidun",
       "hva": "HVA08",
-      "pop_55_80": 1101,
+      "pop_50_74": 1018,
       "pop_total": 2546
     },
     {
       "code": "KU620",
       "name": "Puolanka",
       "hva": "HVA20",
-      "pop_55_80": 1225,
+      "pop_50_74": 1074,
       "pop_total": 2322
     },
     {
       "code": "KU623",
       "name": "Puumala",
       "hva": "HVA12",
-      "pop_55_80": 1164,
+      "pop_50_74": 1006,
       "pop_total": 2081
     },
     {
       "code": "KU624",
       "name": "Pyhtää",
       "hva": "HVA10",
-      "pop_55_80": 1872,
+      "pop_50_74": 1791,
       "pop_total": 5016
     },
     {
       "code": "KU625",
       "name": "Pyhäjoki",
       "hva": "HVA19",
-      "pop_55_80": 1072,
+      "pop_50_74": 950,
       "pop_total": 2938
     },
     {
       "code": "KU626",
       "name": "Pyhäjärvi",
       "hva": "HVA19",
-      "pop_55_80": 2021,
+      "pop_50_74": 1740,
       "pop_total": 4551
     },
     {
       "code": "KU630",
       "name": "Pyhäntä",
       "hva": "HVA19",
-      "pop_55_80": 519,
+      "pop_50_74": 498,
       "pop_total": 1678
     },
     {
       "code": "KU631",
       "name": "Pyhäranta",
       "hva": "HVA05",
-      "pop_55_80": 802,
+      "pop_50_74": 745,
       "pop_total": 1892
     },
     {
       "code": "KU635",
       "name": "Pälkäne",
       "hva": "HVA08",
-      "pop_55_80": 2504,
+      "pop_50_74": 2337,
       "pop_total": 6146
     },
     {
       "code": "KU636",
       "name": "Pöytyä",
       "hva": "HVA05",
-      "pop_55_80": 2791,
+      "pop_50_74": 2667,
       "pop_total": 7903
     },
     {
       "code": "KU678",
       "name": "Raahe",
       "hva": "HVA19",
-      "pop_55_80": 8052,
+      "pop_50_74": 7579,
       "pop_total": 23413
     },
     {
       "code": "KU710",
       "name": "Raasepori",
       "hva": "HVA03",
-      "pop_55_80": 9869,
+      "pop_50_74": 9394,
       "pop_total": 26856
     },
     {
       "code": "KU680",
       "name": "Raisio",
       "hva": "HVA05",
-      "pop_55_80": 8279,
+      "pop_50_74": 8137,
       "pop_total": 26036
     },
     {
       "code": "KU681",
       "name": "Rantasalmi",
       "hva": "HVA12",
-      "pop_55_80": 1487,
+      "pop_50_74": 1335,
       "pop_total": 3219
     },
     {
       "code": "KU683",
       "name": "Ranua",
       "hva": "HVA21",
-      "pop_55_80": 1453,
+      "pop_50_74": 1295,
       "pop_total": 3530
     },
     {
       "code": "KU684",
       "name": "Rauma",
       "hva": "HVA06",
-      "pop_55_80": 13069,
+      "pop_50_74": 12344,
       "pop_total": 38773
     },
     {
       "code": "KU686",
       "name": "Rautalampi",
       "hva": "HVA13",
-      "pop_55_80": 1311,
+      "pop_50_74": 1158,
       "pop_total": 2928
     },
     {
       "code": "KU687",
       "name": "Rautavaara",
       "hva": "HVA13",
-      "pop_55_80": 715,
+      "pop_50_74": 637,
       "pop_total": 1398
     },
     {
       "code": "KU689",
       "name": "Rautjärvi",
       "hva": "HVA11",
-      "pop_55_80": 1466,
+      "pop_50_74": 1312,
       "pop_total": 2888
     },
     {
       "code": "KU691",
       "name": "Reisjärvi",
       "hva": "HVA19",
-      "pop_55_80": 902,
+      "pop_50_74": 824,
       "pop_total": 2476
     },
     {
       "code": "KU694",
       "name": "Riihimäki",
       "hva": "HVA07",
-      "pop_55_80": 9509,
+      "pop_50_74": 9344,
       "pop_total": 28555
     },
     {
       "code": "KU697",
       "name": "Ristijärvi",
       "hva": "HVA20",
-      "pop_55_80": 600,
+      "pop_50_74": 512,
       "pop_total": 1158
     },
     {
       "code": "KU698",
       "name": "Rovaniemi",
       "hva": "HVA21",
-      "pop_55_80": 18839,
+      "pop_50_74": 18507,
       "pop_total": 66191
     },
     {
       "code": "KU700",
       "name": "Ruokolahti",
       "hva": "HVA11",
-      "pop_55_80": 2151,
+      "pop_50_74": 1988,
       "pop_total": 4679
     },
     {
       "code": "KU702",
       "name": "Ruovesi",
       "hva": "HVA08",
-      "pop_55_80": 1860,
+      "pop_50_74": 1659,
       "pop_total": 3995
     },
     {
       "code": "KU704",
       "name": "Rusko",
       "hva": "HVA05",
-      "pop_55_80": 1926,
+      "pop_50_74": 1943,
       "pop_total": 6381
     },
     {
       "code": "KU707",
       "name": "Rääkkylä",
       "hva": "HVA14",
-      "pop_55_80": 1037,
+      "pop_50_74": 889,
       "pop_total": 1830
     },
     {
       "code": "KU729",
       "name": "Saarijärvi",
       "hva": "HVA15",
-      "pop_55_80": 3873,
+      "pop_50_74": 3500,
       "pop_total": 8763
     },
     {
       "code": "KU732",
       "name": "Salla",
       "hva": "HVA21",
-      "pop_55_80": 1609,
+      "pop_50_74": 1450,
       "pop_total": 3231
     },
     {
       "code": "KU734",
       "name": "Salo",
       "hva": "HVA05",
-      "pop_55_80": 19000,
+      "pop_50_74": 18113,
       "pop_total": 50339
     },
     {
       "code": "KU736",
       "name": "Saltvik",
       "hva": "HVA91",
-      "pop_55_80": 608,
+      "pop_50_74": 590,
       "pop_total": 1802
     },
     {
       "code": "KU790",
       "name": "Sastamala",
       "hva": "HVA08",
-      "pop_55_80": 9140,
+      "pop_50_74": 8483,
       "pop_total": 23332
     },
     {
       "code": "KU738",
       "name": "Sauvo",
       "hva": "HVA05",
-      "pop_55_80": 1151,
+      "pop_50_74": 1109,
       "pop_total": 2957
     },
     {
       "code": "KU739",
       "name": "Savitaipale",
       "hva": "HVA11",
-      "pop_55_80": 1424,
+      "pop_50_74": 1252,
       "pop_total": 3094
     },
     {
       "code": "KU740",
       "name": "Savonlinna",
       "hva": "HVA12",
-      "pop_55_80": 13256,
+      "pop_50_74": 11942,
       "pop_total": 31008
     },
     {
       "code": "KU742",
       "name": "Savukoski",
       "hva": "HVA21",
-      "pop_55_80": 474,
+      "pop_50_74": 437,
       "pop_total": 974
     },
     {
       "code": "KU743",
       "name": "Seinäjoki",
       "hva": "HVA16",
-      "pop_55_80": 18435,
+      "pop_50_74": 18057,
       "pop_total": 67283
     },
     {
       "code": "KU746",
       "name": "Sievi",
       "hva": "HVA19",
-      "pop_55_80": 1293,
+      "pop_50_74": 1286,
       "pop_total": 4585
     },
     {
       "code": "KU747",
       "name": "Siikainen",
       "hva": "HVA06",
-      "pop_55_80": 600,
+      "pop_50_74": 546,
       "pop_total": 1229
     },
     {
       "code": "KU748",
       "name": "Siikajoki",
       "hva": "HVA19",
-      "pop_55_80": 1661,
+      "pop_50_74": 1565,
       "pop_total": 4723
     },
     {
       "code": "KU791",
       "name": "Siikalatva",
       "hva": "HVA19",
-      "pop_55_80": 1995,
+      "pop_50_74": 1825,
       "pop_total": 4861
     },
     {
       "code": "KU749",
       "name": "Siilinjärvi",
       "hva": "HVA13",
-      "pop_55_80": 6772,
+      "pop_50_74": 6657,
       "pop_total": 21348
     },
     {
       "code": "KU751",
       "name": "Simo",
       "hva": "HVA21",
-      "pop_55_80": 1226,
+      "pop_50_74": 1096,
       "pop_total": 2701
     },
     {
       "code": "KU753",
       "name": "Sipoo",
       "hva": "HVA01",
-      "pop_55_80": 6923,
+      "pop_50_74": 7398,
       "pop_total": 23006
     },
     {
       "code": "KU755",
       "name": "Siuntio",
       "hva": "HVA03",
-      "pop_55_80": 2149,
+      "pop_50_74": 2224,
       "pop_total": 6192
     },
     {
       "code": "KU758",
       "name": "Sodankylä",
       "hva": "HVA21",
-      "pop_55_80": 3268,
+      "pop_50_74": 3045,
       "pop_total": 8095
     },
     {
       "code": "KU759",
       "name": "Soini",
       "hva": "HVA16",
-      "pop_55_80": 785,
+      "pop_50_74": 689,
       "pop_total": 1772
     },
     {
       "code": "KU761",
       "name": "Somero",
       "hva": "HVA05",
-      "pop_55_80": 3426,
+      "pop_50_74": 3154,
       "pop_total": 8339
     },
     {
       "code": "KU762",
       "name": "Sonkajärvi",
       "hva": "HVA13",
-      "pop_55_80": 1667,
+      "pop_50_74": 1479,
       "pop_total": 3521
     },
     {
       "code": "KU765",
       "name": "Sotkamo",
       "hva": "HVA20",
-      "pop_55_80": 3819,
+      "pop_50_74": 3661,
       "pop_total": 10161
     },
     {
       "code": "KU766",
       "name": "Sottunga",
       "hva": "HVA91",
-      "pop_55_80": 55,
+      "pop_50_74": 47,
       "pop_total": 101
     },
     {
       "code": "KU768",
       "name": "Sulkava",
       "hva": "HVA12",
-      "pop_55_80": 1137,
+      "pop_50_74": 1008,
       "pop_total": 2310
     },
     {
       "code": "KU771",
       "name": "Sund",
       "hva": "HVA91",
-      "pop_55_80": 363,
+      "pop_50_74": 376,
       "pop_total": 1018
     },
     {
       "code": "KU777",
       "name": "Suomussalmi",
       "hva": "HVA20",
-      "pop_55_80": 3569,
+      "pop_50_74": 3142,
       "pop_total": 6957
     },
     {
       "code": "KU778",
       "name": "Suonenjoki",
       "hva": "HVA13",
-      "pop_55_80": 2658,
+      "pop_50_74": 2420,
       "pop_total": 6549
     },
     {
       "code": "KU781",
       "name": "Sysmä",
       "hva": "HVA09",
-      "pop_55_80": 1764,
+      "pop_50_74": 1537,
       "pop_total": 3367
     },
     {
       "code": "KU783",
       "name": "Säkylä",
       "hva": "HVA06",
-      "pop_55_80": 2623,
+      "pop_50_74": 2409,
       "pop_total": 6221
     },
     {
       "code": "KU831",
       "name": "Taipalsaari",
       "hva": "HVA11",
-      "pop_55_80": 1851,
+      "pop_50_74": 1805,
       "pop_total": 4574
     },
     {
       "code": "KU832",
       "name": "Taivalkoski",
       "hva": "HVA19",
-      "pop_55_80": 1586,
+      "pop_50_74": 1471,
       "pop_total": 3555
     },
     {
       "code": "KU833",
       "name": "Taivassalo",
       "hva": "HVA05",
-      "pop_55_80": 774,
+      "pop_50_74": 682,
       "pop_total": 1707
     },
     {
       "code": "KU834",
       "name": "Tammela",
       "hva": "HVA07",
-      "pop_55_80": 2349,
+      "pop_50_74": 2224,
       "pop_total": 5777
     },
     {
       "code": "KU837",
       "name": "Tampere",
       "hva": "HVA08",
-      "pop_55_80": 63964,
+      "pop_50_74": 63101,
       "pop_total": 263337
     },
     {
       "code": "KU844",
       "name": "Tervo",
       "hva": "HVA13",
-      "pop_55_80": 725,
+      "pop_50_74": 660,
       "pop_total": 1388
     },
     {
       "code": "KU845",
       "name": "Tervola",
       "hva": "HVA21",
-      "pop_55_80": 1114,
+      "pop_50_74": 1038,
       "pop_total": 2837
     },
     {
       "code": "KU846",
       "name": "Teuva",
       "hva": "HVA16",
-      "pop_55_80": 1946,
+      "pop_50_74": 1705,
       "pop_total": 4574
     },
     {
       "code": "KU848",
       "name": "Tohmajärvi",
       "hva": "HVA14",
-      "pop_55_80": 1774,
+      "pop_50_74": 1634,
       "pop_total": 3869
     },
     {
       "code": "KU849",
       "name": "Toholampi",
       "hva": "HVA18",
-      "pop_55_80": 1078,
+      "pop_50_74": 963,
       "pop_total": 2750
     },
     {
       "code": "KU850",
       "name": "Toivakka",
       "hva": "HVA15",
-      "pop_55_80": 849,
+      "pop_50_74": 811,
       "pop_total": 2307
     },
     {
       "code": "KU851",
       "name": "Tornio",
       "hva": "HVA21",
-      "pop_55_80": 7091,
+      "pop_50_74": 6776,
       "pop_total": 20823
     },
     {
       "code": "KU853",
       "name": "Turku",
       "hva": "HVA05",
-      "pop_55_80": 53033,
+      "pop_50_74": 51449,
       "pop_total": 209633
     },
     {
       "code": "KU857",
       "name": "Tuusniemi",
       "hva": "HVA13",
-      "pop_55_80": 1160,
+      "pop_50_74": 1031,
       "pop_total": 2270
     },
     {
       "code": "KU858",
       "name": "Tuusula",
       "hva": "HVA02",
-      "pop_55_80": 12486,
+      "pop_50_74": 13242,
       "pop_total": 42479
     },
     {
       "code": "KU859",
       "name": "Tyrnävä",
       "hva": "HVA19",
-      "pop_55_80": 1472,
+      "pop_50_74": 1583,
       "pop_total": 6470
     },
     {
       "code": "KU886",
       "name": "Ulvila",
       "hva": "HVA06",
-      "pop_55_80": 4238,
+      "pop_50_74": 3903,
       "pop_total": 12339
     },
     {
       "code": "KU887",
       "name": "Urjala",
       "hva": "HVA08",
-      "pop_55_80": 1846,
+      "pop_50_74": 1711,
       "pop_total": 4440
     },
     {
       "code": "KU889",
       "name": "Utajärvi",
       "hva": "HVA19",
-      "pop_55_80": 1061,
+      "pop_50_74": 968,
       "pop_total": 2399
     },
     {
       "code": "KU890",
       "name": "Utsjoki",
       "hva": "HVA21",
-      "pop_55_80": 448,
+      "pop_50_74": 419,
       "pop_total": 1112
     },
     {
       "code": "KU892",
       "name": "Uurainen",
       "hva": "HVA15",
-      "pop_55_80": 1043,
+      "pop_50_74": 1042,
       "pop_total": 3651
     },
     {
       "code": "KU893",
       "name": "Uusikaarlepyy",
       "hva": "HVA17",
-      "pop_55_80": 2284,
+      "pop_50_74": 2166,
       "pop_total": 7391
     },
     {
       "code": "KU895",
       "name": "Uusikaupunki",
       "hva": "HVA05",
-      "pop_55_80": 5685,
+      "pop_50_74": 5127,
       "pop_total": 14783
     },
     {
       "code": "KU785",
       "name": "Vaala",
       "hva": "HVA19",
-      "pop_55_80": 1253,
+      "pop_50_74": 1105,
       "pop_total": 2544
     },
     {
       "code": "KU905",
       "name": "Vaasa",
       "hva": "HVA17",
-      "pop_55_80": 18467,
+      "pop_50_74": 18186,
       "pop_total": 71209
     },
     {
       "code": "KU908",
       "name": "Valkeakoski",
       "hva": "HVA08",
-      "pop_55_80": 7104,
+      "pop_50_74": 6651,
       "pop_total": 20762
     },
     {
       "code": "KU092",
       "name": "Vantaa",
       "hva": "HVA04",
-      "pop_55_80": 60609,
+      "pop_50_74": 64634,
       "pop_total": 252956
     },
     {
       "code": "KU915",
       "name": "Varkaus",
       "hva": "HVA13",
-      "pop_55_80": 8169,
+      "pop_50_74": 7495,
       "pop_total": 19433
     },
     {
       "code": "KU918",
       "name": "Vehmaa",
       "hva": "HVA05",
-      "pop_55_80": 860,
+      "pop_50_74": 797,
       "pop_total": 2263
     },
     {
       "code": "KU921",
       "name": "Vesanto",
       "hva": "HVA13",
-      "pop_55_80": 910,
+      "pop_50_74": 765,
       "pop_total": 1787
     },
     {
       "code": "KU922",
       "name": "Vesilahti",
       "hva": "HVA08",
-      "pop_55_80": 1408,
+      "pop_50_74": 1498,
       "pop_total": 4532
     },
     {
       "code": "KU924",
       "name": "Veteli",
       "hva": "HVA18",
-      "pop_55_80": 1131,
+      "pop_50_74": 1055,
       "pop_total": 2912
     },
     {
       "code": "KU925",
       "name": "Vieremä",
       "hva": "HVA13",
-      "pop_55_80": 1316,
+      "pop_50_74": 1258,
       "pop_total": 3295
     },
     {
       "code": "KU927",
       "name": "Vihti",
       "hva": "HVA03",
-      "pop_55_80": 9257,
+      "pop_50_74": 9420,
       "pop_total": 28852
     },
     {
       "code": "KU931",
       "name": "Viitasaari",
       "hva": "HVA15",
-      "pop_55_80": 2565,
+      "pop_50_74": 2237,
       "pop_total": 5695
     },
     {
       "code": "KU934",
       "name": "Vimpeli",
       "hva": "HVA16",
-      "pop_55_80": 1113,
+      "pop_50_74": 1028,
       "pop_total": 2554
     },
     {
       "code": "KU935",
       "name": "Virolahti",
       "hva": "HVA10",
-      "pop_55_80": 1275,
+      "pop_50_74": 1174,
       "pop_total": 2751
     },
     {
       "code": "KU936",
       "name": "Virrat",
       "hva": "HVA08",
-      "pop_55_80": 2657,
+      "pop_50_74": 2374,
       "pop_total": 6126
     },
     {
       "code": "KU941",
       "name": "Vårdö",
       "hva": "HVA91",
-      "pop_55_80": 168,
+      "pop_50_74": 155,
       "pop_total": 465
     },
     {
       "code": "KU946",
       "name": "Vöyri",
       "hva": "HVA17",
-      "pop_55_80": 2136,
+      "pop_50_74": 2009,
       "pop_total": 6185
     },
     {
       "code": "KU976",
       "name": "Ylitornio",
       "hva": "HVA21",
-      "pop_55_80": 1742,
+      "pop_50_74": 1553,
       "pop_total": 3673
     },
     {
       "code": "KU977",
       "name": "Ylivieska",
       "hva": "HVA19",
-      "pop_55_80": 4288,
+      "pop_50_74": 4097,
       "pop_total": 15274
     },
     {
       "code": "KU980",
       "name": "Ylöjärvi",
       "hva": "HVA08",
-      "pop_55_80": 9751,
+      "pop_50_74": 10032,
       "pop_total": 33658
     },
     {
       "code": "KU981",
       "name": "Ypäjä",
       "hva": "HVA07",
-      "pop_55_80": 914,
+      "pop_50_74": 852,
       "pop_total": 2186
     },
     {
       "code": "KU989",
       "name": "Ähtäri",
       "hva": "HVA16",
-      "pop_55_80": 2213,
+      "pop_50_74": 1941,
       "pop_total": 5121
     },
     {
       "code": "KU992",
       "name": "Äänekoski",
       "hva": "HVA15",
-      "pop_55_80": 6802,
+      "pop_50_74": 6363,
       "pop_total": 17492
     }
   ]

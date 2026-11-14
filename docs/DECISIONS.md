@@ -181,3 +181,10 @@ Add entries in chronological order. Link evidence, and link any later entry that
 - **Context** The old mark showed a grey lobe with tumours. The same mark appears in the invitation survey for smokers, who already respond less than others (Yorkshire: adjusted OR 0.44 for current smokers, `ylst-2022`). A diseased-lung image resembles a cigarette-pack warning and can shame or frighten. At 16–40 px the lesions also read as smudges.
 - **Decision** The mark now shows two healthy lungs with a gold arrow rising through the trachea ("faster forward"), in `src/components/Logo.tsx` and `src/app/icon.svg`. The diseased-lung imagery stays in the home page story, where it is explained. The tagline under the name is larger (12 px). The home page's primary button now opens the decision-maker view, and the clinician area shows a placeholder instead of a blank page while it loads.
 - **Trade-offs** The mark no longer shows the disease directly; the name and tagline carry that meaning.
+
+## 2026-11-14 — Risk group ages match the screening pilot (50–74)
+
+- **Status** Requested by Noel on 2026-11-14. Changes the age limits in Delun's `RULES_CONFIG` (`src/lib/rules.ts`); the rest of his model is unchanged. Tell Delun.
+- **Context** The survey used 55–80 (US screening criteria) while the national pilot ISC-LDCT uses 50–74. Two different age ranges made the pitch harder to explain.
+- **Decision** Survey risk group and screening list use ages 50–74. Population figures, language data, texts in all eight languages and tests were updated. The screening list flags ages 50–54, which are outside the PLCOm2012 development cohort (55–74), and its equity comparison counts invitees aged 65 or over instead of 75 or over.
+- **Trade-offs** People aged 75–80 are no longer invited, although lung cancer risk rises with age. People of any age with symptoms still reach the physician's list. The survey still complements the pilot by including former smokers and people with symptoms.

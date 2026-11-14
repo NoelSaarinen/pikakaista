@@ -1,348 +1,348 @@
 {
  "source_id": "statfin-11rl",
  "year": "2025",
- "age_group": "55–79",
+ "age_group": "50–74",
  "note": "Rekisteröity äidinkieli 31.12. Maakunnittain; Uudenmaan maakunta kattaa Helsingin ja neljä Uudenmaan hyvinvointialuetta. Saame on rekisterissä aliedustettu.",
  "regions": {
   "SSS": {
    "name": "Koko maa",
-   "total": 1375463,
+   "total": 1695391,
    "languages": [
     {
      "name": "suomi",
      "code": "fi",
-     "count": 1234658
+     "count": 1502253
     },
     {
      "name": "ruotsi",
      "code": "sv",
-     "count": 66700
+     "count": 82058
     },
     {
      "name": "venäjä",
      "code": "ru",
-     "count": 21265
+     "count": 29440
     },
     {
      "name": "viro, eesti",
      "code": "et",
-     "count": 11043
+     "count": 15314
     },
     {
      "name": "ukraina",
      "code": "uk",
-     "count": 4545
-    },
-    {
-     "name": "englanti",
-     "code": "en",
-     "count": 4003
+     "count": 6956
     },
     {
      "name": "arabia",
      "code": "ar",
-     "count": 3960
+     "count": 6053
+    },
+    {
+     "name": "englanti",
+     "code": "en",
+     "count": 6034
     },
     {
      "name": "thai",
      "code": null,
-     "count": 1920
+     "count": 3525
     },
     {
      "name": "kiina",
      "code": null,
-     "count": 1865
-    },
-    {
-     "name": "somali",
-     "code": null,
-     "count": 1850
+     "count": 2984
     },
     {
      "name": "kurdi",
      "code": null,
-     "count": 1640
-    },
-    {
-     "name": "farsi, persia",
-     "code": null,
-     "count": 1613
-    },
-    {
-     "name": "albania",
-     "code": null,
-     "count": 1446
-    },
-    {
-     "name": "saksa",
-     "code": null,
-     "count": 1426
-    },
-    {
-     "name": "vietnam",
-     "code": null,
-     "count": 1360
-    },
-    {
-     "name": "saame",
-     "code": "se",
-     "count": 494
-    }
-   ],
-   "other_count": 15675
-  },
-  "MK01": {
-   "name": "Uusimaa",
-   "total": 382625,
-   "languages": [
-    {
-     "name": "suomi",
-     "code": "fi",
-     "count": 314931
-    },
-    {
-     "name": "ruotsi",
-     "code": "sv",
-     "count": 29166
-    },
-    {
-     "name": "venäjä",
-     "code": "ru",
-     "count": 9059
-    },
-    {
-     "name": "viro, eesti",
-     "code": "et",
-     "count": 7175
-    },
-    {
-     "name": "arabia",
-     "code": "ar",
-     "count": 2499
-    },
-    {
-     "name": "englanti",
-     "code": "en",
-     "count": 2204
+     "count": 2584
     },
     {
      "name": "somali",
      "code": null,
-     "count": 1617
-    },
-    {
-     "name": "kiina",
-     "code": null,
-     "count": 1277
-    },
-    {
-     "name": "ukraina",
-     "code": "uk",
-     "count": 1211
-    },
-    {
-     "name": "farsi, persia",
-     "code": null,
-     "count": 991
+     "count": 2573
     },
     {
      "name": "albania",
      "code": null,
-     "count": 947
+     "count": 2333
     },
     {
-     "name": "kurdi",
+     "name": "farsi, persia",
      "code": null,
-     "count": 915
-    },
-    {
-     "name": "vietnam",
-     "code": null,
-     "count": 806
+     "count": 2328
     },
     {
      "name": "turkki",
      "code": null,
-     "count": 791
+     "count": 2283
     },
     {
      "name": "espanja",
      "code": null,
-     "count": 716
+     "count": 2135
     },
     {
      "name": "saame",
      "code": "se",
-     "count": 20
+     "count": 601
     }
    ],
-   "other_count": 8300
+   "other_count": 25937
   },
-  "MK02": {
-   "name": "Varsinais-Suomi",
-   "total": 120487,
+  "MK01": {
+   "name": "Uusimaa",
+   "total": 489993,
    "languages": [
     {
      "name": "suomi",
      "code": "fi",
-     "count": 107800
+     "count": 395622
     },
     {
      "name": "ruotsi",
      "code": "sv",
-     "count": 6092
+     "count": 36049
     },
     {
      "name": "venäjä",
      "code": "ru",
-     "count": 1524
+     "count": 12820
     },
     {
      "name": "viro, eesti",
      "code": "et",
-     "count": 907
-    },
-    {
-     "name": "ukraina",
-     "code": "uk",
-     "count": 508
+     "count": 10017
     },
     {
      "name": "arabia",
      "code": "ar",
-     "count": 454
+     "count": 3746
     },
     {
      "name": "englanti",
      "code": "en",
-     "count": 316
+     "count": 3447
     },
     {
-     "name": "kurdi",
+     "name": "somali",
      "code": null,
-     "count": 310
+     "count": 2235
+    },
+    {
+     "name": "kiina",
+     "code": null,
+     "count": 2002
+    },
+    {
+     "name": "ukraina",
+     "code": "uk",
+     "count": 1857
     },
     {
      "name": "albania",
      "code": null,
-     "count": 269
+     "count": 1540
     },
     {
-     "name": "thai",
+     "name": "kurdi",
      "code": null,
-     "count": 165
+     "count": 1464
     },
     {
      "name": "farsi, persia",
      "code": null,
-     "count": 161
+     "count": 1439
+    },
+    {
+     "name": "turkki",
+     "code": null,
+     "count": 1283
+    },
+    {
+     "name": "thai",
+     "code": null,
+     "count": 1252
     },
     {
      "name": "vietnam",
      "code": null,
-     "count": 150
+     "count": 1214
+    },
+    {
+     "name": "saame",
+     "code": "se",
+     "count": 31
+    }
+   ],
+   "other_count": 13975
+  },
+  "MK02": {
+   "name": "Varsinais-Suomi",
+   "total": 148611,
+   "languages": [
+    {
+     "name": "suomi",
+     "code": "fi",
+     "count": 131181
+    },
+    {
+     "name": "ruotsi",
+     "code": "sv",
+     "count": 7516
+    },
+    {
+     "name": "venäjä",
+     "code": "ru",
+     "count": 2102
+    },
+    {
+     "name": "viro, eesti",
+     "code": "et",
+     "count": 1227
+    },
+    {
+     "name": "ukraina",
+     "code": "uk",
+     "count": 847
+    },
+    {
+     "name": "arabia",
+     "code": "ar",
+     "count": 681
+    },
+    {
+     "name": "englanti",
+     "code": "en",
+     "count": 452
+    },
+    {
+     "name": "kurdi",
+     "code": null,
+     "count": 451
+    },
+    {
+     "name": "albania",
+     "code": null,
+     "count": 427
+    },
+    {
+     "name": "thai",
+     "code": null,
+     "count": 289
     },
     {
      "name": "puola",
      "code": null,
-     "count": 143
+     "count": 248
+    },
+    {
+     "name": "romania",
+     "code": null,
+     "count": 245
+    },
+    {
+     "name": "vietnam",
+     "code": null,
+     "count": 237
+    },
+    {
+     "name": "farsi, persia",
+     "code": null,
+     "count": 224
     },
     {
      "name": "espanja",
+     "code": null,
+     "count": 209
+    },
+    {
+     "name": "saame",
+     "code": "se",
+     "count": 5
+    }
+   ],
+   "other_count": 2270
+  },
+  "MK04": {
+   "name": "Satakunta",
+   "total": 69574,
+   "languages": [
+    {
+     "name": "suomi",
+     "code": "fi",
+     "count": 66780
+    },
+    {
+     "name": "venäjä",
+     "code": "ru",
+     "count": 610
+    },
+    {
+     "name": "viro, eesti",
+     "code": "et",
+     "count": 414
+    },
+    {
+     "name": "ukraina",
+     "code": "uk",
+     "count": 260
+    },
+    {
+     "name": "ruotsi",
+     "code": "sv",
+     "count": 236
+    },
+    {
+     "name": "puola",
+     "code": null,
+     "count": 172
+    },
+    {
+     "name": "thai",
      "code": null,
      "count": 126
     },
     {
      "name": "romania",
      "code": null,
-     "count": 125
-    },
-    {
-     "name": "saame",
-     "code": "se",
-     "count": 3
-    }
-   ],
-   "other_count": 1434
-  },
-  "MK04": {
-   "name": "Satakunta",
-   "total": 57914,
-   "languages": [
-    {
-     "name": "suomi",
-     "code": "fi",
-     "count": 55984
-    },
-    {
-     "name": "venäjä",
-     "code": "ru",
-     "count": 442
-    },
-    {
-     "name": "viro, eesti",
-     "code": "et",
-     "count": 315
-    },
-    {
-     "name": "ruotsi",
-     "code": "sv",
-     "count": 197
-    },
-    {
-     "name": "ukraina",
-     "code": "uk",
-     "count": 176
-    },
-    {
-     "name": "puola",
-     "code": null,
-     "count": 122
-    },
-    {
-     "name": "romania",
-     "code": null,
-     "count": 73
+     "count": 115
     },
     {
      "name": "englanti",
      "code": "en",
-     "count": 71
-    },
-    {
-     "name": "thai",
-     "code": null,
-     "count": 65
-    },
-    {
-     "name": "arabia",
-     "code": "ar",
-     "count": 48
-    },
-    {
-     "name": "saksa",
-     "code": null,
-     "count": 47
+     "count": 103
     },
     {
      "name": "turkki",
      "code": null,
-     "count": 39
+     "count": 80
+    },
+    {
+     "name": "arabia",
+     "code": "ar",
+     "count": 67
+    },
+    {
+     "name": "saksa",
+     "code": null,
+     "count": 59
     },
     {
      "name": "bulgaria",
      "code": null,
-     "count": 28
+     "count": 49
     },
     {
      "name": "espanja",
      "code": null,
-     "count": 28
+     "count": 49
     },
     {
      "name": "tagalog, pilipino",
      "code": null,
-     "count": 26
+     "count": 47
     },
     {
      "name": "saame",
@@ -350,84 +350,432 @@
      "count": 1
     }
    ],
-   "other_count": 252
+   "other_count": 406
   },
   "MK05": {
    "name": "Kanta-Häme",
-   "total": 46891,
+   "total": 56999,
    "languages": [
     {
      "name": "suomi",
      "code": "fi",
-     "count": 45183
+     "count": 54538
     },
     {
      "name": "viro, eesti",
      "code": "et",
-     "count": 363
+     "count": 484
     },
     {
      "name": "venäjä",
      "code": "ru",
-     "count": 328
+     "count": 438
     },
     {
      "name": "ukraina",
      "code": "uk",
-     "count": 193
+     "count": 279
     },
     {
      "name": "ruotsi",
      "code": "sv",
-     "count": 192
-    },
-    {
-     "name": "englanti",
-     "code": "en",
-     "count": 78
+     "count": 228
     },
     {
      "name": "thai",
      "code": null,
-     "count": 56
+     "count": 109
+    },
+    {
+     "name": "englanti",
+     "code": "en",
+     "count": 101
     },
     {
      "name": "arabia",
      "code": "ar",
-     "count": 55
+     "count": 90
     },
     {
      "name": "puola",
      "code": null,
-     "count": 45
+     "count": 83
     },
     {
      "name": "turkki",
      "code": null,
-     "count": 35
+     "count": 68
     },
     {
      "name": "vietnam",
      "code": null,
-     "count": 34
-    },
-    {
-     "name": "farsi, persia",
-     "code": null,
-     "count": 33
+     "count": 51
     },
     {
      "name": "saksa",
      "code": null,
-     "count": 30
+     "count": 38
     },
     {
      "name": "espanja",
      "code": null,
-     "count": 24
+     "count": 37
+    },
+    {
+     "name": "farsi, persia",
+     "code": null,
+     "count": 37
+    },
+    {
+     "name": "unkari",
+     "code": null,
+     "count": 34
+    },
+    {
+     "name": "saame",
+     "code": "se",
+     "count": 1
+    }
+   ],
+   "other_count": 383
+  },
+  "MK06": {
+   "name": "Pirkanmaa",
+   "total": 154873,
+   "languages": [
+    {
+     "name": "suomi",
+     "code": "fi",
+     "count": 147806
+    },
+    {
+     "name": "venäjä",
+     "code": "ru",
+     "count": 1444
+    },
+    {
+     "name": "viro, eesti",
+     "code": "et",
+     "count": 691
+    },
+    {
+     "name": "ruotsi",
+     "code": "sv",
+     "count": 532
+    },
+    {
+     "name": "englanti",
+     "code": "en",
+     "count": 467
+    },
+    {
+     "name": "arabia",
+     "code": "ar",
+     "count": 461
+    },
+    {
+     "name": "ukraina",
+     "code": "uk",
+     "count": 432
+    },
+    {
+     "name": "farsi, persia",
+     "code": null,
+     "count": 253
+    },
+    {
+     "name": "thai",
+     "code": null,
+     "count": 248
     },
     {
      "name": "kiina",
+     "code": null,
+     "count": 225
+    },
+    {
+     "name": "kurdi",
+     "code": null,
+     "count": 176
+    },
+    {
+     "name": "turkki",
+     "code": null,
+     "count": 170
+    },
+    {
+     "name": "espanja",
+     "code": null,
+     "count": 159
+    },
+    {
+     "name": "saksa",
+     "code": null,
+     "count": 157
+    },
+    {
+     "name": "vietnam",
+     "code": null,
+     "count": 134
+    },
+    {
+     "name": "saame",
+     "code": "se",
+     "count": 6
+    }
+   ],
+   "other_count": 1512
+  },
+  "MK07": {
+   "name": "Päijät-Häme",
+   "total": 68271,
+   "languages": [
+    {
+     "name": "suomi",
+     "code": "fi",
+     "count": 64403
+    },
+    {
+     "name": "venäjä",
+     "code": "ru",
+     "count": 1453
+    },
+    {
+     "name": "viro, eesti",
+     "code": "et",
+     "count": 513
+    },
+    {
+     "name": "ukraina",
+     "code": "uk",
+     "count": 247
+    },
+    {
+     "name": "ruotsi",
+     "code": "sv",
+     "count": 207
+    },
+    {
+     "name": "arabia",
+     "code": "ar",
+     "count": 190
+    },
+    {
+     "name": "englanti",
+     "code": "en",
+     "count": 187
+    },
+    {
+     "name": "thai",
+     "code": null,
+     "count": 167
+    },
+    {
+     "name": "kurdi",
+     "code": null,
+     "count": 125
+    },
+    {
+     "name": "turkki",
+     "code": null,
+     "count": 85
+    },
+    {
+     "name": "saksa",
+     "code": null,
+     "count": 66
+    },
+    {
+     "name": "espanja",
+     "code": null,
+     "count": 65
+    },
+    {
+     "name": "kiina",
+     "code": null,
+     "count": 62
+    },
+    {
+     "name": "puola",
+     "code": null,
+     "count": 47
+    },
+    {
+     "name": "farsi, persia",
+     "code": null,
+     "count": 27
+    },
+    {
+     "name": "saame",
+     "code": "se",
+     "count": 11
+    }
+   ],
+   "other_count": 416
+  },
+  "MK08": {
+   "name": "Kymenlaakso",
+   "total": 55654,
+   "languages": [
+    {
+     "name": "suomi",
+     "code": "fi",
+     "count": 51556
+    },
+    {
+     "name": "venäjä",
+     "code": "ru",
+     "count": 2154
+    },
+    {
+     "name": "ruotsi",
+     "code": "sv",
+     "count": 374
+    },
+    {
+     "name": "viro, eesti",
+     "code": "et",
+     "count": 360
+    },
+    {
+     "name": "ukraina",
+     "code": "uk",
+     "count": 274
+    },
+    {
+     "name": "thai",
+     "code": null,
+     "count": 123
+    },
+    {
+     "name": "englanti",
+     "code": "en",
+     "count": 111
+    },
+    {
+     "name": "arabia",
+     "code": "ar",
+     "count": 65
+    },
+    {
+     "name": "turkki",
+     "code": null,
+     "count": 59
+    },
+    {
+     "name": "kiina",
+     "code": null,
+     "count": 44
+    },
+    {
+     "name": "espanja",
+     "code": null,
+     "count": 40
+    },
+    {
+     "name": "saksa",
+     "code": null,
+     "count": 37
+    },
+    {
+     "name": "Muu kieli",
+     "code": null,
+     "count": 29
+    },
+    {
+     "name": "albania",
+     "code": null,
+     "count": 29
+    },
+    {
+     "name": "kurdi",
+     "code": null,
+     "count": 29
+    },
+    {
+     "name": "saame",
+     "code": "se",
+     "count": 2
+    }
+   ],
+   "other_count": 368
+  },
+  "MK09": {
+   "name": "Etelä-Karjala",
+   "total": 42416,
+   "languages": [
+    {
+     "name": "suomi",
+     "code": "fi",
+     "count": 39305
+    },
+    {
+     "name": "venäjä",
+     "code": "ru",
+     "count": 2093
+    },
+    {
+     "name": "ukraina",
+     "code": "uk",
+     "count": 159
+    },
+    {
+     "name": "viro, eesti",
+     "code": "et",
+     "count": 140
+    },
+    {
+     "name": "englanti",
+     "code": "en",
+     "count": 86
+    },
+    {
+     "name": "ruotsi",
+     "code": "sv",
+     "count": 82
+    },
+    {
+     "name": "thai",
+     "code": null,
+     "count": 81
+    },
+    {
+     "name": "turkki",
+     "code": null,
+     "count": 36
+    },
+    {
+     "name": "arabia",
+     "code": "ar",
+     "count": 34
+    },
+    {
+     "name": "kiina",
+     "code": null,
+     "count": 34
+    },
+    {
+     "name": "saksa",
+     "code": null,
+     "count": 28
+    },
+    {
+     "name": "espanja",
+     "code": null,
+     "count": 26
+    },
+    {
+     "name": "puola",
+     "code": null,
+     "count": 25
+    },
+    {
+     "name": "Muu kieli",
+     "code": null,
+     "count": 19
+    },
+    {
+     "name": "romania",
      "code": null,
      "count": 19
     },
@@ -437,79 +785,504 @@
      "count": 1
     }
    ],
-   "other_count": 222
+   "other_count": 248
   },
-  "MK06": {
-   "name": "Pirkanmaa",
-   "total": 124363,
+  "MK10": {
+   "name": "Etelä-Savo",
+   "total": 47905,
    "languages": [
     {
      "name": "suomi",
      "code": "fi",
-     "count": 119708
+     "count": 45888
     },
     {
      "name": "venäjä",
      "code": "ru",
-     "count": 1042
-    },
-    {
-     "name": "viro, eesti",
-     "code": "et",
-     "count": 479
-    },
-    {
-     "name": "ruotsi",
-     "code": "sv",
-     "count": 424
-    },
-    {
-     "name": "englanti",
-     "code": "en",
-     "count": 302
-    },
-    {
-     "name": "arabia",
-     "code": "ar",
-     "count": 296
+     "count": 799
     },
     {
      "name": "ukraina",
      "code": "uk",
-     "count": 295
+     "count": 330
     },
     {
-     "name": "farsi, persia",
-     "code": null,
-     "count": 157
+     "name": "viro, eesti",
+     "code": "et",
+     "count": 153
     },
     {
      "name": "thai",
      "code": null,
-     "count": 149
+     "count": 92
     },
     {
-     "name": "kiina",
-     "code": null,
-     "count": 126
-    },
-    {
-     "name": "kurdi",
-     "code": null,
-     "count": 115
+     "name": "ruotsi",
+     "code": "sv",
+     "count": 87
     },
     {
      "name": "saksa",
      "code": null,
-     "count": 108
+     "count": 71
+    },
+    {
+     "name": "englanti",
+     "code": "en",
+     "count": 58
+    },
+    {
+     "name": "Muu kieli",
+     "code": null,
+     "count": 37
+    },
+    {
+     "name": "arabia",
+     "code": "ar",
+     "count": 33
+    },
+    {
+     "name": "tagalog, pilipino",
+     "code": null,
+     "count": 28
     },
     {
      "name": "turkki",
      "code": null,
-     "count": 99
+     "count": 27
+    },
+    {
+     "name": "kiina",
+     "code": null,
+     "count": 21
+    },
+    {
+     "name": "puola",
+     "code": null,
+     "count": 21
+    },
+    {
+     "name": "farsi, persia",
+     "code": null,
+     "count": 20
+    },
+    {
+     "name": "saame",
+     "code": "se",
+     "count": 1
+    }
+   ],
+   "other_count": 239
+  },
+  "MK11": {
+   "name": "Pohjois-Savo",
+   "total": 81401,
+   "languages": [
+    {
+     "name": "suomi",
+     "code": "fi",
+     "count": 78822
+    },
+    {
+     "name": "venäjä",
+     "code": "ru",
+     "count": 875
+    },
+    {
+     "name": "ukraina",
+     "code": "uk",
+     "count": 326
+    },
+    {
+     "name": "viro, eesti",
+     "code": "et",
+     "count": 235
+    },
+    {
+     "name": "thai",
+     "code": null,
+     "count": 128
+    },
+    {
+     "name": "englanti",
+     "code": "en",
+     "count": 127
+    },
+    {
+     "name": "arabia",
+     "code": "ar",
+     "count": 122
+    },
+    {
+     "name": "ruotsi",
+     "code": "sv",
+     "count": 103
+    },
+    {
+     "name": "saksa",
+     "code": null,
+     "count": 77
+    },
+    {
+     "name": "Muu kieli",
+     "code": null,
+     "count": 56
+    },
+    {
+     "name": "espanja",
+     "code": null,
+     "count": 53
+    },
+    {
+     "name": "puola",
+     "code": null,
+     "count": 40
+    },
+    {
+     "name": "turkki",
+     "code": null,
+     "count": 39
+    },
+    {
+     "name": "burma",
+     "code": null,
+     "count": 34
+    },
+    {
+     "name": "italia",
+     "code": null,
+     "count": 27
+    },
+    {
+     "name": "saame",
+     "code": "se",
+     "count": 2
+    }
+   ],
+   "other_count": 335
+  },
+  "MK12": {
+   "name": "Pohjois-Karjala",
+   "total": 53892,
+   "languages": [
+    {
+     "name": "suomi",
+     "code": "fi",
+     "count": 51574
+    },
+    {
+     "name": "venäjä",
+     "code": "ru",
+     "count": 1375
+    },
+    {
+     "name": "ukraina",
+     "code": "uk",
+     "count": 204
+    },
+    {
+     "name": "viro, eesti",
+     "code": "et",
+     "count": 84
+    },
+    {
+     "name": "thai",
+     "code": null,
+     "count": 82
+    },
+    {
+     "name": "englanti",
+     "code": "en",
+     "count": 71
+    },
+    {
+     "name": "saksa",
+     "code": null,
+     "count": 58
+    },
+    {
+     "name": "ruotsi",
+     "code": "sv",
+     "count": 49
+    },
+    {
+     "name": "arabia",
+     "code": "ar",
+     "count": 34
+    },
+    {
+     "name": "Muu kieli",
+     "code": null,
+     "count": 29
+    },
+    {
+     "name": "puola",
+     "code": null,
+     "count": 24
+    },
+    {
+     "name": "espanja",
+     "code": null,
+     "count": 23
+    },
+    {
+     "name": "italia",
+     "code": null,
+     "count": 23
+    },
+    {
+     "name": "kiina",
+     "code": null,
+     "count": 21
+    },
+    {
+     "name": "hollanti",
+     "code": null,
+     "count": 20
+    },
+    {
+     "name": "saame",
+     "code": "se",
+     "count": 2
+    }
+   ],
+   "other_count": 219
+  },
+  "MK13": {
+   "name": "Keski-Suomi",
+   "total": 82736,
+   "languages": [
+    {
+     "name": "suomi",
+     "code": "fi",
+     "count": 79682
+    },
+    {
+     "name": "venäjä",
+     "code": "ru",
+     "count": 921
+    },
+    {
+     "name": "ukraina",
+     "code": "uk",
+     "count": 455
+    },
+    {
+     "name": "viro, eesti",
+     "code": "et",
+     "count": 218
+    },
+    {
+     "name": "thai",
+     "code": null,
+     "count": 164
+    },
+    {
+     "name": "englanti",
+     "code": "en",
+     "count": 158
+    },
+    {
+     "name": "ruotsi",
+     "code": "sv",
+     "count": 126
+    },
+    {
+     "name": "arabia",
+     "code": "ar",
+     "count": 94
+    },
+    {
+     "name": "farsi, persia",
+     "code": null,
+     "count": 89
+    },
+    {
+     "name": "kurdi",
+     "code": null,
+     "count": 88
+    },
+    {
+     "name": "saksa",
+     "code": null,
+     "count": 88
+    },
+    {
+     "name": "Muu kieli",
+     "code": null,
+     "count": 68
+    },
+    {
+     "name": "turkki",
+     "code": null,
+     "count": 67
+    },
+    {
+     "name": "kiina",
+     "code": null,
+     "count": 46
+    },
+    {
+     "name": "espanja",
+     "code": null,
+     "count": 45
+    },
+    {
+     "name": "saame",
+     "code": "se",
+     "count": 9
+    }
+   ],
+   "other_count": 418
+  },
+  "MK14": {
+   "name": "Etelä-Pohjanmaa",
+   "total": 60923,
+   "languages": [
+    {
+     "name": "suomi",
+     "code": "fi",
+     "count": 59136
+    },
+    {
+     "name": "venäjä",
+     "code": "ru",
+     "count": 338
+    },
+    {
+     "name": "ukraina",
+     "code": "uk",
+     "count": 327
+    },
+    {
+     "name": "ruotsi",
+     "code": "sv",
+     "count": 240
+    },
+    {
+     "name": "viro, eesti",
+     "code": "et",
+     "count": 231
+    },
+    {
+     "name": "unkari",
+     "code": null,
+     "count": 101
+    },
+    {
+     "name": "thai",
+     "code": null,
+     "count": 79
+    },
+    {
+     "name": "englanti",
+     "code": "en",
+     "count": 64
+    },
+    {
+     "name": "turkki",
+     "code": null,
+     "count": 39
+    },
+    {
+     "name": "puola",
+     "code": null,
+     "count": 36
+    },
+    {
+     "name": "Muu kieli",
+     "code": null,
+     "count": 26
+    },
+    {
+     "name": "kiina",
+     "code": null,
+     "count": 24
+    },
+    {
+     "name": "saksa",
+     "code": null,
+     "count": 22
+    },
+    {
+     "name": "tagalog, pilipino",
+     "code": null,
+     "count": 19
+    },
+    {
+     "name": "arabia",
+     "code": "ar",
+     "count": 18
+    }
+   ],
+   "other_count": 223
+  },
+  "MK15": {
+   "name": "Pohjanmaa",
+   "total": 50556,
+   "languages": [
+    {
+     "name": "ruotsi",
+     "code": "sv",
+     "count": 25458
+    },
+    {
+     "name": "suomi",
+     "code": "fi",
+     "count": 22277
+    },
+    {
+     "name": "ukraina",
+     "code": "uk",
+     "count": 376
+    },
+    {
+     "name": "venäjä",
+     "code": "ru",
+     "count": 307
     },
     {
      "name": "vietnam",
+     "code": null,
+     "count": 266
+    },
+    {
+     "name": "arabia",
+     "code": "ar",
+     "count": 157
+    },
+    {
+     "name": "englanti",
+     "code": "en",
+     "count": 149
+    },
+    {
+     "name": "thai",
+     "code": null,
+     "count": 144
+    },
+    {
+     "name": "viro, eesti",
+     "code": "et",
+     "count": 137
+    },
+    {
+     "name": "bosnia",
+     "code": null,
+     "count": 128
+    },
+    {
+     "name": "Muu kieli",
+     "code": null,
+     "count": 96
+    },
+    {
+     "name": "bulgaria",
+     "code": null,
+     "count": 94
+    },
+    {
+     "name": "farsi, persia",
      "code": null,
      "count": 83
     },
@@ -519,1018 +1292,265 @@
      "count": 82
     },
     {
-     "name": "saame",
-     "code": "se",
-     "count": 5
-    }
-   ],
-   "other_count": 893
-  },
-  "MK07": {
-   "name": "Päijät-Häme",
-   "total": 56481,
-   "languages": [
-    {
-     "name": "suomi",
-     "code": "fi",
-     "count": 53692
-    },
-    {
-     "name": "venäjä",
-     "code": "ru",
-     "count": 1125
-    },
-    {
-     "name": "viro, eesti",
-     "code": "et",
-     "count": 380
-    },
-    {
-     "name": "ruotsi",
-     "code": "sv",
-     "count": 178
-    },
-    {
-     "name": "ukraina",
-     "code": "uk",
-     "count": 171
-    },
-    {
-     "name": "englanti",
-     "code": "en",
-     "count": 140
-    },
-    {
-     "name": "arabia",
-     "code": "ar",
-     "count": 111
-    },
-    {
-     "name": "thai",
-     "code": null,
-     "count": 91
-    },
-    {
-     "name": "kurdi",
-     "code": null,
-     "count": 80
-    },
-    {
-     "name": "saksa",
-     "code": null,
-     "count": 53
-    },
-    {
-     "name": "turkki",
-     "code": null,
-     "count": 53
-    },
-    {
-     "name": "espanja",
-     "code": null,
-     "count": 36
-    },
-    {
-     "name": "kiina",
-     "code": null,
-     "count": 36
-    },
-    {
-     "name": "puola",
-     "code": null,
-     "count": 30
-    },
-    {
-     "name": "hollanti",
-     "code": null,
-     "count": 21
-    },
-    {
-     "name": "saame",
-     "code": "se",
-     "count": 9
-    }
-   ],
-   "other_count": 275
-  },
-  "MK08": {
-   "name": "Kymenlaakso",
-   "total": 46364,
-   "languages": [
-    {
-     "name": "suomi",
-     "code": "fi",
-     "count": 43400
-    },
-    {
-     "name": "venäjä",
-     "code": "ru",
-     "count": 1573
-    },
-    {
-     "name": "ruotsi",
-     "code": "sv",
-     "count": 316
-    },
-    {
-     "name": "viro, eesti",
-     "code": "et",
-     "count": 276
-    },
-    {
-     "name": "ukraina",
-     "code": "uk",
-     "count": 192
-    },
-    {
-     "name": "englanti",
-     "code": "en",
-     "count": 85
-    },
-    {
-     "name": "thai",
-     "code": null,
-     "count": 70
-    },
-    {
-     "name": "arabia",
-     "code": "ar",
-     "count": 40
-    },
-    {
-     "name": "turkki",
-     "code": null,
-     "count": 37
-    },
-    {
-     "name": "saksa",
-     "code": null,
-     "count": 23
-    },
-    {
-     "name": "espanja",
-     "code": null,
-     "count": 22
-    },
-    {
-     "name": "kiina",
-     "code": null,
-     "count": 22
-    },
-    {
      "name": "albania",
-     "code": null,
-     "count": 21
-    },
-    {
-     "name": "Muu kieli",
-     "code": null,
-     "count": 17
-    },
-    {
-     "name": "liettua",
-     "code": null,
-     "count": 17
-    },
-    {
-     "name": "saame",
-     "code": "se",
-     "count": 2
-    }
-   ],
-   "other_count": 251
-  },
-  "MK09": {
-   "name": "Etelä-Karjala",
-   "total": 35225,
-   "languages": [
-    {
-     "name": "suomi",
-     "code": "fi",
-     "count": 32995
-    },
-    {
-     "name": "venäjä",
-     "code": "ru",
-     "count": 1531
-    },
-    {
-     "name": "ukraina",
-     "code": "uk",
-     "count": 117
-    },
-    {
-     "name": "viro, eesti",
-     "code": "et",
-     "count": 108
-    },
-    {
-     "name": "ruotsi",
-     "code": "sv",
-     "count": 69
-    },
-    {
-     "name": "englanti",
-     "code": "en",
-     "count": 57
-    },
-    {
-     "name": "thai",
-     "code": null,
-     "count": 45
-    },
-    {
-     "name": "kiina",
-     "code": null,
-     "count": 24
-    },
-    {
-     "name": "arabia",
-     "code": "ar",
-     "count": 22
-    },
-    {
-     "name": "puola",
-     "code": null,
-     "count": 20
-    },
-    {
-     "name": "saksa",
-     "code": null,
-     "count": 20
-    },
-    {
-     "name": "espanja",
-     "code": null,
-     "count": 19
-    },
-    {
-     "name": "romania",
-     "code": null,
-     "count": 17
-    },
-    {
-     "name": "Muu kieli",
-     "code": null,
-     "count": 16
-    },
-    {
-     "name": "turkki",
-     "code": null,
-     "count": 14
-    }
-   ],
-   "other_count": 151
-  },
-  "MK10": {
-   "name": "Etelä-Savo",
-   "total": 40928,
-   "languages": [
-    {
-     "name": "suomi",
-     "code": "fi",
-     "count": 39470
-    },
-    {
-     "name": "venäjä",
-     "code": "ru",
-     "count": 624
-    },
-    {
-     "name": "ukraina",
-     "code": "uk",
-     "count": 225
-    },
-    {
-     "name": "viro, eesti",
-     "code": "et",
-     "count": 115
-    },
-    {
-     "name": "ruotsi",
-     "code": "sv",
-     "count": 75
-    },
-    {
-     "name": "saksa",
-     "code": null,
-     "count": 52
-    },
-    {
-     "name": "thai",
-     "code": null,
-     "count": 52
-    },
-    {
-     "name": "englanti",
-     "code": "en",
-     "count": 44
-    },
-    {
-     "name": "Muu kieli",
-     "code": null,
-     "count": 24
-    },
-    {
-     "name": "arabia",
-     "code": "ar",
-     "count": 23
-    },
-    {
-     "name": "puola",
-     "code": null,
-     "count": 16
-    },
-    {
-     "name": "bosnia",
-     "code": null,
-     "count": 14
-    },
-    {
-     "name": "burma",
-     "code": null,
-     "count": 14
-    },
-    {
-     "name": "hollanti",
-     "code": null,
-     "count": 13
-    },
-    {
-     "name": "farsi, persia",
-     "code": null,
-     "count": 13
-    }
-   ],
-   "other_count": 154
-  },
-  "MK11": {
-   "name": "Pohjois-Savo",
-   "total": 68561,
-   "languages": [
-    {
-     "name": "suomi",
-     "code": "fi",
-     "count": 66802
-    },
-    {
-     "name": "venäjä",
-     "code": "ru",
-     "count": 633
-    },
-    {
-     "name": "ukraina",
-     "code": "uk",
-     "count": 213
-    },
-    {
-     "name": "viro, eesti",
-     "code": "et",
-     "count": 167
-    },
-    {
-     "name": "englanti",
-     "code": "en",
-     "count": 91
-    },
-    {
-     "name": "ruotsi",
-     "code": "sv",
-     "count": 87
-    },
-    {
-     "name": "thai",
-     "code": null,
-     "count": 75
-    },
-    {
-     "name": "arabia",
-     "code": "ar",
-     "count": 74
-    },
-    {
-     "name": "saksa",
-     "code": null,
-     "count": 62
-    },
-    {
-     "name": "Muu kieli",
-     "code": null,
-     "count": 32
-    },
-    {
-     "name": "puola",
-     "code": null,
-     "count": 29
-    },
-    {
-     "name": "espanja",
-     "code": null,
-     "count": 27
-    },
-    {
-     "name": "burma",
-     "code": null,
-     "count": 24
-    },
-    {
-     "name": "turkki",
-     "code": null,
-     "count": 24
-    },
-    {
-     "name": "italia",
-     "code": null,
-     "count": 16
-    },
-    {
-     "name": "saame",
-     "code": "se",
-     "count": 2
-    }
-   ],
-   "other_count": 203
-  },
-  "MK12": {
-   "name": "Pohjois-Karjala",
-   "total": 45760,
-   "languages": [
-    {
-     "name": "suomi",
-     "code": "fi",
-     "count": 44113
-    },
-    {
-     "name": "venäjä",
-     "code": "ru",
-     "count": 1019
-    },
-    {
-     "name": "ukraina",
-     "code": "uk",
-     "count": 144
-    },
-    {
-     "name": "viro, eesti",
-     "code": "et",
-     "count": 62
-    },
-    {
-     "name": "englanti",
-     "code": "en",
-     "count": 50
-    },
-    {
-     "name": "thai",
-     "code": null,
-     "count": 43
-    },
-    {
-     "name": "ruotsi",
-     "code": "sv",
-     "count": 40
-    },
-    {
-     "name": "saksa",
-     "code": null,
-     "count": 40
-    },
-    {
-     "name": "arabia",
-     "code": "ar",
-     "count": 24
-    },
-    {
-     "name": "Muu kieli",
-     "code": null,
-     "count": 21
-    },
-    {
-     "name": "puola",
-     "code": null,
-     "count": 19
-    },
-    {
-     "name": "tagalog, pilipino",
-     "code": null,
-     "count": 16
-    },
-    {
-     "name": "italia",
-     "code": null,
-     "count": 14
-    },
-    {
-     "name": "hollanti",
-     "code": null,
-     "count": 13
-    },
-    {
-     "name": "vietnam",
-     "code": null,
-     "count": 13
-    },
-    {
-     "name": "saame",
-     "code": "se",
-     "count": 2
-    }
-   ],
-   "other_count": 127
-  },
-  "MK13": {
-   "name": "Keski-Suomi",
-   "total": 67896,
-   "languages": [
-    {
-     "name": "suomi",
-     "code": "fi",
-     "count": 65797
-    },
-    {
-     "name": "venäjä",
-     "code": "ru",
-     "count": 699
-    },
-    {
-     "name": "ukraina",
-     "code": "uk",
-     "count": 314
-    },
-    {
-     "name": "viro, eesti",
-     "code": "et",
-     "count": 152
-    },
-    {
-     "name": "ruotsi",
-     "code": "sv",
-     "count": 104
-    },
-    {
-     "name": "englanti",
-     "code": "en",
-     "count": 103
-    },
-    {
-     "name": "thai",
      "code": null,
      "count": 76
     },
     {
-     "name": "farsi, persia",
-     "code": null,
-     "count": 72
+     "name": "saame",
+     "code": "se",
+     "count": 1
+    }
+   ],
+   "other_count": 725
+  },
+  "MK16": {
+   "name": "Keski-Pohjanmaa",
+   "total": 19906,
+   "languages": [
+    {
+     "name": "suomi",
+     "code": "fi",
+     "count": 17501
     },
     {
-     "name": "kurdi",
-     "code": null,
-     "count": 58
+     "name": "ruotsi",
+     "code": "sv",
+     "count": 1864
     },
     {
-     "name": "arabia",
-     "code": "ar",
-     "count": 57
+     "name": "venäjä",
+     "code": "ru",
+     "count": 109
     },
     {
-     "name": "saksa",
+     "name": "ukraina",
+     "code": "uk",
+     "count": 65
+    },
+    {
+     "name": "thai",
      "code": null,
+     "count": 55
+    },
+    {
+     "name": "viro, eesti",
+     "code": "et",
      "count": 54
     },
     {
      "name": "Muu kieli",
      "code": null,
-     "count": 47
-    },
-    {
-     "name": "turkki",
-     "code": null,
-     "count": 32
-    },
-    {
-     "name": "espanja",
-     "code": null,
-     "count": 31
-    },
-    {
-     "name": "kiina",
-     "code": null,
-     "count": 27
-    },
-    {
-     "name": "saame",
-     "code": "se",
-     "count": 7
-    }
-   ],
-   "other_count": 266
-  },
-  "MK14": {
-   "name": "Etelä-Pohjanmaa",
-   "total": 50532,
-   "languages": [
-    {
-     "name": "suomi",
-     "code": "fi",
-     "count": 49343
-    },
-    {
-     "name": "venäjä",
-     "code": "ru",
-     "count": 227
-    },
-    {
-     "name": "ukraina",
-     "code": "uk",
-     "count": 221
-    },
-    {
-     "name": "ruotsi",
-     "code": "sv",
-     "count": 208
-    },
-    {
-     "name": "viro, eesti",
-     "code": "et",
-     "count": 160
-    },
-    {
-     "name": "unkari",
-     "code": null,
-     "count": 51
+     "count": 36
     },
     {
      "name": "englanti",
      "code": "en",
-     "count": 42
-    },
-    {
-     "name": "thai",
-     "code": null,
-     "count": 40
-    },
-    {
-     "name": "Muu kieli",
-     "code": null,
-     "count": 20
-    },
-    {
-     "name": "saksa",
-     "code": null,
-     "count": 19
-    },
-    {
-     "name": "puola",
-     "code": null,
-     "count": 15
+     "count": 23
     },
     {
      "name": "kiina",
      "code": null,
-     "count": 14
-    },
-    {
-     "name": "turkki",
-     "code": null,
-     "count": 14
-    },
-    {
-     "name": "romania",
-     "code": null,
-     "count": 13
+     "count": 22
     },
     {
      "name": "arabia",
      "code": "ar",
-     "count": 11
-    }
-   ],
-   "other_count": 134
-  },
-  "MK15": {
-   "name": "Pohjanmaa",
-   "total": 40725,
-   "languages": [
-    {
-     "name": "ruotsi",
-     "code": "sv",
-     "count": 20778
-    },
-    {
-     "name": "suomi",
-     "code": "fi",
-     "count": 18182
-    },
-    {
-     "name": "ukraina",
-     "code": "uk",
-     "count": 224
-    },
-    {
-     "name": "venäjä",
-     "code": "ru",
-     "count": 206
+     "count": 19
     },
     {
      "name": "vietnam",
      "code": null,
-     "count": 164
+     "count": 14
     },
     {
-     "name": "englanti",
-     "code": "en",
-     "count": 103
-    },
-    {
-     "name": "viro, eesti",
-     "code": "et",
-     "count": 99
-    },
-    {
-     "name": "arabia",
-     "code": "ar",
-     "count": 87
-    },
-    {
-     "name": "bosnia",
+     "name": "saksa",
      "code": null,
-     "count": 79
+     "count": 11
     },
     {
-     "name": "thai",
+     "name": "turkki",
      "code": null,
-     "count": 78
-    },
-    {
-     "name": "Muu kieli",
-     "code": null,
-     "count": 59
-    },
-    {
-     "name": "farsi, persia",
-     "code": null,
-     "count": 57
+     "count": 11
     },
     {
      "name": "albania",
      "code": null,
-     "count": 52
-    },
-    {
-     "name": "bulgaria",
-     "code": null,
-     "count": 51
-    },
-    {
-     "name": "espanja",
-     "code": null,
-     "count": 49
-    }
-   ],
-   "other_count": 457
-  },
-  "MK16": {
-   "name": "Keski-Pohjanmaa",
-   "total": 16269,
-   "languages": [
-    {
-     "name": "suomi",
-     "code": "fi",
-     "count": 14376
-    },
-    {
-     "name": "ruotsi",
-     "code": "sv",
-     "count": 1562
-    },
-    {
-     "name": "venäjä",
-     "code": "ru",
-     "count": 76
-    },
-    {
-     "name": "ukraina",
-     "code": "uk",
-     "count": 37
-    },
-    {
-     "name": "viro, eesti",
-     "code": "et",
-     "count": 33
-    },
-    {
-     "name": "thai",
-     "code": null,
-     "count": 29
-    },
-    {
-     "name": "Muu kieli",
-     "code": null,
-     "count": 23
-    },
-    {
-     "name": "englanti",
-     "code": "en",
-     "count": 13
-    },
-    {
-     "name": "arabia",
-     "code": "ar",
-     "count": 12
-    },
-    {
-     "name": "kiina",
-     "code": null,
-     "count": 12
-    },
-    {
-     "name": "saksa",
-     "code": null,
-     "count": 8
-    },
-    {
-     "name": "unkari",
-     "code": null,
-     "count": 8
-    },
-    {
-     "name": "turkki",
-     "code": null,
-     "count": 7
-    },
-    {
-     "name": "vietnam",
-     "code": null,
-     "count": 7
-    },
-    {
-     "name": "espanja",
-     "code": null,
-     "count": 6
-    }
-   ],
-   "other_count": 60
-  },
-  "MK17": {
-   "name": "Pohjois-Pohjanmaa",
-   "total": 95299,
-   "languages": [
-    {
-     "name": "suomi",
-     "code": "fi",
-     "count": 93265
-    },
-    {
-     "name": "venäjä",
-     "code": "ru",
-     "count": 529
-    },
-    {
-     "name": "ruotsi",
-     "code": "sv",
-     "count": 164
-    },
-    {
-     "name": "englanti",
-     "code": "en",
-     "count": 140
-    },
-    {
-     "name": "viro, eesti",
-     "code": "et",
-     "count": 129
-    },
-    {
-     "name": "ukraina",
-     "code": "uk",
-     "count": 123
-    },
-    {
-     "name": "thai",
-     "code": null,
-     "count": 91
-    },
-    {
-     "name": "arabia",
-     "code": "ar",
-     "count": 85
-    },
-    {
-     "name": "kiina",
-     "code": null,
-     "count": 81
-    },
-    {
-     "name": "Muu kieli",
-     "code": null,
-     "count": 74
-    },
-    {
-     "name": "saksa",
-     "code": null,
-     "count": 61
-    },
-    {
-     "name": "vietnam",
-     "code": null,
-     "count": 44
-    },
-    {
-     "name": "saame",
-     "code": "se",
-     "count": 34
-    },
-    {
-     "name": "turkki",
-     "code": null,
-     "count": 34
-    },
-    {
-     "name": "puola",
-     "code": null,
-     "count": 33
-    }
-   ],
-   "other_count": 412
-  },
-  "MK18": {
-   "name": "Kainuu",
-   "total": 21402,
-   "languages": [
-    {
-     "name": "suomi",
-     "code": "fi",
-     "count": 20822
-    },
-    {
-     "name": "venäjä",
-     "code": "ru",
-     "count": 316
-    },
-    {
-     "name": "ukraina",
-     "code": "uk",
-     "count": 50
-    },
-    {
-     "name": "viro, eesti",
-     "code": "et",
-     "count": 28
-    },
-    {
-     "name": "thai",
-     "code": null,
-     "count": 25
-    },
-    {
-     "name": "ruotsi",
-     "code": "sv",
-     "count": 23
-    },
-    {
-     "name": "englanti",
-     "code": "en",
-     "count": 23
-    },
-    {
-     "name": "Muu kieli",
-     "code": null,
-     "count": 16
-    },
-    {
-     "name": "arabia",
-     "code": "ar",
-     "count": 14
-    },
-    {
-     "name": "saksa",
-     "code": null,
-     "count": 11
+     "count": 10
     },
     {
      "name": "espanja",
      "code": null,
      "count": 10
+    }
+   ],
+   "other_count": 102
+  },
+  "MK17": {
+   "name": "Pohjois-Pohjanmaa",
+   "total": 117971,
+   "languages": [
+    {
+     "name": "suomi",
+     "code": "fi",
+     "count": 114795
+    },
+    {
+     "name": "venäjä",
+     "code": "ru",
+     "count": 739
+    },
+    {
+     "name": "ukraina",
+     "code": "uk",
+     "count": 216
+    },
+    {
+     "name": "ruotsi",
+     "code": "sv",
+     "count": 215
+    },
+    {
+     "name": "englanti",
+     "code": "en",
+     "count": 215
+    },
+    {
+     "name": "thai",
+     "code": null,
+     "count": 176
+    },
+    {
+     "name": "viro, eesti",
+     "code": "et",
+     "count": 168
+    },
+    {
+     "name": "arabia",
+     "code": "ar",
+     "count": 141
     },
     {
      "name": "kiina",
      "code": null,
-     "count": 5
+     "count": 131
     },
     {
-     "name": "farsi, persia",
+     "name": "Muu kieli",
      "code": null,
-     "count": 5
+     "count": 109
+    },
+    {
+     "name": "saksa",
+     "code": null,
+     "count": 83
+    },
+    {
+     "name": "turkki",
+     "code": null,
+     "count": 80
+    },
+    {
+     "name": "vietnam",
+     "code": null,
+     "count": 79
+    },
+    {
+     "name": "unkari",
+     "code": null,
+     "count": 58
+    },
+    {
+     "name": "espanja",
+     "code": null,
+     "count": 50
+    },
+    {
+     "name": "saame",
+     "code": "se",
+     "count": 44
+    }
+   ],
+   "other_count": 672
+  },
+  "MK18": {
+   "name": "Kainuu",
+   "total": 24902,
+   "languages": [
+    {
+     "name": "suomi",
+     "code": "fi",
+     "count": 24053
+    },
+    {
+     "name": "venäjä",
+     "code": "ru",
+     "count": 423
+    },
+    {
+     "name": "ukraina",
+     "code": "uk",
+     "count": 87
+    },
+    {
+     "name": "thai",
+     "code": null,
+     "count": 51
+    },
+    {
+     "name": "viro, eesti",
+     "code": "et",
+     "count": 38
+    },
+    {
+     "name": "englanti",
+     "code": "en",
+     "count": 31
+    },
+    {
+     "name": "ruotsi",
+     "code": "sv",
+     "count": 26
+    },
+    {
+     "name": "arabia",
+     "code": "ar",
+     "count": 23
+    },
+    {
+     "name": "Muu kieli",
+     "code": null,
+     "count": 22
+    },
+    {
+     "name": "saksa",
+     "code": null,
+     "count": 19
+    },
+    {
+     "name": "espanja",
+     "code": null,
+     "count": 13
+    },
+    {
+     "name": "kurdi",
+     "code": null,
+     "count": 12
+    },
+    {
+     "name": "turkki",
+     "code": null,
+     "count": 11
     },
     {
      "name": "puola",
      "code": null,
-     "count": 4
+     "count": 10
     },
     {
-     "name": "serbokroatia",
+     "name": "tagalog, pilipino",
      "code": null,
-     "count": 4
+     "count": 8
     },
     {
      "name": "saame",
@@ -1538,171 +1558,176 @@
      "count": 2
     }
    ],
-   "other_count": 44
+   "other_count": 73
   },
   "MK19": {
    "name": "Lappi",
-   "total": 49810,
+   "total": 58881,
    "languages": [
     {
      "name": "suomi",
      "code": "fi",
-     "count": 48294
+     "count": 56731
     },
     {
      "name": "saame",
      "code": "se",
-     "count": 406
+     "count": 482
     },
     {
      "name": "venäjä",
      "code": "ru",
-     "count": 275
-    },
-    {
-     "name": "ruotsi",
-     "code": "sv",
-     "count": 116
+     "count": 378
     },
     {
      "name": "ukraina",
      "code": "uk",
-     "count": 108
+     "count": 178
+    },
+    {
+     "name": "ruotsi",
+     "code": "sv",
+     "count": 148
     },
     {
      "name": "englanti",
      "code": "en",
-     "count": 97
-    },
-    {
-     "name": "saksa",
-     "code": null,
-     "count": 70
-    },
-    {
-     "name": "viro, eesti",
-     "code": "et",
-     "count": 60
+     "count": 125
     },
     {
      "name": "thai",
      "code": null,
-     "count": 54
+     "count": 102
+    },
+    {
+     "name": "saksa",
+     "code": null,
+     "count": 101
+    },
+    {
+     "name": "viro, eesti",
+     "code": "et",
+     "count": 89
     },
     {
      "name": "Muu kieli",
      "code": null,
-     "count": 50
+     "count": 76
     },
     {
      "name": "arabia",
      "code": "ar",
-     "count": 36
+     "count": 61
     },
     {
      "name": "kiina",
      "code": null,
-     "count": 20
+     "count": 32
     },
     {
      "name": "ranska",
      "code": null,
-     "count": 20
-    },
-    {
-     "name": "vietnam",
-     "code": null,
-     "count": 15
+     "count": 32
     },
     {
      "name": "hollanti",
      "code": null,
-     "count": 14
+     "count": 26
+    },
+    {
+     "name": "turkki",
+     "code": null,
+     "count": 24
     }
    ],
-   "other_count": 175
+   "other_count": 296
   },
   "MK21": {
    "name": "Ahvenanmaa",
-   "total": 7931,
+   "total": 9927,
    "languages": [
     {
      "name": "ruotsi",
      "code": "sv",
-     "count": 6909
+     "count": 8518
     },
     {
      "name": "suomi",
      "code": "fi",
-     "count": 501
+     "count": 603
     },
     {
      "name": "romania",
      "code": null,
-     "count": 73
+     "count": 110
     },
     {
      "name": "latvia, lätti",
      "code": null,
-     "count": 57
-    },
-    {
-     "name": "englanti",
-     "code": "en",
-     "count": 44
+     "count": 95
     },
     {
      "name": "venäjä",
      "code": "ru",
-     "count": 37
+     "count": 62
     },
     {
      "name": "viro, eesti",
      "code": "et",
-     "count": 35
+     "count": 61
     },
     {
-     "name": "saksa",
-     "code": null,
-     "count": 32
+     "name": "englanti",
+     "code": "en",
+     "count": 59
     },
     {
      "name": "thai",
      "code": null,
-     "count": 29
+     "count": 57
     },
     {
-     "name": "norja",
+     "name": "saksa",
      "code": null,
-     "count": 23
+     "count": 45
     },
     {
      "name": "ukraina",
      "code": "uk",
-     "count": 23
+     "count": 37
+    },
+    {
+     "name": "tagalog, pilipino",
+     "code": null,
+     "count": 30
+    },
+    {
+     "name": "norja",
+     "code": null,
+     "count": 26
     },
     {
      "name": "farsi, persia",
      "code": null,
-     "count": 19
+     "count": 22
     },
     {
      "name": "puola",
      "code": null,
-     "count": 17
+     "count": 20
     },
     {
      "name": "kurdi",
      "code": null,
-     "count": 13
+     "count": 19
     },
     {
      "name": "arabia",
      "code": "ar",
-     "count": 12
+     "count": 17
     }
    ],
-   "other_count": 107
+   "other_count": 146
   }
  }
 }

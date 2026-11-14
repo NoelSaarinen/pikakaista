@@ -86,7 +86,7 @@ export default function ScreeningPage() {
           <li>
             <strong>Tasa-arvoinen järjestys (oletus):</strong> jokaisen henkilön riskitekijät lasketaan yhteen julkaisun omilla, toisistaan vakioiduilla kertoimilla, mutta ikä asetetaan kaikille samaksi (62 v, mallin keskitaso). Näin järjestys perustuu tupakoinnin määrään, kestoon ja lopettamisaikaan, keuhkoahtaumatautiin, suvun keuhkosyöpään, aiempaan syöpään, koulutukseen ja painoindeksiin, eikä iäkkäämpiä nosteta kärkeen pelkän iän takia. Kutsukelpoinen on jokainen, jonka todellinen tai ikävakioitu riski ylittää kynnyksen, joten kukaan mallin kutsuma ei menetä paikkaansa. Tämä on tiimin tasa-arvoratkaisu, ei validoitu riski.
           </li>
-          <li>Ikä 55–80 on tiimin kyselyn ikäraja. Mallin kehitysjoukko oli 55–74-vuotiaita, joten 75–80-vuotiaat merkitään.</li>
+          <li>Ikä 50–74 on sama kuin kansallisessa seulontapilotissa. Mallin kehitysjoukko oli 55–74-vuotiaita, joten 50–54-vuotiaat merkitään.</li>
           <li>TT-kapasiteetti ja kutsujakso ovat säädettäviä oletuksia. Kutsut ovat simuloituja, eikä mitään lähetetä.</li>
           <li>Mallia ei ole kalibroitu Suomen väestöön. Oikea käyttö vaatii lääketieteellisen tarkistuksen ja alueen päätöksen.</li>
         </ul>
@@ -156,7 +156,7 @@ export default function ScreeningPage() {
       {summary && (
         <div className="grid gap-3 md:grid-cols-4">
           <div className="rounded-lg border border-slate-200 bg-white p-3">
-            <p className="text-xs text-slate-500">Oireettomia tupakoineita 55–80 v</p>
+            <p className="text-xs text-slate-500">Oireettomia tupakoineita 50–74 v</p>
             <p className="text-2xl font-bold">{summary.pool}</p>
             <p className="text-xs text-slate-500">{summary.symptomatic} oireista ohjattu porras 1:een</p>
           </div>
@@ -190,7 +190,7 @@ export default function ScreeningPage() {
               <tr>
                 <th className="py-1 pr-3">Järjestys</th>
                 <th className="py-1 pr-3">Kutsuttujen keski-ikä</th>
-                <th className="py-1 pr-3">Kutsutuista 75 v tai yli</th>
+                <th className="py-1 pr-3">Kutsutuista 65 v tai yli</th>
                 <th className="py-1">Mallin odottamat syövät kutsutuilla</th>
               </tr>
             </thead>
@@ -200,7 +200,7 @@ export default function ScreeningPage() {
                   <td className="py-1 pr-3">{RANKING_LABEL[m]}</td>
                   <td className="py-1 pr-3">{nf(summary.byMode[m].meanAge)} v</td>
                   <td className="py-1 pr-3">
-                    {summary.byMode[m].aged75plus} / {summary.byMode[m].invited}
+                    {summary.byMode[m].aged65plus} / {summary.byMode[m].invited}
                   </td>
                   <td className="py-1">{nf(summary.byMode[m].expectedCancers, 2)}</td>
                 </tr>
@@ -214,7 +214,7 @@ export default function ScreeningPage() {
         <section className="rounded-lg border border-slate-200 bg-white p-3 text-sm">
           <p className="font-semibold">Riskijärjestys vs. pelkät ikä- ja askivuosirajat</p>
           <p className="mt-1">
-            Kutsuttujen {summary.invited} henkilön kuuden vuoden riskien summa on <strong>{nf(summary.expectedCancersInvited, 2)}</strong> odotettua keuhkosyöpää. Jos sama määrä valittaisiin pelkillä rajoilla (55–80 v, vähintään 20 askivuotta, eniten askivuosia ensin),
+            Kutsuttujen {summary.invited} henkilön kuuden vuoden riskien summa on <strong>{nf(summary.expectedCancersInvited, 2)}</strong> odotettua keuhkosyöpää. Jos sama määrä valittaisiin pelkillä rajoilla (50–74 v, vähintään 20 askivuotta, eniten askivuosia ensin),
             summa olisi <strong>{nf(summary.expectedCancersByCriteria, 2)}</strong>
             {summary.criteriaCount < summary.invited && ` (rajat täyttää vain ${summary.criteriaCount} henkilöä)`}.
           </p>
@@ -263,7 +263,7 @@ export default function ScreeningPage() {
                       {(r.missingInputs.length > 0 || r.outsideModelAge) && (
                         <span className="block text-xs text-amber-800">
                           {r.missingInputs.length > 0 && "Täydennä tiedot ennen kutsua. "}
-                          {r.outsideModelAge && "Yli 74 v: mallin kehitysjoukon ulkopuolella."}
+                          {r.outsideModelAge && "Alle 55 v: mallin kehitysjoukon (55–74 v) ulkopuolella."}
                         </span>
                       )}
                     </td>

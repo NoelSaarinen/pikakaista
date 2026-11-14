@@ -18,20 +18,27 @@ const STAGES = [
   { title: "Pieni oire", symptom: "Yskä yli 3 viikkoa", text: "Pitkittynyt yskä voi olla ensimmäinen merkki." },
   { title: "Oireet lisääntyvät", symptom: "Hengenahdistus · rintakipu", text: "Kasvain tuhoaa tervettä keuhkokudosta." },
   { title: "Syöpä leviää", symptom: "Veriyskä · laihtuminen", text: "65–70 % löytyy vasta levinneenä. Keuhkosyöpä aiheuttaa eniten syöpäkuolemia." },
+  // The fast-lane path: the same tumour, found at the "small symptom" stage instead.
+  { title: "Pikakaista löytää", symptom: "Yskä 3 vk → kysely → TT", text: "Kysely tunnistaa hälytysmerkin, ja TT-kuvaukseen pääsee päivissä, ei viikoissa. Kasvain on vielä pieni." },
+  { title: "Parantava hoito", symptom: "Löytyi ajoissa", text: "Varhain löydetty keuhkosyöpä voidaan hoitaa parantavasti. Oulun seulonnassa viisi kuudesta löytyi vaiheessa I." },
 ] as const;
+/** Index of the first stage on the fast-lane path. */
+const FAST_LANE_FROM = 4;
 
 const TONE = [
   { badge: "bg-emerald-100 text-emerald-800", active: "border-emerald-300 bg-emerald-50", bar: "bg-emerald-500", chip: "bg-emerald-100 text-emerald-900" },
   { badge: "bg-amber-100 text-amber-900", active: "border-amber-300 bg-amber-50", bar: "bg-amber-500", chip: "bg-amber-100 text-amber-900" },
   { badge: "bg-orange-100 text-orange-900", active: "border-orange-300 bg-orange-50", bar: "bg-orange-500", chip: "bg-orange-100 text-orange-900" },
   { badge: "bg-rose-100 text-rose-800", active: "border-rose-300 bg-rose-50", bar: "bg-rose-600", chip: "bg-rose-100 text-rose-900" },
+  { badge: "bg-sky-100 text-sky-800", active: "border-sky-300 bg-sky-50", bar: "bg-sky-600", chip: "bg-sky-100 text-sky-900" },
+  { badge: "bg-emerald-100 text-emerald-800", active: "border-emerald-300 bg-emerald-50", bar: "bg-emerald-500", chip: "bg-emerald-100 text-emerald-900" },
 ] as const;
 
 /** How far the damage has spread and how large the tumour is at each stage (0–1). */
-const SPREAD = [0.1, 0.34, 0.66, 1.15];
-const TUMOUR = [0.2, 0.45, 0.72, 1];
+const SPREAD = [0.1, 0.34, 0.66, 1.15, 0.34, 0];
+const TUMOUR = [0.2, 0.45, 0.72, 1, 0.45, 0];
 /** Breathing gets faster and shallower as the lung fills up. */
-const BREATH_SECONDS = [4.5, 4.5, 3.2, 2.2];
+const BREATH_SECONDS = [4.5, 4.5, 3.2, 2.2, 4.5, 4.5];
 const STAGE_MS = 4200;
 
 const motionQuery = "(prefers-reduced-motion: reduce)";
@@ -68,7 +75,10 @@ export function LungStory() {
 
   const auto = playing && visible && !reducedMotion;
   const last = stage === STAGES.length - 1;
-  const duration = last ? STAGE_MS * 1.7 : STAGE_MS;
+  /** The cancer has spread (the worst case, before the fast-lane path). */
+  const spread = stage === FAST_LANE_FROM - 1;
+  const found = stage === FAST_LANE_FROM;
+  const duration = spread || last ? STAGE_MS * 1.6 : STAGE_MS;
   useEffect(() => {
     if (!auto) return;
     const timer = setTimeout(() => setStage((s) => (s + 1) % STAGES.length), duration);
@@ -99,7 +109,7 @@ export function LungStory() {
 
       <div className="mt-6 grid items-center gap-8 md:grid-cols-[minmax(0,5fr)_minmax(0,6fr)]">
         <div className="relative mx-auto w-full max-w-sm rounded-3xl bg-gradient-to-b from-sky-50 to-white p-4 ring-1 ring-slate-100">
-          <svg viewBox="2 4 60 54" className="w-full" role="img" aria-label="Havainnollistus: kasvain kasvaa keuhkossa ja leviää neljässä vaiheessa.">
+          <svg viewBox="2 4 60 54" className="w-full" role="img" aria-label="Havainnollistus: kasvain kasvaa ja leviää neljässä vaiheessa. Pikakaistalla sama kasvain löytyy pienenä ja hoidetaan parantavasti.">
             <defs>
               <clipPath id={`${id}-left`}>
                 <path d={LUNG.left} />
@@ -126,17 +136,19 @@ export function LungStory() {
               <g clipPath={`url(#${id}-left)`}>
                 <circle cx="18" cy="33" r="30" fill={`url(#${id}-damage)`} style={grow(SPREAD[stage])} />
                 <circle cx="18" cy="33" r="5.5" fill={LUNG_COLORS.tumour} style={grow(TUMOUR[stage])} />
-                <g style={fade(stage >= 2)}>
+                <g style={fade(stage === 2 || spread)}>
                   <circle cx="21.5" cy="43.5" r="2.6" fill={LUNG_COLORS.tumour} />
                   <circle cx="22.5" cy="25.5" r="1.6" fill={LUNG_COLORS.tumour} />
                 </g>
-                <circle cx="14.5" cy="44.5" r="2" fill={LUNG_COLORS.tumour} style={fade(last)} />
+                <circle cx="14.5" cy="44.5" r="2" fill={LUNG_COLORS.tumour} style={fade(spread)} />
               </g>
+              {/* Fast lane: the CT finds the small tumour (ring). */}
+              <circle cx="18" cy="33" r="6.5" fill="none" stroke="#1d5fa7" strokeWidth="1.2" strokeDasharray="2 1.4" style={fade(found)} />
               <path d={LUNG.left} fill="none" stroke="#13315c" strokeOpacity="0.25" strokeWidth="0.6" />
 
               {/* Viewer's right: healthy until the cancer spreads. */}
               <path d={LUNG.right} fill={`url(#${id}-healthy)`} />
-              <g clipPath={`url(#${id}-right)`} style={fade(last)}>
+              <g clipPath={`url(#${id}-right)`} style={fade(spread)}>
                 <path d={LUNG.right} fill={LUNG_COLORS.sick} opacity="0.3" />
                 <circle cx="44" cy="30" r="2.2" fill={LUNG_COLORS.tumour} />
                 <circle cx="48.5" cy="42" r="1.8" fill={LUNG_COLORS.tumour} />
@@ -145,7 +157,7 @@ export function LungStory() {
               <path d={LUNG.right} fill="none" stroke="#13315c" strokeOpacity="0.25" strokeWidth="0.6" />
 
               {/* Lymph nodes next to the windpipe. */}
-              <g style={fade(last)}>
+              <g style={fade(spread)}>
                 <circle cx="29" cy="19.5" r="1.3" fill={LUNG_COLORS.tumour} />
                 <circle cx="35" cy="18.5" r="1.1" fill={LUNG_COLORS.tumour} />
               </g>
@@ -162,6 +174,9 @@ export function LungStory() {
             const active = i === stage;
             return (
               <li key={item.title}>
+                {i === FAST_LANE_FROM && (
+                  <p className="mb-1 mt-3 px-4 text-xs font-semibold uppercase tracking-[0.12em] text-sky-700">Pikakaistalla sama syöpä löytyy vaiheessa 2</p>
+                )}
                 <button
                   type="button"
                   aria-current={active ? "step" : undefined}
@@ -195,7 +210,7 @@ export function LungStory() {
         </Link>
       </div>
       <p className="mt-3 text-xs text-slate-500">
-        Havainnollistus. Oireiden järjestys vaihtelee, ja samoja oireita on myös monissa muissa sairauksissa. Lähde: Valtakunnallinen keuhkosyöpäohjelma 2026–2035.
+        Havainnollistus. Oireiden järjestys vaihtelee, ja samoja oireita on myös monissa muissa sairauksissa. Lähteet: Valtakunnallinen keuhkosyöpäohjelma 2026–2035; Oulun TT-seulontatutkimus (Wichmann ym. 2025).
       </p>
     </section>
   );

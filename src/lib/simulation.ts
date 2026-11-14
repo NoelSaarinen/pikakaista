@@ -12,7 +12,7 @@ export type ScenarioName = "cautious" | "base" | "optimistic";
 export interface SimulationParams {
   /** Former smokers per current daily smoker, added to the risk group. The team decides the risk group. */
   formerPerCurrentSmoker: number;
-  /** Share of current and added former smokers aged 55–80 with enough pack-years for the risk group. */
+  /** Share of current and added former smokers aged 50–74 with enough pack-years for the risk group. */
   heavySmokerShareOfEver: number;
   /** Share of invited people who answer the survey (after reminder and nurse calls). */
   responseRate: number;
@@ -112,8 +112,8 @@ export interface SimulationResult {
   ctSlotsPerWeek: number;
 }
 
-export function simulate(county: Pick<County, "population_55_80" | "ever_smoker_share">, p: SimulationParams): SimulationResult {
-  const smokers = county.population_55_80.value * county.ever_smoker_share.value * (1 + p.formerPerCurrentSmoker);
+export function simulate(county: Pick<County, "population_50_74" | "ever_smoker_share">, p: SimulationParams): SimulationResult {
+  const smokers = county.population_50_74.value * county.ever_smoker_share.value * (1 + p.formerPerCurrentSmoker);
   const riskGroup = smokers * p.heavySmokerShareOfEver;
   const respondents = riskGroup * p.responseRate;
   const fastLane = respondents * p.alarmShare;
@@ -184,7 +184,7 @@ export function simulateDoors(county: Pick<County, "lung_cancer_cases_per_year">
   };
 }
 
-export function simulateRange(county: Pick<County, "population_55_80" | "ever_smoker_share">, overrides: Partial<SimulationParams> = {}) {
+export function simulateRange(county: Pick<County, "population_50_74" | "ever_smoker_share">, overrides: Partial<SimulationParams> = {}) {
   return {
     cautious: simulate(county, { ...SCENARIOS.cautious, ...overrides }),
     base: simulate(county, { ...SCENARIOS.base, ...overrides }),

@@ -7,7 +7,7 @@ import type { County, SourceRef } from "@/lib/types";
 const counties = countiesData as County[];
 const sources = sourcesData as SourceRef[];
 const sourceIds = new Set(sources.map((s) => s.id));
-const NUMERIC = ["population_55_80", "ever_smoker_share", "lung_cancer_cases_per_year"] as const;
+const NUMERIC = ["population_50_74", "ever_smoker_share", "lung_cancer_cases_per_year"] as const;
 
 describe("counties.json", () => {
   it("has unique ids and keeps Pirkanmaa as the demo default", () => {

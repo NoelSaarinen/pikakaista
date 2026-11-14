@@ -1,6 +1,6 @@
 // Respondent-facing survey texts in eight languages.
 //
-// Languages cover 97.9 % of 55–79-year-olds in Finland and 99.2 % in Lapland by
+// Languages cover 97.2 % of 50–74-year-olds in Finland and 98.8 % in Lapland by
 // registered mother tongue (StatFin 11rl, end of 2025; see docs/DATA_NOTES.md).
 // DRAFT TRANSLATIONS made by the team with AI help. A native speaker with health-care
 // background must review each language before real use. The Northern Sámi version is
@@ -165,7 +165,7 @@ const fi: SurveyText = {
     direct_ct: "Kiitos! Lääkäri arvioi, tarvitaanko TT-tutkimusta. Sovellus ei tee lähetettä automaattisesti.",
     physician_fast: "Kiitos! Vastauksesi perusteella sinulle varataan lääkäriaika lähipäivinä. Saat tekstiviestin.",
     normal_route: "Kiitos! Vastauksesi perusteella kiireellistä tarvetta ei nyt ole. Jos oireita tulee, ota yhteyttä terveysasemalle.",
-    not_eligible: "Kiitos vastauksestasi! Kysely on tarkoitettu tupakoineille 55–80-vuotiaille.",
+    not_eligible: "Kiitos vastauksestasi! Kysely on tarkoitettu tupakoineille 50–74-vuotiaille.",
   },
   riskTitle: (pct) => `PLCOm2012-mallin kuuden vuoden arvio: ${pct} %`,
   riskMore: "Mitä luku tarkoittaa",
@@ -252,7 +252,7 @@ const sv: SurveyText = {
     direct_ct: "Tack! En läkare bedömer om datortomografi behövs. Appen gör ingen remiss automatiskt.",
     physician_fast: "Tack! Utifrån dina svar får du en läkartid inom de närmaste dagarna. Du får ett textmeddelande.",
     normal_route: "Tack! Utifrån dina svar finns det inget brådskande behov just nu. Om du får symtom, kontakta hälsostationen.",
-    not_eligible: "Tack för ditt svar! Enkäten är avsedd för personer i åldern 55–80 år som har rökt.",
+    not_eligible: "Tack för ditt svar! Enkäten är avsedd för personer i åldern 50–74 år som har rökt.",
   },
   riskTitle: (pct) => `PLCOm2012-modellens sexårsuppskattning: ${pct} %`,
   riskMore: "Vad siffran betyder",
@@ -349,7 +349,7 @@ const en: SurveyText = {
     direct_ct: "Thank you! A doctor will assess whether a CT scan is needed. The app does not make a referral automatically.",
     physician_fast: "Thank you! Based on your answers, you will get a doctor's appointment in the next few days. You will receive a text message.",
     normal_route: "Thank you! Based on your answers, there is no urgent need right now. If you get symptoms, contact your health centre.",
-    not_eligible: "Thank you for your answer! The survey is meant for people aged 55–80 who have smoked.",
+    not_eligible: "Thank you for your answer! The survey is meant for people aged 50–74 who have smoked.",
   },
   riskTitle: (pct) => `Six-year estimate from the PLCOm2012 model: ${pct} %`,
   riskMore: "What the number means",
@@ -446,7 +446,7 @@ const ru: SurveyText = {
     direct_ct: "Спасибо! Врач оценит, нужна ли компьютерная томография. Приложение не оформляет направление автоматически.",
     physician_fast: "Спасибо! По вашим ответам вам назначат приём у врача в ближайшие дни. Вы получите SMS.",
     normal_route: "Спасибо! По вашим ответам срочной необходимости сейчас нет. Если появятся симптомы, обратитесь в поликлинику (terveysasema).",
-    not_eligible: "Спасибо за ответ! Опрос предназначен для людей в возрасте 55–80 лет, которые курят или курили.",
+    not_eligible: "Спасибо за ответ! Опрос предназначен для людей в возрасте 50–74 лет, которые курят или курили.",
   },
   riskTitle: (pct) => `Шестилетняя оценка по модели PLCOm2012: ${pct} %`,
   riskMore: "Что означает это число",
@@ -543,7 +543,7 @@ const et: SurveyText = {
     direct_ct: "Aitäh! Arst hindab, kas kompuutertomograafia on vajalik. Rakendus ei tee saatekirja automaatselt.",
     physician_fast: "Aitäh! Teie vastuste põhjal broneeritakse Teile lähipäevil arstiaeg. Saate tekstisõnumi.",
     normal_route: "Aitäh! Teie vastuste põhjal ei ole praegu kiiret vajadust. Kui tekivad sümptomid, võtke ühendust tervisekeskusega.",
-    not_eligible: "Aitäh vastamast! Küsimustik on mõeldud 55–80-aastastele, kes on suitsetanud.",
+    not_eligible: "Aitäh vastamast! Küsimustik on mõeldud 50–74-aastastele, kes on suitsetanud.",
   },
   riskTitle: (pct) => `PLCOm2012 mudeli kuue aasta hinnang: ${pct} %`,
   riskMore: "Mida see number tähendab",
@@ -640,7 +640,7 @@ const uk: SurveyText = {
     direct_ct: "Дякуємо! Лікар оцінить, чи потрібна комп'ютерна томографія. Застосунок не оформлює направлення автоматично.",
     physician_fast: "Дякуємо! За вашими відповідями вам призначать прийом у лікаря найближчими днями. Ви отримаєте SMS.",
     normal_route: "Дякуємо! За вашими відповідями нагальної потреби зараз немає. Якщо з'являться симптоми, зверніться до медичного центру (terveysasema).",
-    not_eligible: "Дякуємо за відповідь! Опитування призначене для людей віком 55–80 років, які курять або курили.",
+    not_eligible: "Дякуємо за відповідь! Опитування призначене для людей віком 50–74 років, які курять або курили.",
   },
   riskTitle: (pct) => `Шестирічна оцінка за моделлю PLCOm2012: ${pct} %`,
   riskMore: "Що означає це число",
@@ -737,7 +737,7 @@ const ar: SurveyText = {
     direct_ct: "شكرًا! سيقيّم الطبيب ما إذا كان التصوير المقطعي ضروريًا. لا يصدر التطبيق إحالة تلقائيًا.",
     physician_fast: "شكرًا! بناءً على إجاباتك سيُحجز لك موعد مع الطبيب خلال الأيام القادمة. ستصلك رسالة نصية.",
     normal_route: "شكرًا! بناءً على إجاباتك لا توجد حاجة عاجلة الآن. إذا ظهرت أعراض، فتواصل مع المركز الصحي.",
-    not_eligible: "شكرًا على إجابتك! هذا الاستبيان مخصص للأشخاص الذين تتراوح أعمارهم بين 55 و80 عامًا وسبق لهم التدخين.",
+    not_eligible: "شكرًا على إجابتك! هذا الاستبيان مخصص للأشخاص الذين تتراوح أعمارهم بين 50 و74 عامًا وسبق لهم التدخين.",
   },
   riskTitle: (pct) => `تقدير نموذج PLCOm2012 لست سنوات: ${pct} %`,
   riskMore: "ماذا يعني هذا الرقم",
@@ -809,7 +809,7 @@ const se: Partial<SurveyText> = {
     direct_ct: "Giitu! Doavttir árvvoštallá, dárbbašuvvo go TT-govven.",
     physician_fast: "Giitu! Vástádusaid vuođul dutnje várrejuvvo doavttiráigi boahtte beivviid. Oaččut teakstadieđu.",
     normal_route: "Giitu! Vástádusaid vuođul ii leat dál hoahppu. Jus dus bohtet dávdamearkkat, váldde oktavuođa dearvvašvuođaguovddážii.",
-    not_eligible: "Giitu vástádusas! Jearahallan lea oaivvilduvvon 55–80-jahkásaččaide geat leat borgguhan.",
+    not_eligible: "Giitu vástádusas! Jearahallan lea oaivvilduvvon 50–74-jahkásaččaide geat leat borgguhan.",
   },
   riskMore: "Maid lohku mearkkaša",
   followUpTitle: "Vel moadde gažaldaga",

@@ -2,7 +2,7 @@ import { describe, expect, it } from "vitest";
 import { SCENARIOS, simulate, simulateDoors, simulateRange } from "./simulation";
 
 const county = {
-  population_55_80: { value: 100000, source_id: "mock", is_estimate: true },
+  population_50_74: { value: 100000, source_id: "mock", is_estimate: true },
   ever_smoker_share: { value: 0.4, source_id: "mock", is_estimate: true },
 };
 

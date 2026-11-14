@@ -19,7 +19,7 @@ describe("region languages", () => {
   it("puts Sámi second in Lapland and matches the national figure", () => {
     const lappi = regionLanguages("lappi", ALL);
     expect(lappi.primary.slice(0, 2).map((l) => l.code)).toEqual(["fi", "se"]);
-    expect(lappi.coverage).toBeCloseTo(0.992, 3);
+    expect(lappi.coverage).toBeCloseTo(0.988, 3);
   });
 
   it("puts Swedish first in Ostrobothnia", () => {

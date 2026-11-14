@@ -30,7 +30,7 @@ Uuden toteutuksen pitää säilyttää nämä periaatteet. Briefin arviointi pal
 | Kenttä | Sisältö |
 | --- | --- |
 | `id`, `name`, `code` | Esimerkiksi `lappi`, "Lappi", "21" |
-| `population_55_80` | 55–80-vuotiaat 31.12.2025 (StatFin 11re) |
+| `population_50_74` | 50–74-vuotiaat 31.12.2025 (StatFin 11re) |
 | `ever_smoker_share` | **Korvike:** päivittäin tupakoivat 20 vuotta täyttäneistä (Sotkanet 4404), 2024. Joskus tupakoineiden aluelukua ei ole. |
 | `lung_cancer_cases_per_year` | Uudet keuhkosyövät C33–C34, keskiarvo 2020–2024 (Syöpärekisteri) |
 | `occupational_health_doctor_visits_per_1000_aged_15_64` | Työterveyslääkärikäynnit (Sotkanet 2371), 2025. Mittaa käyttöä, ei kattavuutta. |
@@ -71,7 +71,7 @@ Koodissa tämä on funktio `evaluate(response)`. Rakenteiset vastaukset antavat 
 asetukset: minAge 55, maxAge 80, minPackYears 20, coughWeeks 3,
            recurrentPneumonias 2, recentVisitMonths 6, directCtScore 3
 
-riskiryhmässä = 55 ≤ ikä ≤ 80
+riskiryhmässä = 50 ≤ ikä ≤ 74   (sama ikäraja kuin seulontapilotissa ISC-LDCT)
               JA tupakointi ≠ "never"
               JA askivuodet ≥ 20
 
@@ -118,7 +118,7 @@ ohjaus = jos ei riskiryhmässä         → "Ei riskiryhmässä"
 Koodissa tämä on funktio `simulate(alue, oletukset)`. Laskelma ajetaan kolmella skenaariolla: varovainen, perus ja optimistinen. Käyttöliittymän säädin korvaa arvon kaikissa kolmessa skenaariossa.
 
 ```
-tupakoitsijat   = 55–80-vuotiaat × päivittäin tupakoivien osuus × (1 + entisiä_per_nykyinen)
+tupakoitsijat   = 50–74-vuotiaat × päivittäin tupakoivien osuus × (1 + entisiä_per_nykyinen)
 riskiryhmä      = tupakoitsijat × askivuosiosuus
 vastaajat       = riskiryhmä × vastausprosentti
 ei_vastaa       = riskiryhmä − vastaajat                    (hoitaja soittaa)
@@ -164,18 +164,18 @@ TT_aikoja_vk     = TT_kuvauksia ÷ max(1, kyselykierroksen_viikot)
 
 | Tulos | Arvo |
 | --- | ---: |
-| Riskiryhmä | 17 059,8 |
-| Vastaajat | 8 529,9 |
-| Pikakaistalle | 1 023,6 |
-| TT-kuvauksia | 665,3 |
-| Löytyy syöpä | 13,3 |
+| Riskiryhmä | 16 109,8 |
+| Vastaajat | 8 054,9 |
+| Pikakaistalle | 966,6 |
+| TT-kuvauksia | 628,3 |
+| Löytyy syöpä | 12,6 |
 | Nyt päiviä TT:hen | 38 |
 | Pikakaistalla päiviä TT:hen | 8,62 |
 | Säästö päivinä | 29,4 |
-| Lääkäriaikoja viikossa | 59,7 |
-| TT-aikoja viikossa | 55,4 |
+| Lääkäriaikoja viikossa | 56,4 |
+| TT-aikoja viikossa | 52,4 |
 
-Kun entiset tupakoitsijat ovat mukana, kuorma 12 viikon kierroksella on suuri: Lapissa noin 55 TT-aikaa viikossa. Jos kierros jaetaan koko vuodelle (52 viikkoa), kuorma on noin 13 TT-aikaa viikossa.
+Kun entiset tupakoitsijat ovat mukana, kuorma 12 viikon kierroksella on suuri: Lapissa noin 52 TT-aikaa viikossa. Jos kierros jaetaan koko vuodelle (52 viikkoa), kuorma on noin 12 TT-aikaa viikossa.
 
 **Tarkistus ulkoista dataa vasten:** perusoletuksilla malli löytää syövän 0,16 %:lta vastaajista (0,12 × 0,65 × 0,02). Englannin oirekyselyssä (wagland-2016) syöpä todettiin vuoden sisällä 0,26 %:lla vastaajista (3 / 1 172). Suuruusluokka on sama, ja malli on varovaisempi.
 

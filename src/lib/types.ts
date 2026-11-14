@@ -110,7 +110,7 @@ export interface SourcedValue {
 export interface County {
   id: string;
   name: string;
-  population_55_80: SourcedValue;
+  population_50_74: SourcedValue;
   ever_smoker_share: SourcedValue;
   lung_cancer_cases_per_year: SourcedValue;
   in_ldct_pilot: { value: boolean | null; source_id: string; note?: string };

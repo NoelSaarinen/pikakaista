@@ -14,9 +14,9 @@
 //     as the NLST age and pack-year criteria.
 //   - Risk-based ranking instead of age and pack-year criteria alone follows the paper.
 //     Pack-years are not required: the model already uses intensity, duration and quit time.
-//   - Age range 55–80 is the team's survey invitation range (rules.ts). The model's
-//     development cohort was aged 55–74 (PLCO trial; as stated in the local version,
-//     not re-checked), so ages 75–80 are flagged.
+//   - Age range 50–74 is the team's survey invitation range (rules.ts), matched to the
+//     national screening pilot ISC-LDCT. The model's development cohort was aged 55–74
+//     (PLCO trial; as stated in the local version, not re-checked), so ages 50–54 are flagged.
 //   - Screening CT capacity per week and the invitation horizon are adjustable demo
 //     assumptions. Invitations are simulated: nothing is sent.
 
@@ -114,7 +114,8 @@ export interface ModeOutcome {
   invited: number;
   expectedCancers: number;
   meanAge: number;
-  aged75plus: number;
+  /** Invited people aged 65 or over (equity comparison). */
+  aged65plus: number;
 }
 
 function outcome(invited: ScreeningPerson[]): ModeOutcome {
@@ -123,7 +124,7 @@ function outcome(invited: ScreeningPerson[]): ModeOutcome {
     invited: n,
     expectedCancers: Math.round(invited.reduce((s, p) => s + p.priority.probability, 0) * 100) / 100,
     meanAge: n ? Math.round((invited.reduce((s, p) => s + p.response.age, 0) / n) * 10) / 10 : 0,
-    aged75plus: invited.filter((p) => p.response.age >= 75).length,
+    aged65plus: invited.filter((p) => p.response.age >= 65).length,
   };
 }
 
@@ -137,7 +138,7 @@ export interface ScreeningSummary {
   capacity: number;
   /** Sum of the invited people's 6-year risks: the model's own expected number of cancers. */
   expectedCancersInvited: number;
-  /** The same number of people chosen by age 55–80 and ≥ 20 pack-years, most pack-years first. */
+  /** The same number of people chosen by age 50–74 and ≥ 20 pack-years, most pack-years first. */
   expectedCancersByCriteria: number;
   /** How many people the criteria comparison could pick (may be fewer than `invited`). */
   criteriaCount: number;
@@ -187,7 +188,7 @@ export function screeningList(people: ScreeningPerson[], s: ScreeningSettings): 
       inviteWeek,
       timesThreshold: inPool ? Math.round((rankingScore(person, s.mode) / 100 / PLCO_THRESHOLD) * 10) / 10 : null,
       missingInputs: inPool ? person.priority.imputed.filter((k) => KEY_INPUTS.includes(k)) : [],
-      outsideModelAge: inPool && person.response.age > 74,
+      outsideModelAge: inPool && (person.response.age < 55 || person.response.age > 74),
     };
   });
 
