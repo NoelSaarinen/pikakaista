@@ -79,8 +79,9 @@ perusteet = []
 jos verta yskösissä:            perusteet += "Verta yskösissä" (PUNAINEN LIPPU)
 jos yskä ≥ 3 viikkoa:           perusteet += "Yskä yli 3 viikkoa"           (+1)
 jos laihtuminen:                perusteet += "Selittämätön laihtuminen"     (+1)
-jos hengenahdistus:             perusteet += "Hengenahdistus"               (+1)
-jos rintakipu:                  perusteet += "Rintakipu"                    (+1)
+jos hengenahdistus > 3 vk:      perusteet += "Hengenahdistus yli 3 viikkoa" (+1)
+jos rintakehän/hartian kipu > 3 vk: perusteet += "Rintakehän tai hartian kipu yli 3 viikkoa" (+1)
+jos äänen käheys > 3 vk:        perusteet += "Äänen käheys yli 3 viikkoa"   (+1)
 jos keuhkokuumeita ≥ 2 / v:     perusteet += "Toistuvat keuhkokuumeet"      (+1)
 jos aiempi käynti ≤ 6 kk sitten, sen syy on hengitystieperäinen
    JA jokin oire on yhä päällä: perusteet += "Oireet jatkuvat aiemman käynnin jälkeen" (+1)
@@ -96,7 +97,8 @@ ohjaus = jos ei riskiryhmässä         → "Ei riskiryhmässä"
 
 **Lisätiedot:**
 - **"Hengitystieperäinen syy"** tarkoittaa, että käynnin syy sisältää jonkin näistä sanoista (kirjainkoolla ei väliä): yskä, cough, hengenahdistus, breathlessness, keuhkokuume, pneumonia, astma, asthma, flunssa, flu, keuhkoputkentulehdus, bronchitis.
-- **"Oire yhä päällä"** tarkoittaa, että yskä > 0 viikkoa tai jokin seuraavista on kyllä: veriyskä, laihtuminen, hengenahdistus tai rintakipu.
+- **"Oire yhä päällä"** tarkoittaa, että yskä > 0 viikkoa tai jokin seuraavista on kyllä: veriyskä, laihtuminen, hengenahdistus, rintakehän tai hartian kipu tai äänen käheys.
+- **Kolmen viikon rajat** tulevat Pirkanmaan keuhkosyöpäpotilaan hoitopolusta (`pirha-hoitopolku`). Kysely kysyy oireet suoraan muodossa "yli 3 viikon ajan". Kenttä `hoarseness` on uusi: jos se puuttuu, arvo on ei.
 - **Jokaiseen perusteeseen liitetään henkilön oma vastaus**, esimerkiksi "Yskä yli 3 viikkoa: 5 viikkoa". Lääkäri näkee sen sellaisenaan.
 - **Lääkärin lista:** listalla näytetään vain ehdotukset "Suoraan TT-kuvaukseen" ja "Lääkärille muutaman päivän sisällä". Järjestys:
   1. livenä annetut vastaukset ensin
@@ -104,7 +106,7 @@ ohjaus = jos ei riskiryhmässä         → "Ei riskiryhmässä"
   3. sitten pisteet laskevasti
   4. lopuksi tunnus aakkosjärjestyksessä.
 - **Lääkärin päätös** on yksi kolmesta: suoraan TT:hen, lääkärille tai tavallinen reitti. Lääkäri voi hyväksyä ehdotuksen tai muuttaa sen.
-- **Säännöt ovat demosääntöjä, eivät kliinisiä kriteerejä.** Oireet tulevat Filhan keuhkosyöpäohjelmasta, mutta raja-arvot ovat tiimin oletuksia. Delun ja mentorit tarkistavat ne.
+- **Säännöt ovat demosääntöjä, eivät kliinisiä kriteerejä.** Oireet tulevat Filhan keuhkosyöpäohjelmasta ja Pirkanmaan hoitopolusta. Keuhkokuume- ja pisterajat ovat tiimin oletuksia. Delun ja mentorit tarkistavat ne.
 
 **Testi:** Excelin Testivektorit-välilehdellä on 200 vastausta ja sääntöjen tulos kullekin. Uuden toteutuksen pitää antaa täsmälleen samat sarakkeet "→ Riskiryhmässä", "→ Pisteet", "→ Punainen lippu" ja "→ Ohjaus".
 
@@ -123,7 +125,7 @@ lääkärille      = pikakaistalle − suoraan_TT
 TT_kuvauksia    = suoraan_TT + lääkärille × TT_lääkärin_jälkeen_osuus
 löytyy_syöpä    = TT_kuvauksia × osumatarkkuus
 
-nyt_päiviä_TT    = odotus_terveyskeskukseen + lähetteestä_TT:hen
+nyt_päiviä_TT    = odotus_terveyskeskukseen + käynnistä_lähetteeseen + lähetteestä_TT:hen
 pika_päiviä_TT   = jos TT_kuvauksia > 0:
                      (suoraan_TT × pika_TT_päivät
                       + lääkärille × TT_lääkärin_jälkeen_osuus × (pika_lääkäri_päivät + pika_TT_päivät))
@@ -138,36 +140,39 @@ TT_aikoja_vk     = TT_kuvauksia ÷ max(1, kyselykierroksen_viikot)
 
 | Avain | Varovainen | Perus | Optimistinen | Lähde |
 | --- | ---: | ---: | ---: | --- |
-| `formerPerCurrentSmoker` (entisiä tupakoitsijoita yhtä nykyistä kohden) | 0 | 0 | 0 | oletus. **Tiimi päättää.** |
+| `formerPerCurrentSmoker` (entisiä tupakoitsijoita yhtä nykyistä kohden) | 5 | 5 | 5 | thl-tupakka-2023: 55–84-v noin 64 % joskus tupakoinut ja noin 10 % päivittäin (tiimin laskelma) |
 | `heavySmokerShareOfEver` (≥ 20 askivuotta) | 40 % | 50 % | 60 % | oletus |
-| `responseRate` (vastausprosentti) | 30 % | 50 % | 65 % | oletus. Vertailukohdat: TLHC 44 %, postikysely 25 % (vahvistamaton) |
-| `alarmShare` (hälytysmerkkien osuus) | 8 % | 12 % | 15 % | oletus |
+| `responseRate` (vastausprosentti) | 30 % | 50 % | 65 % | oletus. Vertailukohdat: suolistosyövän seulonta 73,5 % (2024), TLHC 44 %, postikysely 25 % (vahvistamaton) |
+| `alarmShare` (hälytysmerkkien osuus) | 8 % | 12 % | 15 % | oletus. Pelkkä pitkittynyt yskä on noin 6–9 %:lla tupakoineista (Ranska, Saksa). |
 | `directCtShare` (suoraan TT) | 30 % | 30 % | 30 % | oletus |
 | `ctAfterVisitShare` (TT lääkärin jälkeen) | 50 % | 50 % | 50 % | oletus |
 | `cancerYieldPerCt` (osumatarkkuus) | 1 % | 2 % | 4 % | oletus. Vertailukohdat: Tanskan yleislääkärin TT 2,3 %, TLHC 1,7 %, Tanskan pikakaista 7,5 % |
 | `surveyWeeks` (kyselykierroksen viikot) | 12 | 12 | 12 | oletus |
 | `currentPrimaryCareWaitDays` (odotus terveyskeskukseen) | 14 | 14 | 14 | uh-acta-2025 (kansallinen arvio noin 2 viikkoa) |
-| `currentCtQueueDays` (lähetteestä TT:hen) | 21 | 21 | 21 | oletus. Kysytään mentoreilta. |
+| `currentVisitToReferralDays` (käynnistä lähetteeseen) | 15 | 15 | 15 | mattila-2025: Satakunta, mediaani 15 vrk |
+| `currentCtQueueDays` (lähetteestä TT:hen) | 9 | 9 | 9 | pirha-hoitopolku: käsittely 1–2 arkipäivää ja TT viikon sisällä |
 | `fastPhysicianDays` (pikakaista: lääkärille) | 3 | 3 | 3 | jensen-2017 (tavoite) |
 | `fastCtDays` (pikakaista: TT:hen) | 7 | 7 | 7 | oletus (tavoite) |
 | `publicDoorShare` (terveyskeskuksen kautta) | 70 % | 70 % | 70 % | kuitunen-2026: 87 / (87 + 39) = 69 % |
-| `privateDoorDaysToCt` (työterveys/yksityinen TT:hen) | 21 | 21 | 21 | kuitunen-2026: 76 ÷ 127 ≈ 0,6 × 35 pv |
+| `privateDoorDaysToCt` (työterveys/yksityinen TT:hen) | 23 | 23 | 23 | kuitunen-2026: 76 ÷ 127 ≈ 0,6 × 38 pv |
 | `healthCentreYield` (terveyskeskuksen pikakaistan osumatarkkuus) | 10 % | 10 % | 10 % | oletus Tanskan 7,5 %:n ja Englannin 15,3 %:n välissä |
 
 **Tarkistusluvut, Lappi perusoletuksilla:**
 
 | Tulos | Arvo |
 | --- | ---: |
-| Riskiryhmä | 3 554,1 |
-| Vastaajat | 1 777,1 |
-| Pikakaistalle | 213,2 |
-| TT-kuvauksia | 138,6 |
-| Löytyy syöpä | 2,77 |
-| Nyt päiviä TT:hen | 35 |
+| Riskiryhmä | 21 324,7 |
+| Vastaajat | 10 662,4 |
+| Pikakaistalle | 1 279,5 |
+| TT-kuvauksia | 831,7 |
+| Löytyy syöpä | 16,6 |
+| Nyt päiviä TT:hen | 38 |
 | Pikakaistalla päiviä TT:hen | 8,62 |
-| Säästö päivinä | 26,4 |
-| Lääkäriaikoja viikossa | 12,4 |
-| TT-aikoja viikossa | 11,6 |
+| Säästö päivinä | 29,4 |
+| Lääkäriaikoja viikossa | 74,6 |
+| TT-aikoja viikossa | 69,3 |
+
+Kun entiset tupakoitsijat ovat mukana, kuorma 12 viikon kierroksella on suuri: Lapissa noin 69 TT-aikaa viikossa. Jos kierros jaetaan koko vuodelle (52 viikkoa), kuorma on noin 16 TT-aikaa viikossa.
 
 Laskelma ei arvioi elossaoloa eikä levinneisyyden muutosta, koska niille ei ole lähdettä.
 
@@ -178,7 +183,7 @@ Koodissa tämä on funktio `simulateDoors(alue, perusoletukset)`.
 ```
 tk_kautta        = keuhkosyöpiä_vuodessa × publicDoorShare
 tt_tai_yks       = keuhkosyöpiä_vuodessa − tk_kautta
-tk_nyt_päiviä    = currentPrimaryCareWaitDays + currentCtQueueDays
+tk_nyt_päiviä    = currentPrimaryCareWaitDays + currentVisitToReferralDays + currentCtQueueDays
 tt_yks_päiviä    = privateDoorDaysToCt
 tk_pika_päiviä   = fastPhysicianDays + fastCtDays
 ero_nyt          = tk_nyt_päiviä − tt_yks_päiviä
@@ -193,11 +198,11 @@ TT_lähetteitä_vk = tk_kautta ÷ max(healthCentreYield, 0,0001) ÷ 52
 | --- | ---: |
 | Terveyskeskuksen kautta | 94,4 |
 | Työterveyden tai yksityisen kautta | 40,4 |
-| Terveyskeskus nyt | 35 pv |
-| Työterveys tai yksityinen | 21 pv |
+| Terveyskeskus nyt | 38 pv |
+| Työterveys tai yksityinen | 23 pv |
 | Terveyskeskus pikakaistalla | 10 pv |
-| Ero ovien välillä nyt | 14 pv |
-| Säästö | 25 pv |
+| Ero ovien välillä nyt | 15 pv |
+| Säästö | 28 pv |
 | TT-lähetteitä viikossa | 18,1 |
 
 **Näyttö:** Kuitunen ym. 2026 (lymfooma): oireista hoitoon kului mediaani 127 päivää terveyskeskuksen ja 76 päivää työterveyden tai yksityisen kautta. Keuhkosyövästä vastaavaa reittidataa ei ole, joten ovien ajat ja jakauma ovat arvioita.
@@ -329,8 +334,8 @@ Kahden minuutin demopolku on kuvattu tiedostossa [PROJECT.md](../PROJECT.md#demo
 
 ## 10. Avoimet päätökset
 
-- **Riskiryhmä.** Joskus tupakoineiden aluelukua ei ole, joten tiimin pitää päättää `formerPerCurrentSmoker` ja askivuosiraja. Ota huomioon myös EU:n suositus, josta voi kysyä mentoreilta.
+- **Riskiryhmä.** `formerPerCurrentSmoker` on nyt 5 kansallisen tupakkatilaston perusteella. Askivuosiraja ja lopettamisesta kulunut aika ovat yhä auki. Ota huomioon myös EU:n suositus, josta voi kysyä mentoreilta. Data ja oletukset on koottu tiedostoon [OLETUKSET.md](../oletukset/OLETUKSET.md).
 - **Seulontapilotti.** Keuhkosyövän seulontapilotti alkoi 2026 Helsingissä ja kahdeksalla hyvinvointialueella. Alueita ei nimetä, joten kysely ei saa mennä päällekkäin pilotin kanssa.
 - **Hälytyssäännöt.** Raja-arvot ja suora TT-ohjaus kyselyn perusteella vaativat lääketieteellisen tarkistuksen.
-- **Lähetteestä TT:hen (21 pv).** Luku on oletus, ja oikea luku kysytään mentoreilta.
+- **Lähetteestä TT:hen (9 pv).** Luku perustuu Pirkanmaan hoitopolkuun. Muiden alueiden ajat kysytään mentoreilta.
 - **Tekoälyn puutteet.** Katso kohta 7.
