@@ -1,0 +1,43 @@
+{
+  "source": "Finnish Cancer Registry statistics app (Syöpärekisterin tilastosovellus)",
+  "url": "https://tilastot.syoparekisteri.fi/syovat/",
+  "selections": {
+    "Minua kiinnostaa": "Uudet syöpätapaukset (ilmaantuvuus)",
+    "Valitse sukupuoli": "Molemmat yhdessä",
+    "Valitse alue": "Koko maa, all wellbeing services counties, Helsingin kaupunki and Ahvenanmaa",
+    "Valitse syöpätauti (ICD-10)": "Keuhkot, henkitorvi (C33-34)",
+    "Näytä arvoja luokiteltuna": "Vuosi (1953-2024)",
+    "Näytä näitä arvoja": "Todettuja syöpiä"
+  },
+  "area_basis": "Home municipality in the year of diagnosis (app help: \"Alueelliset tilastot perustuvat henkilöiden kotikuntaan syövän toteamisvuonna.\")",
+  "how_obtained": "The app has no open API and syoparekisteri.fi is behind a bot check, so the table view was read in a browser on 2026-11-14 and copied here unchanged. Columns 1953–2014 were left out.",
+  "retrieved": "2026-11-14",
+  "unit": "new cases per year",
+  "years": [2015, 2016, 2017, 2018, 2019, 2020, 2021, 2022, 2023, 2024],
+  "rows": [
+    ["Koko maa", 2818, 2924, 2878, 2933, 2995, 2996, 3026, 3083, 2975, 2892],
+    ["Itä-Uudenmaan hyvinvointialue", 68, 52, 62, 51, 50, 58, 61, 55, 56, 61],
+    ["Keski-Uudenmaan hyvinvointialue", 84, 93, 98, 110, 90, 92, 107, 88, 108, 101],
+    ["Länsi-Uudenmaan hyvinvointialue", 216, 222, 189, 188, 192, 228, 237, 205, 215, 181],
+    ["Vantaan ja Keravan hyvinvointialue", 106, 115, 119, 115, 112, 138, 114, 114, 120, 107],
+    ["Päijät-Hämeen hyvinvointialue", 124, 100, 111, 123, 116, 109, 156, 153, 139, 126],
+    ["Kymenlaakson hyvinvointialue", 105, 101, 105, 125, 119, 111, 129, 127, 115, 108],
+    ["Etelä-Karjalan hyvinvointialue", 84, 76, 77, 69, 74, 80, 64, 69, 72, 78],
+    ["Helsingin kaupunki", 306, 302, 312, 327, 314, 320, 303, 306, 277, 293],
+    ["Etelä-Savon hyvinvointialue", 84, 74, 77, 82, 88, 89, 89, 105, 82, 90],
+    ["Pohjois-Savon hyvinvointialue", 120, 142, 125, 142, 136, 129, 122, 130, 128, 126],
+    ["Pohjois-Karjalan hyvinvointialue", 92, 103, 98, 93, 109, 105, 100, 111, 94, 84],
+    ["Keski-Suomen hyvinvointialue", 116, 135, 125, 123, 138, 114, 131, 127, 139, 116],
+    ["Kanta-Hämeen hyvinvointialue", 88, 105, 106, 103, 108, 113, 100, 124, 102, 107],
+    ["Pirkanmaan hyvinvointialue", 258, 255, 261, 232, 248, 252, 252, 261, 255, 278],
+    ["Etelä-Pohjanmaan hyvinvointialue", 101, 99, 105, 85, 120, 100, 123, 100, 99, 134],
+    ["Varsinais-Suomen hyvinvointialue", 226, 290, 270, 282, 312, 281, 266, 296, 297, 248],
+    ["Satakunnan hyvinvointialue", 151, 139, 129, 122, 122, 121, 139, 161, 153, 138],
+    ["Pohjanmaan hyvinvointialue", 89, 109, 83, 96, 94, 104, 93, 89, 75, 117],
+    ["Keski-Pohjanmaan hyvinvointialue", 35, 22, 33, 28, 20, 30, 37, 32, 35, 30],
+    ["Pohjois-Pohjanmaan hyvinvointialue", 171, 199, 210, 220, 221, 205, 211, 216, 206, 201],
+    ["Kainuun hyvinvointialue", 49, 43, 40, 53, 41, 57, 41, 45, 47, 46],
+    ["Lapin hyvinvointialue", 124, 137, 129, 146, 148, 141, 135, 148, 141, 109],
+    ["Ahvenanmaa", 21, 10, 11, 15, 21, 18, 15, 20, 19, 13]
+  ]
+}

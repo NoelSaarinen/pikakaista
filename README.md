@@ -6,7 +6,7 @@ JYNKKARIT JUNCTION’s private development workspace and shared knowledge base f
 
 ## Run the demo
 
-Lung cancer fast-lane demo for AstraZeneca's *Equal Care Across Finland*. It uses synthetic data only. It needs Node.js 20 or later.
+Lung cancer fast-lane demo for AstraZeneca's *Equal Care Across Finland*. People in the demo are synthetic. County figures come from public aggregate data. It needs Node.js 20 or later.
 
 ```sh
 npm install
@@ -29,11 +29,12 @@ AI features use the Claude API. Copy `.env.example` to `.env.local` and set `ANT
 | `npm run lint` | ESLint |
 | `npm run build` | Production build |
 | `npm run generate:synthetic` | Regenerate the 200 synthetic survey answers in `src/data/synthetic/` |
+| `npm run data:counties` | Rebuild `src/data/counties.json` from the public data snapshots in `src/data/raw/` |
 
 Where things live:
 - **Rules:** [src/lib/rules.ts](src/lib/rules.ts). Alarm thresholds are team assumptions and need medical review.
 - **Simulation:** [src/lib/simulation.ts](src/lib/simulation.ts). Every parameter has a source or is labelled as an assumption.
-- **Data:** [src/data/counties.json](src/data/counties.json). County figures are `mock` placeholders until they are replaced with public data. Sources are in [src/data/sources.json](src/data/sources.json).
+- **Data:** [src/data/counties.json](src/data/counties.json), built by [scripts/build-county-data.mjs](scripts/build-county-data.mjs) from public aggregate data for all wellbeing services counties and Helsinki. The screening pilot flag is still `mock`, and the smoking share is a daily-smoker proxy. Sources are in [src/data/sources.json](src/data/sources.json). Definitions and gaps are in [docs/DATA_NOTES.md](docs/DATA_NOTES.md).
 - **AI:** [src/lib/llm.ts](src/lib/llm.ts), [src/lib/summarize.ts](src/lib/summarize.ts) and [src/lib/brief.ts](src/lib/brief.ts). Code computes every number. AI only writes text.
 
 ## Get started

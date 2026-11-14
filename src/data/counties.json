@@ -2,25 +2,837 @@
   {
     "id": "pirkanmaa",
     "name": "Pirkanmaa",
-    "population_55_80": { "value": 160000, "source_id": "mock", "is_estimate": true, "note": "Replace with Statistics Finland data." },
-    "ever_smoker_share": { "value": 0.4, "source_id": "mock", "is_estimate": true, "note": "Replace with THL regional data." },
-    "lung_cancer_cases_per_year": { "value": 330, "source_id": "mock", "is_estimate": true, "note": "Replace with Finnish Cancer Registry data." },
-    "in_ldct_pilot": { "value": null, "source_id": "mock", "note": "Ask mentors which counties are in the screening pilot." }
+    "code": "HVA08",
+    "population_55_80": {
+      "value": 158422,
+      "source_id": "statfin-11re",
+      "year": 2025,
+      "is_estimate": false,
+      "note": "Residents aged 55–80 on 31 Dec 2025, both sexes. Municipalities summed to the county with the Statistics Finland 2026 key. The county's total population matches StatFin 11ra."
+    },
+    "ever_smoker_share": {
+      "value": 0.074,
+      "source_id": "thl-sotkanet-4404",
+      "year": 2024,
+      "is_estimate": true,
+      "note": "Proxy: daily smokers among residents aged 20 or over, 7.4% (2022: 7.2%), THL Healthy Finland survey. Not the ever-smoker share of 55–80-year-olds: former and occasional smokers are excluded, so the risk group is understated. No regional ever-smoker indicator was found. Survey estimate with sampling error."
+    },
+    "lung_cancer_cases_per_year": {
+      "value": 259.6,
+      "source_id": "syoparekisteri-lung",
+      "year": 2024,
+      "is_estimate": false,
+      "note": "Mean of new lung and tracheal cancers (ICD-10 C33–C34), both sexes, 2020–2024: 252, 252, 261, 255, 278. County = home municipality in the year of diagnosis."
+    },
+    "occupational_health_doctor_visits_per_1000_aged_15_64": {
+      "value": 2077,
+      "source_id": "thl-sotkanet-2371",
+      "year": 2025,
+      "is_estimate": false,
+      "note": "Occupational health doctor visits per 1,000 residents aged 15–64 (THL primary care statistics). Measures use, not coverage: Kela's regional coverage figures were not found."
+    },
+    "in_ldct_pilot": {
+      "value": null,
+      "source_id": "mock",
+      "note": "Ask mentors which counties are in the screening pilot."
+    }
   },
   {
     "id": "pohjois-savo",
     "name": "Pohjois-Savo",
-    "population_55_80": { "value": 90000, "source_id": "mock", "is_estimate": true, "note": "Replace with Statistics Finland data." },
-    "ever_smoker_share": { "value": 0.42, "source_id": "mock", "is_estimate": true, "note": "Replace with THL regional data." },
-    "lung_cancer_cases_per_year": { "value": 190, "source_id": "mock", "is_estimate": true, "note": "Replace with Finnish Cancer Registry data." },
-    "in_ldct_pilot": { "value": null, "source_id": "mock", "note": "Ask mentors which counties are in the screening pilot." }
+    "code": "HVA13",
+    "population_55_80": {
+      "value": 86860,
+      "source_id": "statfin-11re",
+      "year": 2025,
+      "is_estimate": false,
+      "note": "Residents aged 55–80 on 31 Dec 2025, both sexes. Municipalities summed to the county with the Statistics Finland 2026 key. The county's total population matches StatFin 11ra."
+    },
+    "ever_smoker_share": {
+      "value": 0.09,
+      "source_id": "thl-sotkanet-4404",
+      "year": 2024,
+      "is_estimate": true,
+      "note": "Proxy: daily smokers among residents aged 20 or over, 9.0% (2022: 10.7%), THL Healthy Finland survey. Not the ever-smoker share of 55–80-year-olds: former and occasional smokers are excluded, so the risk group is understated. No regional ever-smoker indicator was found. Survey estimate with sampling error."
+    },
+    "lung_cancer_cases_per_year": {
+      "value": 127,
+      "source_id": "syoparekisteri-lung",
+      "year": 2024,
+      "is_estimate": false,
+      "note": "Mean of new lung and tracheal cancers (ICD-10 C33–C34), both sexes, 2020–2024: 129, 122, 130, 128, 126. County = home municipality in the year of diagnosis."
+    },
+    "occupational_health_doctor_visits_per_1000_aged_15_64": {
+      "value": 1700,
+      "source_id": "thl-sotkanet-2371",
+      "year": 2025,
+      "is_estimate": false,
+      "note": "Occupational health doctor visits per 1,000 residents aged 15–64 (THL primary care statistics). Measures use, not coverage: Kela's regional coverage figures were not found."
+    },
+    "in_ldct_pilot": {
+      "value": null,
+      "source_id": "mock",
+      "note": "Ask mentors which counties are in the screening pilot."
+    }
   },
   {
     "id": "lappi",
     "name": "Lappi",
-    "population_55_80": { "value": 60000, "source_id": "mock", "is_estimate": true, "note": "Replace with Statistics Finland data." },
-    "ever_smoker_share": { "value": 0.45, "source_id": "mock", "is_estimate": true, "note": "Replace with THL regional data." },
-    "lung_cancer_cases_per_year": { "value": 130, "source_id": "mock", "is_estimate": true, "note": "Replace with Finnish Cancer Registry data." },
-    "in_ldct_pilot": { "value": null, "source_id": "mock", "note": "Ask mentors which counties are in the screening pilot." }
+    "code": "HVA21",
+    "population_55_80": {
+      "value": 62353,
+      "source_id": "statfin-11re",
+      "year": 2025,
+      "is_estimate": false,
+      "note": "Residents aged 55–80 on 31 Dec 2025, both sexes. Municipalities summed to the county with the Statistics Finland 2026 key. The county's total population matches StatFin 11ra."
+    },
+    "ever_smoker_share": {
+      "value": 0.114,
+      "source_id": "thl-sotkanet-4404",
+      "year": 2024,
+      "is_estimate": true,
+      "note": "Proxy: daily smokers among residents aged 20 or over, 11.4% (2022: 10.7%), THL Healthy Finland survey. Not the ever-smoker share of 55–80-year-olds: former and occasional smokers are excluded, so the risk group is understated. No regional ever-smoker indicator was found. Survey estimate with sampling error."
+    },
+    "lung_cancer_cases_per_year": {
+      "value": 134.8,
+      "source_id": "syoparekisteri-lung",
+      "year": 2024,
+      "is_estimate": false,
+      "note": "Mean of new lung and tracheal cancers (ICD-10 C33–C34), both sexes, 2020–2024: 141, 135, 148, 141, 109. County = home municipality in the year of diagnosis."
+    },
+    "occupational_health_doctor_visits_per_1000_aged_15_64": {
+      "value": 1685,
+      "source_id": "thl-sotkanet-2371",
+      "year": 2025,
+      "is_estimate": false,
+      "note": "Occupational health doctor visits per 1,000 residents aged 15–64 (THL primary care statistics). Measures use, not coverage: Kela's regional coverage figures were not found."
+    },
+    "in_ldct_pilot": {
+      "value": null,
+      "source_id": "mock",
+      "note": "Ask mentors which counties are in the screening pilot."
+    }
+  },
+  {
+    "id": "ita-uusimaa",
+    "name": "Itä-Uusimaa",
+    "code": "HVA01",
+    "population_55_80": {
+      "value": 33184,
+      "source_id": "statfin-11re",
+      "year": 2025,
+      "is_estimate": false,
+      "note": "Residents aged 55–80 on 31 Dec 2025, both sexes. Municipalities summed to the county with the Statistics Finland 2026 key. The county's total population matches StatFin 11ra."
+    },
+    "ever_smoker_share": {
+      "value": 0.107,
+      "source_id": "thl-sotkanet-4404",
+      "year": 2024,
+      "is_estimate": true,
+      "note": "Proxy: daily smokers among residents aged 20 or over, 10.7% (2022: 10.0%), THL Healthy Finland survey. Not the ever-smoker share of 55–80-year-olds: former and occasional smokers are excluded, so the risk group is understated. No regional ever-smoker indicator was found. Survey estimate with sampling error."
+    },
+    "lung_cancer_cases_per_year": {
+      "value": 58.2,
+      "source_id": "syoparekisteri-lung",
+      "year": 2024,
+      "is_estimate": false,
+      "note": "Mean of new lung and tracheal cancers (ICD-10 C33–C34), both sexes, 2020–2024: 58, 61, 55, 56, 61. County = home municipality in the year of diagnosis."
+    },
+    "occupational_health_doctor_visits_per_1000_aged_15_64": {
+      "value": 1926,
+      "source_id": "thl-sotkanet-2371",
+      "year": 2025,
+      "is_estimate": false,
+      "note": "Occupational health doctor visits per 1,000 residents aged 15–64 (THL primary care statistics). Measures use, not coverage: Kela's regional coverage figures were not found."
+    },
+    "in_ldct_pilot": {
+      "value": null,
+      "source_id": "mock",
+      "note": "Ask mentors which counties are in the screening pilot."
+    }
+  },
+  {
+    "id": "keski-uusimaa",
+    "name": "Keski-Uusimaa",
+    "code": "HVA02",
+    "population_55_80": {
+      "value": 62970,
+      "source_id": "statfin-11re",
+      "year": 2025,
+      "is_estimate": false,
+      "note": "Residents aged 55–80 on 31 Dec 2025, both sexes. Municipalities summed to the county with the Statistics Finland 2026 key. The county's total population matches StatFin 11ra."
+    },
+    "ever_smoker_share": {
+      "value": 0.093,
+      "source_id": "thl-sotkanet-4404",
+      "year": 2024,
+      "is_estimate": true,
+      "note": "Proxy: daily smokers among residents aged 20 or over, 9.3% (2022: 9.0%), THL Healthy Finland survey. Not the ever-smoker share of 55–80-year-olds: former and occasional smokers are excluded, so the risk group is understated. No regional ever-smoker indicator was found. Survey estimate with sampling error."
+    },
+    "lung_cancer_cases_per_year": {
+      "value": 99.2,
+      "source_id": "syoparekisteri-lung",
+      "year": 2024,
+      "is_estimate": false,
+      "note": "Mean of new lung and tracheal cancers (ICD-10 C33–C34), both sexes, 2020–2024: 92, 107, 88, 108, 101. County = home municipality in the year of diagnosis."
+    },
+    "occupational_health_doctor_visits_per_1000_aged_15_64": {
+      "value": 2189,
+      "source_id": "thl-sotkanet-2371",
+      "year": 2025,
+      "is_estimate": false,
+      "note": "Occupational health doctor visits per 1,000 residents aged 15–64 (THL primary care statistics). Measures use, not coverage: Kela's regional coverage figures were not found."
+    },
+    "in_ldct_pilot": {
+      "value": null,
+      "source_id": "mock",
+      "note": "Ask mentors which counties are in the screening pilot."
+    }
+  },
+  {
+    "id": "lansi-uusimaa",
+    "name": "Länsi-Uusimaa",
+    "code": "HVA03",
+    "population_55_80": {
+      "value": 135218,
+      "source_id": "statfin-11re",
+      "year": 2025,
+      "is_estimate": false,
+      "note": "Residents aged 55–80 on 31 Dec 2025, both sexes. Municipalities summed to the county with the Statistics Finland 2026 key. The county's total population matches StatFin 11ra."
+    },
+    "ever_smoker_share": {
+      "value": 0.08,
+      "source_id": "thl-sotkanet-4404",
+      "year": 2024,
+      "is_estimate": true,
+      "note": "Proxy: daily smokers among residents aged 20 or over, 8.0% (2022: 9.6%), THL Healthy Finland survey. Not the ever-smoker share of 55–80-year-olds: former and occasional smokers are excluded, so the risk group is understated. No regional ever-smoker indicator was found. Survey estimate with sampling error."
+    },
+    "lung_cancer_cases_per_year": {
+      "value": 213.2,
+      "source_id": "syoparekisteri-lung",
+      "year": 2024,
+      "is_estimate": false,
+      "note": "Mean of new lung and tracheal cancers (ICD-10 C33–C34), both sexes, 2020–2024: 228, 237, 205, 215, 181. County = home municipality in the year of diagnosis."
+    },
+    "occupational_health_doctor_visits_per_1000_aged_15_64": {
+      "value": 2117,
+      "source_id": "thl-sotkanet-2371",
+      "year": 2025,
+      "is_estimate": false,
+      "note": "Occupational health doctor visits per 1,000 residents aged 15–64 (THL primary care statistics). Measures use, not coverage: Kela's regional coverage figures were not found."
+    },
+    "in_ldct_pilot": {
+      "value": null,
+      "source_id": "mock",
+      "note": "Ask mentors which counties are in the screening pilot."
+    }
+  },
+  {
+    "id": "vantaa-kerava",
+    "name": "Vantaa ja Kerava",
+    "code": "HVA04",
+    "population_55_80": {
+      "value": 71823,
+      "source_id": "statfin-11re",
+      "year": 2025,
+      "is_estimate": false,
+      "note": "Residents aged 55–80 on 31 Dec 2025, both sexes. Municipalities summed to the county with the Statistics Finland 2026 key. The county's total population matches StatFin 11ra."
+    },
+    "ever_smoker_share": {
+      "value": 0.125,
+      "source_id": "thl-sotkanet-4404",
+      "year": 2024,
+      "is_estimate": true,
+      "note": "Proxy: daily smokers among residents aged 20 or over, 12.5% (2022: 9.6%), THL Healthy Finland survey. Not the ever-smoker share of 55–80-year-olds: former and occasional smokers are excluded, so the risk group is understated. No regional ever-smoker indicator was found. Survey estimate with sampling error."
+    },
+    "lung_cancer_cases_per_year": {
+      "value": 118.6,
+      "source_id": "syoparekisteri-lung",
+      "year": 2024,
+      "is_estimate": false,
+      "note": "Mean of new lung and tracheal cancers (ICD-10 C33–C34), both sexes, 2020–2024: 138, 114, 114, 120, 107. County = home municipality in the year of diagnosis."
+    },
+    "occupational_health_doctor_visits_per_1000_aged_15_64": {
+      "value": 2137,
+      "source_id": "thl-sotkanet-2371",
+      "year": 2025,
+      "is_estimate": true,
+      "note": "Occupational health doctor visits per 1,000 residents aged 15–64 (THL primary care statistics). Measures use, not coverage: Kela's regional coverage figures were not found. THL notes gaps in the Helsinki, Vantaa and Kerava data."
+    },
+    "in_ldct_pilot": {
+      "value": null,
+      "source_id": "mock",
+      "note": "Ask mentors which counties are in the screening pilot."
+    }
+  },
+  {
+    "id": "varsinais-suomi",
+    "name": "Varsinais-Suomi",
+    "code": "HVA05",
+    "population_55_80": {
+      "value": 154087,
+      "source_id": "statfin-11re",
+      "year": 2025,
+      "is_estimate": false,
+      "note": "Residents aged 55–80 on 31 Dec 2025, both sexes. Municipalities summed to the county with the Statistics Finland 2026 key. The county's total population matches StatFin 11ra."
+    },
+    "ever_smoker_share": {
+      "value": 0.102,
+      "source_id": "thl-sotkanet-4404",
+      "year": 2024,
+      "is_estimate": true,
+      "note": "Proxy: daily smokers among residents aged 20 or over, 10.2% (2022: 10.5%), THL Healthy Finland survey. Not the ever-smoker share of 55–80-year-olds: former and occasional smokers are excluded, so the risk group is understated. No regional ever-smoker indicator was found. Survey estimate with sampling error."
+    },
+    "lung_cancer_cases_per_year": {
+      "value": 277.6,
+      "source_id": "syoparekisteri-lung",
+      "year": 2024,
+      "is_estimate": false,
+      "note": "Mean of new lung and tracheal cancers (ICD-10 C33–C34), both sexes, 2020–2024: 281, 266, 296, 297, 248. County = home municipality in the year of diagnosis."
+    },
+    "occupational_health_doctor_visits_per_1000_aged_15_64": {
+      "value": 1783,
+      "source_id": "thl-sotkanet-2371",
+      "year": 2025,
+      "is_estimate": false,
+      "note": "Occupational health doctor visits per 1,000 residents aged 15–64 (THL primary care statistics). Measures use, not coverage: Kela's regional coverage figures were not found."
+    },
+    "in_ldct_pilot": {
+      "value": null,
+      "source_id": "mock",
+      "note": "Ask mentors which counties are in the screening pilot."
+    }
+  },
+  {
+    "id": "satakunta",
+    "name": "Satakunta",
+    "code": "HVA06",
+    "population_55_80": {
+      "value": 74982,
+      "source_id": "statfin-11re",
+      "year": 2025,
+      "is_estimate": false,
+      "note": "Residents aged 55–80 on 31 Dec 2025, both sexes. Municipalities summed to the county with the Statistics Finland 2026 key. The county's total population matches StatFin 11ra."
+    },
+    "ever_smoker_share": {
+      "value": 0.125,
+      "source_id": "thl-sotkanet-4404",
+      "year": 2024,
+      "is_estimate": true,
+      "note": "Proxy: daily smokers among residents aged 20 or over, 12.5% (2022: 11.6%), THL Healthy Finland survey. Not the ever-smoker share of 55–80-year-olds: former and occasional smokers are excluded, so the risk group is understated. No regional ever-smoker indicator was found. Survey estimate with sampling error."
+    },
+    "lung_cancer_cases_per_year": {
+      "value": 142.4,
+      "source_id": "syoparekisteri-lung",
+      "year": 2024,
+      "is_estimate": false,
+      "note": "Mean of new lung and tracheal cancers (ICD-10 C33–C34), both sexes, 2020–2024: 121, 139, 161, 153, 138. County = home municipality in the year of diagnosis."
+    },
+    "occupational_health_doctor_visits_per_1000_aged_15_64": {
+      "value": 1825,
+      "source_id": "thl-sotkanet-2371",
+      "year": 2025,
+      "is_estimate": false,
+      "note": "Occupational health doctor visits per 1,000 residents aged 15–64 (THL primary care statistics). Measures use, not coverage: Kela's regional coverage figures were not found."
+    },
+    "in_ldct_pilot": {
+      "value": null,
+      "source_id": "mock",
+      "note": "Ask mentors which counties are in the screening pilot."
+    }
+  },
+  {
+    "id": "kanta-hame",
+    "name": "Kanta-Häme",
+    "code": "HVA07",
+    "population_55_80": {
+      "value": 59913,
+      "source_id": "statfin-11re",
+      "year": 2025,
+      "is_estimate": false,
+      "note": "Residents aged 55–80 on 31 Dec 2025, both sexes. Municipalities summed to the county with the Statistics Finland 2026 key. The county's total population matches StatFin 11ra."
+    },
+    "ever_smoker_share": {
+      "value": 0.102,
+      "source_id": "thl-sotkanet-4404",
+      "year": 2024,
+      "is_estimate": true,
+      "note": "Proxy: daily smokers among residents aged 20 or over, 10.2% (2022: 13.9%), THL Healthy Finland survey. Not the ever-smoker share of 55–80-year-olds: former and occasional smokers are excluded, so the risk group is understated. No regional ever-smoker indicator was found. Survey estimate with sampling error."
+    },
+    "lung_cancer_cases_per_year": {
+      "value": 109.2,
+      "source_id": "syoparekisteri-lung",
+      "year": 2024,
+      "is_estimate": false,
+      "note": "Mean of new lung and tracheal cancers (ICD-10 C33–C34), both sexes, 2020–2024: 113, 100, 124, 102, 107. County = home municipality in the year of diagnosis."
+    },
+    "occupational_health_doctor_visits_per_1000_aged_15_64": {
+      "value": 2197,
+      "source_id": "thl-sotkanet-2371",
+      "year": 2025,
+      "is_estimate": false,
+      "note": "Occupational health doctor visits per 1,000 residents aged 15–64 (THL primary care statistics). Measures use, not coverage: Kela's regional coverage figures were not found."
+    },
+    "in_ldct_pilot": {
+      "value": null,
+      "source_id": "mock",
+      "note": "Ask mentors which counties are in the screening pilot."
+    }
+  },
+  {
+    "id": "paijat-hame",
+    "name": "Päijät-Häme",
+    "code": "HVA09",
+    "population_55_80": {
+      "value": 73289,
+      "source_id": "statfin-11re",
+      "year": 2025,
+      "is_estimate": false,
+      "note": "Residents aged 55–80 on 31 Dec 2025, both sexes. Municipalities summed to the county with the Statistics Finland 2026 key. The county's total population matches StatFin 11ra."
+    },
+    "ever_smoker_share": {
+      "value": 0.099,
+      "source_id": "thl-sotkanet-4404",
+      "year": 2024,
+      "is_estimate": true,
+      "note": "Proxy: daily smokers among residents aged 20 or over, 9.9% (2022: 11.1%), THL Healthy Finland survey. Not the ever-smoker share of 55–80-year-olds: former and occasional smokers are excluded, so the risk group is understated. No regional ever-smoker indicator was found. Survey estimate with sampling error."
+    },
+    "lung_cancer_cases_per_year": {
+      "value": 136.6,
+      "source_id": "syoparekisteri-lung",
+      "year": 2024,
+      "is_estimate": false,
+      "note": "Mean of new lung and tracheal cancers (ICD-10 C33–C34), both sexes, 2020–2024: 109, 156, 153, 139, 126. County = home municipality in the year of diagnosis."
+    },
+    "occupational_health_doctor_visits_per_1000_aged_15_64": {
+      "value": 1829,
+      "source_id": "thl-sotkanet-2371",
+      "year": 2025,
+      "is_estimate": false,
+      "note": "Occupational health doctor visits per 1,000 residents aged 15–64 (THL primary care statistics). Measures use, not coverage: Kela's regional coverage figures were not found."
+    },
+    "in_ldct_pilot": {
+      "value": null,
+      "source_id": "mock",
+      "note": "Ask mentors which counties are in the screening pilot."
+    }
+  },
+  {
+    "id": "kymenlaakso",
+    "name": "Kymenlaakso",
+    "code": "HVA10",
+    "population_55_80": {
+      "value": 59881,
+      "source_id": "statfin-11re",
+      "year": 2025,
+      "is_estimate": false,
+      "note": "Residents aged 55–80 on 31 Dec 2025, both sexes. Municipalities summed to the county with the Statistics Finland 2026 key. The county's total population matches StatFin 11ra."
+    },
+    "ever_smoker_share": {
+      "value": 0.12,
+      "source_id": "thl-sotkanet-4404",
+      "year": 2024,
+      "is_estimate": true,
+      "note": "Proxy: daily smokers among residents aged 20 or over, 12.0% (2022: 11.0%), THL Healthy Finland survey. Not the ever-smoker share of 55–80-year-olds: former and occasional smokers are excluded, so the risk group is understated. No regional ever-smoker indicator was found. Survey estimate with sampling error."
+    },
+    "lung_cancer_cases_per_year": {
+      "value": 118,
+      "source_id": "syoparekisteri-lung",
+      "year": 2024,
+      "is_estimate": false,
+      "note": "Mean of new lung and tracheal cancers (ICD-10 C33–C34), both sexes, 2020–2024: 111, 129, 127, 115, 108. County = home municipality in the year of diagnosis."
+    },
+    "occupational_health_doctor_visits_per_1000_aged_15_64": {
+      "value": 2029,
+      "source_id": "thl-sotkanet-2371",
+      "year": 2025,
+      "is_estimate": false,
+      "note": "Occupational health doctor visits per 1,000 residents aged 15–64 (THL primary care statistics). Measures use, not coverage: Kela's regional coverage figures were not found."
+    },
+    "in_ldct_pilot": {
+      "value": null,
+      "source_id": "mock",
+      "note": "Ask mentors which counties are in the screening pilot."
+    }
+  },
+  {
+    "id": "etela-karjala",
+    "name": "Etelä-Karjala",
+    "code": "HVA11",
+    "population_55_80": {
+      "value": 45157,
+      "source_id": "statfin-11re",
+      "year": 2025,
+      "is_estimate": false,
+      "note": "Residents aged 55–80 on 31 Dec 2025, both sexes. Municipalities summed to the county with the Statistics Finland 2026 key. The county's total population matches StatFin 11ra."
+    },
+    "ever_smoker_share": {
+      "value": 0.101,
+      "source_id": "thl-sotkanet-4404",
+      "year": 2024,
+      "is_estimate": true,
+      "note": "Proxy: daily smokers among residents aged 20 or over, 10.1% (2022: 12.7%), THL Healthy Finland survey. Not the ever-smoker share of 55–80-year-olds: former and occasional smokers are excluded, so the risk group is understated. No regional ever-smoker indicator was found. Survey estimate with sampling error."
+    },
+    "lung_cancer_cases_per_year": {
+      "value": 72.6,
+      "source_id": "syoparekisteri-lung",
+      "year": 2024,
+      "is_estimate": false,
+      "note": "Mean of new lung and tracheal cancers (ICD-10 C33–C34), both sexes, 2020–2024: 80, 64, 69, 72, 78. County = home municipality in the year of diagnosis."
+    },
+    "occupational_health_doctor_visits_per_1000_aged_15_64": {
+      "value": 1897,
+      "source_id": "thl-sotkanet-2371",
+      "year": 2025,
+      "is_estimate": false,
+      "note": "Occupational health doctor visits per 1,000 residents aged 15–64 (THL primary care statistics). Measures use, not coverage: Kela's regional coverage figures were not found."
+    },
+    "in_ldct_pilot": {
+      "value": null,
+      "source_id": "mock",
+      "note": "Ask mentors which counties are in the screening pilot."
+    }
+  },
+  {
+    "id": "etela-savo",
+    "name": "Etelä-Savo",
+    "code": "HVA12",
+    "population_55_80": {
+      "value": 52736,
+      "source_id": "statfin-11re",
+      "year": 2025,
+      "is_estimate": false,
+      "note": "Residents aged 55–80 on 31 Dec 2025, both sexes. Municipalities summed to the county with the Statistics Finland 2026 key. The county's total population matches StatFin 11ra."
+    },
+    "ever_smoker_share": {
+      "value": 0.072,
+      "source_id": "thl-sotkanet-4404",
+      "year": 2024,
+      "is_estimate": true,
+      "note": "Proxy: daily smokers among residents aged 20 or over, 7.2% (2022: 11.5%), THL Healthy Finland survey. Not the ever-smoker share of 55–80-year-olds: former and occasional smokers are excluded, so the risk group is understated. No regional ever-smoker indicator was found. Survey estimate with sampling error."
+    },
+    "lung_cancer_cases_per_year": {
+      "value": 91,
+      "source_id": "syoparekisteri-lung",
+      "year": 2024,
+      "is_estimate": false,
+      "note": "Mean of new lung and tracheal cancers (ICD-10 C33–C34), both sexes, 2020–2024: 89, 89, 105, 82, 90. County = home municipality in the year of diagnosis."
+    },
+    "occupational_health_doctor_visits_per_1000_aged_15_64": {
+      "value": 1694,
+      "source_id": "thl-sotkanet-2371",
+      "year": 2025,
+      "is_estimate": false,
+      "note": "Occupational health doctor visits per 1,000 residents aged 15–64 (THL primary care statistics). Measures use, not coverage: Kela's regional coverage figures were not found."
+    },
+    "in_ldct_pilot": {
+      "value": null,
+      "source_id": "mock",
+      "note": "Ask mentors which counties are in the screening pilot."
+    }
+  },
+  {
+    "id": "pohjois-karjala",
+    "name": "Pohjois-Karjala",
+    "code": "HVA14",
+    "population_55_80": {
+      "value": 58320,
+      "source_id": "statfin-11re",
+      "year": 2025,
+      "is_estimate": false,
+      "note": "Residents aged 55–80 on 31 Dec 2025, both sexes. Municipalities summed to the county with the Statistics Finland 2026 key. The county's total population matches StatFin 11ra."
+    },
+    "ever_smoker_share": {
+      "value": 0.1,
+      "source_id": "thl-sotkanet-4404",
+      "year": 2024,
+      "is_estimate": true,
+      "note": "Proxy: daily smokers among residents aged 20 or over, 10.0% (2022: 9.0%), THL Healthy Finland survey. Not the ever-smoker share of 55–80-year-olds: former and occasional smokers are excluded, so the risk group is understated. No regional ever-smoker indicator was found. Survey estimate with sampling error."
+    },
+    "lung_cancer_cases_per_year": {
+      "value": 98.8,
+      "source_id": "syoparekisteri-lung",
+      "year": 2024,
+      "is_estimate": false,
+      "note": "Mean of new lung and tracheal cancers (ICD-10 C33–C34), both sexes, 2020–2024: 105, 100, 111, 94, 84. County = home municipality in the year of diagnosis."
+    },
+    "occupational_health_doctor_visits_per_1000_aged_15_64": {
+      "value": 1523,
+      "source_id": "thl-sotkanet-2371",
+      "year": 2025,
+      "is_estimate": false,
+      "note": "Occupational health doctor visits per 1,000 residents aged 15–64 (THL primary care statistics). Measures use, not coverage: Kela's regional coverage figures were not found."
+    },
+    "in_ldct_pilot": {
+      "value": null,
+      "source_id": "mock",
+      "note": "Ask mentors which counties are in the screening pilot."
+    }
+  },
+  {
+    "id": "keski-suomi",
+    "name": "Keski-Suomi",
+    "code": "HVA15",
+    "population_55_80": {
+      "value": 86906,
+      "source_id": "statfin-11re",
+      "year": 2025,
+      "is_estimate": false,
+      "note": "Residents aged 55–80 on 31 Dec 2025, both sexes. Municipalities summed to the county with the Statistics Finland 2026 key. The county's total population matches StatFin 11ra."
+    },
+    "ever_smoker_share": {
+      "value": 0.076,
+      "source_id": "thl-sotkanet-4404",
+      "year": 2024,
+      "is_estimate": true,
+      "note": "Proxy: daily smokers among residents aged 20 or over, 7.6% (2022: 7.0%), THL Healthy Finland survey. Not the ever-smoker share of 55–80-year-olds: former and occasional smokers are excluded, so the risk group is understated. No regional ever-smoker indicator was found. Survey estimate with sampling error."
+    },
+    "lung_cancer_cases_per_year": {
+      "value": 125.4,
+      "source_id": "syoparekisteri-lung",
+      "year": 2024,
+      "is_estimate": false,
+      "note": "Mean of new lung and tracheal cancers (ICD-10 C33–C34), both sexes, 2020–2024: 114, 131, 127, 139, 116. County = home municipality in the year of diagnosis."
+    },
+    "occupational_health_doctor_visits_per_1000_aged_15_64": {
+      "value": 1580,
+      "source_id": "thl-sotkanet-2371",
+      "year": 2025,
+      "is_estimate": false,
+      "note": "Occupational health doctor visits per 1,000 residents aged 15–64 (THL primary care statistics). Measures use, not coverage: Kela's regional coverage figures were not found."
+    },
+    "in_ldct_pilot": {
+      "value": null,
+      "source_id": "mock",
+      "note": "Ask mentors which counties are in the screening pilot."
+    }
+  },
+  {
+    "id": "etela-pohjanmaa",
+    "name": "Etelä-Pohjanmaa",
+    "code": "HVA16",
+    "population_55_80": {
+      "value": 64785,
+      "source_id": "statfin-11re",
+      "year": 2025,
+      "is_estimate": false,
+      "note": "Residents aged 55–80 on 31 Dec 2025, both sexes. Municipalities summed to the county with the Statistics Finland 2026 key. The county's total population matches StatFin 11ra."
+    },
+    "ever_smoker_share": {
+      "value": 0.076,
+      "source_id": "thl-sotkanet-4404",
+      "year": 2024,
+      "is_estimate": true,
+      "note": "Proxy: daily smokers among residents aged 20 or over, 7.6% (2022: 9.7%), THL Healthy Finland survey. Not the ever-smoker share of 55–80-year-olds: former and occasional smokers are excluded, so the risk group is understated. No regional ever-smoker indicator was found. Survey estimate with sampling error."
+    },
+    "lung_cancer_cases_per_year": {
+      "value": 111.2,
+      "source_id": "syoparekisteri-lung",
+      "year": 2024,
+      "is_estimate": false,
+      "note": "Mean of new lung and tracheal cancers (ICD-10 C33–C34), both sexes, 2020–2024: 100, 123, 100, 99, 134. County = home municipality in the year of diagnosis."
+    },
+    "occupational_health_doctor_visits_per_1000_aged_15_64": {
+      "value": 1515,
+      "source_id": "thl-sotkanet-2371",
+      "year": 2025,
+      "is_estimate": false,
+      "note": "Occupational health doctor visits per 1,000 residents aged 15–64 (THL primary care statistics). Measures use, not coverage: Kela's regional coverage figures were not found."
+    },
+    "in_ldct_pilot": {
+      "value": null,
+      "source_id": "mock",
+      "note": "Ask mentors which counties are in the screening pilot."
+    }
+  },
+  {
+    "id": "pohjanmaa",
+    "name": "Pohjanmaa",
+    "code": "HVA17",
+    "population_55_80": {
+      "value": 52471,
+      "source_id": "statfin-11re",
+      "year": 2025,
+      "is_estimate": false,
+      "note": "Residents aged 55–80 on 31 Dec 2025, both sexes. Municipalities summed to the county with the Statistics Finland 2026 key. The county's total population matches StatFin 11ra."
+    },
+    "ever_smoker_share": {
+      "value": 0.077,
+      "source_id": "thl-sotkanet-4404",
+      "year": 2024,
+      "is_estimate": true,
+      "note": "Proxy: daily smokers among residents aged 20 or over, 7.7% (2022: 8.5%), THL Healthy Finland survey. Not the ever-smoker share of 55–80-year-olds: former and occasional smokers are excluded, so the risk group is understated. No regional ever-smoker indicator was found. Survey estimate with sampling error."
+    },
+    "lung_cancer_cases_per_year": {
+      "value": 95.6,
+      "source_id": "syoparekisteri-lung",
+      "year": 2024,
+      "is_estimate": false,
+      "note": "Mean of new lung and tracheal cancers (ICD-10 C33–C34), both sexes, 2020–2024: 104, 93, 89, 75, 117. County = home municipality in the year of diagnosis."
+    },
+    "occupational_health_doctor_visits_per_1000_aged_15_64": {
+      "value": 1219,
+      "source_id": "thl-sotkanet-2371",
+      "year": 2025,
+      "is_estimate": false,
+      "note": "Occupational health doctor visits per 1,000 residents aged 15–64 (THL primary care statistics). Measures use, not coverage: Kela's regional coverage figures were not found."
+    },
+    "in_ldct_pilot": {
+      "value": null,
+      "source_id": "mock",
+      "note": "Ask mentors which counties are in the screening pilot."
+    }
+  },
+  {
+    "id": "keski-pohjanmaa",
+    "name": "Keski-Pohjanmaa",
+    "code": "HVA18",
+    "population_55_80": {
+      "value": 21167,
+      "source_id": "statfin-11re",
+      "year": 2025,
+      "is_estimate": false,
+      "note": "Residents aged 55–80 on 31 Dec 2025, both sexes. Municipalities summed to the county with the Statistics Finland 2026 key. The county's total population matches StatFin 11ra."
+    },
+    "ever_smoker_share": {
+      "value": 0.087,
+      "source_id": "thl-sotkanet-4404",
+      "year": 2024,
+      "is_estimate": true,
+      "note": "Proxy: daily smokers among residents aged 20 or over, 8.7% (2022: 12.0%), THL Healthy Finland survey. Not the ever-smoker share of 55–80-year-olds: former and occasional smokers are excluded, so the risk group is understated. No regional ever-smoker indicator was found. Survey estimate with sampling error."
+    },
+    "lung_cancer_cases_per_year": {
+      "value": 32.8,
+      "source_id": "syoparekisteri-lung",
+      "year": 2024,
+      "is_estimate": false,
+      "note": "Mean of new lung and tracheal cancers (ICD-10 C33–C34), both sexes, 2020–2024: 30, 37, 32, 35, 30. County = home municipality in the year of diagnosis."
+    },
+    "occupational_health_doctor_visits_per_1000_aged_15_64": {
+      "value": 1217,
+      "source_id": "thl-sotkanet-2371",
+      "year": 2025,
+      "is_estimate": false,
+      "note": "Occupational health doctor visits per 1,000 residents aged 15–64 (THL primary care statistics). Measures use, not coverage: Kela's regional coverage figures were not found."
+    },
+    "in_ldct_pilot": {
+      "value": null,
+      "source_id": "mock",
+      "note": "Ask mentors which counties are in the screening pilot."
+    }
+  },
+  {
+    "id": "pohjois-pohjanmaa",
+    "name": "Pohjois-Pohjanmaa",
+    "code": "HVA19",
+    "population_55_80": {
+      "value": 119004,
+      "source_id": "statfin-11re",
+      "year": 2025,
+      "is_estimate": false,
+      "note": "Residents aged 55–80 on 31 Dec 2025, both sexes. Municipalities summed to the county with the Statistics Finland 2026 key. The county's total population matches StatFin 11ra."
+    },
+    "ever_smoker_share": {
+      "value": 0.095,
+      "source_id": "thl-sotkanet-4404",
+      "year": 2024,
+      "is_estimate": true,
+      "note": "Proxy: daily smokers among residents aged 20 or over, 9.5% (2022: 8.5%), THL Healthy Finland survey. Not the ever-smoker share of 55–80-year-olds: former and occasional smokers are excluded, so the risk group is understated. No regional ever-smoker indicator was found. Survey estimate with sampling error."
+    },
+    "lung_cancer_cases_per_year": {
+      "value": 207.8,
+      "source_id": "syoparekisteri-lung",
+      "year": 2024,
+      "is_estimate": false,
+      "note": "Mean of new lung and tracheal cancers (ICD-10 C33–C34), both sexes, 2020–2024: 205, 211, 216, 206, 201. County = home municipality in the year of diagnosis."
+    },
+    "occupational_health_doctor_visits_per_1000_aged_15_64": {
+      "value": 1838,
+      "source_id": "thl-sotkanet-2371",
+      "year": 2025,
+      "is_estimate": false,
+      "note": "Occupational health doctor visits per 1,000 residents aged 15–64 (THL primary care statistics). Measures use, not coverage: Kela's regional coverage figures were not found."
+    },
+    "in_ldct_pilot": {
+      "value": null,
+      "source_id": "mock",
+      "note": "Ask mentors which counties are in the screening pilot."
+    }
+  },
+  {
+    "id": "kainuu",
+    "name": "Kainuu",
+    "code": "HVA20",
+    "population_55_80": {
+      "value": 27013,
+      "source_id": "statfin-11re",
+      "year": 2025,
+      "is_estimate": false,
+      "note": "Residents aged 55–80 on 31 Dec 2025, both sexes. Municipalities summed to the county with the Statistics Finland 2026 key. The county's total population matches StatFin 11ra."
+    },
+    "ever_smoker_share": {
+      "value": 0.089,
+      "source_id": "thl-sotkanet-4404",
+      "year": 2024,
+      "is_estimate": true,
+      "note": "Proxy: daily smokers among residents aged 20 or over, 8.9% (2022: 10.6%), THL Healthy Finland survey. Not the ever-smoker share of 55–80-year-olds: former and occasional smokers are excluded, so the risk group is understated. No regional ever-smoker indicator was found. Survey estimate with sampling error."
+    },
+    "lung_cancer_cases_per_year": {
+      "value": 47.2,
+      "source_id": "syoparekisteri-lung",
+      "year": 2024,
+      "is_estimate": false,
+      "note": "Mean of new lung and tracheal cancers (ICD-10 C33–C34), both sexes, 2020–2024: 57, 41, 45, 47, 46. County = home municipality in the year of diagnosis."
+    },
+    "occupational_health_doctor_visits_per_1000_aged_15_64": {
+      "value": 1658,
+      "source_id": "thl-sotkanet-2371",
+      "year": 2025,
+      "is_estimate": false,
+      "note": "Occupational health doctor visits per 1,000 residents aged 15–64 (THL primary care statistics). Measures use, not coverage: Kela's regional coverage figures were not found."
+    },
+    "in_ldct_pilot": {
+      "value": null,
+      "source_id": "mock",
+      "note": "Ask mentors which counties are in the screening pilot."
+    }
+  },
+  {
+    "id": "helsinki",
+    "name": "Helsinki",
+    "code": "HVA90",
+    "population_55_80": {
+      "value": 170777,
+      "source_id": "statfin-11re",
+      "year": 2025,
+      "is_estimate": false,
+      "note": "Residents aged 55–80 on 31 Dec 2025, both sexes. Municipalities summed to the county with the Statistics Finland 2026 key. The county's total population matches StatFin 11ra."
+    },
+    "ever_smoker_share": {
+      "value": 0.068,
+      "source_id": "thl-sotkanet-4404",
+      "year": 2024,
+      "is_estimate": true,
+      "note": "Proxy: daily smokers among residents aged 20 or over, 6.8% (2022: 9.7%), THL Healthy Finland survey. Not the ever-smoker share of 55–80-year-olds: former and occasional smokers are excluded, so the risk group is understated. No regional ever-smoker indicator was found. Survey estimate with sampling error."
+    },
+    "lung_cancer_cases_per_year": {
+      "value": 299.8,
+      "source_id": "syoparekisteri-lung",
+      "year": 2024,
+      "is_estimate": false,
+      "note": "Mean of new lung and tracheal cancers (ICD-10 C33–C34), both sexes, 2020–2024: 320, 303, 306, 277, 293. County = home municipality in the year of diagnosis."
+    },
+    "occupational_health_doctor_visits_per_1000_aged_15_64": {
+      "value": 2290,
+      "source_id": "thl-sotkanet-2371",
+      "year": 2025,
+      "is_estimate": true,
+      "note": "Occupational health doctor visits per 1,000 residents aged 15–64 (THL primary care statistics). Measures use, not coverage: Kela's regional coverage figures were not found. THL notes gaps in the Helsinki, Vantaa and Kerava data."
+    },
+    "in_ldct_pilot": {
+      "value": null,
+      "source_id": "mock",
+      "note": "Ask mentors which counties are in the screening pilot."
+    }
   }
 ]
