@@ -5,11 +5,11 @@ import { LiveTotalsPanel } from "@/components/LiveData";
 import { PilotPanel } from "@/components/PilotPanel";
 import { More } from "@/components/More";
 import countiesData from "@/data/counties.json";
-import { RichText } from "@/components/RichText";
+import { AiAnalyst } from "@/components/AiAnalyst";
 import { SourceTag, sourceLabel } from "@/components/SourceTag";
 import { regionLanguages } from "@/lib/i18n/region-languages";
 import { SURVEY_LANGS } from "@/lib/i18n/survey-text";
-import { allSources, curativeRanking, regionalFindings, SIGNAL_LABEL } from "@/lib/regional";
+import { allSources, curativeRanking, mortalityRanking, NATIONAL_MORTALITY, regionalFindings, SIGNAL_LABEL } from "@/lib/regional";
 import { PARAM_META, SCENARIOS, simulateDoors, simulateRange, type SimulationParams, type SimulationResult } from "@/lib/simulation";
 import type { County } from "@/lib/types";
 
@@ -43,7 +43,6 @@ function formatParam(value: number, unit: string) {
   return `${value} vk`;
 }
 
-type Mode = "doors" | "doors_survey";
 
 // Assumptions that affect the Two Doors view; the rest belong to the survey.
 
@@ -69,11 +68,7 @@ export default function CountyPage() {
   // Lapland first: the team's case region, with the highest lung cancer mortality.
   const [countyId, setCountyId] = useState(counties.some((c) => c.id === "lappi") ? "lappi" : counties[0].id);
   const [ctPrice, setCtPrice] = useState(DEFAULT_CT_PRICE);
-  // The team chose "Two Doors + survey" (2026-11-14); the "Two Doors only" view was removed.
-  const mode: Mode = "doors_survey";
   const [overrides, setOverrides] = useState<Partial<SimulationParams>>({});
-  const [brief, setBrief] = useState<{ text: string; generated_by: string } | null>(null);
-  const [loading, setLoading] = useState(false);
 
   const county = counties.find((c) => c.id === countyId)!;
   const range = useMemo(() => simulateRange(county, overrides), [county, overrides]);
@@ -81,20 +76,11 @@ export default function CountyPage() {
   const usesMock = [county.population_50_74, county.ever_smoker_share, county.lung_cancer_cases_per_year].some((v) => v.source_id === "mock");
   const maxDays = Math.max(doors.publicDaysToCt, doors.privateDaysToCt, doors.fastLaneDaysToCt);
   const findings = useMemo(() => regionalFindings(countyId), [countyId]);
+  const mortality = useMemo(() => mortalityRanking(), []);
   const langs = useMemo(() => regionLanguages(countyId, SURVEY_LANGS.map((l) => l.code)), [countyId]);
   const params = { ...SCENARIOS.base, ...overrides };
   const cost = { total: range.base.physicianVisits * VISIT_COST + range.base.ctScans * ctPrice };
   const ranking = useMemo(() => curativeRanking(), []);
-
-  async function makeBrief() {
-    setLoading(true);
-    try {
-      const res = await fetch("/api/brief", { method: "POST", headers: { "Content-Type": "application/json" }, body: JSON.stringify({ countyId, overrides, mode }) });
-      setBrief(await res.json());
-    } finally {
-      setLoading(false);
-    }
-  }
 
   return (
     <div className="space-y-6">
@@ -111,7 +97,6 @@ export default function CountyPage() {
             value={countyId}
             onChange={(e) => {
               setCountyId(e.target.value);
-              setBrief(null);
             }}
           >
             {counties.map((c) => (
@@ -129,6 +114,50 @@ export default function CountyPage() {
           Osa alueen luvuista on paikkamerkkejä (merkitty keltaisella). Ne korvataan julkisella datalla ennen esitystä.
         </p>
       )}
+
+      <div className="grid gap-4 lg:grid-cols-5">
+        <div className="lg:col-span-3">
+          <AiAnalyst countyId={countyId} countyName={county.name} overrides={overrides} />
+        </div>
+        <section className="rounded-2xl border border-slate-200 bg-white p-4 lg:col-span-2">
+          <p className="text-sm font-semibold">Koko maa: keuhkosyöpäkuolleisuus alueittain</p>
+          <p className="text-xs text-slate-500">
+            Ikävakioitu, / 100 000, 2020–2024. Koko maa {nf1.format(NATIONAL_MORTALITY)}.<SourceTag id="fcr-mortality" /> Valitse alue napauttamalla.
+          </p>
+          <ul className="mt-2 space-y-0.5">
+            {mortality.map((m) => {
+              const selected = m.id === countyId;
+              const known = counties.some((c) => c.id === m.id);
+              return (
+                <li key={m.id}>
+                  <button
+                    type="button"
+                    disabled={!known}
+                    onClick={() => setCountyId(m.id)}
+                    aria-pressed={selected}
+                    className={`flex w-full items-center gap-2 rounded px-1 py-0.5 text-left text-xs ${selected ? "bg-sky-50 font-semibold" : "hover:bg-slate-50"}`}
+                  >
+                    <span className="w-28 shrink-0 truncate">{m.name}</span>
+                    <span className="relative h-2.5 flex-1 rounded bg-slate-100">
+                      <span
+                        className={`absolute inset-y-0 left-0 rounded ${selected ? "bg-sky-700" : m.signal === "consistently_higher" ? "bg-rose-500" : m.signal === "consistently_lower" ? "bg-emerald-500" : "bg-slate-400"}`}
+                        style={{ width: `${(m.value / mortality[0].value) * 100}%` }}
+                      />
+                      <span aria-hidden="true" className="absolute inset-y-[-2px] w-px bg-slate-700" style={{ left: `${(NATIONAL_MORTALITY / mortality[0].value) * 100}%` }} />
+                    </span>
+                    <span className="w-9 text-right tabular-nums">{nf1.format(m.value)}</span>
+                  </button>
+                </li>
+              );
+            })}
+          </ul>
+          <p className="mt-2 flex flex-wrap gap-3 text-[11px] text-slate-500">
+            <span><span className="mr-1 inline-block h-2 w-2 rounded-sm bg-rose-500" />selvästi korkeampi</span>
+            <span><span className="mr-1 inline-block h-2 w-2 rounded-sm bg-emerald-500" />selvästi matalampi</span>
+            <span><span className="mr-1 inline-block h-2 w-px bg-slate-700" />koko maa</span>
+          </p>
+        </section>
+      </div>
 
       <ol className="grid gap-4 md:grid-cols-3">
         <li className="rounded-lg border border-slate-200 bg-white p-4">
@@ -161,6 +190,7 @@ export default function CountyPage() {
         <li className="rounded-lg border border-slate-200 bg-white p-4">
           <p className="text-xs font-semibold uppercase tracking-wide text-amber-700">2 · Missä se syntyy</p>
           <p className="mt-2 text-lg font-semibold">Terveyskeskuksessa, ennen lähetettä</p>
+          <p className="text-xs text-slate-500">Kansalliset arviot (Suomi, Satakunta, Pirkanmaa). Alueen omia aikoja ei julkaista.</p>
           <ul className="mt-2 space-y-1 text-sm">
             <li className="flex justify-between gap-2">
               <span>Lääkäriaika<SourceTag id="uh-acta-2025" /></span>
@@ -175,6 +205,14 @@ export default function CountyPage() {
               <span className="whitespace-nowrap tabular-nums">{fmt(params.currentCtQueueDays)} pv</span>
             </li>
           </ul>
+          <div className="mt-3 rounded-md bg-amber-50 p-2.5 text-sm text-amber-950">
+            <p className="font-semibold">Kaksi ovea: hitaampi ovi on suuremman riskin ovi</p>
+            <p className="mt-1">
+              Työterveyden kautta TT:hen pääsee noin {fmt(doors.privateDaysToCt)} päivässä, terveyskeskuksen kautta {fmt(doors.publicDaysToCt)} päivässä.
+              <SourceTag id="kuitunen-2026" /> Vain noin kolmannes sairastuneista on työikäisiä, joten eläkeläiset ja työttömät eli noin {pct(params.publicDoorShare)} tulee hitaamman oven kautta.
+              <SourceTag id="strategy" />
+            </p>
+          </div>
           <p className="mt-2 text-sm text-slate-600">Suomessa perusterveydenhuolto ei juuri käytä TT:tä, vaan ensin otetaan röntgen.<SourceTag id="uh-acta-2025" /></p>
           <More className="mt-1" label="Miksi">
             <p>Noin 65–70 % keuhkosyövistä löytyy vasta levinneenä.<SourceTag id="filha-2026" /></p>
@@ -378,22 +416,6 @@ export default function CountyPage() {
         <p className="mt-3 text-xs text-slate-500">Arvioi pääsyä TT-kuvaukseen ja tarvittavia aikoja, ei elossaoloa.</p>
       </details>
 
-      <section className="rounded-lg border border-slate-200 bg-white p-4">
-        <div className="flex flex-wrap items-center justify-between gap-2">
-          <h2 className="font-semibold">Tiivistelmä päättäjälle</h2>
-          <button onClick={makeBrief} disabled={loading} className="rounded bg-sky-700 px-3 py-1.5 text-sm font-medium text-white hover:bg-sky-800 disabled:opacity-50">
-            {loading ? "Kirjoitetaan…" : brief ? "Kirjoita uudelleen" : "Luo tiivistelmä"}
-          </button>
-        </div>
-        {brief ? (
-          <div className="mt-3">
-            <p className="mb-2 text-xs text-slate-500">{brief.generated_by === "llm" ? "Tekoäly kirjoitti tekstin. Kaikki luvut ovat laskelmasta." : "Varapohja (ei API-avainta). Kaikki luvut ovat laskelmasta."}</p>
-            <RichText text={brief.text} />
-          </div>
-        ) : (
-          <p className="mt-2 text-sm text-slate-500">Tekoäly kokoaa luvut ja lähteet kahden minuutin tiivistelmäksi.</p>
-        )}
-      </section>
 
       <details className="rounded-lg border border-slate-200 bg-white p-4">
         <summary className="cursor-pointer font-semibold">Demon kyselydata reaaliajassa</summary>

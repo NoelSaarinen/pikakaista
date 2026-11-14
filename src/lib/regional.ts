@@ -100,3 +100,13 @@ export function regionalFindings(countyId: string): RegionalFindings {
 export function curativeRanking() {
   return [...curative.counties].sort((a, b) => b.curative_share - a.curative_share);
 }
+
+/** Age-standardised lung cancer mortality for every county, highest first (Goal 3 indicator). */
+export function mortalityRanking(): { id: string; name: string; value: number; signal?: Signal }[] {
+  return goal3.regions
+    .filter((r) => r.lung_cancer_mortality_asr)
+    .map((r) => ({ id: r.id, name: r.name, value: r.lung_cancer_mortality_asr!.value, signal: r.mortality_signal?.value }))
+    .sort((a, b) => b.value - a.value);
+}
+
+export const NATIONAL_MORTALITY = goal3.national.lung_cancer_mortality_asr.value;

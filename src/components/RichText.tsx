@@ -1,6 +1,7 @@
 // Renders the brief: paragraphs separated by blank lines, **bold**, and [source] tags.
 
 import { Fragment } from "react";
+import { sourceLabel } from "./SourceTag";
 
 function renderInline(text: string) {
   const parts = text.split(/(\*\*[^*]+\*\*|\[[a-z0-9-]+(?:, ?[a-z0-9-]+)*\])/gi);
@@ -9,7 +10,7 @@ function renderInline(text: string) {
     if (/^\[[a-z0-9-]+(?:, ?[a-z0-9-]+)*\]$/i.test(part)) {
       return (
         <span key={i} className="ml-0.5 rounded bg-sky-100 px-1 text-xs font-medium text-sky-800">
-          {part.slice(1, -1)}
+          {part.slice(1, -1).split(/, ?/).map((id) => (id === "laskelma" ? "laskelma" : sourceLabel(id))).join(", ")}
         </span>
       );
     }
