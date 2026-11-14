@@ -109,8 +109,9 @@ Merkinnät:
 21. **Parantava hoito ikävakioituna** → käytämme ikävakioimatonta osuutta (🇫🇮 laaturekisteriraportti).
 22. **Levinneisyys alueittain** → käytämme koko maan lukua (🇫🇮 Syöpärekisteri).
 23. **Kuolleisuuden luottamusvälit** → tiimin oma laskelma.
-24. **Seulontapilotin alueet** → tieto puuttuu, tiekartassa vain "Helsinki + 8 aluetta".
-    - **Kysy Kaisalta.**
+24. **Seulontapilotin alueet** → tiekartassa vain "Helsinki + 8 aluetta".
+    - Lehdistötiedotteiden mukaan alueet ovat Uusimaa, Pirkanmaa, Pohjanmaa, Pohjois-Pohjanmaa ja Varsinais-Suomi. Lappi ei ole mukana. Tarkemmin: [SEULONTAPILOTTI.md](../seulontapilotti/SEULONTAPILOTTI.md).
+    - **Kysy Kaisalta** vahvistus.
 
 ## Suunnitteluvalinnat (tiimin päätös, ei dataa)
 
