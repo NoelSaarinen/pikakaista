@@ -1,6 +1,8 @@
 "use client";
 
 import { useState } from "react";
+import { AnalysisCard } from "@/components/AnalysisCard";
+import { EDUCATION_LEVELS } from "@/lib/plco";
 import { PLACEMENT_LABEL } from "@/lib/rules";
 import type { Channel, RuleResult } from "@/lib/types";
 
@@ -16,6 +18,13 @@ const SYMPTOMS: { key: string; label: string }[] = [
   { key: "breathlessness", label: "Hengenahdistusta, joka on uutta tai pahentunut" },
   { key: "chest_pain", label: "Rintakipua" },
   { key: "weight_loss", label: "Laihtumista ilman yritystä" },
+];
+
+// PLCOm2012 history questions.
+const PLCO_HISTORY: { key: string; label: string }[] = [
+  { key: "copd", label: "Keuhkoahtaumatauti (COPD) tai keuhkoemfyseema" },
+  { key: "personal_cancer_history", label: "Jokin syöpä aiemmin" },
+  { key: "family_history_lung_cancer", label: "Keuhkosyöpä vanhemmalla, sisaruksella tai lapsella" },
 ];
 
 const NURSE_MESSAGE: Record<RuleResult["placement"], string> = {
@@ -38,9 +47,17 @@ export default function SurveyPage() {
   const [visitMonths, setVisitMonths] = useState(2);
   const [freeText, setFreeText] = useState("");
   const [result, setResult] = useState<RuleResult | null>(null);
+  const [responseId, setResponseId] = useState<string | null>(null);
   const [sending, setSending] = useState(false);
+  // PLCOm2012 inputs
+  const [quitYears, setQuitYears] = useState(5);
+  const [heightCm, setHeightCm] = useState(172);
+  const [weightKg, setWeightKg] = useState(80);
+  const [education, setEducation] = useState(2);
+  const [history, setHistory] = useState<Record<string, boolean>>({});
 
   const packYears = smoking === "never" ? 0 : Math.round((perDay / 20) * years);
+  const bmi = heightCm > 0 ? Math.round((weightKg / (heightCm / 100) ** 2) * 10) / 10 : 27;
 
   async function submit(e: React.FormEvent) {
     e.preventDefault();
@@ -59,10 +76,21 @@ export default function SurveyPage() {
           previous_visit_reason: visitReason,
           previous_visit_months_ago: visitMonths,
           free_text: freeText,
+          plco: {
+            education,
+            bmi,
+            copd: Boolean(history.copd),
+            personal_cancer_history: Boolean(history.personal_cancer_history),
+            family_history_lung_cancer: Boolean(history.family_history_lung_cancer),
+            cigs_per_day: smoking === "never" ? 0 : perDay,
+            smoking_years: smoking === "never" ? 0 : years,
+            years_since_quit: smoking === "former" ? quitYears : 0,
+          },
         }),
       });
       const data = await res.json();
       setResult(data.rule);
+      setResponseId(data.response.id);
     } finally {
       setSending(false);
     }
@@ -97,6 +125,12 @@ export default function SurveyPage() {
               <p>Ehdotus: {PLACEMENT_LABEL[result.placement]}</p>
               <p>Hälytysmerkit: {result.reasons.map((r) => r.label).join(", ") || "ei"}</p>
             </div>
+            {responseId && result.placement !== "not_eligible" && (
+              <div className="text-left">
+                <p className="mb-1 text-sm font-semibold">Vielä muutama tarkentava kysymys</p>
+                <AnalysisCard id={responseId} compact respondent={channel === "survey"} />
+              </div>
+            )}
             <div className="flex justify-center gap-3 text-sm">
               <a href="/clinician" className="rounded bg-sky-700 px-3 py-1.5 font-medium text-white">Lääkärin lista →</a>
               <button onClick={() => setResult(null)} className="underline">Uusi vastaus</button>
@@ -143,8 +177,46 @@ export default function SurveyPage() {
                   <input type="number" className="mt-1 w-full rounded border px-2 py-1" value={years} min={0} onChange={(e) => setYears(Number(e.target.value))} />
                 </label>
                 <p className="col-span-2 text-xs text-slate-500">= {packYears} askivuotta</p>
+                {smoking === "former" && (
+                  <label className="col-span-2">
+                    Montako vuotta sitten lopetit?
+                    <input type="number" className="mt-1 w-full rounded border px-2 py-1" value={quitYears} min={0} onChange={(e) => setQuitYears(Number(e.target.value))} />
+                  </label>
+                )}
               </div>
             )}
+
+            <fieldset className="space-y-1">
+              <legend>Onko sinulla todettu:</legend>
+              {PLCO_HISTORY.map((h) => (
+                <label key={h.key} className="flex items-center gap-2">
+                  <input type="checkbox" checked={Boolean(history[h.key])} onChange={(e) => setHistory((c) => ({ ...c, [h.key]: e.target.checked }))} />
+                  {h.label}
+                </label>
+              ))}
+            </fieldset>
+
+            <div className="grid grid-cols-2 gap-2">
+              <label>
+                Pituus (cm)
+                <input type="number" className="mt-1 w-full rounded border px-2 py-1" value={heightCm} min={100} max={230} onChange={(e) => setHeightCm(Number(e.target.value))} />
+              </label>
+              <label>
+                Paino (kg)
+                <input type="number" className="mt-1 w-full rounded border px-2 py-1" value={weightKg} min={30} max={250} onChange={(e) => setWeightKg(Number(e.target.value))} />
+              </label>
+            </div>
+
+            <label className="block">
+              Korkein koulutuksesi
+              <select className="mt-1 w-full rounded border px-2 py-1" value={education} onChange={(e) => setEducation(Number(e.target.value))}>
+                {EDUCATION_LEVELS.map((l) => (
+                  <option key={l.level} value={l.level}>
+                    {l.label}
+                  </option>
+                ))}
+              </select>
+            </label>
 
             <label className="block">
               Kuinka monta viikkoa sinulla on ollut yskää? (0 = ei yskää)

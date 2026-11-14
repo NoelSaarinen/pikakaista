@@ -1,8 +1,10 @@
 "use client";
 
 import { useCallback, useEffect, useState } from "react";
+import { AnalysisCard, PRIORITY_BADGE } from "@/components/AnalysisCard";
 import { EngagementBadge, PathwayCard } from "@/components/PathwayCard";
 import { STAGE_LABEL } from "@/lib/pathway";
+import { formatRisk } from "@/lib/priority";
 import { PLACEMENT_LABEL } from "@/lib/rules";
 import type { CaseSummary, Placement } from "@/lib/types";
 import type { WorklistItem } from "@/lib/store";
@@ -83,6 +85,12 @@ export default function ClinicianPage() {
             {data.total} vastausta (synteettisiä). Säännöt ohjasivat pikakaistalle {data.counts.direct_ct + data.counts.physician_fast}: suoraan TT {data.counts.direct_ct}, lääkärille {data.counts.physician_fast}. Tavallinen reitti {data.counts.normal_route}, ei riskiryhmässä {data.counts.not_eligible}.
           </p>
         )}
+        {data && (
+          <p className="text-xs text-slate-500">
+            Järjestys: hälytysmerkit ensin, saman kiireellisyyden sisällä PLCOm2012-mallin kuuden vuoden keuhkosyöpäriski (Tammemägi ym., NEJM 2013).{" "}
+            <a href="/evidence" className="text-sky-700 underline">Uusin tutkimus →</a>
+          </p>
+        )}
       </div>
 
       <div className="grid gap-4 md:grid-cols-[minmax(0,2fr)_minmax(0,3fr)]">
@@ -101,6 +109,9 @@ export default function ClinicianPage() {
                 <span className="mt-0.5 flex flex-wrap items-center gap-1.5 text-xs">
                   <EngagementBadge engagement={x.pathway.engagement} />
                   <span className="text-slate-600">{STAGE_LABEL[x.pathway.stage]}</span>
+                  <span className={`ml-auto rounded px-1.5 ${PRIORITY_BADGE[x.priority.level]}`} title="PLCOm2012: kuuden vuoden keuhkosyöpäriski">
+                    {x.priority.level === "not_applicable" ? "PLCO –" : `PLCO ${formatRisk(x.priority.score)}`}
+                  </span>
                 </span>
                 {x.decision && <span className="text-xs font-medium text-emerald-700">✓ Lääkäri: {PLACEMENT_LABEL[x.decision]}</span>}
               </button>
@@ -124,6 +135,8 @@ export default function ClinicianPage() {
                 <p className="text-xs font-semibold text-sky-800">{summary?.generated_by === "llm" ? "Tekoälyn yhteenveto" : "Yhteenveto"}</p>
                 <p className="mt-1 whitespace-pre-line">{loadingSummary ? "Tiivistetään…" : summary?.summary}</p>
               </div>
+
+              <AnalysisCard id={item.response.id} onAnswered={() => open(item.response.id)} />
 
               <div>
                 <p className="font-semibold">Perustelut (henkilön omat vastaukset)</p>

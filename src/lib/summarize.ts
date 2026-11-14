@@ -1,6 +1,7 @@
 // Case summary for the physician. The rules decide the placement; AI only writes
 // the summary and may add a note from the free-text answer. It never removes a flag.
 
+import { QUESTION_BANK } from "./analysis";
 import { complete } from "./llm";
 import { PLACEMENT_LABEL } from "./rules";
 import type { CaseSummary, RuleResult, SurveyResponse } from "./types";
@@ -25,8 +26,16 @@ export function templateSummary(r: SurveyResponse, rule: RuleResult): string {
   return head + body;
 }
 
-export async function summarizeCase(r: SurveyResponse, rule: RuleResult): Promise<CaseSummary> {
+function followupText(followups: Record<string, string>): string {
+  return Object.entries(followups)
+    .map(([id, answer]) => `${QUESTION_BANK.find((q) => q.id === id)?.text ?? id} ${answer}`)
+    .join(" ");
+}
+
+export async function summarizeCase(r: SurveyResponse, rule: RuleResult, followups: Record<string, string> = {}): Promise<CaseSummary> {
+  const hasFollowups = Object.keys(followups).length > 0;
   const facts = {
+    jatkokysymysten_vastaukset: hasFollowups ? followupText(followups) : null,
     ikä: r.age,
     tupakointi: smokingText(r),
     oireet: r.symptoms,
@@ -41,7 +50,7 @@ export async function summarizeCase(r: SurveyResponse, rule: RuleResult): Promis
     id: r.id,
     rule_score: rule.score,
     proposed_placement: rule.placement,
-    summary: llmText ?? templateSummary(r, rule),
+    summary: llmText ?? templateSummary(r, rule) + (hasFollowups ? ` Jatkokysymykset: ${followupText(followups)}` : ""),
     reasons: rule.reasons.map((x) => `${x.label}: ${x.answer}`),
     generated_by: llmText ? "llm" : "template",
     physician_decision: null,

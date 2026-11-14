@@ -78,7 +78,47 @@ function makePerson(i) {
     const symptomTexts = texts.filter((t) => t !== "Ei erityisiä oireita.");
     person.free_text = concerning ? pick(symptomTexts) : pick(texts);
   }
+  person.plco = plcoFields(person);
   return person;
+}
+
+// Extra inputs for the PLCOm2012 risk model. They use their own PRNG seeded from the
+// id, so adding them does not change any other field of the existing people.
+// Shares are team assumptions for a synthetic Finnish 50–85 population.
+function plcoFields(person) {
+  let h = 0x811c9dc5;
+  for (const ch of `plco:${person.id}`) h = Math.imul(h ^ ch.charCodeAt(0), 0x01000193);
+  const r = mulberry32(h >>> 0);
+  const between = (min, max) => min + Math.floor(r() * (max - min + 1));
+  const { status, pack_years } = person.smoking;
+
+  // Education levels 1–6 as in PLCOm2012 (see src/lib/plco.ts for the Finnish mapping).
+  const u = r();
+  const education = u < 0.25 ? 1 : u < 0.55 ? 2 : u < 0.75 ? 3 : u < 0.8 ? 4 : u < 0.92 ? 5 : 6;
+  // Roughly normal BMI around 27.
+  const bmi = Math.round((19 + (r() + r() + r() + r()) * 4) * 10) / 10;
+
+  let cigs_per_day = 0;
+  let smoking_years = 0;
+  let years_since_quit = 0;
+  if (status !== "never") {
+    const startAge = between(15, 22);
+    const span = Math.max(1, person.age - startAge);
+    years_since_quit = status === "former" ? between(1, Math.max(1, Math.min(30, span - 5))) : 0;
+    smoking_years = Math.max(1, span - years_since_quit);
+    // Keep the existing pack-years: cigarettes/day = pack-years × 20 / years smoked.
+    cigs_per_day = Math.min(60, Math.max(1, Math.round((pack_years * 20) / smoking_years)));
+  }
+  return {
+    education,
+    bmi,
+    copd: r() < (pack_years >= 30 ? 0.25 : 0.1),
+    personal_cancer_history: r() < 0.08,
+    family_history_lung_cancer: r() < 0.1,
+    cigs_per_day,
+    smoking_years,
+    years_since_quit,
+  };
 }
 
 const people = Array.from({ length: count }, (_, i) => makePerson(i));

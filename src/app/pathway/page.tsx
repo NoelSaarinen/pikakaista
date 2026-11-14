@@ -1,6 +1,8 @@
 "use client";
 
 import { useEffect, useMemo, useState } from "react";
+import { PRIORITY_BADGE } from "@/components/AnalysisCard";
+import { formatRisk } from "@/lib/priority";
 import { EngagementBadge, ENGAGEMENT_BADGE, PathwayCard } from "@/components/PathwayCard";
 import { ENGAGEMENT_LABEL, STAGE_LABEL, STAGE_ORDER, type Engagement, type PathwayStage } from "@/lib/pathway";
 import { PLACEMENT_LABEL } from "@/lib/rules";
@@ -137,6 +139,7 @@ export default function PathwayPage() {
                 <th className="px-3 py-2">Henkilö</th>
                 <th className="px-3 py-2">Sitoutuminen</th>
                 <th className="px-3 py-2">Vaihe nyt</th>
+                <th className="px-3 py-2" title="PLCOm2012: kuuden vuoden keuhkosyöpäriski">PLCOm2012</th>
                 <th className="hidden px-3 py-2 lg:table-cell">Seuraava toimenpide</th>
               </tr>
             </thead>
@@ -154,6 +157,11 @@ export default function PathwayPage() {
                     <EngagementBadge engagement={x.pathway.engagement} />
                   </td>
                   <td className="px-3 py-2">{STAGE_LABEL[x.pathway.stage]}</td>
+                  <td className="px-3 py-2">
+                    <span className={`rounded px-1.5 text-xs ${PRIORITY_BADGE[x.priority.level]}`}>
+                      {x.priority.level === "not_applicable" ? "–" : formatRisk(x.priority.score)}
+                    </span>
+                  </td>
                   <td className="hidden px-3 py-2 text-slate-600 lg:table-cell">{x.pathway.nextAction}</td>
                 </tr>
               ))}

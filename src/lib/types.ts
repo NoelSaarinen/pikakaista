@@ -24,7 +24,22 @@ export interface SurveyResponse {
    * nurse's checklist at a health-centre contact (Two Doors). Missing means survey.
    */
   channel?: Channel;
+  /** Extra inputs for the PLCOm2012 risk model. Missing fields are imputed (see plco.ts). */
+  plco?: Partial<PlcoInputs>;
   synthetic: true;
+}
+
+export interface PlcoInputs {
+  /** PLCOm2012 education level 1–6. */
+  education: number;
+  bmi: number;
+  copd: boolean;
+  personal_cancer_history: boolean;
+  family_history_lung_cancer: boolean;
+  cigs_per_day: number;
+  smoking_years: number;
+  /** 0 for current smokers. */
+  years_since_quit: number;
 }
 
 export type Channel = "survey" | "health_centre";

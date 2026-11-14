@@ -13,28 +13,33 @@ npm install
 npm run dev
 ```
 
-Open http://localhost:3000. The demo has four views:
+Open http://localhost:3000. The demo has five views:
 
 | View | Path | What it shows |
 | --- | --- | --- |
 | Decision-maker | `/county` | The Two Doors gap, the fast lane and the benefit analysis with sources and adjustable assumptions, plus an AI brief. A toggle switches between **Kaksi ovea** (health-centre fast lane only) and **Kaksi ovea + kysely** (the same fast lane plus the risk-group survey). |
-| Survey | `/survey` | The risk-group survey, or the same questions as a nurse's checklist at a health-centre contact. |
-| Physician | `/clinician` | Rules put alarm signs on the list, AI summarizes each case and the physician decides. Each case also shows its care pathway and engagement. |
-| Follow-up | `/pathway` | Every person's engagement with the survey and booked visits, and their current stage on the pathway, so the nurse sees who to call. Follow-up data is synthetic. |
+| Survey | `/survey` | The risk-group survey, or the same questions as a nurse's checklist at a health-centre contact. It also asks the PLCOm2012 inputs. After sending, AI asks up to three adaptive follow-up questions from a fixed question bank. |
+| Physician | `/clinician` | Rules put alarm signs on the list, AI summarizes each case and the physician decides. Inside the same urgency, the list is ordered by PLCOm2012 6-year lung cancer risk. Each case shows the preliminary AI analysis (urgency and long-term risk kept apart), the PLCOm2012 terms, follow-up answers, care pathway and engagement. |
+| Follow-up | `/pathway` | Every person's engagement with the survey and booked visits, their current stage on the pathway and PLCOm2012 risk, so the nurse sees who to call. Follow-up data is synthetic. |
+| Research | `/evidence` | Literature watch: the newest lung cancer articles from seven journals via PubMed, ranked by evidence strength, with risk-model papers highlighted. Information only. It never changes anyone's risk. |
 
 AI features use the Claude API. Copy `.env.example` to `.env.local` and set `ANTHROPIC_API_KEY`. Never commit the key. Without a key, the demo uses deterministic template text, so it still runs offline.
 
 | Command | Purpose |
 | --- | --- |
-| `npm test` | Unit tests for the rules and the benefit analysis |
+| `npm test` | Unit tests for the rules, benefit analysis, pathway, evidence weighting and PLCOm2012 (checked against the published equation) |
 | `npm run lint` | ESLint |
 | `npm run build` | Production build |
 | `npm run generate:synthetic` | Regenerate the 200 synthetic survey answers in `src/data/synthetic/` |
 | `npm run data:counties` | Rebuild `src/data/counties.json` from the public data snapshots in `src/data/raw/` |
+| `npm run literature:snapshot` | With `npm run dev` running, re-fetch the newest 40 PubMed articles and save `src/data/literature.json` for offline demos |
 
 Where things live:
 - **Rules:** [src/lib/rules.ts](src/lib/rules.ts). Alarm thresholds are team assumptions and need medical review.
 - **Care pathway and engagement:** [src/lib/pathway.ts](src/lib/pathway.ts). Synthetic and deterministic per person. The shares in `PATHWAY_ASSUMPTIONS` are team assumptions.
+- **Risk model:** [src/lib/plco.ts](src/lib/plco.ts). PLCOm2012 (Tammemägi et al., N Engl J Med 2013;368:728–736, Table 2) with the published coefficients, unchanged. Threshold 1.3455 % from the paper. Race is not asked (reference category), and missing inputs are imputed and listed. The risk only orders people inside the same urgency and never changes the rules' placement.
+- **AI analysis:** [src/lib/analysis.ts](src/lib/analysis.ts) and [src/lib/priority.ts](src/lib/priority.ts).
+- **Literature watch:** [src/lib/literature/](src/lib/literature/). PubMed fetch, duplicate check (PMID, DOI, title, and one count per trial such as NLST), evidence-strength weights and Claude classification with a keyword fallback. Weights are team assumptions. Information only.
 - **Simulation:** [src/lib/simulation.ts](src/lib/simulation.ts). Every parameter has a source or is labelled as an assumption.
 - **Data:** [src/data/counties.json](src/data/counties.json), built by [scripts/build-county-data.mjs](scripts/build-county-data.mjs) from public aggregate data for all wellbeing services counties and Helsinki. The screening pilot flag is still `mock`, and the smoking share is a daily-smoker proxy. Sources are in [src/data/sources.json](src/data/sources.json). Definitions and gaps are in [docs/DATA_NOTES.md](docs/DATA_NOTES.md).
 - **AI:** [src/lib/llm.ts](src/lib/llm.ts), [src/lib/summarize.ts](src/lib/summarize.ts) and [src/lib/brief.ts](src/lib/brief.ts). Code computes every number. AI only writes text.

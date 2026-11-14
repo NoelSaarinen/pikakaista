@@ -10,7 +10,8 @@
     "lint": "eslint",
     "test": "vitest run",
     "generate:synthetic": "node scripts/generate-synthetic.mjs",
-    "data:counties": "node scripts/build-county-data.mjs"
+    "data:counties": "node scripts/build-county-data.mjs",
+    "literature:snapshot": "node scripts/save-literature-snapshot.mjs"
   },
   "dependencies": {
     "@anthropic-ai/sdk": "^1.8.0",
