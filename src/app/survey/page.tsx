@@ -13,8 +13,9 @@ const RESPONDENT_MESSAGE: Record<RuleResult["placement"], string> = {
 
 const SYMPTOMS: { key: string; label: string }[] = [
   { key: "blood_in_sputum", label: "Verta yskösissä" },
-  { key: "breathlessness", label: "Hengenahdistusta, joka on uutta tai pahentunut" },
-  { key: "chest_pain", label: "Rintakipua" },
+  { key: "breathlessness", label: "Hengenahdistusta yli 3 viikon ajan" },
+  { key: "chest_pain", label: "Rintakehän tai hartian kipua yli 3 viikon ajan" },
+  { key: "hoarseness", label: "Äänen käheyttä yli 3 viikon ajan" },
   { key: "weight_loss", label: "Laihtumista ilman yritystä" },
 ];
 

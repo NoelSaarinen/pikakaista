@@ -46,7 +46,7 @@ function formatParam(value: number, unit: string) {
 type Mode = "doors" | "doors_survey";
 
 // Assumptions that affect the Two Doors view; the rest belong to the survey.
-const DOORS_PARAMS: (keyof SimulationParams)[] = ["currentPrimaryCareWaitDays", "currentCtQueueDays", "fastPhysicianDays", "fastCtDays", "publicDoorShare", "privateDoorDaysToCt", "healthCentreYield"];
+const DOORS_PARAMS: (keyof SimulationParams)[] = ["currentPrimaryCareWaitDays", "currentVisitToReferralDays", "currentCtQueueDays", "fastPhysicianDays", "fastCtDays", "publicDoorShare", "privateDoorDaysToCt", "healthCentreYield"];
 
 function DoorBar({ label, days, max, share, color, source }: { label: string; days: number; max: number; share?: string; color: string; source: string }) {
   return (
@@ -153,7 +153,7 @@ export default function CountyPage() {
         <section className="rounded-lg border border-slate-200 bg-white p-4">
           <h2 className="font-semibold">Missä polku jumittaa</h2>
           <p className="mt-2 text-sm">Ihmiset eivät hakeudu ajoissa: kolmannes meni lääkäriin vasta yli kuukauden kuluttua oireista.<SourceTag id="pfizer-2025" /></p>
-          <p className="mt-2 text-sm">Terveyskeskuslääkärille odotetaan noin kaksi viikkoa.<SourceTag id="uh-acta-2025" /></p>
+          <p className="mt-2 text-sm">Terveyskeskuslääkärille odotetaan noin kaksi viikkoa.<SourceTag id="uh-acta-2025" /> Ensimmäisestä käynnistä lähetteeseen kuluu vielä noin kaksi viikkoa.<SourceTag id="mattila-2025" /></p>
           <p className="mt-2 text-sm">Pelkkä pikakaista tavoitti Tanskassa vain 27 % keuhkosyöpäpotilaista.<SourceTag id="guldbrandt" /></p>
         </section>
         <section className="rounded-lg border border-slate-200 bg-white p-4">

@@ -97,6 +97,30 @@
     "note": "Crude shares, not age-standardised. Region is the home municipality at the start of the diagnosis year. A high share with no treatment record may reflect recording practice."
   },
   {
+    "id": "pirha-hoitopolku",
+    "title": "Pirkanmaan hyvinvointialue: Keuhkosyöpäpotilaan hoitopolku (potilasversio)",
+    "url": "https://pirha.fi/documents/d/kehitysversio/keuhkosyopapotilaan-hoitopolku",
+    "page": "Lääkärin vastaanotto; Lähetteen käsittely keuhkosairauksien poliklinikalla",
+    "retrieved": "2026-11-14",
+    "note": "Hälytysoireet: yskä, hengenahdistus, rintakehän tai hartian kipu ja äänen käheys yli 3 viikkoa, selittämätön laihtuminen, veriyskä. Perusterveydenhuollossa ensin keuhkojen röntgenkuva, epäilystä kiireellinen lähete. Lähete käsitellään yleensä 1–2 arkipäivässä, TT useimmiten viikon sisällä. PDF vuodelta 2019."
+  },
+  {
+    "id": "mattila-2025",
+    "title": "Mattila S. Keuhkosyövän diagnostinen viive Satakunnassa koronapandemian aikana. Turun yliopisto, syventävien opintojen tutkielma 2025",
+    "url": "https://www.utupub.fi/handle/10024/180618",
+    "page": "Taulukko 2 (viiveet), taulukko 1 (tupakointi)",
+    "retrieved": "2026-11-14",
+    "note": "131 keuhkosyöpäpotilasta, diagnoosit 2021–2022. Mediaani ensimmäisestä käynnistä lähetteeseen 15 vrk ja lähetteestä diagnoosiin 59 vrk. 88 % oli tupakoinut. 22 % hakeutui suoraan päivystykseen. Opinnäyte, ei vertaisarvioitu."
+  },
+  {
+    "id": "thl-tupakka-2023",
+    "title": "THL: Tupakkatilasto 2023 (Tilastoraportti 55/2024)",
+    "url": "https://suomenash.fi/wp-content/uploads/2025/02/tupakkatilasto-2023.pdf",
+    "page": "Liitetaulukot 1, 2, 9 ja 10",
+    "retrieved": "2026-11-14",
+    "note": "2022: ei koskaan tupakoineita 50–64-vuotiaista miehistä 28 % ja naisista 40 %, 65–84-vuotiaista miehistä 28 % ja naisista 46 %. Päivittäin tupakoivia 55–64-vuotiaista miehistä 14 % ja naisista 12 %, 65–84-vuotiaista 9 % ja 5 %. Suhdeluku noin 5 entistä yhtä päivittäistä kohden on tiimin laskelma."
+  },
+  {
     "id": "assumption",
     "title": "Team assumption",
     "url": "",

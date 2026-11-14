@@ -1,9 +1,11 @@
 // Deterministic alarm-symptom rules for the lung cancer fast lane.
 //
 // DEMO RULES, NOT CLINICAL CRITERIA. The symptoms come from the National Lung
-// Cancer Programme 2026–2035 (Filha, pp. 2–4): cough, breathlessness, chest pain,
-// weight loss, blood-tinged sputum and recurrent pneumonia. The thresholds are team
-// assumptions and must be reviewed by Delun and the AstraZeneca mentors before the pitch.
+// Cancer Programme 2026–2035 (Filha, pp. 2–4) and the Pirkanmaa lung cancer care
+// pathway (pirha-hoitopolku): cough, breathlessness, chest or shoulder pain and
+// hoarseness lasting over 3 weeks, unexplained weight loss, blood-tinged sputum and
+// recurrent pneumonia. The pneumonia and score thresholds are team assumptions and
+// must be reviewed by Delun and the AstraZeneca mentors before the pitch.
 //
 // The rules alone decide who reaches the physician's list. AI never removes a flag.
 
@@ -38,7 +40,7 @@ export function isInRiskGroup(r: SurveyResponse): boolean {
 
 function hasOngoingSymptoms(r: SurveyResponse): boolean {
   const s = r.symptoms;
-  return s.cough_weeks > 0 || s.blood_in_sputum || s.weight_loss || s.breathlessness || s.chest_pain;
+  return s.cough_weeks > 0 || s.blood_in_sputum || s.weight_loss || s.breathlessness || s.chest_pain || Boolean(s.hoarseness);
 }
 
 export function evaluate(r: SurveyResponse): RuleResult {
@@ -56,10 +58,13 @@ export function evaluate(r: SurveyResponse): RuleResult {
     reasons.push({ code: "weight_loss", label: "Selittämätön laihtuminen", answer: "kyllä", redFlag: false });
   }
   if (s.breathlessness) {
-    reasons.push({ code: "breathlessness", label: "Hengenahdistus", answer: "kyllä", redFlag: false });
+    reasons.push({ code: "breathlessness", label: "Hengenahdistus yli 3 viikkoa", answer: "kyllä", redFlag: false });
   }
   if (s.chest_pain) {
-    reasons.push({ code: "chest_pain", label: "Rintakipu", answer: "kyllä", redFlag: false });
+    reasons.push({ code: "chest_pain", label: "Rintakehän tai hartian kipu yli 3 viikkoa", answer: "kyllä", redFlag: false });
+  }
+  if (s.hoarseness) {
+    reasons.push({ code: "hoarseness", label: "Äänen käheys yli 3 viikkoa", answer: "kyllä", redFlag: false });
   }
   if (s.pneumonias_last_year >= RULES_CONFIG.recurrentPneumonias) {
     reasons.push({ code: "recurrent_pneumonia", label: "Toistuvat keuhkokuumeet", answer: `${s.pneumonias_last_year} viime vuonna`, redFlag: false });

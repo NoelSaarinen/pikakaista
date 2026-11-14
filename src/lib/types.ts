@@ -12,8 +12,12 @@ export interface SurveyResponse {
     cough_weeks: number;
     blood_in_sputum: boolean;
     weight_loss: boolean;
+    /** Breathlessness lasting over 3 weeks. */
     breathlessness: boolean;
+    /** Chest or shoulder pain lasting over 3 weeks. */
     chest_pain: boolean;
+    /** Hoarse voice lasting over 3 weeks. Missing in older answers means no. */
+    hoarseness?: boolean;
     pneumonias_last_year: number;
   };
   previous_visits: { months_ago: number; reason: string }[];

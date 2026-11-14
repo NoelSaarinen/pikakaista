@@ -58,6 +58,12 @@ describe("placement", () => {
     expect(r.placement).toBe("not_eligible");
     expect(r.reasons).toHaveLength(1);
   });
+  it("counts hoarseness over 3 weeks as an alarm sign and treats a missing answer as no", () => {
+    const r = evaluate(person({}, { hoarseness: true }));
+    expect(r.reasons.map((x) => x.code)).toContain("hoarseness");
+    expect(r.placement).toBe("physician_fast");
+    expect(evaluate(person()).reasons.map((x) => x.code)).not.toContain("hoarseness");
+  });
   it("flags symptoms that persist after a recent respiratory visit", () => {
     const r = evaluate(person({ previous_visits: [{ months_ago: 2, reason: "astma" }] }, { cough_weeks: 2 }));
     expect(r.reasons.map((x) => x.code)).toContain("symptoms_persist_after_visit");

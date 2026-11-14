@@ -28,6 +28,7 @@ export async function POST(request: Request) {
       weight_loss: Boolean(symptoms.weight_loss),
       breathlessness: Boolean(symptoms.breathlessness),
       chest_pain: Boolean(symptoms.chest_pain),
+      hoarseness: Boolean(symptoms.hoarseness),
       pneumonias_last_year: num(symptoms.pneumonias_last_year, 0, 20),
     },
     previous_visits: typeof body.previous_visit_reason === "string" && body.previous_visit_reason.trim()

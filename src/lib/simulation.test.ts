@@ -8,7 +8,7 @@ const county = {
 
 describe("simulate", () => {
   it("computes the funnel from risk group to cancers found", () => {
-    const r = simulate(county, SCENARIOS.base);
+    const r = simulate(county, { ...SCENARIOS.base, formerPerCurrentSmoker: 0 });
     // 100 000 × 0.4 × 0.5 = 20 000 in the risk group
     expect(r.riskGroup).toBeCloseTo(20000);
     expect(r.respondents).toBeCloseTo(10000);
@@ -22,7 +22,7 @@ describe("simulate", () => {
 
   it("is faster than today with the default targets", () => {
     const r = simulate(county, SCENARIOS.base);
-    expect(r.currentDaysToCt).toBe(35);
+    expect(r.currentDaysToCt).toBe(14 + 15 + 9);
     expect(r.fastDaysToCt).toBeLessThan(r.currentDaysToCt);
     expect(r.daysSavedPerPerson).toBeGreaterThan(0);
   });
@@ -39,8 +39,8 @@ describe("simulate", () => {
     expect(Number.isFinite(r.fastDaysToCt)).toBe(true);
   });
 
-  it("adds former smokers to the risk group only when the team sets a ratio", () => {
-    expect(SCENARIOS.base.formerPerCurrentSmoker).toBe(0);
+  it("adds former smokers to the risk group by the national ratio", () => {
+    expect(SCENARIOS.base.formerPerCurrentSmoker).toBe(5);
     const withFormer = simulate(county, { ...SCENARIOS.base, formerPerCurrentSmoker: 2 });
     // 100 000 × 0.4 × (1 + 2) × 0.5 = 60 000
     expect(withFormer.riskGroup).toBeCloseTo(60000);
@@ -58,11 +58,11 @@ describe("simulateDoors", () => {
 
   it("shows the gap between doors now and after the fast lane", () => {
     const r = simulateDoors(withCases, SCENARIOS.base);
-    expect(r.publicDaysToCt).toBe(35);
-    expect(r.gapDaysNow).toBe(35 - 21);
+    expect(r.publicDaysToCt).toBe(38);
+    expect(r.gapDaysNow).toBe(38 - 23);
     expect(r.fastLaneDaysToCt).toBe(10);
-    expect(r.gapDaysAfter).toBe(10 - 21);
-    expect(r.daysSavedPerPatient).toBe(25);
+    expect(r.gapDaysAfter).toBe(10 - 23);
+    expect(r.daysSavedPerPatient).toBe(28);
   });
 
   it("derives weekly CT referrals from the yield", () => {
