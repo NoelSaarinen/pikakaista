@@ -1,6 +1,8 @@
 "use client";
 
 import { useCallback, useEffect, useState } from "react";
+import { EngagementBadge, PathwayCard } from "@/components/PathwayCard";
+import { STAGE_LABEL } from "@/lib/pathway";
 import { PLACEMENT_LABEL } from "@/lib/rules";
 import type { CaseSummary, Placement } from "@/lib/types";
 import type { WorklistItem } from "@/lib/store";
@@ -96,6 +98,10 @@ export default function ClinicianPage() {
                   <span className={`rounded px-1.5 text-xs ${BADGE[x.rule.placement]}`}>{PLACEMENT_LABEL[x.rule.placement]}</span>
                 </span>
                 <span className="block truncate text-xs text-slate-500">{x.rule.reasons.map((r) => r.label).join(", ")}</span>
+                <span className="mt-0.5 flex flex-wrap items-center gap-1.5 text-xs">
+                  <EngagementBadge engagement={x.pathway.engagement} />
+                  <span className="text-slate-600">{STAGE_LABEL[x.pathway.stage]}</span>
+                </span>
                 {x.decision && <span className="text-xs font-medium text-emerald-700">✓ Lääkäri: {PLACEMENT_LABEL[x.decision]}</span>}
               </button>
             </li>
@@ -135,6 +141,8 @@ export default function ClinicianPage() {
                   </p>
                 )}
               </div>
+
+              <PathwayCard pathway={item.pathway} />
 
               {item.rule.placement === "direct_ct" && (
                 <pre className="whitespace-pre-wrap rounded border border-dashed border-slate-300 p-3 font-mono text-xs">{referralText(item, summary)}</pre>

@@ -13,13 +13,14 @@ npm install
 npm run dev
 ```
 
-Open http://localhost:3000. The demo has three views:
+Open http://localhost:3000. The demo has four views:
 
 | View | Path | What it shows |
 | --- | --- | --- |
 | Decision-maker | `/county` | The Two Doors gap, the fast lane and the benefit analysis with sources and adjustable assumptions, plus an AI brief. A toggle switches between **Kaksi ovea** (health-centre fast lane only) and **Kaksi ovea + kysely** (the same fast lane plus the risk-group survey). |
 | Survey | `/survey` | The risk-group survey, or the same questions as a nurse's checklist at a health-centre contact. |
-| Physician | `/clinician` | Rules put alarm signs on the list, AI summarizes each case and the physician decides. |
+| Physician | `/clinician` | Rules put alarm signs on the list, AI summarizes each case and the physician decides. Each case also shows its care pathway and engagement. |
+| Follow-up | `/pathway` | Every person's engagement with the survey and booked visits, and their current stage on the pathway, so the nurse sees who to call. Follow-up data is synthetic. |
 
 AI features use the Claude API. Copy `.env.example` to `.env.local` and set `ANTHROPIC_API_KEY`. Never commit the key. Without a key, the demo uses deterministic template text, so it still runs offline.
 
@@ -33,6 +34,7 @@ AI features use the Claude API. Copy `.env.example` to `.env.local` and set `ANT
 
 Where things live:
 - **Rules:** [src/lib/rules.ts](src/lib/rules.ts). Alarm thresholds are team assumptions and need medical review.
+- **Care pathway and engagement:** [src/lib/pathway.ts](src/lib/pathway.ts). Synthetic and deterministic per person. The shares in `PATHWAY_ASSUMPTIONS` are team assumptions.
 - **Simulation:** [src/lib/simulation.ts](src/lib/simulation.ts). Every parameter has a source or is labelled as an assumption.
 - **Data:** [src/data/counties.json](src/data/counties.json), built by [scripts/build-county-data.mjs](scripts/build-county-data.mjs) from public aggregate data for all wellbeing services counties and Helsinki. The screening pilot flag is still `mock`, and the smoking share is a daily-smoker proxy. Sources are in [src/data/sources.json](src/data/sources.json). Definitions and gaps are in [docs/DATA_NOTES.md](docs/DATA_NOTES.md).
 - **AI:** [src/lib/llm.ts](src/lib/llm.ts), [src/lib/summarize.ts](src/lib/summarize.ts) and [src/lib/brief.ts](src/lib/brief.ts). Code computes every number. AI only writes text.

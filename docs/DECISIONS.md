@@ -44,6 +44,13 @@ Add entries in chronological order. Link evidence, and link any later entry that
 - **Rationale and trade-offs** We chose 4404 because it is one published number for the whole age range, and flagged it with `is_estimate: true`. Trade-off: daily smokers exclude former smokers, so the survey risk group shrinks about five-fold against the 40% mock value. Lung cancer uses the 2020–2024 mean because single years swing widely in small counties.
 - **Evidence and follow-up** [DATA_NOTES.md](DATA_NOTES.md). Decide whether to relabel the smoking field and slider, or find a national ever-smoker ratio. Confirm the screening pilot counties.
 
+## 2026-11-14 — Show engagement and pathway stage for every person
+
+- **Status** Proposed by Delun. Team review pending. Lives on branch `feature/patient-pathway`.
+- **Context and options considered** The physician list showed only who needs a decision, not what happens after it. Equal care also depends on who drops out after answering. Finland has no national LDCT screening, so engagement here means engagement with the risk-group survey and the fast lane.
+- **Rationale and trade-offs** A `/pathway` follow-up view and a pathway card in `/clinician` show each person's engagement level (engaged, needs support, at risk of dropping out) with its reasons, the current stage and the next action, so the nurse sees who to call. Follow-up data is synthetic and derived deterministically from each person's id. The shares in `PATHWAY_ASSUMPTIONS` are team assumptions, not measured values. Some fast-lane people get a synthetic earlier physician decision, so the demo starts with people at different stages. A decision made live in the demo moves the person to the first booked visit.
+- **Evidence and follow-up** [src/lib/pathway.ts](../src/lib/pathway.ts). Ask mentors for real attendance or drop-out figures to replace the assumed shares.
+
 ## Entry template
 
 - **Date / decision**

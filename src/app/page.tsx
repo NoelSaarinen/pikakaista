@@ -4,6 +4,7 @@ const VIEWS = [
   { href: "/county", title: "1. Päättäjä", text: "Alueen keuhkosyöpäaukko, toimenpide ja hyötylaskelma lähteineen. Tekoäly kirjoittaa kahden minuutin tiivistelmän." },
   { href: "/survey", title: "2. Kysely", text: "Kahden minuutin oirekysely, joka lähetetään riskiryhmälle tekstiviestillä." },
   { href: "/clinician", title: "3. Lääkäri", text: "Säännöt nostavat hälytysmerkit listalle, tekoäly tiivistää ja lääkäri päättää jatkosta." },
+  { href: "/pathway", title: "4. Seuranta", text: "Jokaisen henkilön sitoutuminen kyselyyn ja käynteihin sekä nykyinen vaihe hoitopolulla. Hoitaja näkee, kenelle soittaa." },
 ];
 
 export default function Home() {
@@ -15,7 +16,7 @@ export default function Home() {
           Hyvinvointialue lähettää riskiryhmälle vuosittain lyhyen oirekyselyn. Hälytysmerkit ohjautuvat lääkärin hyväksymälle pikakaistalle, ja TT-kuvaukseen pääsee päivissä viikkojen sijaan.
         </p>
       </div>
-      <div className="grid gap-4 md:grid-cols-3">
+      <div className="grid gap-4 md:grid-cols-2 lg:grid-cols-4">
         {VIEWS.map((v) => (
           <Link key={v.href} href={v.href} className="rounded-lg border border-slate-200 bg-white p-4 hover:border-sky-400">
             <h2 className="text-lg font-semibold">{v.title}</h2>

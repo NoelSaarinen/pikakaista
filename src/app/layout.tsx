@@ -19,6 +19,7 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
             <Link href="/county" className="hover:underline">Päättäjä</Link>
             <Link href="/survey" className="hover:underline">Kysely</Link>
             <Link href="/clinician" className="hover:underline">Lääkäri</Link>
+            <Link href="/pathway" className="hover:underline">Seuranta</Link>
             <span className="ml-auto rounded bg-amber-100 px-2 py-0.5 text-xs text-amber-900">Synteettinen data</span>
           </nav>
         </header>
