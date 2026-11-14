@@ -30,6 +30,15 @@ export const SYMPTOM_FILTERS: { key: SymptomKey; label: string; has: (r: SurveyR
   { key: "pneumonia", label: "Keuhkokuume viime vuonna", has: (r) => r.symptoms.pneumonias_last_year > 0 },
 ];
 
+const SYMPTOM_SYNONYMS: Partial<Record<SymptomKey, string>> = {
+  blood_in_sputum: "veriyskä veriyskös verta ysköksissä",
+  cough: "yskii pitkittynyt yskä",
+  breathlessness: "hengästyy hengenahdistus",
+  weight_loss: "laihtunut painonlasku",
+  chest_pain: "rintakehä kipu",
+  pneumonia: "keuhkokuume",
+};
+
 export const SMOKING_LABEL: Record<SmokingStatus, string> = {
   current: "Tupakoi",
   former: "Entinen tupakoija",
@@ -104,6 +113,8 @@ export function searchText(p: SearchablePatient): string {
       `${r.smoking.pack_years} askivuotta`,
       r.channel === "health_centre" ? "terveyskeskus hoitaja" : "kysely",
       ...SYMPTOM_FILTERS.filter((s) => s.has(r)).map((s) => s.label),
+      // Everyday synonyms, so "veriyskä" or "hengenahdistus" find the same people.
+      ...SYMPTOM_FILTERS.filter((s) => s.has(r)).map((s) => SYMPTOM_SYNONYMS[s.key] ?? ""),
       ...p.rule.reasons.map((x) => `${x.label} ${x.answer}`),
       URGENCY_LABEL[urgencyOf(p.rule)],
       STAGE_LABEL[p.pathway.stage],

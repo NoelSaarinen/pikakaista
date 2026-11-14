@@ -48,7 +48,6 @@ function formatParam(value: number, unit: string) {
 type Mode = "doors" | "doors_survey";
 
 // Assumptions that affect the Two Doors view; the rest belong to the survey.
-const DOORS_PARAMS: (keyof SimulationParams)[] = ["currentPrimaryCareWaitDays", "currentVisitToReferralDays", "currentCtQueueDays", "fastPhysicianDays", "fastCtDays", "publicDoorShare", "privateDoorDaysToCt", "healthCentreYield"];
 
 function DoorBar({ label, days, max, share, color, source }: { label: string; days: number; max: number; share?: string; color: string; source: string }) {
   return (
@@ -70,7 +69,8 @@ function DoorBar({ label, days, max, share, color, source }: { label: string; da
 
 export default function CountyPage() {
   const [countyId, setCountyId] = useState(counties[0].id);
-  const [mode, setMode] = useState<Mode>("doors_survey");
+  // The team chose "Two Doors + survey" (2026-11-14); the "Two Doors only" view was removed.
+  const mode: Mode = "doors_survey";
   const [overrides, setOverrides] = useState<Partial<SimulationParams>>({});
   const [brief, setBrief] = useState<{ text: string; generated_by: string } | null>(null);
   const [loading, setLoading] = useState(false);
@@ -99,20 +99,7 @@ export default function CountyPage() {
         <div>
           <p className="text-sm font-medium text-sky-700">Päättäjänäkymä</p>
           <h1 className="text-2xl font-bold">Keuhkosyövän pikakaista</h1>
-        </div>
-        <div className="flex rounded-full border border-slate-300 bg-white p-0.5 text-sm">
-          {([["doors", "Kaksi ovea"], ["doors_survey", "Kaksi ovea + kysely"]] as const).map(([v, l]) => (
-            <button
-              key={v}
-              onClick={() => {
-                setMode(v);
-                setBrief(null);
-              }}
-              className={`rounded-full px-3 py-1 ${mode === v ? "bg-sky-700 font-semibold text-white" : ""}`}
-            >
-              {l}
-            </button>
-          ))}
+          <p className="text-sm text-slate-600">Malli: kaksi ovea (terveyskeskuksen pikakaista) ja riskiryhmän vuosittainen oirekysely.</p>
         </div>
         <label className="text-sm">
           Hyvinvointialue
@@ -163,9 +150,7 @@ export default function CountyPage() {
         <section className="rounded-lg border border-slate-200 bg-white p-4">
           <h2 className="font-semibold">Toimenpide ja vaikutus</h2>
           <p className="mt-2 text-sm">
-            {mode === "doors"
-              ? "Terveyskeskukseen syöpäepäilyn pikakaista: hoitaja tunnistaa hälytysoireet ensikontaktissa, lääkäri muutamassa päivässä ja varattu TT-aika."
-              : "Sama pikakaista terveyskeskukseen ja lisäksi vuosittainen oirekysely riskiryhmälle, joka tavoittaa myös ne, jotka eivät tule itse."}
+            Terveyskeskukseen syöpäepäilyn pikakaista ja lisäksi vuosittainen oirekysely riskiryhmälle, joka tavoittaa myös ne, jotka eivät tule itse.
           </p>
           <p className="mt-3 text-3xl font-bold">
             {fmt(doors.publicDaysToCt)} → {fmt(doors.fastLaneDaysToCt)} pv
@@ -281,7 +266,6 @@ export default function CountyPage() {
         </p>
       </section>
 
-      {mode === "doors_survey" && (
       <section className="rounded-lg border border-slate-200 bg-white p-4">
         <h2 className="font-semibold">Kysely: hyötylaskelma vuodessa (vaihteluväli)</h2>
         <table className="mt-3 w-full text-sm">
@@ -308,7 +292,6 @@ export default function CountyPage() {
         </table>
         <p className="mt-3 text-xs text-slate-500">Laskelma arvioi vain pääsyä TT-kuvaukseen ja tarvittavia aikoja. Se ei arvioi elossaoloa.</p>
       </section>
-      )}
 
       <section className="rounded-lg border border-slate-200 bg-white p-4">
         <div className="flex flex-wrap items-center justify-between gap-2">
@@ -331,7 +314,7 @@ export default function CountyPage() {
         <summary className="cursor-pointer font-semibold">Oletukset ({PARAM_META.length})</summary>
         <p className="mt-2 text-sm text-slate-600">Liukusäädin korvaa arvon kaikissa skenaarioissa. Harmaa = oletus ilman lähdettä.</p>
         <div className="mt-3 grid gap-4 md:grid-cols-2">
-          {PARAM_META.filter((m) => mode === "doors_survey" || DOORS_PARAMS.includes(m.key)).map((m) => {
+          {PARAM_META.map((m) => {
             const value = overrides[m.key] ?? SCENARIOS.base[m.key];
             return (
               <label key={m.key} className="block text-sm">

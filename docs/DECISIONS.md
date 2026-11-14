@@ -149,3 +149,11 @@ Add entries in chronological order. Link evidence, and link any later entry that
   - The decision-maker view shows the pilot for the selected county, the share of the pilot areas' risk group its places cover (about 0.6 % with the base scenario) and the predecessor results, framed as how the survey complements the pilot (reach, recruitment, former smokers and symptomatic people). The predecessor's 1.6 % screening yield is shown but not used in the fast-lane calculation, because it comes from asymptomatic volunteers.
   - The screening list shows who meets the pilot's inclusion criteria. Exclusions and the smartphone requirement are not asked, so a clinician confirms them.
 - **Trade-offs** The predecessor's yield is from asymptomatic volunteers, so it understates the yield of a symptomatic fast lane. The coverage comparison is indicative because the pilot's and the demo's risk-group criteria differ.
+
+## 2026-11-14 — One model on the decision-maker view; clinician pages in one area
+
+- **Status** Decided by the team on 2026-11-14 (relayed by Delun).
+- **Decision**
+  - The decision-maker view shows only "Two Doors + survey". The "Two Doors only" toggle was removed; the brief is always written for the combined model.
+  - The worklist, screening list, tracking and patient search are grouped under "Lääkäri" (route group `src/app/(laakari)`, URLs unchanged) with their own sub-navigation. The area opens after a one-click "continue as a clinician" choice stored in the browser. **This is not access control**: a real service needs authentication and role-based access.
+  - The worklist got the same free-text search as the patient search page, plus quick filters (red flag, symptoms, new answers, booked). Search also matches everyday synonyms such as "veriyskä".
