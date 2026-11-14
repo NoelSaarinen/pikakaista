@@ -143,7 +143,7 @@ TT_aikoja_vk     = TT_kuvauksia ÷ max(1, kyselykierroksen_viikot)
 
 | Avain | Varovainen | Perus | Optimistinen | Lähde |
 | --- | ---: | ---: | ---: | --- |
-| `formerPerCurrentSmoker` (entisiä tupakoitsijoita yhtä nykyistä kohden) | 5 | 5 | 5 | thl-tupakka-2023: 55–84-v noin 64 % joskus tupakoinut ja noin 10 % päivittäin (tiimin laskelma) |
+| `formerPerCurrentSmoker` (entisiä tupakoitsijoita yhtä nykyistä kohden) | 5 | 5 | 5 | thl-tupakka-2023: 50–74-vuotiaiden mukaan painotettuna noin 65 % joskus tupakoinut ja noin 11 % päivittäin (tiimin laskelma) |
 | `heavySmokerShareOfEver` (≥ 20 askivuotta) | 30 % | 40 % | 50 % | ylst-2024: Yorkshiressa 29 % 55–74-vuotiaista tupakoineista täytti ehdon ≥ 20 askivuotta ja lopettanut ≤ 15 v sitten (alaraja). Perusarvo on arvio. |
 | `responseRate` (vastausprosentti) | 25 % | 50 % | 65 % | ylst-2022: Yorkshiren kutsuun vastasi 50,8 %. wagland-2016: postitettuun oirekyselyyn 25,3 %. Suolistosyövän seulonta 73,5 % (2024). |
 | `alarmShare` (hälytysmerkkien osuus) | 8 % | 12 % | 15 % | wagland-2016: 6,7 % oireisia, jotka eivät olleet käyneet lääkärissä vuoteen (alaraja), 54 % vähintään yksi laaja oire. latti-2018: yli 8 viikon yskä 7,2 % suomalaisista työikäisistä. |

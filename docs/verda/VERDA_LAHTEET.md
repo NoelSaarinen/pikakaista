@@ -28,7 +28,7 @@
 
 | Mitä | Linkki | Haku |
 | --- | --- | --- |
-| Väestö, myös 55–80-vuotiaat (taulukko 11re) | https://pxdata.stat.fi/PxWeb/api/v1/fi/StatFin/vaerak/11re.px | ✅ |
+| Väestö, myös 50–74-vuotiaat (taulukko 11re) | https://pxdata.stat.fi/PxWeb/api/v1/fi/StatFin/vaerak/11re.px | ✅ |
 | Kuntien liittäminen hyvinvointialueisiin | https://stat.fi/fi/luokitukset/corrmaps/kunta_1_20260101%23hyvinvointialue_1_20260101/ | ✅ |
 | Päivittäin tupakoivat 20–64 v (demo käyttää) | https://sotkanet.fi/rest/1.1/json?indicator=4405&years=2024&genders=total | ✅ |
 | Päivittäin tupakoivat 20+ v | https://sotkanet.fi/rest/1.1/json?indicator=4404&years=2024&genders=total | ✅ |
@@ -115,7 +115,7 @@ Nämä luvut on tarkistettu 14.11.2026. Koko aineisto 24 alueelle on tiedostossa
 
 | Luku | Lappi | Koko maa |
 | --- | ---: | ---: |
-| 55–80-vuotiaat (2025) | 62 353 | 1 741 258 (sis. Ahvenanmaan) |
+| 50–74-vuotiaat (2025) | 58 881 | 1 695 391 (sis. Ahvenanmaan) |
 | Keuhkosyöpätapaukset 2020–2024 | 674 | 14 972 |
 | Ilmaantuvuus, ikävakioitu (2020–2024) | 58,26 / 100 000 | 46,98 / 100 000 |
 | Kuolleisuus, ikävakioitu (2020–2024) | 46,79 / 100 000 | 35,79 / 100 000 |

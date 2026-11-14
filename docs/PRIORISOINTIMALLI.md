@@ -7,7 +7,7 @@ Priorisointi tehdään kahdessa portaassa. Oireet käsitellään aina ensin, eik
 | Porras | Ketä koskee | Mihin perustuu | Näkymä |
 | --- | --- | --- | --- |
 | 1 | Kaikki, joilla on oireita | Hälytyssäännöt ja NICE NG12 | Lääkäri |
-| 2 | Oireettomat, joskus tupakoineet 55–80-vuotiaat | PLCOm2012-riskimalli | Seulontalista |
+| 2 | Oireettomat, joskus tupakoineet 50–74-vuotiaat | PLCOm2012-riskimalli | Seulontalista |
 
 ## Porras 1: oireiset
 
@@ -27,7 +27,7 @@ Kuka tahansa, joka ilmoittaa vähintään yhden oireen: yskä, verta yskösissä
 | Vähintään 2 keuhkokuumetta viimeisen vuoden aikana | 1 |
 | Oireet jatkuvat hengitystieoireen vuoksi tehdyn käynnin jälkeen (enintään 6 kk) | 1 |
 
-Riskiryhmään kuuluvalle (ikä 55–80, tupakoinut, vähintään 20 askivuotta) sääntöjen ehdotus on:
+Riskiryhmään kuuluvalle (ikä 50–74 kuten seulontapilotissa, tupakoinut, vähintään 20 askivuotta) sääntöjen ehdotus on:
 
 - hälytysmerkki tai vähintään 3 pistettä → lääkärin arvio TT-lähetteen tarpeesta
 - 1–2 pistettä → lääkärille muutaman päivän sisällä
@@ -59,13 +59,13 @@ Ajat jaetaan listan järjestyksessä, A ennen B:tä, kunnes kapasiteetti loppuu:
 aikoja yhteensä = alueen pikakaistan lääkäriaikoja viikossa × 2 viikkoa
 ```
 
-Ajat ovat arkipäivisin 20 minuutin välein kello 8 alkaen. Ne, joille aikaa ei jää, menevät jonoon. Jo varattuja aikoja ei siirretä, kun uusi vastaus saapuu, vaan lääkäri voi järjestää ajat uudelleen napilla. Alueen viikkokapasiteetti tulee Päättäjä-näkymän perusskenaariosta (alueen 55–80-vuotiaat × tupakoinnin osuus × oletukset), ja sen voi myös asettaa käsin. Koodi: [src/lib/booking.ts](../src/lib/booking.ts).
+Ajat ovat arkipäivisin 20 minuutin välein kello 8 alkaen. Ne, joille aikaa ei jää, menevät jonoon. Jo varattuja aikoja ei siirretä, kun uusi vastaus saapuu, vaan lääkäri voi järjestää ajat uudelleen napilla. Alueen viikkokapasiteetti tulee Päättäjä-näkymän perusskenaariosta (alueen 50–74-vuotiaat × tupakoinnin osuus × oletukset), ja sen voi myös asettaa käsin. Koodi: [src/lib/booking.ts](../src/lib/booking.ts).
 
 ## Porras 2: oireettomat tupakoineet
 
 ### 2.1 Kuka on mukana
 
-Ei oireita, on joskus tupakoinut ja ikä 55–80. Koskaan tupakoimattomia malli ei koske, ja oireiset kuuluvat portaaseen 1.
+Ei oireita, on joskus tupakoinut ja ikä 50–74. Koskaan tupakoimattomia malli ei koske, ja oireiset kuuluvat portaaseen 1.
 
 ### 2.2 PLCOm2012-riski
 
@@ -128,7 +128,7 @@ kutsuviikko    = ⌈ sija / TT-kuvauksia viikossa ⌉
 
 Listan kärki kutsutaan kapasiteetin verran, ja muut kynnyksen ylittäjät odottavat kutsua. Merkinnät:
 - **Täydennä tiedot ennen kutsua:** keskeisiä mallin tietoja on täydennetty.
-- **Yli 74 v:** henkilö on mallin kehitysjoukon (55–74 v) ulkopuolella.
+- **Alle 55 v:** henkilö on mallin kehitysjoukon (55–74 v) ulkopuolella.
 
 Koodi: [src/lib/screening.ts](../src/lib/screening.ts).
 
@@ -148,7 +148,7 @@ Tasa-arvoinen järjestys jakaa kutsut tasaisemmin ikäryhmien kesken. Mallin muk
 | PLCOm2012-kaava ja kertoimet | hälytyspisteet ja rajat (3 vk, 2 keuhkokuumetta, 3 pistettä, 6 kk) |
 | kynnys 1,3455 % | riski ilman ikää |
 | NICE NG12 -luokat A ja B | A:n 3 päivän tavoite, PLCOm2012 ≥ 2 % B-luokassa, yskä vähintään 3 vk |
-| NICE: kiireellinen = alle 2 viikkoa | kapasiteetit, ikäraja 55–80, koulutuksen suomalainen sovitus |
+| NICE: kiireellinen = alle 2 viikkoa | kapasiteetit, ikäraja 50–74 (seulontapilotin mukaan, muutettu 14.11.), koulutuksen suomalainen sovitus |
 
 ## Avoimet asiat
 

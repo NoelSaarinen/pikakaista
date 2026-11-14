@@ -38,7 +38,7 @@ Every year, a wellbeing services county sends a short symptom survey to people a
 
 | Step | What happens | Who decides | AI role |
 | --- | --- | --- | --- |
-| **1. Who gets the survey** | Risk group, for example people aged 55–80 who smoke or have smoked. In real use the health centre selects them from its own records. In the demo the people are synthetic. | County, by fixed criteria | None |
+| **1. Who gets the survey** | Risk group: people aged 50–74 (the same as the national screening pilot) who smoke or have smoked. In real use the health centre selects them from its own records. In the demo the people are synthetic. | County, by fixed criteria | None |
 | **2. Survey** | A two-minute survey by text message link, in several languages: alarm symptoms and smoking history. Reminders go to non-responders. | Person answers | Optional translation and plain-language rewording |
 | **3. Fast lane** | Fixed rules score the answers. AI writes a short case summary for each person with an alarm sign and proposes a placement: physician within days, direct CT, or normal route. Each reason quotes the person's own answers. The physician approves or changes every placement and signs the CT referral. Booking goes to reserved slots, with result tracking and reminders. | **Physician** | Summarizes, proposes and justifies. Never diagnoses or decides. |
 | **4. Benefit analysis** | Compares the fast lane with the current pathway for the county: how many people are found, how many days earlier they reach CT, and how many physician and CT slots the county must reserve. Results are a range (cautious, base, optimistic), and all assumptions are visible. | Decision-maker | Writes a two-minute brief with a source for every figure and answers follow-up questions. **Code computes all numbers.** |
@@ -239,7 +239,7 @@ Every number in `counties.json` carries `source_id`, `year` and `is_estimate`. L
 ### Simulation v1
 
 Explicit and adjustable:
-- Risk group size per county = population aged 55–80 × smoking prevalence. Source: Statistics Finland and THL regional indicators. **Verify that county-level smoking data exists.**
+- Risk group size per county = population aged 50–74 × smoking prevalence. Source: Statistics Finland and THL regional indicators. **Verify that county-level smoking data exists.**
 - Inputs:
   - survey response rate
   - share of respondents with alarm signs

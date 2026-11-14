@@ -11,7 +11,7 @@ Updated 2026-11-14. Patrik owns data, so the team should review this before merg
 | Field | Status | Source (`source_id`) | Definition | Year |
 | --- | --- | --- | --- | --- |
 | `population_50_74` | **Real** | Statistics Finland StatFin 11re (`statfin-11re`) | Residents aged 50–74 (until 14 Nov 2026 evening: 55–80) on 31 Dec, both sexes. Municipal figures are summed to counties with the Statistics Finland 2026 municipality key. | 2025 |
-| `ever_smoker_share` | **Real number, proxy definition** (`is_estimate: true`) | THL Sotkanet 4404, from the Healthy Finland survey (`thl-sotkanet-4404`) | Share of **daily smokers aged 20 or over**. This is not the ever-smoker share aged 55–80. See below. | 2024 |
+| `ever_smoker_share` | **Real number, proxy definition** (`is_estimate: true`) | THL Sotkanet 4404, from the Healthy Finland survey (`thl-sotkanet-4404`) | Share of **daily smokers aged 20 or over**. This is not the ever-smoker share aged 50–74. See below. | 2024 |
 | `lung_cancer_cases_per_year` | **Real** | Finnish Cancer Registry statistics app (`syoparekisteri-lung`) | Mean yearly new cancers of the lung and trachea (ICD-10 C33–C34) in 2020–2024, both sexes. County = home municipality in the year of diagnosis. | 2020–2024 |
 | `occupational_health_doctor_visits_per_1000_aged_15_64` (new, extra) | **Real number, proxy for coverage** | THL Sotkanet 2371 (`thl-sotkanet-2371`) | Occupational health doctor visits per 1,000 residents aged 15–64. This measures use, not coverage. | 2025 |
 | `in_ldct_pilot` | **Still mock** | `mock` | No public list of the lung cancer screening pilot counties was checked. | — |
@@ -19,7 +19,7 @@ Updated 2026-11-14. Patrik owns data, so the team should review this before merg
 The new extra field is not in `County` in `src/lib/types.ts`, and nothing in the app reads it yet. It is plain JSON, so no type change was needed.
 
 National reference values from the same snapshots:
-- 1,741,258 residents aged 55–80 (2025)
+- 1,695,391 residents aged 50–74 (2025; 55–80 until 14 Nov evening: 1,741,258)
 - 9.1% daily smokers aged 20 or over (2024)
 - 2,994 lung cancers per year (mean of 2020–2024)
 - 2,049 occupational health doctor visits per 1,000 aged 15–64 (2025)
@@ -28,16 +28,16 @@ National reference values from the same snapshots:
 
 **Population.** StatFin publishes ages by single year only for municipalities ([table 11re](https://pxdata.stat.fi/PxWeb/pxweb/fi/StatFin/StatFin__vaerak/11re.px/)). The build sums municipal figures to counties with the [Statistics Finland municipality → county key 2026](https://stat.fi/fi/luokitukset/corrmaps/kunta_1_20260101%23hyvinvointialue_1_20260101/). It then checks the result:
 - Each county's total population must equal the county total published in StatFin 11ra. All 23 areas match exactly.
-- The sum of the 55–80 figures must equal the national figure.
+- The sum of the 50–74 figures must equal the national figure.
 
 **Smoking. This needs a team decision.**
 - Verified: Sotkanet's regional smoking indicators all measure current daily smoking. They are 4404 (aged 20+), 4405 (20–64), 4406 (65+) and 4407 (75+). The survey question is "Do you currently smoke (cigarettes, cigars or a pipe)?", and only "yes, daily" counts.
 - Not found: no regional indicator for ever-smokers or former smokers.
-- Chosen: 4404 (aged 20+), because it is one published number that covers the whole 55–80 group. A mix of 4405 and 4406 weighted by population would be closer in age but would add our own calculation.
+- Chosen: 4404 (aged 20+), because it is one published number that covers the whole 50–74 group. A mix of 4405 and 4406 weighted by population would be closer in age but would add our own calculation.
 - Impact: county values range from 6.8% (Helsinki) to 12.5% (Vantaa and Kerava, Satakunta), against the mock value of 40%. The simulation's risk group falls about five-fold. For Pirkanmaa, the base scenario drops from about 32,000 people to 5,862.
 - The slider "Riskiryhmään kuuluvien osuus tupakoineista" still assumes the share applies to ever-smokers. Applied to daily smokers, the true share with 20+ pack-years is probably higher. The team should either relabel the field and slider or find an ever-smoker figure.
 - **Update 2026-11-14:** the simulation has a new slider, `formerPerCurrentSmoker` ("Entisiä tupakoitsijoita yhtä nykyistä kohden"). It adds former smokers to the risk group as a multiple of current daily smokers.
-  - Risk group = population 55–80 × daily-smoker share × (1 + ratio) × pack-year share.
+  - Risk group = population 50–74 × daily-smoker share × (1 + ratio) × pack-year share.
   - The default is 0, so the numbers stay as they were until the team decides the risk group.
   - The pack-year slider is relabelled "osuus tupakoitsijoista".
   - A national former-smoker figure (FinTerveys 2017 or Healthy Finland) was not found in a quick search.
@@ -57,7 +57,7 @@ National reference values from the same snapshots:
 
 ## Gaps and next steps
 
-- **Ever-smoker share aged 55–80.** No regional figure was found. The Healthy Finland report or the FinTerveys 2017 report may give a national ever-smoker or former-smoker share by age. One option is a national ratio of ever-smokers to daily smokers, labelled as an assumption. Unverified.
+- **Ever-smoker share aged 50–74.** No regional figure was found. The Healthy Finland report or the FinTerveys 2017 report may give a national ever-smoker or former-smoker share by age. One option is a national ratio of ever-smokers to daily smokers, labelled as an assumption. Unverified.
 - **Lung cancer screening pilot counties (`in_ldct_pilot`).** Still mock.
   - Roadmap p. 46 (action 2.3.4, read 2026-11-14): a randomised lung cancer screening pilot study started in early 2026 in Helsinki and eight wellbeing services counties.
   - In 2026–2028 the pilot is planned to expand regionally and invite the target population set by the EU recommendation.
@@ -76,7 +76,7 @@ That command builds from the committed snapshots without any network. Run `node 
 
 ## Survey languages for the risk group (verified 2026-11-14)
 
-Mother tongue of 55–79-year-olds at the end of 2025, from [StatFin 11rl](https://pxdata.stat.fi/PxWeb/pxweb/fi/StatFin/StatFin__vaerak/11rl.px/) (population register; registered mother tongue only, so Sámi is undercounted).
+Earlier figures for 55–79-year-olds (superseded by the 50–74 figures at the end of this section). Mother tongue of 55–79-year-olds at the end of 2025, from [StatFin 11rl](https://pxdata.stat.fi/PxWeb/pxweb/fi/StatFin/StatFin__vaerak/11rl.px/) (population register; registered mother tongue only, so Sámi is undercounted).
 
 | Languages offered | Share of 55–79-year-olds reached, Finland | Lapland |
 | --- | ---: | ---: |

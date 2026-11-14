@@ -59,7 +59,7 @@
     "id": "statfin-11re",
     "title": "Tilastokeskus, StatFin 11re: Väestö iän (1-v.) ja sukupuolen mukaan alueittain, 1972–2025",
     "url": "https://pxdata.stat.fi/PxWeb/pxweb/fi/StatFin/StatFin__vaerak/11re.px/",
-    "page": "Table 11re, population on 31 Dec 2025, ages 55–80, both sexes, all municipalities. API: https://pxdata.stat.fi/PxWeb/api/v1/fi/StatFin/vaerak/11re.px",
+    "page": "Table 11re, population on 31 Dec 2025, ages 50–74, both sexes, all municipalities. API: https://pxdata.stat.fi/PxWeb/api/v1/fi/StatFin/vaerak/11re.px",
     "retrieved": "2026-11-14",
     "note": "Municipalities summed to wellbeing services counties with the Statistics Finland key kunta_1_20260101#hyvinvointialue_1_20260101 (https://stat.fi/fi/luokitukset/corrmaps/kunta_1_20260101%23hyvinvointialue_1_20260101/). Every county total matches StatFin 11ra. Snapshot: src/data/raw/statfin-population-50-74.json."
   },
@@ -188,7 +188,7 @@
     "title": "Tilastokeskus, StatFin 11rl: Väestö kielen ja iän mukaan maakunnittain",
     "url": "https://pxdata.stat.fi/PxWeb/pxweb/fi/StatFin/StatFin__vaerak/11rl.px/",
     "retrieved": "2026-11-14",
-    "note": "55–79-vuotiaat 31.12.2025: suomi, ruotsi, saame, venäjä, viro, ukraina, englanti ja arabia kattavat 97,9 % koko maassa ja 99,2 % Lapissa (rekisteröity äidinkieli)."
+    "note": "50–74-vuotiaat 31.12.2025: suomi, ruotsi, saame, venäjä, viro, ukraina, englanti ja arabia kattavat 97,2 % koko maassa ja 98,8 % Lapissa (rekisteröity äidinkieli)."
   },
   {
     "id": "assumption",
