@@ -1,5 +1,6 @@
 "use client";
 
+import { More } from "@/components/More";
 import { useCallback, useEffect, useState } from "react";
 import { DESIGN_LABEL, FACTOR_LABEL, TOPIC_LABEL, type Evidence, type FactorEvidence } from "@/lib/literature/evidence";
 
@@ -103,13 +104,16 @@ export default function EvidencePage() {
       <div>
         <p className="text-xs font-semibold uppercase tracking-[0.14em] text-brand-teal">Kirjallisuusseuranta · lääketieteellinen vastuuhenkilö</p>
         <h1 className="mt-1 text-3xl font-extrabold tracking-tight">Uusin keuhkosyöpätutkimus</h1>
-        <p className="max-w-3xl text-sm text-slate-600">
+        <p className="text-slate-600">Uusimmat julkaisut riskistä ja varhaisesta toteamisesta, vahvin näyttö ensin.</p>
+        <More className="mt-1" label="Miten artikkelit valitaan">
+        <p>
           Järjestelmä hakee PubMedista uusimmat keuhkosyövän riskiä, oireita ja varhaista toteamista koskevat artikkelit seitsemästä lehdestä ja arvioi näytön vahvuuden tutkimusasetelman, otoskoon, tuoreuden ja aiheen mukaan. Jokainen artikkeli käytetään vain kerran, ja saman aineiston (esim. NLST) julkaisut lasketaan yhtenä.
         </p>
-        <p className="mt-2 max-w-3xl rounded border border-sky-200 bg-sky-50 p-2 text-sm text-sky-900">
+        <p>
           Tieto ei muuta potilaiden riskiä. Riski lasketaan validoidulla PLCOm2012-mallilla (Tammemägi ym., NEJM 2013) julkaistuin kertoimin. Seuranta kertoo lääkärille, mitä uutta riskitekijöistä ja riskimalleista on julkaistu.
         </p>
-        <p className="mt-1 text-xs text-slate-500">Lehdet: {data?.journals.map((j) => j.name).join(", ")}</p>
+        <p className="text-xs">Lehdet: {data?.journals.map((j) => j.name).join(", ")}</p>
+        </More>
       </div>
 
       <div className="flex flex-wrap items-center gap-3 rounded-lg border border-slate-200 bg-white p-3 text-sm">

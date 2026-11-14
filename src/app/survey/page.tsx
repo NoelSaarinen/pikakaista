@@ -1,5 +1,6 @@
 "use client";
 
+import { More } from "@/components/More";
 import { useState } from "react";
 import { AnalysisCard } from "@/components/AnalysisCard";
 import { notifyChange } from "@/components/LiveData";
@@ -126,7 +127,7 @@ export default function SurveyPage() {
           <div className="space-y-4 py-6 text-center">
             <p className="text-lg font-semibold">
               {result.symptomReviewRequired
-                ? "Ilmoitit oireita. Terveydenhuollon ammattilaisen tulee arvioida ne riippumatta seulontariskistä. Tämä demo ei tee diagnoosia eikä lähetä automaattisesti TT-kuvaukseen."
+                ? "Kiitos! Ammattilainen arvioi ilmoittamasi oireet. Tämä ei ole diagnoosi."
                 : channel === "survey" ? RESPONDENT_MESSAGE[result.placement] : NURSE_MESSAGE[result.placement]}
             </p>
             {result.redFlag && (
@@ -137,16 +138,14 @@ export default function SurveyPage() {
             {result.screeningRisk6y !== null && (
               <div className="rounded border border-sky-200 bg-sky-50 p-3 text-left text-sm">
                 <p className="font-semibold">PLCOm2012-mallin kuuden vuoden arvio: {(result.screeningRisk6y * 100).toFixed(2)} %</p>
-                <p className="mt-1 text-xs text-slate-600">
-                  Yhdysvaltalaisella aineistolla kehitetty tutkimusmalli; sitä ei ole kalibroitu Suomen väestöön eikä tulos yksin ratkaise seulontaa tai hoitoa.
-                  {result.screeningRiskInOriginalAgeRange === false && " Ikä on alkuperäisen tutkimusjoukon 55–74 vuoden ulkopuolella."}
-                </p>
+                <More className="mt-1" label="Mitä luku tarkoittaa">
+                  <p className="text-xs">
+                    Yhdysvaltalaisella aineistolla kehitetty tutkimusmalli; sitä ei ole kalibroitu Suomen väestöön eikä tulos yksin ratkaise seulontaa tai hoitoa.
+                    {result.screeningRiskInOriginalAgeRange === false && " Ikä on alkuperäisen tutkimusjoukon 55–74 vuoden ulkopuolella."}
+                    {smoking !== "never" && " Puuttuvat tiedot täydennettiin mallin keskiarvoilla, ja lääkärinäkymä näyttää, mitkä."}
+                  </p>
+                </More>
               </div>
-            )}
-            {smoking !== "never" && result.screeningRisk6y !== null && (
-              <p className="rounded border border-amber-200 bg-amber-50 p-3 text-left text-xs text-amber-900">
-                Puuttuvat PLCOm2012-tiedot täydennettiin mallin keskiarvoilla, ja väestöluokan puuttuessa käytettiin mallin vertailuluokkaa. Lääkärinäkymä näyttää, mitkä tiedot täydennettiin.
-              </p>
             )}
             <div className="rounded bg-slate-100 p-3 text-left text-xs text-slate-600">
               <p className="font-semibold">Demo: sääntöjen tulos (ei näy vastaajalle)</p>
@@ -169,7 +168,7 @@ export default function SurveyPage() {
             {channel === "survey" ? (
               <div>
                 <h1 className="text-lg font-bold">Keuhkojen terveyskysely</h1>
-                <p className="text-slate-600">Esimerkkikysely. Seulontaan valinnan ja oireiden arvioinnin säännöt ovat erilliset.</p>
+                <p className="text-slate-600">Kaksi minuuttia. Käytä kuvitteellisia tietoja.</p>
                 <p className="mt-2 rounded border border-amber-300 bg-amber-50 p-2 text-xs text-amber-900">
                   Tämä kysely ei ole kiireellinen palvelu. Jos sinulla on äkillisiä tai vakavia oireita, soita 112 tai Päivystysapuun 116117.
                 </p>

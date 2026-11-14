@@ -15,23 +15,23 @@ const pilotCoverage = ISC_LDCT.participants / pilotRiskGroup;
 const days = simulateDoors(counties[0], SCENARIOS.base);
 
 const STATS = [
-  { value: nf.format(casesPerYear), label: "uutta keuhkosyöpää vuodessa", note: "Syöpärekisteri, keskiarvo 2020–2024, 21 hyvinvointialuetta ja Helsinki" },
-  { value: "65–70 %", label: "löytyy vasta levinneenä", note: "Valtakunnallinen keuhkosyöpäohjelma 2026–2035" },
-  { value: `alle ${Math.ceil(pilotCoverage * 100)} %`, label: "riskiryhmästä mahtuu seulontapilottiin", note: `${nf.format(ISC_LDCT.participants)} paikkaa pilottialueilla, demon perusskenaario` },
-  { value: `${nf.format(days.publicDaysToCt)} → ${nf.format(days.fastLaneDaysToCt)} pv`, label: "aika TT-kuvaukseen", note: "Nykyinen polku vs. pikakaista, perusskenaarion oletukset lähteineen" },
+  { value: nf.format(casesPerYear), label: "keuhkosyöpää vuodessa", note: "Syöpärekisteri 2020–2024" },
+  { value: "65–70 %", label: "löytyy levinneenä", note: "Keuhkosyöpäohjelma 2026–2035" },
+  { value: `alle ${Math.ceil(pilotCoverage * 100)} %`, label: "mahtuu seulontapilottiin", note: `${nf.format(ISC_LDCT.participants)} paikkaa, riskiryhmästä` },
+  { value: `${nf.format(days.publicDaysToCt)} → ${nf.format(days.fastLaneDaysToCt)} pv`, label: "aika TT-kuvaukseen", note: "Nyt vs. pikakaista" },
 ];
 
 const STEPS = [
-  { n: "1", title: "Kysely riskiryhmälle", text: "Hyvinvointialue lähettää kerran vuodessa kahden minuutin oirekyselyn tekstiviestillä. Suomi, ruotsi ja englanti." },
-  { n: "2", title: "Säännöt ja lääkäri", text: "Hälytysmerkit nousevat listan kärkeen. Tekoäly vain tiivistää, ja lääkäri päättää jokaisesta jatkosta." },
-  { n: "3", title: "TT-kuvaus päivissä", text: "Pikakaistalle varatut ajat lyhentävät odotuksen viikoista päiviin. Oireettomat järjestetään seulontalistalle riskin mukaan." },
+  { n: "1", title: "Kysely", text: "Kahden minuutin oirekysely tekstiviestillä." },
+  { n: "2", title: "Lääkäri", text: "Hälytysmerkit listan kärkeen, lääkäri päättää." },
+  { n: "3", title: "TT päivissä", text: "Varatut ajat, ei viikkojen jonoa." },
 ];
 
 const VIEWS = [
-  { href: "/county", title: "Päättäjä", text: "Alueen keuhkosyöpäaukko, hyötylaskelma ja seulontapilotin täydentäminen lähteineen.", tag: "Hyvinvointialue" },
-  { href: "/survey", title: "Kysely", text: "Kokeile kahden minuutin oirekyselyä kuvitteellisilla tiedoilla.", tag: "Kansalainen" },
-  { href: "/clinician", title: "Lääkäri", text: "Pikakaistan lista, seulontalista, seuranta ja potilashaku yhdessä työtilassa.", tag: "Vain lääkäreille" },
-  { href: "/evidence", title: "Tutkimus", text: "Uusimmat keuhkosyöpäjulkaisut ja PLCOm2012-riskimalli, johon järjestys perustuu.", tag: "Näyttö" },
+  { href: "/county", title: "Päättäjä", text: "Alueesi luvut ja hyöty.", tag: "Hyvinvointialue" },
+  { href: "/survey", title: "Kysely", text: "Kokeile kyselyä itse.", tag: "Kansalainen" },
+  { href: "/clinician", title: "Lääkäri", text: "Lista, seulonta, seuranta ja haku.", tag: "Vain lääkäreille" },
+  { href: "/evidence", title: "Tutkimus", text: "Uusin näyttö ja riskimalli.", tag: "Näyttö" },
 ];
 
 const TRUST = ["Lääkäri päättää aina", "Tekoäly vain tiivistää", "Lähteet näkyvät luvuissa", "Synteettinen demodata"];
@@ -50,7 +50,7 @@ export default function Home() {
             Löydetään ne, jotka eivät tule itse.
           </h1>
           <p className="mt-4 text-lg text-white/85">
-            Vuosittainen oirekysely riskiryhmälle ja terveyskeskuksen pikakaista. Hälytysmerkit lääkärille päivissä, ei viikoissa, ja oireettomat seulontaan riskin mukaan.
+            Oirekysely riskiryhmälle kerran vuodessa. Hälytysmerkit TT-kuvaukseen päivissä, ei viikoissa.
           </p>
           <div className="mt-8 flex flex-wrap gap-3">
             <Link href="/survey" className="rounded-xl bg-brand-gold px-5 py-3 font-semibold text-brand-navy shadow-lg transition hover:brightness-105">
@@ -76,7 +76,7 @@ export default function Home() {
       <section aria-labelledby="how" className="space-y-5">
         <div>
           <p className="text-sm font-semibold uppercase tracking-[0.14em] text-brand-teal">Näin se toimii</p>
-          <h2 id="how" className="mt-1 text-2xl font-bold">Kolme askelta nopeampaan hoitoon</h2>
+          <h2 id="how" className="mt-1 text-2xl font-bold">Kolme askelta</h2>
         </div>
         <ol className="grid gap-4 md:grid-cols-3">
           {STEPS.map((s) => (

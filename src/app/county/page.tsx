@@ -3,6 +3,7 @@
 import { useMemo, useState } from "react";
 import { LiveTotalsPanel } from "@/components/LiveData";
 import { PilotPanel } from "@/components/PilotPanel";
+import { More } from "@/components/More";
 import countiesData from "@/data/counties.json";
 import { RichText } from "@/components/RichText";
 import { allSources, curativeRanking, regionalFindings, SIGNAL_LABEL } from "@/lib/regional";
@@ -99,7 +100,7 @@ export default function CountyPage() {
         <div>
           <p className="text-xs font-semibold uppercase tracking-[0.14em] text-brand-teal">Päättäjänäkymä</p>
           <h1 className="mt-1 text-3xl font-extrabold tracking-tight">Keuhkosyövän pikakaista</h1>
-          <p className="text-sm text-slate-600">Malli: kaksi ovea (terveyskeskuksen pikakaista) ja riskiryhmän vuosittainen oirekysely.</p>
+          <p className="text-slate-600">Hälytysmerkit TT-kuvaukseen päivissä, ei viikoissa.</p>
         </div>
         <label className="text-sm">
           Hyvinvointialue
@@ -120,7 +121,6 @@ export default function CountyPage() {
         </label>
       </div>
 
-      <LiveTotalsPanel />
 
       {usesMock && (
         <p className="rounded border border-amber-300 bg-amber-50 px-3 py-2 text-sm text-amber-900">
@@ -143,15 +143,15 @@ export default function CountyPage() {
         </section>
         <section className="rounded-lg border border-slate-200 bg-white p-4">
           <h2 className="font-semibold">Missä polku jumittaa</h2>
-          <p className="mt-2 text-sm">Ihmiset eivät hakeudu ajoissa: kolmannes meni lääkäriin vasta yli kuukauden kuluttua oireista.<SourceTag id="pfizer-2025" /></p>
-          <p className="mt-2 text-sm">Terveyskeskuslääkärille odotetaan noin kaksi viikkoa.<SourceTag id="uh-acta-2025" /> Ensimmäisestä käynnistä lähetteeseen kuluu vielä noin kaksi viikkoa.<SourceTag id="mattila-2025" /></p>
-          <p className="mt-2 text-sm">Pelkkä pikakaista tavoitti Tanskassa vain 27 % keuhkosyöpäpotilaista.<SourceTag id="guldbrandt" /></p>
+          <p className="mt-2 text-sm">Kolmannes hakeutuu lääkäriin vasta yli kuukauden päästä oireista.<SourceTag id="pfizer-2025" /></p>
+          <More className="mt-2" label="Miksi">
+            <p>Terveyskeskuslääkärille odotetaan noin kaksi viikkoa.<SourceTag id="uh-acta-2025" /> Ensimmäisestä käynnistä lähetteeseen kuluu vielä noin kaksi viikkoa.<SourceTag id="mattila-2025" /></p>
+            <p>Pelkkä pikakaista tavoitti Tanskassa vain 27 % keuhkosyöpäpotilaista, joten tarvitaan myös kysely.<SourceTag id="guldbrandt" /></p>
+          </More>
         </section>
         <section className="rounded-lg border border-slate-200 bg-white p-4">
           <h2 className="font-semibold">Toimenpide ja vaikutus</h2>
-          <p className="mt-2 text-sm">
-            Terveyskeskukseen syöpäepäilyn pikakaista ja lisäksi vuosittainen oirekysely riskiryhmälle, joka tavoittaa myös ne, jotka eivät tule itse.
-          </p>
+          <p className="mt-2 text-sm">Pikakaista terveyskeskukseen ja vuosittainen oirekysely riskiryhmälle.</p>
           <p className="mt-3 text-3xl font-bold">
             {fmt(doors.publicDaysToCt)} → {fmt(doors.fastLaneDaysToCt)} pv
           </p>
@@ -164,8 +164,7 @@ export default function CountyPage() {
       <section className="rounded-lg border border-slate-200 bg-white p-4">
         <h2 className="font-semibold">Tavoite 3: missä aukko on suurin?</h2>
         <p className="mt-1 text-sm text-slate-600">
-          Kansallinen syöpästrategia: keuhkosyövän viiden vuoden elossaolon pitää nousta pohjoismaiselle tasolle ja syöpäkuolleisuuden laskea.
-          <SourceTag id="strategy" />
+          Tavoite: elossaolo pohjoismaiselle tasolle.<SourceTag id="strategy" />
         </p>
         <div className="mt-4 grid gap-4 md:grid-cols-3">
           <div className="rounded bg-slate-50 p-3">
@@ -178,7 +177,6 @@ export default function CountyPage() {
               koko maa {pct(findings.curativeNational)}
               {findings.curativeRank !== undefined && ` · ${findings.curativeRank}. / ${findings.curativeCount} aluetta`}
             </p>
-            <p className="mt-2 text-xs text-slate-500">Matala osuus viittaa myöhäiseen toteamiseen. Osuudet ovat ikävakioimattomia.</p>
           </div>
           <div className="rounded bg-slate-50 p-3">
             <p className="text-sm text-slate-600">Keuhkosyöpäkuolleisuus, ikävakioitu (2020–2024)</p>
@@ -203,11 +201,10 @@ export default function CountyPage() {
             <p className="text-sm text-slate-600">
               {findings.survivalAreaName ?? "yhteistyöalue"} · koko maa {nf1.format(findings.survivalNational.value)} %
             </p>
-            <p className="mt-2 text-xs text-slate-500">Julkaistaan vain viidelle yhteistyöalueelle. Alueiden erot ovat satunnaisvaihtelun sisällä.</p>
           </div>
         </div>
-        <details className="mt-4">
-          <summary className="cursor-pointer text-sm font-medium text-sky-700">Parantavan hoidon osuus kaikilla alueilla</summary>
+        <More className="mt-4" label="Kaikki alueet ja tulkinta">
+          <p>Matala parantavan hoidon osuus viittaa myöhäiseen toteamiseen. Korkea kuolleisuus johtuu osin korkeasta ilmaantuvuudesta (tupakointihistoria), joten se ei yksin osoita hoidon eroja. Elossaolo julkaistaan vain viidelle yhteistyöalueelle, ja niiden erot ovat satunnaisvaihtelun sisällä.</p>
           <ul className="mt-2 space-y-1 text-sm">
             {ranking.map((c) => (
               <li key={c.id} className="flex items-center gap-2">
@@ -225,16 +222,13 @@ export default function CountyPage() {
           <p className="mt-2 text-xs text-slate-500">
             Ikävakioimattomat osuudet, 2019–2023. Pienten alueiden luvut vaihtelevat paljon, ja puuttuva hoitotieto voi johtua kirjauskäytännöistä.
           </p>
-        </details>
-        <p className="mt-3 text-xs text-slate-500">
-          Korkea kuolleisuus johtuu osin korkeasta ilmaantuvuudesta (tupakointihistoria), joten se ei yksin osoita hoidon eroja.
-        </p>
+        </More>
       </section>
 
       <section className="rounded-lg border border-slate-200 bg-white p-4">
         <h2 className="font-semibold">Kaksi ovea: kuka pääsee nopeasti?</h2>
         <p className="mt-1 text-sm text-slate-600">
-          Työterveys on nopea ovi, terveyskeskus hidas.<SourceTag id="roadmap" /> Lymfoomatutkimuksessa oireista hoitoon kului terveyskeskuksen kautta mediaani 127 päivää, työterveyden tai yksityisen kautta 76 päivää.<SourceTag id="kuitunen-2026" /> Vain noin kolmannes sairastuneista on työikäisiä, joten valtaosa tulee hitaan oven kautta.<SourceTag id="strategy" />
+          Työterveys on nopea ovi, terveyskeskus hidas, ja valtaosa sairastuneista tulee hitaan oven kautta.<SourceTag id="roadmap" />
         </p>
         <div className="mt-4 grid gap-4 md:grid-cols-2">
           <div className="space-y-3">
@@ -261,13 +255,15 @@ export default function CountyPage() {
             </div>
           </div>
         </div>
-        <p className="mt-3 text-xs text-slate-500">
-          Ovien ajat ja jakauma ovat arvioita. Ne perustuvat julkaistuun lymfoomatutkimukseen (160 potilasta, 2014–2020), koska keuhkosyövästä vastaavaa tietoa ei ole. Keuhkosyövän luvut kysytään mentoreilta.
-        </p>
+        <More className="mt-3">
+          <p>Lymfoomatutkimuksessa oireista hoitoon kului terveyskeskuksen kautta mediaani 127 päivää, työterveyden tai yksityisen kautta 76 päivää.<SourceTag id="kuitunen-2026" /> Vain noin kolmannes sairastuneista on työikäisiä.<SourceTag id="strategy" /></p>
+          <p>Ovien ajat ja jakauma ovat arvioita lymfoomatutkimuksesta (160 potilasta, 2014–2020), koska keuhkosyövästä vastaavaa tietoa ei ole. Keuhkosyövän luvut kysytään mentoreilta.</p>
+        </More>
       </section>
 
       <section className="rounded-lg border border-slate-200 bg-white p-4">
         <h2 className="font-semibold">Kysely: hyötylaskelma vuodessa (vaihteluväli)</h2>
+        <div className="-mx-1 overflow-x-auto px-1">
         <table className="mt-3 w-full text-sm">
           <thead>
             <tr className="border-b text-left text-slate-500">
@@ -290,7 +286,8 @@ export default function CountyPage() {
             ))}
           </tbody>
         </table>
-        <p className="mt-3 text-xs text-slate-500">Laskelma arvioi vain pääsyä TT-kuvaukseen ja tarvittavia aikoja. Se ei arvioi elossaoloa.</p>
+        </div>
+        <p className="mt-3 text-xs text-slate-500">Arvioi pääsyä TT-kuvaukseen ja tarvittavia aikoja, ei elossaoloa.</p>
       </section>
 
       <section className="rounded-lg border border-slate-200 bg-white p-4">
@@ -309,6 +306,13 @@ export default function CountyPage() {
           <p className="mt-2 text-sm text-slate-500">Tekoäly kokoaa luvut ja lähteet kahden minuutin tiivistelmäksi.</p>
         )}
       </section>
+
+      <details className="rounded-lg border border-slate-200 bg-white p-4">
+        <summary className="cursor-pointer font-semibold">Demon kyselydata reaaliajassa</summary>
+        <div className="mt-3">
+          <LiveTotalsPanel />
+        </div>
+      </details>
 
       <details className="rounded-lg border border-slate-200 bg-white p-4">
         <summary className="cursor-pointer font-semibold">Oletukset ({PARAM_META.length})</summary>

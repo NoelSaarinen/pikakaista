@@ -5,6 +5,7 @@ import { allSources } from "@/lib/regional";
 import { cancerYieldPerScan, ISC_LDCT, isPilotCounty, LDCT_SC_FI } from "@/lib/pilot";
 import { SCENARIOS, simulate } from "@/lib/simulation";
 import type { County } from "@/lib/types";
+import { More } from "./More";
 
 const counties = countiesData as County[];
 const nf = new Intl.NumberFormat("fi-FI", { maximumFractionDigits: 0 });
@@ -33,18 +34,9 @@ export function PilotPanel({ county }: { county: County }) {
   const ownRiskGroup = simulate(county, SCENARIOS.base).riskGroup;
 
   const points = [
-    {
-      pilot: `Tavoittaa alle ${pct(Math.ceil(coverage * 100) / 100, 0)} riskiryhmästä: ${nf.format(ISC_LDCT.participants)} paikkaa, ${nf.format(riskGroupInPilotAreas)} riskiryhmään kuuluvaa ${pilotCounties.length} pilottialueella.`,
-      survey: `Tavoittaa koko riskiryhmän vuosittaisella kyselyllä${inPilot ? "" : ", myös alueilla, joilla pilottia ei ole"}. ${county.name}: ${nf.format(ownRiskGroup)} henkeä.`,
-    },
-    {
-      pilot: `Ei voi kutsua ketään, koska tupakointihistoria ei näy rekistereissä. Edeltäjätutkimuksessa vain ${pct(LDCT_SC_FI.healthcareReferralShare)} tuli terveydenhuollon kautta.`,
-      survey: "Tunnistaa kriteerit täyttävät vastaajat (seulontalistalla merkintä) ja voisi ohjata heidät pilottiin.",
-    },
-    {
-      pilot: "Ottaa vain nykyiset tupakoitsijat (50–74 v) eikä oireisia.",
-      survey: "Kattaa myös lopettaneet, 75–80-vuotiaat ja oireiset, jotka ohjataan pikakaistalle.",
-    },
+    { pilot: `Alle ${Math.ceil(coverage * 100)} % riskiryhmästä mahtuu mukaan.`, survey: "Tavoittaa koko riskiryhmän joka vuosi." },
+    { pilot: "Ei voi kutsua: tupakointi ei näy rekistereissä.", survey: "Tunnistaa kelpoiset ja voi ohjata pilottiin." },
+    { pilot: "Vain nykyiset tupakoitsijat, 50–74 v.", survey: "Myös lopettaneet, 75–80-vuotiaat ja oireiset." },
   ];
 
   return (
@@ -55,10 +47,9 @@ export function PilotPanel({ county }: { county: County }) {
           {county.name}: {inPilot ? "pilottialue" : "ei pilottialue"}
         </span>
       </div>
-      <p className="mt-1 text-sm">
-        {ISC_LDCT.name}-pilotti alkoi 2.2.2026 alueilla {ISC_LDCT.areas.join(", ")}.<Source id="isc-ldct" /><Source id="syopajarjestot-2026" /> Se tutkii matala-annos-TT-seulontaa ja tupakoinnin lopettamista {nf.format(ISC_LDCT.participants)} tupakoitsijalla. Tuloksia ei ole vielä julkaistu.
+      <p className="mt-1 text-sm text-slate-600">
+        Kansallinen seulontapilotti {ISC_LDCT.name} 2026: {nf.format(ISC_LDCT.participants)} paikkaa viidellä alueella.<Source id="isc-ldct" />
       </p>
-      {county.in_ldct_pilot.note && <p className="mt-1 text-xs text-slate-600">{county.in_ldct_pilot.note}</p>}
 
       <table className="mt-3 w-full text-left text-sm">
         <thead className="text-xs text-slate-600">
@@ -77,14 +68,23 @@ export function PilotPanel({ county }: { county: County }) {
         </tbody>
       </table>
 
-      <p className="mt-3 text-sm">
+      <More className="mt-3">
+      <p>
+        Pilotin {nf.format(ISC_LDCT.participants)} paikkaa vs. {nf.format(riskGroupInPilotAreas)} riskiryhmään kuuluvaa {pilotCounties.length} pilottialueella (demon perusskenaario). {county.name}: {nf.format(ownRiskGroup)} riskiryhmään kuuluvaa. Edeltäjätutkimuksessa vain {pct(LDCT_SC_FI.healthcareReferralShare)} tuli terveydenhuollon kautta.<Source id="wichmann-2025" />
+      </p>
+      <p>
+        {ISC_LDCT.name} alkoi 2.2.2026 alueilla {ISC_LDCT.areas.join(", ")}.<Source id="syopajarjestot-2026" /> Se tutkii matala-annos-TT-seulontaa ja tupakoinnin lopettamista. Tuloksia ei ole vielä julkaistu.
+        {county.in_ldct_pilot.note && ` ${county.in_ldct_pilot.note}`}
+      </p>
+      <p>
         <strong>Edeltäjätutkimus {LDCT_SC_FI.name} (Oulu, samat kriteerit):</strong> keuhkosyöpä löytyi {LDCT_SC_FI.cancers}/{LDCT_SC_FI.scans} TT-kuvauksesta ({pct(cancerYieldPerScan)}),
         {" "}{LDCT_SC_FI.stageI}/{LDCT_SC_FI.cancers} vaiheessa I, positiivinen ennustearvo {pct(LDCT_SC_FI.ppv, 0)}.<Source id="wichmann-2025" /> Seulonta löytää syövät varhain; kysely ja pikakaista
         nopeuttavat oireisten polkua. Ne täydentävät toisiaan eivätkä korvaa toisiaan.
       </p>
-      <p className="mt-2 text-xs text-slate-500">
+      <p className="text-xs text-slate-500">
         Kattavuusvertailu on suuntaa antava, koska pilotin ja demon riskiryhmän kriteerit eroavat. Edeltäjän löydösosuutta ei käytetä pikakaistan laskelmassa, koska se koskee oireettomia vapaaehtoisia.
       </p>
+      </More>
     </section>
   );
 }

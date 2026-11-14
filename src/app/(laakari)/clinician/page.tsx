@@ -10,6 +10,7 @@ import { STAGE_LABEL } from "@/lib/pathway";
 import { formatRisk } from "@/lib/priority";
 import { PLACEMENT_LABEL } from "@/lib/rules";
 import { searchText } from "@/lib/search";
+import { More } from "@/components/More";
 import type { CaseSummary, Placement } from "@/lib/types";
 import type { WorklistItem } from "@/lib/store";
 
@@ -110,22 +111,23 @@ export default function ClinicianPage() {
       <div>
         <p className="text-xs font-semibold uppercase tracking-[0.14em] text-brand-teal">Lääkärinäkymä · terveyskeskus</p>
         <h1 className="mt-1 text-3xl font-extrabold tracking-tight">Pikakaistan lista</h1>
+        <p className="text-slate-600">Hälytysmerkit ensin. Lääkäri päättää jokaisesta.</p>
         {data && (
-          <p className="text-sm text-slate-600">
+          <More className="mt-1" label="Luvut ja järjestyksen peruste">
+          <p>
             {data.total} vastausta (synteettisiä). Säännöt ohjasivat pikakaistalle {data.counts.direct_ct + data.counts.physician_fast}: suoraan TT {data.counts.direct_ct}, lääkärille {data.counts.physician_fast}. Oirearvioon lisäksi {data.items.filter((x) => x.rule.symptomReviewRequired && x.rule.placement === "not_eligible").length} riskiryhmän ulkopuolista. Tavallinen reitti {data.counts.normal_route}, ei seulontakyselyn riskirajassa {data.counts.not_eligible}.
           </p>
-        )}
-        {data && (
-          <p className="text-xs text-slate-500">
+          <p>
             Järjestys: hälytysmerkit ensin, saman kiireellisyyden sisällä PLCOm2012-mallin kuuden vuoden keuhkosyöpäriski (Tammemägi ym., NEJM 2013).{" "}
             <a href="/evidence" className="text-sky-700 underline">Uusin tutkimus →</a>
           </p>
+          </More>
         )}
       </div>
 
       <BookingPanel onBooked={load} />
 
-      <div className="grid gap-4 md:grid-cols-[minmax(0,2fr)_minmax(0,3fr)]">
+      <div className="grid grid-cols-1 gap-4 md:grid-cols-[minmax(0,2fr)_minmax(0,3fr)]">
         <div className="space-y-2">
         <div className="rounded-lg border border-slate-200 bg-white p-2">
           <label className="sr-only" htmlFor="worklist-search">Hae listalta</label>

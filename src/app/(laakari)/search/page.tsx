@@ -76,9 +76,7 @@ export default function SearchPage() {
       <div>
         <p className="text-xs font-semibold uppercase tracking-[0.14em] text-brand-teal">Potilashaku · synteettinen data</p>
         <h1 className="mt-1 text-3xl font-extrabold tracking-tight">Hae potilaita</h1>
-        <p className="max-w-3xl text-sm text-slate-600">
-          Hae tunnuksella, oireella, omin sanoin kirjoitetulla tekstillä tai hoitopolun vaiheella, ja rajaa tuloksia suodattimilla. Kaikkien hakusanojen pitää löytyä. Esimerkiksi <q>yskä entinen</q> löytää entiset tupakoijat, joilla on yskää.
-        </p>
+        <p className="text-slate-600">Hae tunnuksella, oireella tai omin sanoin, esim. <q>yskä entinen</q>.</p>
       </div>
 
       <NewAnswers
@@ -188,7 +186,7 @@ export default function SearchPage() {
         </div>
       </div>
 
-      <div className="grid gap-4 md:grid-cols-[minmax(0,3fr)_minmax(0,2fr)]">
+      <div className="grid grid-cols-1 gap-4 md:grid-cols-[minmax(0,3fr)_minmax(0,2fr)]">
         <div className="max-h-[70vh] overflow-auto rounded-lg border border-slate-200 bg-white">
           {items && results.length === 0 ? (
             <p className="p-4 text-sm text-slate-500">Ei osumia. Kokeile väljempää hakua tai tyhjennä suodattimet.</p>
