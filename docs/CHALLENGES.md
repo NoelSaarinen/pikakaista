@@ -26,7 +26,7 @@ Checked against the [Junction participant portal](https://hackjunction.app/parti
 
 ### AstraZeneca — Equal Care Across Finland
 
-Source: [official participant brief](https://hackjunction.app/participate/45/challenges/344), cross-checked against the supplied full brief on 2026-11-13. Main Challenge in the Healthcare track.
+Source: [official participant brief](https://hackjunction.app/participate/45/challenges/344), cross-checked against the supplied full brief on 2026-11-13. Main Challenge in the Healthcare track. We re-read the platform page on 2026-11-14: it lists no resources beyond the three PDFs, the Finnish Cancer Registry, THL regional indicators and the mentors in the table below.
 
 #### Objective and minimum requirements
 
@@ -58,6 +58,23 @@ Tiimin toimittama yksinkertaistus (2026-11-13).
 | [Curated source list (PDF)](https://files.hackjunction.app/resources/Sy%C3%B6p%C3%A4strategiat%20ja%20sy%C3%B6p%C3%A4data_linkkikokoelma.pdf) | Sponsor collection of reports, statistics and articles. |
 | Finnish Cancer Registry and THL regional health indicators | Public aggregate data sources named by the sponsor. Confirm which Goal 3 indicator has usable data, its years, geographic coverage and comparability before making claims. |
 | AstraZeneca mentors | Oncology, diagnostics and medical affairs context. Record insights and distinguish them from measured data. |
+
+##### What the curated source list contains
+
+Read on 2026-11-14 from the [curated source list](https://files.hackjunction.app/resources/Sy%C3%B6p%C3%A4strategiat%20ja%20sy%C3%B6p%C3%A4data_linkkikokoelma.pdf). The link targets come from the PDF's link annotations. We matched the Julkari link to its entry by link order, so that one match is an inference.
+
+| Source | What it offers | Use for our demo |
+| --- | --- | --- |
+| [Finnish Cancer Registry statistics](https://syoparekisteri.fi/tilastot/) ([home](https://syoparekisteri.fi/)) | Statistics app and screening statistics | Lung cancer incidence, mortality and survival by region |
+| [Sotkanet](https://sotkanet.fi/sotkanet/fi/index) and [THL data and statistics](https://thl.fi/data-ja-tilastot) | Regional indicators | Population, smoking and health-centre access by wellbeing services county |
+| [Statistics Finland: causes of death](https://stat.fi/fi/tilasto/ksyyt) | Cancer deaths in the StatFin database | Mortality, a Goal 3 indicator |
+| [FICAN: cancer quality registers](https://fican.fi/toiminta/arviointi-ja-seuranta/syopien-laaturekisterit/) | Quality registers and their reports | Probably where the lung cancer quality-register report is. **Unverified.** |
+| [Kela open data](https://tietotarjotin.fi/tilastodata/2242438/avoin-data) and [medicine reimbursement rights](https://vip.avoindata.fi/data/fi/dataset/voimassa-olleet-alkaneet-ja-paattyneet-laakekorvausoikeudet) | Benefit statistics | Kela also publishes occupational health statistics. Whether they are broken down by region is **unverified**. |
+| [Finnish Statistics on Medicines 2025](https://www.julkari.fi/items/3dfdc48f-2d1a-416e-9795-eca4d3df72ad) (Kela and Fimea) | Medicine use and reimbursements | Not needed for the current concept |
+| [NORDCAN 2.0](https://nordcan.iarc.who.int/en) and [FICAN cancer registry page](https://fican.fi/en/what-we-do/quality-and-monitoring/cancer-registry/) | Nordic registry data | Survival gap to the Nordic level |
+| [FICAN strategy page](https://fican.fi/toiminta/syopastrategia/), [EU cancer plan](https://commission.europa.eu/topics/public-health/european-health-union/cancer-plan-europe_fi), [EU Cancer Mission](https://research-and-innovation.ec.europa.eu/funding/funding-opportunities/funding-programmes-and-open-calls/horizon-europe/eu-missions-horizon-europe/eu-mission-cancer_en), [FICAN](https://fican.fi/tietoa-meista/fican/) | Strategy context | Background only |
+| [Findata](https://findata.fi/), [FinRegistry](https://www.finregistry.fi/finnish-registry-data), [iCAN](https://ican.fi/flagship-project/), [Fingenious](https://site.fingenious.fi/), [FINBB](https://finbb.fi/) and nine biobanks | Individual-level data and samples. All require a permit. | **Not usable.** The brief allows public aggregate data only. |
+| [Mallimaa](https://mallimaa.fi/), [Cancer Society of Finland](https://www.cancersociety.fi/), three [Lääketeollisuus ry](https://www.laaketeollisuus.fi/etusivu.html) statements | Industry and NGO context | Background only |
 
 The brief does not establish a specific open regional dataset for referral or treatment-start intervals. Exact indicator selection, data access and coverage, and challenge-specific submission fields remain open. See [event deadlines](STATUS.md#event-deadlines) and the [submission checklist](PROJECT.md#submission-checklist).
 
