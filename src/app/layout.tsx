@@ -23,7 +23,9 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
             <Link href="/county" className="hover:underline">Päättäjä</Link>
             <Link href="/survey" className="hover:underline">Kysely</Link>
             <Link href="/clinician" className="hover:underline">Lääkäri</Link>
+            <Link href="/screening" className="hover:underline">Seulontalista</Link>
             <Link href="/pathway" className="hover:underline">Seuranta</Link>
+            <Link href="/search" className="hover:underline">Potilashaku</Link>
             <Link href="/evidence" className="hover:underline">Tutkimus</Link>
             <span
               className={`ml-auto rounded px-2 py-0.5 text-xs ${hasApiKey() ? "bg-violet-100 text-violet-900" : "bg-slate-100 text-slate-600"}`}

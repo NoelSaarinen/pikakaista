@@ -7,13 +7,27 @@
 // them would make the result no longer the validated PLCOm2012 risk.
 //
 // Team assumptions (documented, not part of the model):
-//   - Race/ethnicity is not asked; everyone gets the reference category (white, beta 0).
+//   - Race/ethnicity is an optional question. Without an answer the model's reference
+//     category (white, beta 0) is used and listed in `imputed`.
 //   - Current smokers have quit time 0.
 //   - Missing inputs are imputed with the model's centring value (e.g. BMI 27,
 //     education 4) or derived from pack-years, and listed in `imputed`.
 //   - The Finnish education mapping below is ours.
 
-import type { PlcoInputs, SurveyResponse } from "./types";
+import type { PlcoInputs, PlcoRace, SurveyResponse } from "./types";
+
+/**
+ * Race/ethnicity betas from Table 2 (reference: white). The paper prints beta 0 for
+ * American Indian or Alaskan Native and 1.027152 for Native Hawaiian or Pacific Islander.
+ */
+export const PLCO_RACE: Record<PlcoRace, { beta: number; label: string }> = {
+  white: { beta: 0, label: "Valkoinen (mallin vertailuluokka)" },
+  black: { beta: 0.3944778, label: "Musta" },
+  hispanic: { beta: -0.7434744, label: "Latinalaisamerikkalainen" },
+  asian: { beta: -0.466585, label: "Aasialainen" },
+  native_american: { beta: 0, label: "Amerikan tai Alaskan alkuperäiskansa" },
+  pacific_islander: { beta: 1.027152, label: "Havaijin tai Tyynenmeren alkuperäiskansa" },
+};
 
 export const PLCO_COEFFICIENTS = {
   age: 0.0778868, // per year, centred at 62
@@ -79,6 +93,7 @@ export function plcoInputs(r: SurveyResponse): { inputs: PlcoInputs; imputed: (k
   const cigsPerDay = pick("cigs_per_day", Math.max(1, Math.round((r.smoking.pack_years * 20) / Math.max(1, smokingYears))));
   return {
     inputs: {
+      race: given.race && given.race in PLCO_RACE ? given.race : (imputed.push("race"), "white"),
       education: pick("education", 4),
       bmi: pick("bmi", 27),
       copd: pick("copd", false),
@@ -98,6 +113,7 @@ export function plcom2012(age: number, current: boolean, x: PlcoInputs): Omit<Pl
   const cpd = Math.max(0.1, x.cigs_per_day);
   const terms: PlcoTerm[] = [
     { key: "age", label: "Ikä", logit: c.age * (age - 62) },
+    { key: "race", label: "Väestöluokka (mallin luokitus)", logit: PLCO_RACE[x.race]?.beta ?? 0 },
     { key: "education", label: "Koulutus", logit: c.education * (x.education - 4) },
     { key: "bmi", label: "Painoindeksi", logit: c.bmi * (x.bmi - 27) },
     { key: "copd", label: "Keuhkoahtaumatauti (COPD)", logit: x.copd ? c.copd : 0 },
@@ -117,4 +133,19 @@ export function plcoRisk(r: SurveyResponse): PlcoResult | null {
   if (r.smoking.status === "never") return null;
   const { inputs, imputed } = plcoInputs(r);
   return { ...plcom2012(r.age, r.smoking.status === "current", inputs), imputed };
+}
+
+/** The model's centring age. At this age the age term is zero. */
+export const PLCO_REFERENCE_AGE = 62;
+
+/**
+ * Age-standardised PLCOm2012 risk: the same published equation with age set to 62 for
+ * everyone, so only the other research-based risk factors (smoking intensity, duration
+ * and quit time, COPD, family history, earlier cancer, education, BMI) are summed.
+ * TEAM EQUITY CHOICE, NOT A VALIDATED RISK: age is a real risk factor. Used only to
+ * order screening invitations so that people are not ranked first just for being older.
+ */
+export function plcoAgeStandardised(result: Pick<PlcoResult, "terms">): number {
+  const logit = PLCO_COEFFICIENTS.constant + result.terms.filter((t) => t.key !== "age").reduce((s, t) => s + t.logit, 0);
+  return Math.exp(logit) / (1 + Math.exp(logit));
 }

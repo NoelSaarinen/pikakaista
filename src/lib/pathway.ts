@@ -7,6 +7,7 @@
 // so the same person always gets the same history. No real follow-up data is used.
 
 import type { Placement, RuleResult, SurveyResponse } from "./types";
+import { formatSlot, type Booking } from "./booking";
 
 export type PathwayStage =
   | "awaiting_physician"
@@ -147,16 +148,18 @@ export function buildPathway(response: SurveyResponse, rule: RuleResult, decisio
   let missedVisits = 0;
   const steps: PathwayStep[] = [firstStep];
 
-  if (!rule.eligible) {
+  // People with any symptom are reviewed by a clinician even outside the risk group.
+  const review = fastLane || rule.symptomReviewRequired;
+  if (!rule.eligible && !review) {
     stage = "no_action";
     steps.push({ label: STAGE_LABEL.no_action, status: "current" });
-  } else if (!fastLane || effectiveDecision === "normal_route" || effectiveDecision === "not_eligible") {
+  } else if (!review || effectiveDecision === "normal_route" || effectiveDecision === "not_eligible") {
     stage = "normal_route";
     steps.push({ label: STAGE_LABEL.normal_route, status: "current" });
   } else if (!effectiveDecision) {
     stage = "awaiting_physician";
-    steps.push({ label: "Lääkärin arvio", status: "current" });
-    for (const s of bookedSteps(rule.placement)) steps.push({ label: STEP_LABEL[s]!, status: "upcoming" });
+    steps.push({ label: fastLane ? "Lääkärin arvio" : "Lääkärin oirearvio", status: "current" });
+    for (const s of bookedSteps(fastLane ? rule.placement : "physician_fast")) steps.push({ label: STEP_LABEL[s]!, status: "upcoming" });
     steps.push({ label: "Tulos", status: "upcoming" });
   } else {
     steps.push({ label: "Lääkärin arvio", status: "done" });
@@ -236,4 +239,22 @@ function nextAction(stage: PathwayStage, engagement: Engagement): string {
     case "no_action":
       return "Ei toimia";
   }
+}
+
+/**
+ * Shows a simulated physician appointment on the pathway: the physician step becomes
+ * "Lääkäriaika varattu: <time>". Only used while the person waits for the physician.
+ */
+export function applyBooking(p: Pathway, booking: Booking): Pathway {
+  if (p.stage !== "awaiting_physician") return p;
+  const time = formatSlot(booking.start);
+  const steps = p.steps.map((s) =>
+    s.status === "current" ? { label: `Lääkäriaika varattu (simuloitu): ${time}`, status: "current" as const } : s,
+  );
+  return {
+    ...p,
+    stage: "physician_booked",
+    steps,
+    nextAction: booking.withinTarget ? "Muistutusviesti päivää ennen lääkärikäyntiä (simuloitu)" : "Aika ylittää tavoiteajan: lääkäri arvioi, tarvitaanko lisäaika",
+  };
 }

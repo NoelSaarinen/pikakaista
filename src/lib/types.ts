@@ -2,6 +2,8 @@
 // Data contracts follow docs/PROJECT.md. All people in the demo are synthetic.
 
 export type SmokingStatus = "current" | "former" | "never";
+/** PLCOm2012 race/ethnicity categories (US categories from the original model). */
+export type PlcoRace = "white" | "black" | "hispanic" | "asian" | "pacific_islander" | "native_american";
 
 export interface SurveyResponse {
   id: string;
@@ -30,6 +32,8 @@ export interface SurveyResponse {
 }
 
 export interface PlcoInputs {
+  /** Optional question. Missing means the model's reference category (white). */
+  race: PlcoRace;
   /** PLCOm2012 education level 1–6. */
   education: number;
   bmi: number;
@@ -60,6 +64,11 @@ export interface RuleReason {
 export interface RuleResult {
   id: string;
   eligible: boolean;
+  /** Any reported symptom is surfaced to a clinician even outside survey eligibility. */
+  symptomReviewRequired: boolean;
+  /** Six-year PLCOm2012 risk; null when inputs are incomplete, never-smoker, or symptomatic. */
+  screeningRisk6y: number | null;
+  screeningRiskInOriginalAgeRange: boolean | null;
   score: number;
   redFlag: boolean;
   placement: Placement;

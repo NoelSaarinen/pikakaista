@@ -8,6 +8,7 @@
 // The rules alone decide who reaches the physician's list. AI never removes a flag.
 
 import type { Placement, RuleReason, RuleResult, SurveyResponse } from "./types";
+import { plcoRisk } from "./plco";
 
 export const RULES_CONFIG = {
   /** Risk group: ages for the survey invitation (assumption, see PROJECT.md). */
@@ -77,7 +78,19 @@ export function evaluate(r: SurveyResponse): RuleResult {
   }
 
   const redFlag = reasons.some((x) => x.redFlag);
+  const symptomReviewRequired =
+    s.cough_weeks > 0 ||
+    s.blood_in_sputum ||
+    s.weight_loss ||
+    s.breathlessness ||
+    s.chest_pain ||
+    s.pneumonias_last_year > 0;
   const score = reasons.filter((x) => !x.redFlag).length + (redFlag ? RULES_CONFIG.directCtScore : 0);
+
+  // PLCOm2012 is kept separate from symptom triage. As a screening estimate it is
+  // shown only for asymptomatic ever-smokers. (For ordering inside the same urgency,
+  // store.ts uses the same model for every ever-smoker via priority.ts.)
+  const screeningRisk6y = !symptomReviewRequired ? (plcoRisk(r)?.probability ?? null) : null;
 
   let placement: Placement;
   if (!eligible) placement = "not_eligible";
@@ -85,18 +98,33 @@ export function evaluate(r: SurveyResponse): RuleResult {
   else if (score >= 1) placement = "physician_fast";
   else placement = "normal_route";
 
-  return { id: r.id, eligible, score, redFlag, placement, reasons };
+  return {
+    id: r.id,
+    eligible,
+    symptomReviewRequired,
+    screeningRisk6y,
+    screeningRiskInOriginalAgeRange: screeningRisk6y === null ? null : r.age >= 55 && r.age <= 74,
+    score,
+    redFlag,
+    placement,
+    reasons,
+  };
 }
 
-/** Sort order for the physician's list: direct CT first, then by score. */
+/** Symptom review (including red flags) sorts before screening-only statuses. */
 export function compareForWorklist(a: RuleResult, b: RuleResult): number {
-  const rank: Record<Placement, number> = { direct_ct: 0, physician_fast: 1, normal_route: 2, not_eligible: 3 };
-  return rank[a.placement] - rank[b.placement] || b.score - a.score || a.id.localeCompare(b.id);
+  const rank = (r: RuleResult) => {
+    if (r.redFlag) return 0;
+    if (r.symptomReviewRequired) return 1;
+    const placementRank: Record<Placement, number> = { direct_ct: 2, physician_fast: 3, normal_route: 4, not_eligible: 5 };
+    return placementRank[r.placement];
+  };
+  return rank(a) - rank(b) || b.score - a.score || a.id.localeCompare(b.id);
 }
 
 export const PLACEMENT_LABEL: Record<Placement, string> = {
-  direct_ct: "Suoraan TT-kuvaukseen",
+  direct_ct: "Lääkärin arvio TT-lähetteen tarpeesta",
   physician_fast: "Lääkärille muutaman päivän sisällä",
   normal_route: "Tavallinen reitti",
-  not_eligible: "Ei riskiryhmässä",
+  not_eligible: "Ei kyselyn riskirajassa",
 };

@@ -1,5 +1,12 @@
 [
   {
+    "id": "plcom2012-nejm-2013",
+    "title": "Tammemägi et al. Selection Criteria for Lung-Cancer Screening, NEJM 2013",
+    "url": "https://www.nejm.org/doi/full/10.1056/NEJMoa1211776",
+    "retrieved": "2026-11-14",
+    "note": "Published PLCOm2012 logistic equation and six-year lung-cancer incidence predictors. Model developed from US ever-smokers; not calibrated to the Finnish population."
+  },
+  {
     "id": "strategy",
     "title": "Kansallinen syöpästrategia 2026–2035",
     "url": "https://files.hackjunction.app/resources/Kansallinen_syopastrategia_2026_2035_FINAL.pdf",

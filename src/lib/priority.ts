@@ -6,13 +6,18 @@
 // paper's screening threshold. It never moves anyone off the fast lane.
 // Literature evidence does not change this score (decision 2026-11-14).
 
-import { PLCO_CATEGORY, PLCO_THRESHOLD, plcoRisk, type PlcoTerm } from "./plco";
+import { PLCO_CATEGORY, PLCO_THRESHOLD, plcoAgeStandardised, plcoRisk, type PlcoTerm } from "./plco";
 import type { PlcoInputs, SurveyResponse } from "./types";
 
 export interface RiskPriority {
   model: "PLCOm2012";
   /** 6-year lung cancer risk in percent (e.g. 2.31). 0 when the model does not apply. */
   score: number;
+  /**
+   * The same risk with age set to 62 for everyone (percent): only the other
+   * research-based risk factors count. Team equity choice for ordering, not validated.
+   */
+  ageStandardisedScore: number;
   level: "high" | "medium" | "low" | "not_applicable";
   /** At or above the paper's 1.3455 % threshold. */
   aboveThreshold: boolean;
@@ -29,6 +34,7 @@ export const PRIORITY_LEVEL_LABEL: Record<RiskPriority["level"], string> = {
 };
 
 export const IMPUTED_LABEL: Record<keyof PlcoInputs, string> = {
+  race: "väestöluokka (vertailuluokka käytössä)",
   education: "koulutus",
   bmi: "painoindeksi",
   copd: "keuhkoahtaumatauti",
@@ -45,11 +51,12 @@ export function formatRisk(score: number): string {
 
 export function riskPriority(r: SurveyResponse): RiskPriority {
   const result = plcoRisk(r);
-  if (!result) return { model: "PLCOm2012", score: 0, level: "not_applicable", aboveThreshold: false, contributions: [], imputed: [] };
+  if (!result) return { model: "PLCOm2012", score: 0, ageStandardisedScore: 0, level: "not_applicable", aboveThreshold: false, contributions: [], imputed: [] };
   const p = result.probability;
   return {
     model: "PLCOm2012",
     score: Math.round(p * 10000) / 100,
+    ageStandardisedScore: Math.round(plcoAgeStandardised(result) * 10000) / 100,
     level: p >= PLCO_CATEGORY.high ? "high" : p >= PLCO_CATEGORY.medium ? "medium" : "low",
     aboveThreshold: p >= PLCO_THRESHOLD,
     contributions: result.terms

@@ -23,6 +23,7 @@ function person(overrides: Partial<SurveyResponse> = {}, symptoms: Partial<Surve
 
 // The model's centring values, so every term except the constant is zero.
 const REFERENCE: PlcoInputs = {
+  race: "white",
   education: 4,
   bmi: 27,
   copd: false,
@@ -39,7 +40,7 @@ describe("PLCOm2012 against the published equation (Tammemägi et al., NEJM 2013
   });
 
   it("matches a hand-written calculation for a full example", () => {
-    const x: PlcoInputs = { education: 2, bmi: 24, copd: true, personal_cancer_history: false, family_history_lung_cancer: true, cigs_per_day: 20, smoking_years: 45, years_since_quit: 0 };
+    const x: PlcoInputs = { race: "white", education: 2, bmi: 24, copd: true, personal_cancer_history: false, family_history_lung_cancer: true, cigs_per_day: 20, smoking_years: 45, years_since_quit: 0 };
     const logit =
       -4.532506 +
       0.0778868 * (70 - 62) +
@@ -63,6 +64,17 @@ describe("PLCOm2012 against the published equation (Tammemägi et al., NEJM 2013
     expect(logitOf(plcom2012(62, true, REFERENCE).probability) - logitOf(base)).toBeCloseTo(0.2597431, 10);
   });
 
+  it("uses the published race betas, with Pacific Islander 1.027152 and American Indian 0", () => {
+    const base = plcom2012(62, false, REFERENCE).probability;
+    const logitOf = (p: number) => Math.log(p / (1 - p));
+    const delta = (race: PlcoInputs["race"]) => logitOf(plcom2012(62, false, { ...REFERENCE, race }).probability) - logitOf(base);
+    expect(delta("black")).toBeCloseTo(0.3944778, 10);
+    expect(delta("hispanic")).toBeCloseTo(-0.7434744, 10);
+    expect(delta("asian")).toBeCloseTo(-0.466585, 10);
+    expect(delta("pacific_islander")).toBeCloseTo(1.027152, 10);
+    expect(delta("native_american")).toBeCloseTo(0, 10);
+  });
+
   it("rises with age, smoking intensity and duration, and falls with quit time, education and BMI", () => {
     const p = (over: Partial<PlcoInputs>, age = 62) => plcom2012(age, false, { ...REFERENCE, ...over }).probability;
     const base = p({});
@@ -83,7 +95,7 @@ describe("risk priority", () => {
   });
 
   it("reports risk in percent, the 1.3455 % threshold and the paper's categories", () => {
-    const r = person({ plco: { education: 2, bmi: 24, copd: true, personal_cancer_history: false, family_history_lung_cancer: true, cigs_per_day: 20, smoking_years: 45, years_since_quit: 0 }, age: 70 });
+    const r = person({ plco: { race: "white", education: 2, bmi: 24, copd: true, personal_cancer_history: false, family_history_lung_cancer: true, cigs_per_day: 20, smoking_years: 45, years_since_quit: 0 }, age: 70 });
     const pr = riskPriority(r);
     expect(pr.score).toBeCloseTo(plcoRisk(r)!.probability * 100, 1);
     expect(pr.aboveThreshold).toBe(plcoRisk(r)!.probability >= PLCO_THRESHOLD);
@@ -95,9 +107,9 @@ describe("risk priority", () => {
     expect(riskPriority(person()).imputed).toEqual(expect.arrayContaining(["education", "bmi", "copd", "cigs_per_day", "smoking_years"]));
   });
 
-  it("has complete inputs for every synthetic ever-smoker", () => {
+  it("has complete inputs for every synthetic ever-smoker except the optional race question", () => {
     for (const r of synthetic as SurveyResponse[]) {
-      if (r.smoking.status !== "never") expect(riskPriority(r).imputed).toEqual([]);
+      if (r.smoking.status !== "never") expect(riskPriority(r).imputed).toEqual(["race"]);
     }
   });
 

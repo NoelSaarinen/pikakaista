@@ -8,3 +8,13 @@
 - Update the relevant docs when you verify something new. Update [status](docs/STATUS.md) after meaningful milestones and log significant technical decisions and rationale in [decisions](docs/DECISIONS.md).
 - Team members pull from GitHub before starting new tasks. Read the current local files, and commit and push documentation changes via the [team workflow](README.md#work-together) so others can pull them.
 - Never commit secrets, credentials, tokens, or private keys.
+
+<!-- BEGIN:nextjs-agent-rules -->
+
+## This is NOT the Next.js you know
+
+This version has breaking changes — APIs, conventions, and file structure may all differ from your training data. Read the relevant guide in `node_modules/next/dist/docs/` (resolved from this file's directory; in monorepos the `next` package may not be visible from the repo root) before writing any code. Heed deprecation notices.
+
+This block is written and re-added by `next dev` — verify at `node_modules/next/dist/server/lib/generate-agent-files.js`. Removing it from a diff only re-creates the uncommitted change; committing it with your work keeps the tree clean.
+
+<!-- END:nextjs-agent-rules -->
