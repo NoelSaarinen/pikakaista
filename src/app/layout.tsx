@@ -1,7 +1,7 @@
 import type { Metadata } from "next";
 import Link from "next/link";
 import { LiveIndicator, LiveProvider } from "@/components/LiveData";
-import { hasApiKey } from "@/lib/llm";
+import { activeModel, hasApiKey, providerLabel } from "@/lib/llm";
 import "./globals.css";
 
 export const metadata: Metadata = {
@@ -34,9 +34,9 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
             </span>
             <span
               className={`rounded px-2 py-0.5 text-xs ${hasApiKey() ? "bg-violet-100 text-violet-900" : "bg-slate-100 text-slate-600"}`}
-              title={hasApiKey() ? "Claude API on käytössä" : "Ei API-avainta: tekstit ja luokittelu tehdään säännöillä"}
+              title={hasApiKey() ? `${providerLabel()} API on käytössä (malli ${activeModel()})` : "Ei API-avainta: tekstit ja luokittelu tehdään säännöillä"}
             >
-              {hasApiKey() ? "Tekoäly: Claude" : "Tekoäly: pois (säännöt)"}
+              {hasApiKey() ? `Tekoäly: ${providerLabel()}` : "Tekoäly: pois (säännöt)"}
             </span>
             <span className="rounded bg-amber-100 px-2 py-0.5 text-xs text-amber-900">Synteettinen data</span>
           </nav>

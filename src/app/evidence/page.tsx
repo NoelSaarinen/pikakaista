@@ -47,7 +47,7 @@ function ArticleCard({ e }: { e: Evidence }) {
       </div>
       <p className="mt-1 text-xs text-slate-400">
         Näyttö = asetelma {e.weightParts.design} × otoskoko {e.weightParts.size.toFixed(2)} × tuoreus {e.weightParts.recency} × aiheen merkitys {e.weightParts.relevance} · luokitteli{" "}
-        {e.extractedBy === "llm" ? "Claude" : "avainsanasäännöt"}
+        {e.extractedBy === "llm" ? "tekoäly" : "avainsanasäännöt"}
       </p>
     </article>
   );

@@ -1,9 +1,9 @@
 import { NextResponse } from "next/server";
-import { hasApiKey, MODEL } from "@/lib/llm";
+import { activeModel, hasApiKey, providerLabel } from "@/lib/llm";
 
 export const dynamic = "force-dynamic";
 
-// Whether the Claude API is configured. Never returns the key itself.
+// Which AI provider is configured (Verda or Claude). Never returns the key itself.
 export function GET() {
-  return NextResponse.json({ enabled: hasApiKey(), model: MODEL });
+  return NextResponse.json({ enabled: hasApiKey(), provider: providerLabel(), model: activeModel() });
 }
