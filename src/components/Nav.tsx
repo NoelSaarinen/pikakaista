@@ -30,8 +30,8 @@ export function MainNav() {
           key={l.href}
           href={l.href}
           aria-current={isActive(path, l.href, l.area) ? "page" : undefined}
-          className={`rounded-full px-3 py-1.5 font-medium transition-colors ${
-            isActive(path, l.href, l.area) ? "bg-sky-700 text-white" : "text-slate-700 hover:bg-slate-100"
+          className={`rounded-full px-3.5 py-1.5 font-semibold transition-colors ${
+            isActive(path, l.href, l.area) ? "bg-brand-navy text-white shadow-sm" : "text-slate-600 hover:bg-sky-50 hover:text-brand-navy"
           }`}
         >
           {l.label}

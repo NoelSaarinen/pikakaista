@@ -69,8 +69,8 @@ export default function PathwayPage() {
   return (
     <div className="space-y-4">
       <div>
-        <p className="text-sm font-medium text-sky-700">Hoitajan seurantanäkymä · hyvinvointialue</p>
-        <h1 className="text-2xl font-bold">Sitoutuminen ja hoitopolun vaihe</h1>
+        <p className="text-xs font-semibold uppercase tracking-[0.14em] text-brand-teal">Hoitajan seurantanäkymä · hyvinvointialue</p>
+        <h1 className="mt-1 text-3xl font-extrabold tracking-tight">Sitoutuminen ja hoitopolun vaihe</h1>
         <p className="max-w-3xl text-sm text-slate-600">
           Jokaisen kyselyyn vastanneen sitoutuminen kyselyyn ja varattuihin käynteihin sekä nykyinen vaihe pikakaistalla. Suomessa ei vielä ole kansallista keuhkosyöpäseulontaa, joten sitoutuminen tarkoittaa tässä riskiryhmäkyselyä ja pikakaistaa. Kaikki tiedot ovat synteettisiä.
         </p>

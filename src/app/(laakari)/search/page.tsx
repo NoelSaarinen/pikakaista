@@ -74,8 +74,8 @@ export default function SearchPage() {
   return (
     <div className="space-y-4">
       <div>
-        <p className="text-sm font-medium text-sky-700">Potilashaku · synteettinen data</p>
-        <h1 className="text-2xl font-bold">Hae potilaita</h1>
+        <p className="text-xs font-semibold uppercase tracking-[0.14em] text-brand-teal">Potilashaku · synteettinen data</p>
+        <h1 className="mt-1 text-3xl font-extrabold tracking-tight">Hae potilaita</h1>
         <p className="max-w-3xl text-sm text-slate-600">
           Hae tunnuksella, oireella, omin sanoin kirjoitetulla tekstillä tai hoitopolun vaiheella, ja rajaa tuloksia suodattimilla. Kaikkien hakusanojen pitää löytyä. Esimerkiksi <q>yskä entinen</q> löytää entiset tupakoijat, joilla on yskää.
         </p>

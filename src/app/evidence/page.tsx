@@ -101,8 +101,8 @@ export default function EvidencePage() {
   return (
     <div className="space-y-4">
       <div>
-        <p className="text-sm font-medium text-sky-700">Kirjallisuusseuranta · lääketieteellinen vastuuhenkilö</p>
-        <h1 className="text-2xl font-bold">Uusin keuhkosyöpätutkimus</h1>
+        <p className="text-xs font-semibold uppercase tracking-[0.14em] text-brand-teal">Kirjallisuusseuranta · lääketieteellinen vastuuhenkilö</p>
+        <h1 className="mt-1 text-3xl font-extrabold tracking-tight">Uusin keuhkosyöpätutkimus</h1>
         <p className="max-w-3xl text-sm text-slate-600">
           Järjestelmä hakee PubMedista uusimmat keuhkosyövän riskiä, oireita ja varhaista toteamista koskevat artikkelit seitsemästä lehdestä ja arvioi näytön vahvuuden tutkimusasetelman, otoskoon, tuoreuden ja aiheen mukaan. Jokainen artikkeli käytetään vain kerran, ja saman aineiston (esim. NLST) julkaisut lasketaan yhtenä.
         </p>

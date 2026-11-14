@@ -1,1 +1,82 @@
 @import "tailwindcss";
+
+/*
+ * Pikakaista brand theme.
+ * Inspired by Finnish healthcare and pharma palettes (trustworthy blue, fresh teal,
+ * a berry accent and warm gold) without copying any organisation's logo or exact colours.
+ * The existing pages use the sky and violet scales, so remapping them restyles every page.
+ */
+@theme {
+  --font-sans: var(--font-brand), ui-sans-serif, system-ui, sans-serif;
+
+  --color-brand-navy: #0b2545;
+  --color-brand-ink: #13315c;
+  --color-brand-blue: #1d5fa7;
+  --color-brand-teal: #0b7d72;
+  --color-brand-berry: #8c1d5c;
+  --color-brand-gold: #e9b44c;
+  --color-brand-mist: #eef4fb;
+
+  /* Brand blue ramp in place of Tailwind's sky. */
+  --color-sky-50: #eef4fb;
+  --color-sky-100: #d9e7f6;
+  --color-sky-200: #b6cfec;
+  --color-sky-300: #87afdd;
+  --color-sky-400: #5589c9;
+  --color-sky-500: #326db6;
+  --color-sky-600: #2460a8;
+  --color-sky-700: #1d5fa7;
+  --color-sky-800: #164b86;
+  --color-sky-900: #13315c;
+
+  /* Berry ramp in place of violet (pilot and highlight panels). */
+  --color-violet-50: #fbf1f6;
+  --color-violet-100: #f6dfeb;
+  --color-violet-200: #ecbfd6;
+  --color-violet-300: #db92b8;
+  --color-violet-700: #8c1d5c;
+  --color-violet-800: #74184c;
+  --color-violet-900: #5d143e;
+  --color-violet-950: #3d0d29;
+}
+
+body {
+  background:
+    radial-gradient(1200px 400px at 100% -10%, #e3eefa 0%, transparent 60%),
+    radial-gradient(900px 300px at -10% 0%, #f3e6ee 0%, transparent 55%),
+    #f6f8fb;
+}
+
+h1,
+h2,
+h3 {
+  color: var(--color-brand-navy);
+  letter-spacing: -0.01em;
+}
+
+/* Cards: the pages use "rounded-lg border bg-white"; give them one consistent, softer look. */
+main .rounded-lg.border.bg-white,
+main .rounded-xl.border.bg-white {
+  border-radius: 0.875rem;
+  border-color: #e3e9f1;
+  box-shadow: 0 1px 2px rgb(11 37 69 / 0.04), 0 4px 16px rgb(11 37 69 / 0.05);
+}
+
+/* Inputs, buttons and links share the brand focus ring. */
+main input:focus-visible,
+main select:focus-visible,
+main textarea:focus-visible,
+main button:focus-visible,
+main a:focus-visible,
+header a:focus-visible {
+  outline: 2px solid var(--color-brand-blue);
+  outline-offset: 2px;
+}
+
+.brand-gradient {
+  background: linear-gradient(135deg, var(--color-brand-navy) 0%, var(--color-brand-ink) 45%, var(--color-brand-blue) 100%);
+}
+
+.brand-bar {
+  background: linear-gradient(90deg, var(--color-brand-blue), var(--color-brand-teal) 50%, var(--color-brand-berry));
+}

@@ -45,7 +45,7 @@ export default function ClinicianLayout({ children }: { children: React.ReactNod
   if (role !== "doctor") {
     return (
       <section className="mx-auto max-w-lg rounded-xl border border-slate-200 bg-white p-6 text-center shadow-sm">
-        <p className="text-sm font-medium text-sky-700">Lääkärin työtila</p>
+        <p className="text-xs font-semibold uppercase tracking-[0.14em] text-brand-teal">Lääkärin työtila</p>
         <h1 className="mt-1 text-xl font-bold">Vain lääkäreille</h1>
         <p className="mt-2 text-sm text-slate-600">
           Pikakaistan lista, seulontalista, seuranta ja potilashaku sisältävät potilastietoja, joten ne näkyvät vain lääkärille.

@@ -97,8 +97,8 @@ export default function CountyPage() {
     <div className="space-y-6">
       <div className="flex flex-wrap items-end justify-between gap-4">
         <div>
-          <p className="text-sm font-medium text-sky-700">Päättäjänäkymä</p>
-          <h1 className="text-2xl font-bold">Keuhkosyövän pikakaista</h1>
+          <p className="text-xs font-semibold uppercase tracking-[0.14em] text-brand-teal">Päättäjänäkymä</p>
+          <h1 className="mt-1 text-3xl font-extrabold tracking-tight">Keuhkosyövän pikakaista</h1>
           <p className="text-sm text-slate-600">Malli: kaksi ovea (terveyskeskuksen pikakaista) ja riskiryhmän vuosittainen oirekysely.</p>
         </div>
         <label className="text-sm">

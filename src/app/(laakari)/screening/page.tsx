@@ -55,8 +55,8 @@ export default function ScreeningPage() {
   return (
     <div className="space-y-4">
       <div>
-        <p className="text-sm font-medium text-sky-700">Seulontalista · porras 2 · synteettinen data</p>
-        <h1 className="text-2xl font-bold">Oireettomien tupakoineiden seulontajärjestys</h1>
+        <p className="text-xs font-semibold uppercase tracking-[0.14em] text-brand-teal">Seulontalista · porras 2 · synteettinen data</p>
+        <h1 className="mt-1 text-3xl font-extrabold tracking-tight">Oireettomien tupakoineiden seulontajärjestys</h1>
         <p className="max-w-3xl text-sm text-slate-600">
           Priorisointi tehdään kahdessa portaassa. <strong>Porras 1:</strong> kaikki oireiset ohjataan oirearvioon, ja korkean riskin oireisille varataan lääkäriaika NICE NG12 -kriteerien mukaan (Lääkäri-näkymä). <strong>Porras 2</strong> on tämä sivu: oireettomat
           tupakoineet järjestetään PLCOm2012-mallin tutkimukseen perustuvien riskitekijöiden mukaan, suurin riski ensin. Oletuksena ikä ei vaikuta järjestykseen. Kutsuja tehdään listan kärjestä niin monta kuin seulonnan TT-kapasiteetti sallii.

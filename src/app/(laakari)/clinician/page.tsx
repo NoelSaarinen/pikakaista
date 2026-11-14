@@ -108,8 +108,8 @@ export default function ClinicianPage() {
   return (
     <div className="space-y-4">
       <div>
-        <p className="text-sm font-medium text-sky-700">Lääkärinäkymä · terveyskeskus</p>
-        <h1 className="text-2xl font-bold">Pikakaistan lista</h1>
+        <p className="text-xs font-semibold uppercase tracking-[0.14em] text-brand-teal">Lääkärinäkymä · terveyskeskus</p>
+        <h1 className="mt-1 text-3xl font-extrabold tracking-tight">Pikakaistan lista</h1>
         {data && (
           <p className="text-sm text-slate-600">
             {data.total} vastausta (synteettisiä). Säännöt ohjasivat pikakaistalle {data.counts.direct_ct + data.counts.physician_fast}: suoraan TT {data.counts.direct_ct}, lääkärille {data.counts.physician_fast}. Oirearvioon lisäksi {data.items.filter((x) => x.rule.symptomReviewRequired && x.rule.placement === "not_eligible").length} riskiryhmän ulkopuolista. Tavallinen reitti {data.counts.normal_route}, ei seulontakyselyn riskirajassa {data.counts.not_eligible}.
