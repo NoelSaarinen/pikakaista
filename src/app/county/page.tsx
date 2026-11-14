@@ -143,7 +143,7 @@ export default function CountyPage() {
         </section>
         <section className="rounded-lg border border-slate-200 bg-white p-4">
           <h2 className="font-semibold">Missä polku jumittaa</h2>
-          <p className="mt-2 text-sm">Kolmannes hakeutuu lääkäriin vasta yli kuukauden päästä oireista.<SourceTag id="pfizer-2025" /></p>
+          <p className="mt-2 text-sm">Potilaskyselyssä kolmannes hakeutui lääkäriin vasta yli kuukauden päästä oireista.<SourceTag id="pfizer-2025" /></p>
           <More className="mt-2" label="Miksi">
             <p>Terveyskeskuslääkärille odotetaan noin kaksi viikkoa.<SourceTag id="uh-acta-2025" /> Ensimmäisestä käynnistä lähetteeseen kuluu vielä noin kaksi viikkoa.<SourceTag id="mattila-2025" /></p>
             <p>Pelkkä pikakaista tavoitti Tanskassa vain 27 % keuhkosyöpäpotilaista, joten tarvitaan myös kysely.<SourceTag id="guldbrandt" /></p>

@@ -36,10 +36,10 @@
   },
   {
     "id": "jensen-2017",
-    "title": "Jensen et al. 2017, BMC Cancer: Danish cancer patient pathways",
-    "url": "https://doaj.org/article/15ccea42331548b1b43b87ac43ae986c",
+    "title": "Jensen, Tørring, Vedsted 2017, BMC Cancer: prognostic consequences of implementing cancer patient pathways in Denmark",
+    "url": "https://doi.org/10.1186/s12885-017-3623-8",
     "retrieved": "2026-11-14",
-    "note": "Fast-track referral with hospital assessment within three days. Survival improvement may partly reflect lead-time and selection bias."
+    "note": "Tanskan syöpäpotilaan pakettipolut. Kolmen päivän sairaala-arvio lähetteestä on kuvattu myös Guldbrandtin artikkelissa (PMC4307896)."
   },
   {
     "id": "guldbrandt",
@@ -53,7 +53,7 @@
     "title": "Pfizer and Suomen Syöpäpotilaat ry: lung cancer patient survey, 25 Nov 2025",
     "url": "https://www.pfizer.fi/ajankohtaista/tiedotteet/keuhkosyopapotilaiden-hoitopolku-kaipaa-parannuksia-%E2%80%93-hoidon-viiveet-ja-tiedon-puute-huolestuttavat",
     "retrieved": "2026-11-14",
-    "note": "n = 71, self-selected, 82% women, pharma-funded. 33% saw a doctor over a month after symptoms began. For about a third, symptoms were first treated as another illness."
+    "note": "n = 71, self-selected, 82% women, pharma-funded. 33% saw a doctor over a month after symptoms began. For about a third, symptoms were first treated as another illness. Vastaajista noin 80 % oli potilaita ja noin viidesosa omaisia."
   },
   {
     "id": "statfin-11re",
@@ -132,7 +132,7 @@
     "title": "Crosbie et al. Participation in community-based lung cancer screening: the Yorkshire Lung Screening Trial. Eur Respir J 2022",
     "url": "https://doi.org/10.1183/13993003.00483-2022",
     "retrieved": "2026-11-14",
-    "note": "Leedsin 55–80-vuotiaat, joilla terveyskeskuksen kirjauksissa tupakointihistoria: 44 943 kutsuttua, 50,8 % vastasi (ennakkokirje, terveyskeskuksen tuki ja kaksi muistutusta; 28 % vastasi ensimmäiseen kirjeeseen). Nykyiset tupakoijat vastasivat harvemmin (adjOR 0,44)."
+    "note": "Leedsin 55–80-vuotiaat, joilla terveyskeskuksen kirjauksissa tupakointihistoria: 44 943 kutsuttua, 50,8 % vastasi (ennakkokirje, terveyskeskuksen tuki ja kaksi muistutusta; muistutusten jälkeen vastasi 16,7 % ja 7,3 % kutsutuista). Nykyiset tupakoijat vastasivat harvemmin (adjOR 0,44)."
   },
   {
     "id": "ylst-2024",
@@ -146,7 +146,7 @@
     "title": "Wagland et al. Promoting help-seeking in response to symptoms amongst primary care patients at high risk of lung cancer: a mixed method study. PLoS ONE 2016;11:e0165677",
     "url": "https://doi.org/10.1371/journal.pone.0165677",
     "retrieved": "2026-11-14",
-    "note": "Englanti, postitettu oirekysely korkean riskin potilaille (tupakoineet, COPD): 4 622 kutsuttua, 25,3 % vastasi. Vastaajista 53,7 % (629/1 172) raportoi vähintään yhden yhdeksästä oireesta (mukana väsymys ja hikoilu), ja 6,7 % (61/908) oli oireisia mutta ei ollut käynyt lääkärissä 12 kuukauteen. Kolmella vastaajalla todettiin keuhkosyöpä tai mesoteliooma 4 vk–11 kk kyselyn jälkeen."
+    "note": "Englanti, postitettu oirekysely korkean riskin potilaille (tupakoineet, COPD): 4 622 kutsuttua, 25,3 % vastasi. Vastaajista 53,6 % (629/1 172; tiivistelmässä 53,4 %) raportoi vähintään yhden yhdeksästä oireesta (mukana väsymys ja hikoilu), ja 6,7 % (61/908) oli oireisia mutta ei ollut käynyt lääkärissä 12 kuukauteen. Kolmella vastaajalla todettiin keuhkosyöpä tai mesoteliooma 4 vk–11 kk kyselyn jälkeen."
   },
   {
     "id": "wichmann-2025",
@@ -158,16 +158,16 @@
   {
     "id": "latti-2018",
     "title": "Lätti, Pekkanen, Koskela. Defining the risk factors for acute, subacute and chronic cough: a cross-sectional study in a Finnish adult employee population. BMJ Open 2018",
-    "url": "https://pmc.ncbi.nlm.nih.gov/articles/PMC6230813",
+    "url": "https://doi.org/10.1136/bmjopen-2018-022950",
     "retrieved": "2026-11-14",
-    "note": "Suomalaiset julkisen sektorin työntekijät (3 697 vastaajaa, vastausprosentti 26,4): päivittäinen yli 8 viikon yskä 7,2 %, 3–8 viikon yskä 3,4 %. Kaikki työikäiset, ei vain tupakoineet. Hakutuloksen tiivistelmästä, ei avattu."
+    "note": "Suomalaiset julkisen sektorin työntekijät (3 697 vastaajaa, vastausprosentti 26,4): päivittäinen yli 8 viikon yskä 7,2 %, 3–8 viikon yskä 3,4 %. Kaikki työikäiset, ei vain tupakoineet. BMJ Open 2018, PMC6082462. Tarkistettu tiivistelmästä 14.11.2026."
   },
   {
     "id": "isc-ldct",
     "title": "ISC-LDCT: Integrating Smoking Cessation With Low-dose CT-screening for Lung Cancer – a Randomized Study (ClinicalTrials.gov NCT07331519)",
     "url": "https://clinicaltrials.gov/study/NCT07331519",
     "retrieved": "2026-11-14",
-    "note": "Kansallinen keuhkosyövän seulontapilotti, alkoi 2.2.2026. 1 200 osallistujaa, 50–74-vuotiaat nykyiset tupakoitsijat (vähintään 15 savuketta/25 v tai 10/30 v), kolme arvottua ryhmää. Tuloksia ei ole julkaistu. Tiedot tiimin muistiosta docs/seulontapilotti/SEULONTAPILOTTI.md (rekisteriversio 13.11.2026)."
+    "note": "Tarkistettu ClinicalTrials.gov-rekisteristä 14.11.2026: alkoi 2.2.2026, 1 200 osallistujaa, 50–74 v, tupakoi nyt (≥15 savuketta/25 v tai ≥10/30 v), älypuhelin, kolme ryhmää (sovellus + TT, kirjallinen materiaali + TT, sovellus ilman TT:tä), ensisijainen tulos lopettaminen 3 kk:n kohdalla, päättyy arviolta 31.8.2036. Vain OYS rekrytoi, HUS, TAYS, TYKS ja Vaasa eivät vielä. Tuloksia ei ole julkaistu."
   },
   {
     "id": "syopajarjestot-2026",

@@ -18,6 +18,10 @@ export interface RiskPriority {
    * research-based risk factors count. Team equity choice for ordering, not validated.
    */
   ageStandardisedScore: number;
+  /** Unrounded 6-year probability (0–1). Threshold decisions and sums use this, not the rounded percent. */
+  probability: number;
+  /** Unrounded age-standardised probability (0–1). */
+  ageStandardisedProbability: number;
   level: "high" | "medium" | "low" | "not_applicable";
   /** At or above the paper's 1.3455 % threshold. */
   aboveThreshold: boolean;
@@ -51,12 +55,15 @@ export function formatRisk(score: number): string {
 
 export function riskPriority(r: SurveyResponse): RiskPriority {
   const result = plcoRisk(r);
-  if (!result) return { model: "PLCOm2012", score: 0, ageStandardisedScore: 0, level: "not_applicable", aboveThreshold: false, contributions: [], imputed: [] };
+  if (!result) return { model: "PLCOm2012", score: 0, ageStandardisedScore: 0, probability: 0, ageStandardisedProbability: 0, level: "not_applicable", aboveThreshold: false, contributions: [], imputed: [] };
   const p = result.probability;
+  const standardised = plcoAgeStandardised(result);
   return {
     model: "PLCOm2012",
     score: Math.round(p * 10000) / 100,
-    ageStandardisedScore: Math.round(plcoAgeStandardised(result) * 10000) / 100,
+    ageStandardisedScore: Math.round(standardised * 10000) / 100,
+    probability: p,
+    ageStandardisedProbability: standardised,
     level: p >= PLCO_CATEGORY.high ? "high" : p >= PLCO_CATEGORY.medium ? "medium" : "low",
     aboveThreshold: p >= PLCO_THRESHOLD,
     contributions: result.terms
