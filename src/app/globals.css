@@ -80,3 +80,40 @@ header a:focus-visible {
 .brand-bar {
   background: linear-gradient(90deg, var(--color-brand-blue), var(--color-brand-teal) 50%, var(--color-brand-berry));
 }
+
+/* Home page lung illustration: gentle breathing and the stage timer bar. */
+@keyframes lung-breathe {
+  0%,
+  100% {
+    transform: scale(1);
+  }
+  50% {
+    transform: scale(1.035);
+  }
+}
+
+.lung-breathe {
+  transform-box: fill-box;
+  transform-origin: 50% 15%;
+  animation: lung-breathe 4.5s ease-in-out infinite;
+}
+
+@keyframes story-progress {
+  from {
+    width: 0%;
+  }
+  to {
+    width: 100%;
+  }
+}
+
+.story-progress {
+  animation: story-progress linear forwards;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .lung-breathe,
+  .story-progress {
+    animation: none;
+  }
+}

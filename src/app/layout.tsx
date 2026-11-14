@@ -22,7 +22,7 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
     <html lang="fi" className={brandFont.variable}>
       <body className="flex min-h-screen flex-col font-sans text-slate-900 antialiased">
         <LiveProvider>
-          <header className="sticky top-0 z-20 border-b border-slate-200/80 bg-white/90 backdrop-blur">
+          <header className="top-0 z-20 border-b border-slate-200/80 bg-white/90 backdrop-blur md:sticky">
             <div className="brand-bar h-1" aria-hidden="true" />
             <nav aria-label="Päävalikko" className="mx-auto flex max-w-6xl flex-wrap items-center gap-x-6 gap-y-2 px-4 py-2.5 text-sm">
               <Link href="/" aria-label="Pikakaista, etusivu">
@@ -30,11 +30,11 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
               </Link>
               <MainNav />
               <span className="ml-auto flex flex-wrap items-center gap-2 text-xs">
-                <span className="hidden md:inline-flex">
+                <span className="hidden lg:inline-flex">
                   <LiveIndicator />
                 </span>
                 <span
-                  className={`hidden rounded-full px-2.5 py-0.5 font-medium md:inline-flex ${hasApiKey() ? "bg-violet-100 text-violet-900" : "bg-slate-100 text-slate-600"}`}
+                  className={`hidden rounded-full px-2.5 py-0.5 font-medium xl:inline-flex ${hasApiKey() ? "bg-violet-100 text-violet-900" : "bg-slate-100 text-slate-600"}`}
                   title={hasApiKey() ? "Claude API on käytössä" : "Ei API-avainta: tekstit ja luokittelu tehdään säännöillä"}
                 >
                   {hasApiKey() ? "Tekoäly: Claude" : "Tekoäly: pois (säännöt)"}

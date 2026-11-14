@@ -157,3 +157,12 @@ Add entries in chronological order. Link evidence, and link any later entry that
   - The decision-maker view shows only "Two Doors + survey". The "Two Doors only" toggle was removed; the brief is always written for the combined model.
   - The worklist, screening list, tracking and patient search are grouped under "Lääkäri" (route group `src/app/(laakari)`, URLs unchanged) with their own sub-navigation. The area opens after a one-click "continue as a clinician" choice stored in the browser. **This is not access control**: a real service needs authentication and role-based access.
   - The worklist got the same free-text search as the patient search page, plus quick filters (red flag, symptoms, new answers, booked). Search also matches everyday synonyms such as "veriyskä".
+
+## 2026-11-14 — Home page lung illustration and lung logo
+
+- **Status** Requested by Delun on 2026-11-14.
+- **Decision**
+  - The logo is a pair of lungs: the lobe on the viewer's left is diseased (grey with dark lesions), the lobe on the right is healthy. Original artwork (`src/components/Logo.tsx`, `src/app/icon.svg`).
+  - The home page shows a four-stage illustration of a tumour growing while symptoms stay small (`src/components/LungStory.tsx`). It plays only while visible, can be paused, and respects reduced-motion settings.
+  - Every statement comes from the National Lung Cancer Programme 2026–2035 (`filha-2026`, pp. 2–4, checked from the PDF on 2026-11-14): the most common symptoms (cough, breathlessness, chest pain, weight loss, haemoptysis), a long symptom-free period, 65–70 % found only after spreading, most cancer deaths in Finland, and curative treatment when found early. "Cough over 3 weeks" is from the Pirkanmaa pathway (`pirha-hoitopolku`).
+- **Trade-offs** The order of symptoms is illustrative and varies between patients; the page says so and notes that the same symptoms occur in many other diseases.
