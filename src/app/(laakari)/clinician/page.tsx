@@ -2,13 +2,12 @@
 
 import { useCallback, useEffect, useMemo, useState } from "react";
 import { notifyChange, useLiveVersion } from "@/components/LiveData";
-import { AnalysisCard, PRIORITY_BADGE } from "@/components/AnalysisCard";
+import { AnalysisCard, PlcoBadge } from "@/components/AnalysisCard";
 import { AssessmentCard } from "@/components/AssessmentCard";
 import { BookingBadge, BookingPanel } from "@/components/BookingPanel";
 import { EngagementBadge, PathwayCard } from "@/components/PathwayCard";
 import { formatSlot, TIER_LABEL } from "@/lib/booking";
 import { STAGE_LABEL } from "@/lib/pathway";
-import { formatRisk } from "@/lib/priority";
 import { PLACEMENT_LABEL } from "@/lib/rules";
 import { searchText } from "@/lib/search";
 import { More } from "@/components/More";
@@ -177,9 +176,7 @@ export default function ClinicianPage() {
                 <span className="mt-0.5 flex flex-wrap items-center gap-1.5 text-xs">
                   <EngagementBadge engagement={x.pathway.engagement} />
                   <span className="text-slate-600">{STAGE_LABEL[x.pathway.stage]}</span>
-                  <span className={`ml-auto rounded px-1.5 ${PRIORITY_BADGE[x.priority.level]}`} title="PLCOm2012: kuuden vuoden keuhkosyöpäriski">
-                    {x.priority.level === "not_applicable" ? "PLCO –" : `PLCO ${formatRisk(x.priority.score)}`}
-                  </span>
+                  <PlcoBadge priority={x.priority} symptomatic={x.rule.symptomReviewRequired} compact className="ml-auto" />
                 </span>
                 {(x.booking || x.queued) && (
                   <span className="mt-0.5 block">
@@ -237,6 +234,7 @@ export default function ClinicianPage() {
               )}
 
               <AnalysisCard
+                symptomatic={item.rule.symptomReviewRequired}
                 id={item.response.id}
                 onAnswered={() => {
                   open(item.response.id);

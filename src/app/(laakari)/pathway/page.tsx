@@ -3,8 +3,7 @@
 import { More } from "@/components/More";
 import { useEffect, useMemo, useState } from "react";
 import { useLiveVersion } from "@/components/LiveData";
-import { PRIORITY_BADGE } from "@/components/AnalysisCard";
-import { formatRisk } from "@/lib/priority";
+import { PlcoBadge } from "@/components/AnalysisCard";
 import { EngagementBadge, ENGAGEMENT_BADGE, PathwayCard } from "@/components/PathwayCard";
 import { NewAnswers } from "@/components/NewAnswers";
 import { ENGAGEMENT_LABEL, STAGE_LABEL, STAGE_ORDER, type Engagement, type PathwayStage } from "@/lib/pathway";
@@ -172,9 +171,7 @@ export default function PathwayPage() {
                   </td>
                   <td className="px-3 py-2">{STAGE_LABEL[x.pathway.stage]}</td>
                   <td className="px-3 py-2">
-                    <span className={`rounded px-1.5 text-xs ${PRIORITY_BADGE[x.priority.level]}`}>
-                      {x.priority.level === "not_applicable" ? "–" : formatRisk(x.priority.score)}
-                    </span>
+                    <PlcoBadge priority={x.priority} symptomatic={x.rule.symptomReviewRequired} compact />
                   </td>
                   <td className="hidden px-3 py-2 text-slate-600 lg:table-cell">{x.pathway.nextAction}</td>
                 </tr>

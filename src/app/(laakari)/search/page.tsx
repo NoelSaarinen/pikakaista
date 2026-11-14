@@ -2,7 +2,7 @@
 
 import { useEffect, useMemo, useState } from "react";
 import { useLiveVersion } from "@/components/LiveData";
-import { AnalysisCard, PRIORITY_BADGE } from "@/components/AnalysisCard";
+import { AnalysisCard, PlcoBadge } from "@/components/AnalysisCard";
 import { BookingBadge } from "@/components/BookingPanel";
 import { NewAnswers } from "@/components/NewAnswers";
 import { EngagementBadge, PathwayCard } from "@/components/PathwayCard";
@@ -82,7 +82,7 @@ export default function SearchPage() {
       <NewAnswers
         items={items}
         onSelect={setSelected}
-        describe={(x) => `→ ${URGENCY_LABEL[urgencyOf(x.rule)]} · ${STAGE_LABEL[x.pathway.stage]}${x.priority.level === "not_applicable" ? "" : ` · PLCO ${formatRisk(x.priority.score)}`}`}
+        describe={(x) => `→ ${URGENCY_LABEL[urgencyOf(x.rule)]} · ${STAGE_LABEL[x.pathway.stage]}${x.priority.level === "not_applicable" ? "" : x.rule.symptomReviewRequired ? ` · seulontariski ${formatRisk(x.priority.score)} (ei koske oireita)` : ` · PLCO ${formatRisk(x.priority.score)}`}`}
       />
 
       <div className="space-y-3 rounded-lg border border-slate-200 bg-white p-3">
@@ -228,9 +228,7 @@ export default function SearchPage() {
                         <span className={`rounded px-1.5 text-xs ${URGENCY_BADGE[u]}`}>{URGENCY_LABEL[u]}</span>
                       </td>
                       <td className="px-3 py-2">
-                        <span className={`rounded px-1.5 text-xs ${PRIORITY_BADGE[x.priority.level]}`}>
-                          {x.priority.level === "not_applicable" ? "–" : formatRisk(x.priority.score)}
-                        </span>
+                        <PlcoBadge priority={x.priority} symptomatic={x.rule.symptomReviewRequired} compact />
                       </td>
                       <td className="hidden px-3 py-2 text-xs lg:table-cell">
                         <EngagementBadge engagement={x.pathway.engagement} />
@@ -278,7 +276,7 @@ export default function SearchPage() {
               <a href="/clinician" className="inline-block text-xs text-sky-700 underline">
                 Avaa lääkärin lista →
               </a>
-              <AnalysisCard key={item.response.id} id={item.response.id} />
+              <AnalysisCard key={item.response.id} id={item.response.id} symptomatic={item.rule.symptomReviewRequired} />
               <PathwayCard pathway={item.pathway} />
             </>
           )}

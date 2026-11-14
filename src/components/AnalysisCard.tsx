@@ -16,6 +16,31 @@ export const PRIORITY_BADGE: Record<RiskPriority["level"], string> = {
   not_applicable: "bg-slate-50 text-slate-400",
 };
 
+/**
+ * PLCOm2012 risk badge. The model leaves out symptoms by design, so for people with
+ * symptoms it is shown greyed out as a screening risk for people WITHOUT symptoms.
+ * Urgency always comes from the alarm rules. Display only; the value is unchanged.
+ */
+export function PlcoBadge({ priority, symptomatic, compact = false, className = "" }: { priority: RiskPriority; symptomatic: boolean; compact?: boolean; className?: string }) {
+  if (priority.level === "not_applicable") return <span className={`rounded px-1.5 text-xs ${PRIORITY_BADGE.not_applicable} ${className}`}>{compact ? "–" : "PLCO –"}</span>;
+  const risk = formatRisk(priority.score);
+  if (symptomatic) {
+    return (
+      <span
+        className={`rounded bg-slate-100 px-1.5 text-xs text-slate-500 ${className}`}
+        title="PLCOm2012 arvioi oireettomien seulontariskiä eikä ota oireita huomioon. Kiireellisyys tulee oireista."
+      >
+        {compact ? `${risk}*` : `Seulontariski oireettomille (ei koske oireita): ${risk}`}
+      </span>
+    );
+  }
+  return (
+    <span className={`rounded px-1.5 text-xs font-semibold ${PRIORITY_BADGE[priority.level]} ${className}`} title="PLCOm2012: kuuden vuoden keuhkosyöpäriski">
+      {compact ? risk : `PLCOm2012 ${risk} · ${PRIORITY_LEVEL_LABEL[priority.level]}`}
+    </span>
+  );
+}
+
 /** Preliminary AI analysis for one person: urgency and long-term risk apart, plus follow-up questions. */
 export function AnalysisCard({
   id,
@@ -23,6 +48,7 @@ export function AnalysisCard({
   compact = false,
   respondent = false,
   texts,
+  symptomatic = false,
 }: {
   id: string;
   onAnswered?: () => void;
@@ -30,6 +56,8 @@ export function AnalysisCard({
   respondent?: boolean;
   /** Respondent-language texts. Stored answer values stay "kyllä"/"ei". */
   texts?: SurveyText;
+  /** The person reported symptoms: PLCOm2012 is then shown as a screening risk that does not cover symptoms. */
+  symptomatic?: boolean;
 }) {
   const [data, setData] = useState<Analysis | null>(null);
   const [draft, setDraft] = useState<Record<string, string>>({});
@@ -119,9 +147,7 @@ export function AnalysisCard({
     <div className="space-y-3 rounded border border-violet-200 bg-violet-50/40 p-3 text-sm">
       <div className="flex flex-wrap items-center justify-between gap-2">
         <p className="font-semibold">{data.generatedBy === "llm" ? "Tekoälyn alustava analyysi" : "Alustava analyysi (sääntöpohjainen)"}</p>
-        <span className={`rounded px-2 py-0.5 text-xs font-semibold ${PRIORITY_BADGE[p.level]}`}>
-          {p.level === "not_applicable" ? PRIORITY_LEVEL_LABEL[p.level] : `PLCOm2012 ${formatRisk(p.score)} · ${PRIORITY_LEVEL_LABEL[p.level]}`}
-        </span>
+        <PlcoBadge priority={p} symptomatic={symptomatic} className="py-0.5" />
       </div>
 
       <div className={`grid gap-2 ${compact ? "" : "sm:grid-cols-2"}`}>
@@ -130,8 +156,9 @@ export function AnalysisCard({
           <p>{data.urgency}</p>
         </div>
         <div className="rounded bg-white p-2">
-          <p className="text-xs font-semibold text-violet-800">Pitkän aikavälin riski</p>
-          <p>{data.risk}</p>
+          <p className={`text-xs font-semibold ${symptomatic ? "text-slate-500" : "text-violet-800"}`}>{symptomatic ? "Seulontariski oireettomille (ei koske oireita)" : "Pitkän aikavälin riski"}</p>
+          <p className={symptomatic ? "text-slate-500" : ""}>{data.risk}</p>
+          {symptomatic && <p className="mt-1 text-xs text-slate-500">PLCOm2012 ei ota oireita huomioon. Tämän henkilön kiireellisyys tulee oireista.</p>}
         </div>
       </div>
 
