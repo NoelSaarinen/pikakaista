@@ -106,9 +106,57 @@ This covers all five judging criteria, uses the medical student's knowledge for 
   - Symptoms to treatment take about 155 days: more than 50 days before the patient seeks care, 41 days in primary care and 58 days in specialist care.
   - MOT gives totals of 107 days for Sweden and 67 days for Denmark.
   - The article has no breakdown by route.
+  - **Re-checked 2026-11-14:** searches in Finnish and English found no published abstract, poster or article from the study. Its route data is **unknown**.
 - **Nurse first.** [University of Helsinki, 7 Nov 2025](https://www.helsinki.fi/fi/uutiset/terveys/miksi-suomessa-keuhkosyopaan-kuollaan-aiemmin-kuin-pohjoismaissa): a survey of 42 lung cancer professionals in 2023–2024. In Finland 40–60% of patients see a nurse first. The article gives no figures by route or region.
 - **Occupational health coverage.** Työterveyslaitos, [*Työterveyshuolto Suomessa 2023*](https://www.ttl.fi/file-download/download/public/8733) (preliminary results, 26 Sep 2024): 2,084,752 personal clients, of whom 2,058,032 were wage earners. The slides have no regional breakdown. Kela's yearly occupational health statistic in Kelasto may have regional tables. **Not checked.**
 - **Not found:** public data, by wellbeing services county, on the route to diagnosis for any cancer.
+
+#### Lung cancer quality report 2019–2023 by county (read 2026-11-14)
+
+- **Source:** Finnish Cancer Registry, national cancer quality-register project, [*Keuhkosyöpä Suomessa 2019–2023 – Rekisteripohjainen katsaus diagnostiikkaan, hoitopolkuihin ja hoidon laatuun*](https://syoparekisteri.fi/assets/themes/ssy3/factsheets/keuhkosyoparaportti.html). Syöpäjärjestöt announced it on 23 Apr 2026 ([press release](https://www.sttinfo.fi/tiedote/71979888/keuhkosyovan-toteamisessa-on-eroja-hyvinvointialueiden-valilla-tietojen-kattavuudessa-edelleen-parannettavaa?publisherId=69820264&lang=fi)). FICAN's quality-register page links to it. The page blocks automated fetches, so we read it in a browser. Verified.
+- **National figures** (sections 1, 3.2 and 4.2):
+  - 14,873 new lung cancers in 2019–2023.
+  - Within 12 months, 27.0% received curative treatment: about 16% surgery, 11% stereotactic radiotherapy and 4% adjuvant treatment.
+  - 60% died in the first year.
+  - Stage was missing for 47.7% (Table 4).
+  - Cell type was unknown for 22%.
+  - One-year survival was 84% after curative first treatment and 12% after palliative first treatment.
+- **Curative treatment within 12 months by wellbeing services county** (Table 11, crude shares, not age-standardised):
+
+  | County | New cases | Curative | No treatment record |
+  | --- | ---: | ---: | ---: |
+  | Vantaa ja Kerava | 595 | 35.6% | 28.9% |
+  | Keski-Uusimaa | 481 | 33.7% | 26.4% |
+  | Helsinki | 1,486 | 33.0% | 29.1% |
+  | Länsi-Uusimaa | 1,058 | 31.9% | 28.5% |
+  | Pirkanmaa | 1,253 | 31.9% | 17.9% |
+  | Etelä-Pohjanmaa | 540 | 30.6% | 25.7% |
+  | Päijät-Häme | 659 | 29.6% | 17.8% |
+  | Itä-Uusimaa | 272 | 28.3% | 31.6% |
+  | Pohjanmaa | 449 | 27.8% | 22.9% |
+  | Keski-Suomi | 637 | 27.2% | 24.5% |
+  | Pohjois-Savo | 641 | 24.5% | 19.3% |
+  | Satakunta | 682 | 24.5% | 29.8% |
+  | Varsinais-Suomi | 1,437 | 24.3% | 43.1% |
+  | Pohjois-Pohjanmaa | 1,050 | 23.6% | 25.0% |
+  | Etelä-Savo | 448 | 23.4% | 23.2% |
+  | Kanta-Häme | 546 | 23.4% | 32.1% |
+  | Keski-Pohjanmaa | 148 | 22.3% | 25.0% |
+  | Pohjois-Karjala | 510 | 21.4% | 22.2% |
+  | Kainuu | 226 | 20.8% | 28.3% |
+  | Kymenlaakso | 591 | 19.3% | 16.4% |
+  | Etelä-Karjala | 355 | 18.9% | 42.8% |
+  | Lappi | 710 | 18.5% | 33.8% |
+  | **Whole country** | **14,873** | **27.0%** | **27.5%** |
+
+  The full table, with non-curative and palliative shares, is in the shared session notes (`evidence-research-lung-quality-report-by-county.md`).
+- **Limits:**
+  - The shares are crude, and age structure differs between counties. The report's age-standardised county shares are only in a chart (Figure 16). It says the age-standardised curative share was below the national level in the Pohjois-Suomi collaboration area.
+  - A high "no treatment record" share, such as Varsinais-Suomi's 43.1%, may reflect recording practice rather than care.
+  - Small counties have wide uncertainty.
+  - Region is the home municipality at the start of the diagnosis year. Åland is excluded from regional figures.
+  - The data contains no primary-care visits, so it cannot show the route to diagnosis.
+- **Use for the demo:** a county's curative-treatment share is a public, county-level proxy for late detection. It is the strongest regional figure we have for the decision-maker view. Show it with the caveats above.
 
 ### 2. Pilot Map
 
@@ -166,8 +214,8 @@ This covers all five judging criteria, uses the medical student's knowledge for 
 ### Unknowns to verify with mentors
 
 - Is there regional data on the route to diagnosis, public versus private or occupational health? A public search on 2026-11-14 found none (see [Route-to-diagnosis evidence](#route-to-diagnosis-evidence-searched-2026-11-14)). Ask whether the Kuittinen lung cancer study has route data.
-- What target times does THL guidance 21/2016 set? We have not read it.
-- What regional level does the Finnish Cancer Registry statistics app use: wellbeing services county or hospital district? Does it include stage?
+- What target times does THL guidance 21/2016 set? **Partly answered 2026-11-14:** monitoring runs from the referral arriving in specialist care to the first treatment. The numeric targets are still unknown. See [PROJECT.md](PROJECT.md#thl-guidance-212016-where-the-clock-starts).
+- What regional level does the Finnish Cancer Registry statistics app use: wellbeing services county or hospital district? Does it include stage? The 2019–2023 lung cancer quality report uses both wellbeing services counties and collaboration areas. It has no stage by county, because stage is missing for nearly half of patients.
 - Does Kela publish occupational health coverage by region?
 
 ## Idea template

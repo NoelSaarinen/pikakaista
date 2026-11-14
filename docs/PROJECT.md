@@ -15,15 +15,19 @@ Every year, a wellbeing services county sends a short symptom survey to people a
   2. Decision-maker in a wellbeing services county: sees the gap, the plan and its expected benefit.
   3. Person in the risk group: answers the survey.
 - **Pathway stage** Late detection: people who do not seek care. Also the step from primary care to diagnostic imaging. These are the brief's first two bottlenecks.
-- **Goal 3 indicator** Lung cancer five-year relative survival towards the Nordic level, a gap of 14 percentage points (Strategy p. 5). The link from earlier imaging to survival is a stated assumption. Treatment within target times (THL 21/2016) is a candidate only if its clock starts before referral. **Read the definition before using it.**
+- **Goal 3 indicator** Lung cancer five-year relative survival towards the Nordic level, a gap of 14 percentage points (Strategy p. 5). The link from earlier imaging to survival is a stated assumption.
+  - **Treatment within target times (THL 21/2016) does not fit the survey.** THL monitoring measures from the referral arriving in specialist care to the first treatment procedure, so time before the referral is not counted. Details: [THL 21/2016](#thl-guidance-212016-where-the-clock-starts).
+  - The Strategy's Goal 2 list on the same page has an indicator that fits the survey better: "at least 70% of cancers are diagnosed at stage I–II" (Strategy p. 5, read 2026-11-14). It belongs to Goal 2, so cite it as supporting evidence only. The brief requires Goal 3.
 
 ### Problem (verified facts and labelled assumptions)
 
 | Claim | Source | Type |
 | --- | --- | --- |
 | About 65–70% of lung cancers are diagnosed only after they have spread. Early disease is often symptom-free because the lungs do not hurt. Typical symptoms are cough, breathlessness, chest pain, weight loss, blood-tinged sputum and recurrent pneumonia. Stigma delays seeking care. | [National Lung Cancer Programme 2026–2035, preprint](https://www.filha.fi/wp-content/uploads/2026/05/Valtakunnallinen-keuhkosyopaohjelma-2026-2035_180526_preprint.pdf) (Filha, May 2026) pp. 2–4, 15–16 | Verified 2026-11-13 |
-| Only 27% of lung cancer patients received curative treatment. Diagnostics differ by wellbeing services county. Stage data is missing for almost half of patients. | Syöpäjärjestöt quality-register lung cancer report, 2019–2023 data, via [Verkkouutiset](https://www.verkkouutiset.fi/a/keuhkosyopa-todetaan-usein-liian-myohaan-vain-joka-neljas-saa-parantavaa-hoitoa/) | Verified via news. **Find the report and check for regional figures.** |
+| 14,873 new lung cancers in 2019–2023. Within 12 months, 27.0% received curative treatment and 60% died. Stage was missing for 47.7%. Curative treatment ranged by wellbeing services county from 18.5% (Lappi) to 35.6% (Vantaa and Kerava), crude shares. | [*Keuhkosyöpä Suomessa 2019–2023*](https://syoparekisteri.fi/assets/themes/ssy3/factsheets/keuhkosyoparaportti.html) (Finnish Cancer Registry quality-register report, released 23 Apr 2026): sections 1 and 3.2, Tables 4, 6 and 11 | Verified 2026-11-14. County table in [IDEAS.md](IDEAS.md#lung-cancer-quality-report-20192023-by-county-read-2026-11-14). |
+| Only 5% of all lung cancers, and 11% of those with stage recorded, are found as localised. | Same report, section 2, citing the Cancer Registry statistics app | Verified 2026-11-14 |
 | Finland waits longer than the other Nordic countries at every pathway stage: about two weeks to a primary-care appointment versus usually under one week. Finland's strong gatekeeping hurts hard-to-recognize diseases such as lung cancer. | [University of Helsinki, 7 Nov 2025](https://www.helsinki.fi/fi/uutiset/terveys/miksi-suomessa-keuhkosyopaan-kuollaan-aiemmin-kuin-pohjoismaissa) (*Acta Oncologica* 2025) | Verified 2026-11-13 |
+| Health-centre access got worse in 2025. For people aged 23 and over, 59% of non-urgent physician visits took place within 14 days of the care-need assessment, against 70% in 2024. For ages 0–22 it was 56%, against 74%. | THL, [*Hoitoon pääsy perusterveydenhuollossa 2025*](https://thl.fi/data-ja-tilastot/hoitoon-paasy/perusterveydenhuolto) (Tilastoraportti 20/2026, 3 Jun 2026) and its [press release](https://thl.fi/-/potilaat-joutuvat-odottamaan-hoitoon-paasya-perusterveydenhuoltoon-entista-pidempaan-jonot-erikoissairaanhoitoon-ovat-lyhentyneet) | Verified 2026-11-14 from THL's web pages. National only: the pages say access varied by region but give no county values. The clock starts at the care-need assessment, not first contact. Data is mostly unaudited. |
 | Occupational health care is fast and health centres are slow. For lymphoma, symptoms to treatment took a median of 127 days via a health-centre appointment, against 76 days via private or occupational care. | Roadmap p. 11; [Kuitunen et al. 2026](https://doi.org/10.1002/cam4.71920) (probably the study the Roadmap cites) | Verified 2026-11-14. Lymphoma, 160 patients, not lung cancer. Details in [IDEAS.md](IDEAS.md#route-to-diagnosis-evidence-searched-2026-11-14). |
 | About a third of cancer patients are of working age, so most depend on health centres. | Strategy p. 6, plus team inference | Second half is an **assumption** |
 | Time from first symptom to diagnosis is not collected. | Strategy p. 30 | Verified |
@@ -88,8 +92,61 @@ Collected 2026-11-14. Use with the caveats shown.
 - **Getting people to come earlier gives mixed evidence.**
   - England's national Be Clear on Cancer lung campaign was linked to about 700 extra diagnoses, 300 of them with potentially curative treatment. [GOV.UK](https://gov.uk/government/news/be-clear-on-cancer-campaign-findings)
   - The Welsh campaign found no significant change in early-stage diagnoses. [Cardiff evaluation](https://orca.cardiff.ac.uk/126586/2/BCOC%20paper%20BJC%20Rev%201%20submitted%2024.10.2019%20_CLEAN_with%20tables%20for%20ORCA_pre%20print.pdf)
-  - These were mass-media campaigns. **No direct evidence for a targeted symptom survey has been found yet. This is our biggest evidence gap.**
+  - These were mass-media campaigns. Targeted outreach is covered in [Does inviting a risk group find lung cancer earlier?](#does-inviting-a-risk-group-find-lung-cancer-earlier) **No study of a symptom survey alone has shown earlier stage. This is still our biggest evidence gap.**
 - **Speed versus survival.** Lung cancer shows a "waiting time paradox": the sickest patients are diagnosed fastest and still do worst, so studies are mixed. [Cancer Epidemiology 2015](https://core.ac.uk/download/77409558.pdf) For stage I–II disease, waiting more than four weeks from diagnosis to surgery was associated with worse survival. [J Thorac Dis](https://jtd.amegroups.org/article/view/104706/html) Benefit is most plausible for early-stage patients with mild symptoms, the group the survey targets.
+
+#### Share of fast-lane CT scans that find lung cancer
+
+Searched 2026-11-14. This sets `cancerYieldPerCt` and `healthCentreYield` in `src/lib/simulation.ts` and therefore the CT load. No Nordic source gives a national lung-specific figure, so the table uses the closest published pathways.
+
+| Pathway | Lung cancer found | Source | Type |
+| --- | --- | --- | --- |
+| Denmark, GP referral to the lung cancer fast track (cancer patient pathway), Aarhus, 2012 | 37 of 493 referrals (7.5%): 8.9% in the direct-CT arm, 6.1% in the chest-physician arm | Guldbrandt et al., "Reduced specialist time with direct computed tomography for suspected lung cancer in primary care", *Dan Med J* 2013;60(12), Table 2 ([article page](https://ugeskriftet.dk/dmj/reduced-specialist-time-direct-computed-tomography-suspected-lung-cancer-primary-care)) | Verified 2026-11-14. Single centre. Ratio computed by us. |
+| Denmark, GPs' direct low-dose CT for symptoms that did **not** meet fast-track criteria | 15 of 648 referred (2.3%); 60% of those cancers were localised | Guldbrandt, PhD thesis summary, *Dan Med J* 2015 Mar, PMID 25748876 ([abstract](https://read.qxmd.com/read/25748876/the-effect-of-direct-referral-for-fast-ct-scan-in-early-lung-cancer-detection-in-general-practice-a-clinical-cluster-randomised-trial)) | Verified from the abstract only. The trial found no effect on stage or time to diagnosis. **Closest analogue to a survey-positive person.** |
+| England, urgent suspected lung cancer referral (two-week wait) | Conversion 26.4% in 2009/10 and 15.3% in 2019/20 | Smith et al., *Br J Gen Pract* 2022;72(714):34–37, Table 1, [doi:10.3399/bjgp22X718217](https://doi.org/10.3399/bjgp22X718217) | Verified 2026-11-14. Referrals usually follow an abnormal chest X-ray, so the yield is higher than for symptoms alone. |
+| England, Targeted Lung Health Check: LDCT for high-risk people without a symptom requirement | 2,748 lung cancers, 1.7% of people with an initial CT | Ipsos and Strategy Unit, *TLHC Programme – Final evaluation report*, Nov 2024, executive summary ([Ipsos page](https://www.ipsos.com/en-uk/evaluation-targeted-lung-health-check-programme-nhs-england)) | Verified 2026-11-14 |
+| Sweden, all standardised care pathways (SVF) combined | About 30% of people investigated have cancer; the share varies strongly by diagnosis | [RCC, Antal patienter i SVF](https://cancercentrum.se/utvecklingsarbeteutbildning/statistikrapporter/svfstatistik/antalpatienterisvf.7780.html) (updated 14 Sep 2026) | Verified for all SVF. **Lung-specific value unknown:** it is only in an interactive chart. |
+| Sweden and Norway, lung pathway entry | Entry requires a radiological finding suspicious of malignancy (Norway), so these pathways start after imaging and are not comparable | [Helsedirektoratet, begrunnet mistanke](https://www.helsedirektoratet.no/nasjonale-forlop/lungekreft/inngang-til-pakkeforlop-for-lungekreft/begrunnet-mistanke-kriterier-for-henvisning-til-pakkeforlop) | Norway: from a search result, page not opened. Sweden: assumption, not checked. |
+
+**What this means for the simulation** (the `src/` owner decides; this session did not edit code):
+- `cancerYieldPerCt` (survey-positive people sent to CT): the current base of 2% matches the Danish direct-CT figure (2.3%). A cautious value of 1.7% matches TLHC screening. An optimistic value up to 7.5% fits only if a physician triages before CT, as in the Danish fast track. The current optimistic value of 4% sits inside that range.
+- `healthCentreYield` (symptomatic patients put on the fast lane at a health centre): the current 10% sits between the Danish fast track (7.5%) and English urgent referrals (15.3%). Label it as Danish and English data, not Finnish.
+- CT load per cancer found is roughly 1 ÷ yield: about 43 scans per cancer at 2.3%, and 13 at 7.5%.
+
+#### Does inviting a risk group find lung cancer earlier?
+
+Searched 2026-11-14.
+
+- **Yes for CT invitations, with a stage shift.** England's Targeted Lung Health Check invites ever-smokers aged 55–74 to a risk assessment, and high-risk people get low-dose CT. Source: Ipsos and Strategy Unit final evaluation, Nov 2024, verified 2026-11-14.
+  - April 2019 to March 2024: 1.22 million invitations, 324,000 health checks (44% uptake) and 163,000 initial scans (executive summary).
+  - 76% of the lung cancers it found were stage 1–2, excluding unstaged cancers (executive summary, footnote 7).
+  - In pilot areas, the share of **all** lung cancers diagnosed at stage 1–2 rose from 25% to 39% between 2019 and 2022, with no clear change in similar non-pilot areas. An estimated 781 extra stage 1–2 cancers were found (programme outcomes, p. 6).
+  - No mortality effect yet. The evaluation says this is expected at this timescale.
+  - **Deprivation:** uptake was 34% in the most deprived quintile against 40% elsewhere. People there who did attend a CT had a higher lung cancer yield, 1.81% against 1.54%, with a similar early-stage share, 64.4% against 65.3% of all cancers including unstaged (section 6.9, Table 6.11, pp. 78–79).
+- **Manchester pilot.** Crosbie et al., *Thorax* 2019;74(4):405–409, [doi:10.1136/thoraxjnl-2017-211377](https://doi.org/10.1136/thoraxjnl-2017-211377), accepted manuscript on [White Rose](https://eprints.whiterose.ac.uk/id/eprint/139545/). Verified 2026-11-14.
+  - Health checks were held next to shopping centres in deprived areas. 75% of the 2,541 attendees lived in the most deprived quintile.
+  - Of 1,384 people scanned, 3% had lung cancer. 80% of cancers were stage I–II, against 31% in the same area in the year before the pilot. Curative-intent treatment was offered for 89%.
+- **A symptom-focused intervention alone has not shown earlier diagnosis.** The CHEST Australia trial: Emery et al., *Thorax* 2019;74:362–370, [doi:10.1136/thoraxjnl-2018-212506](https://doi.org/10.1136/thoraxjnl-2018-212506), verified 2026-11-14 from the [accepted manuscript](https://minerva-access.unimelb.edu.au/server/api/core/bitstreams/8ef17669-1d3d-5ae7-8961-38588b8d187a/content).
+  - 551 smokers aged 55 or over with at least 20 pack-years. GPs delivered a self-help manual and reminders to seek help for respiratory symptoms.
+  - Respiratory consultations rose 40% (rate ratio 1.40, 95% CI 1.08–1.82).
+  - Time to first consultation fell by a non-significant mean of 14 days.
+  - Only 3 participants (0.54%) were diagnosed with lung cancer in 12 months, so the trial could not test stage or diagnosis time.
+- **Postal symptom questionnaire to high-risk patients.** Wagland et al., *PLoS ONE* 2016 ([PMC5096702](https://pmc.ncbi.nlm.nih.gov/articles/PMC5096702/)). **Assumption, unverified:** PMC blocked our fetch, and these figures come from a search-result summary.
+  - Eight English practices invited 4,622 people aged 50 or over with a smoking history. 25.3% responded.
+  - 53.4% of respondents reported at least one of nine lung cancer symptoms.
+  - Consultations rose in the three months after completing the questionnaire. No cancer or stage outcomes.
+- **Conclusion for the pitch.** Risk-group outreach is proven to shift stage when it ends in CT, for example TLHC. Symptom prompting raises consultations but has no stage evidence. Our design combines the two, since a positive survey leads to fast CT, so cite TLHC for "outreach plus imaging works" and present the survey arm as the part a pilot must measure. Response rates in comparable outreach: 25% (postal questionnaire, unverified) and 44% (TLHC invitations).
+
+#### THL guidance 21/2016: where the clock starts
+
+- **Verified 2026-11-14:** THL's monitoring of access to cancer care uses two measurement points: the referral arriving in specialist care and the first treatment procedure. The register data does not include public primary-care or private outpatient visits. Source: Järvelin et al., "Kohti luotettavaa syövän hoitoon pääsyn seurantaa", *Lääkärilehti* 45/2019;74:2581–2588 ([article](https://www.laakarilehti.fi/tieteessa/alkuperaistutkimukset/kohti-luotettavaa-syovan-hoitoon-paasyn-seurantaa-hilmon-ja-syoparekisterin-diagnoositietojen-vertailu/)), which describes the guidance.
+- **Verified:** The Strategy's indicator "Potilaat pääsevät hoitoon tavoiteaikojen puitteissa" cites THL Ohjaus 21/2016 in a footnote without defining the times (Strategy p. 5). The Julkari record says the guidance has been in force since 1 Jan 2017 and that two annexes were added in 2025 ([Julkari](https://www.julkari.fi/items/0424a55a-f159-406f-8883-5dfdad4d6772)).
+- **Unknown:** The numeric target times. The guidance PDF itself could not be read: the Julkari download served a login page to our fetch. A search snippet mentioned six weeks from referral arrival to first treatment, which is **unverified**.
+- **Consequence:** the survey and the primary-care fast lane act before the clock starts. This indicator can at most show the specialist-care part of the fast lane. Keep five-year survival as the Goal 3 link.
+
+#### Kuittinen lung cancer delay study
+
+- **Unknown:** No published abstract or poster was found in searches on 2026-11-14. Everything known comes from the [Yle MOT article](https://yle.fi/a/74-20251023): about 155 days from symptoms to treatment, broken into more than 50 days before seeking care, 41 days in primary care and 58 days in specialist care. There is **no breakdown by first-contact route** (health centre, occupational or private). The lymphoma study (Kuitunen et al. 2026) remains our only Finnish route comparison.
 
 ### What we claim, and what we do not
 
@@ -184,10 +241,10 @@ Explicit and adjustable:
 - Inputs:
   - survey response rate
   - share of respondents with alarm signs
-  - share of fast-lane patients who turn out to have cancer
+  - share of fast-lane patients who turn out to have cancer. Published ranges are in [Share of fast-lane CT scans that find lung cancer](#share-of-fast-lane-ct-scans-that-find-lung-cancer).
   - target days to physician and to CT
   - reserved slots per week.
-- Current pathway: primary-care wait about 14 days nationally (*Acta Oncologica* 2025) plus the CT queue. Mark this as a national estimate if no county figure exists.
+- Current pathway: primary-care wait about 14 days nationally (*Acta Oncologica* 2025) plus the CT queue. Mark this as a national estimate if no county figure exists. THL's 2025 figures say only 59% of adults' non-urgent health-centre physician visits happened within 14 days of the care-need assessment, so 14 days is a typical wait, not a worst case. THL's web pages give no county values; its reporting dashboard was not checked.
 - Outputs:
   - people with cancer reaching CT earlier
   - days saved
@@ -221,11 +278,13 @@ Keep API keys in `.env.local`. Never commit them.
   - Does the fast lane just move the queue to imaging?
   - Is a symptom survey to a risk group credible?
   - Which alarm criteria should we use?
-- What share of fast-lane patients turn out to have cancer in the Nordic package pathways? This drives CT load. Find a source.
-- Is there direct evidence that a targeted symptom survey or risk-group invitation finds lung cancer earlier? See [Evidence for the approach](#evidence-for-the-approach). England's Lung Health Check invites a risk group to CT; verify its results before citing it.
-- Response rate assumption, and who does not answer (equity).
-- County-level data: Cancer Registry figures, smoking prevalence, and the Syöpäjärjestöt report.
-- THL 21/2016: where does the target-time clock start?
+- ~~What share of fast-lane patients turn out to have cancer in the Nordic package pathways?~~ **Answered 2026-11-14:** Danish GP fast-track referrals 7.5%, Danish direct GP low-dose CT 2.3%, English urgent referrals 15.3%. No national Nordic lung figure was found. See [the yield table](#share-of-fast-lane-ct-scans-that-find-lung-cancer).
+- ~~Is there direct evidence that a targeted symptom survey or risk-group invitation finds lung cancer earlier?~~ **Partly answered 2026-11-14:** risk-group invitation to CT shifts stage (TLHC 76% early stage, Manchester 80%). Symptom prompting alone raised consultations but has no stage evidence (CHEST Australia). See [Does inviting a risk group find lung cancer earlier?](#does-inviting-a-risk-group-find-lung-cancer-earlier)
+- Response rate assumption, and who does not answer (equity). Benchmarks: 44% TLHC uptake (34% in the most deprived quintile), and 25% for a postal symptom questionnaire (Wagland 2016, unverified).
+- County-level data: Cancer Registry figures and smoking prevalence. ~~The Syöpäjärjestöt report.~~ **Found 2026-11-14:** curative treatment by county is in [IDEAS.md](IDEAS.md#lung-cancer-quality-report-20192023-by-county-read-2026-11-14). Stage by county is not published because stage is missing for 47.7% of patients.
+- ~~THL 21/2016: where does the target-time clock start?~~ **Answered 2026-11-14:** at the referral arriving in specialist care. The numeric targets are still **unknown** because the PDF was not readable. See [THL guidance 21/2016](#thl-guidance-212016-where-the-clock-starts).
+- Health-centre access by county (7- and 14-day shares): **unknown.** THL's pages give national figures only. Next step: THL's reporting dashboard or Sotkanet.
+- Kuittinen lung cancer delay study: no publication found. Ask mentors whether it has data by first-contact route.
 - Working LLM API key and Vercel access.
 
 ## Start building with Claude Code or Codex
