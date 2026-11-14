@@ -3,6 +3,7 @@
 import { useCallback, useEffect, useState } from "react";
 import { notifyChange, useLiveVersion } from "@/components/LiveData";
 import { AnalysisCard, PRIORITY_BADGE } from "@/components/AnalysisCard";
+import { AssessmentCard } from "@/components/AssessmentCard";
 import { BookingBadge, BookingPanel } from "@/components/BookingPanel";
 import { EngagementBadge, PathwayCard } from "@/components/PathwayCard";
 import { formatSlot, TIER_LABEL } from "@/lib/booking";
@@ -40,6 +41,7 @@ export default function ClinicianPage() {
   const [selected, setSelected] = useState<string | null>(null);
   const [summary, setSummary] = useState<CaseSummary | null>(null);
   const [loadingSummary, setLoadingSummary] = useState(false);
+  const [assessVersion, setAssessVersion] = useState(0);
 
   const load = useCallback(async () => {
     const res = await fetch("/api/worklist", { cache: "no-store" });
@@ -160,6 +162,8 @@ export default function ClinicianPage() {
                 <p className="mt-1 whitespace-pre-line">{loadingSummary ? "Tiivistetään…" : summary?.summary}</p>
               </div>
 
+              <AssessmentCard id={item.response.id} version={assessVersion} />
+
               {(item.booking || item.queued) && (
                 <div className={`rounded border p-3 ${item.booking ? "border-emerald-200 bg-emerald-50" : "border-rose-200 bg-rose-50"}`}>
                   <p className="font-semibold">
@@ -180,7 +184,13 @@ export default function ClinicianPage() {
                 </div>
               )}
 
-              <AnalysisCard id={item.response.id} onAnswered={() => open(item.response.id)} />
+              <AnalysisCard
+                id={item.response.id}
+                onAnswered={() => {
+                  open(item.response.id);
+                  setAssessVersion((v) => v + 1);
+                }}
+              />
 
               <div>
                 <p className="font-semibold">Perustelut (henkilön omat vastaukset)</p>

@@ -3,7 +3,7 @@
 import { useState } from "react";
 import { AnalysisCard } from "@/components/AnalysisCard";
 import { notifyChange } from "@/components/LiveData";
-import { PLACEMENT_LABEL } from "@/lib/rules";
+import { PLACEMENT_LABEL, RULES_CONFIG } from "@/lib/rules";
 import type { Channel, RuleResult } from "@/lib/types";
 
 const RESPONDENT_MESSAGE: Record<RuleResult["placement"], string> = {
@@ -24,6 +24,16 @@ const SYMPTOMS: { key: string; label: string }[] = [
   { key: "chest_pain", label: "Rintakipua" },
   { key: "weight_loss", label: "Laihtumista ilman yritystä" },
 ];
+
+/** Which survey risk-group criteria (Delun's RULES_CONFIG) the answer misses. Display only. */
+function riskGroupGaps(age: number, smoking: "current" | "former" | "never", packYears: number): string[] {
+  const c = RULES_CONFIG;
+  const gaps: string[] = [];
+  if (age < c.minAge || age > c.maxAge) gaps.push(`ikä ${age} v (raja ${c.minAge}–${c.maxAge})`);
+  if (smoking === "never") gaps.push("ei ole tupakoinut");
+  else if (packYears < c.minPackYears) gaps.push(`${packYears} askivuotta (raja ${c.minPackYears})`);
+  return gaps;
+}
 
 const NURSE_MESSAGE: Record<RuleResult["placement"], string> = {
   direct_ct: "Hälytysmerkki täyttyy. Potilas nousee lääkärin listalle, joka arvioi TT-lähetteen tarpeen.",
@@ -150,7 +160,13 @@ export default function SurveyPage() {
             )}
             <div className="rounded bg-slate-100 p-3 text-left text-xs text-slate-600">
               <p className="font-semibold">Demo: sääntöjen tulos (ei näy vastaajalle)</p>
-              <p>Ehdotus: {PLACEMENT_LABEL[result.placement]}</p>
+              <p>
+                Ehdotus:{" "}
+                {result.symptomReviewRequired && result.placement === "not_eligible"
+                  ? "Oireet ammattilaisen arvioon (seulontakyselyn riskiraja ei täyty)"
+                  : PLACEMENT_LABEL[result.placement]}
+              </p>
+              {!result.eligible && <p>Riskiraja: {riskGroupGaps(age, smoking, packYears).join(", ")}</p>}
               <p>Hälytysmerkit: {result.reasons.map((r) => r.label).join(", ") || "ei"}</p>
             </div>
             {responseId && (result.symptomReviewRequired || result.placement !== "not_eligible") && (
