@@ -1,6 +1,6 @@
 import { NextResponse } from "next/server";
 import { QUESTION_BANK } from "@/lib/analysis";
-import { findResponse, store } from "@/lib/store";
+import { findResponse, markChanged, store } from "@/lib/store";
 
 export const dynamic = "force-dynamic";
 
@@ -16,5 +16,6 @@ export async function POST(request: Request) {
   }
   store.followups[id] = { ...(store.followups[id] ?? {}), ...clean };
   delete store.summaries[id];
+  markChanged("followup", `Jatkokysymyksiin vastattu: ${id}`, id);
   return NextResponse.json({ id, answers: store.followups[id] });
 }

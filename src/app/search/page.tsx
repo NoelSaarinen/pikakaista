@@ -1,8 +1,10 @@
 "use client";
 
 import { useEffect, useMemo, useState } from "react";
+import { useLiveVersion } from "@/components/LiveData";
 import { AnalysisCard, PRIORITY_BADGE } from "@/components/AnalysisCard";
 import { BookingBadge } from "@/components/BookingPanel";
+import { NewAnswers } from "@/components/NewAnswers";
 import { EngagementBadge, PathwayCard } from "@/components/PathwayCard";
 import { ENGAGEMENT_LABEL, STAGE_LABEL, STAGE_ORDER, type Engagement, type PathwayStage } from "@/lib/pathway";
 import { formatRisk, PRIORITY_LEVEL_LABEL, type RiskPriority } from "@/lib/priority";
@@ -52,6 +54,7 @@ export default function SearchPage() {
   const [selected, setSelected] = useState<string | null>(null);
   const set = <K extends keyof PatientFilters>(key: K, value: PatientFilters[K]) => setF((prev) => ({ ...prev, [key]: value }));
 
+  const version = useLiveVersion();
   useEffect(() => {
     let cancelled = false;
     fetch("/api/patients", { cache: "no-store" })
@@ -62,7 +65,7 @@ export default function SearchPage() {
     return () => {
       cancelled = true;
     };
-  }, []);
+  }, [version]);
 
   const results = useMemo(() => (items ? searchPatients(items, f) : []), [items, f]);
   const item = items?.find((x) => x.response.id === selected) ?? null;
@@ -77,6 +80,12 @@ export default function SearchPage() {
           Hae tunnuksella, oireella, omin sanoin kirjoitetulla tekstillä tai hoitopolun vaiheella, ja rajaa tuloksia suodattimilla. Kaikkien hakusanojen pitää löytyä. Esimerkiksi <q>yskä entinen</q> löytää entiset tupakoijat, joilla on yskää.
         </p>
       </div>
+
+      <NewAnswers
+        items={items}
+        onSelect={setSelected}
+        describe={(x) => `→ ${URGENCY_LABEL[urgencyOf(x.rule)]} · ${STAGE_LABEL[x.pathway.stage]}${x.priority.level === "not_applicable" ? "" : ` · PLCO ${formatRisk(x.priority.score)}`}`}
+      />
 
       <div className="space-y-3 rounded-lg border border-slate-200 bg-white p-3">
         <input
@@ -206,6 +215,7 @@ export default function SearchPage() {
                         <button type="button" className="text-left font-medium text-sky-800 hover:underline" onClick={() => setSelected(x.response.id)}>
                           {x.response.id} · {x.response.age} v
                         </button>
+                        {x.live && <span className="ml-1 rounded bg-emerald-100 px-1 text-xs text-emerald-800">uusi</span>}
                         <span className="block text-xs text-slate-500">
                           {SMOKING_LABEL[x.response.smoking.status]}
                           {x.response.smoking.status !== "never" && `, ${x.response.smoking.pack_years} askivuotta`}

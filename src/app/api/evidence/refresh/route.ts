@@ -1,6 +1,6 @@
 import { NextResponse } from "next/server";
 import { fetchNewEvidence } from "@/lib/literature/refresh";
-import { store } from "@/lib/store";
+import { markChanged, store } from "@/lib/store";
 
 export const dynamic = "force-dynamic";
 export const maxDuration = 120;
@@ -22,6 +22,7 @@ export async function POST(request: Request) {
     const result = await job;
     store.literature.evidence = rebuild ? result.added : [...result.added, ...store.literature.evidence];
     store.literature.lastRefresh = new Date().toISOString();
+    markChanged("evidence", `Kirjallisuus päivitetty: ${result.added.length} uutta artikkelia`);
     return NextResponse.json({
       checked: result.checked,
       added: result.added.length,

@@ -41,6 +41,22 @@ interface Store {
   followups: Record<string, Record<string, string>>;
   literature: LiteratureState;
   booking: BookingState;
+  /** Grows by one on every data change, so every open view knows to refresh. */
+  version: number;
+  /** Newest first, at most 20. */
+  events: LiveEvent[];
+}
+
+export type LiveEventType = "response" | "decision" | "followup" | "booking" | "booking_cancel" | "evidence";
+
+export interface LiveEvent {
+  version: number;
+  at: string;
+  type: LiveEventType;
+  /** Person id, when the change is about one person. */
+  id?: string;
+  /** Short Finnish description for the live indicator. */
+  text: string;
 }
 
 const EMPTY_BOOKING: BookingState = { regionId: "pirkanmaa", slotsOverride: null, bookings: {}, queue: [], cancelled: [], ranAt: null, slotsTotal: 0 };
@@ -56,12 +72,24 @@ export const store: Store = (globalStore.__fastLaneStore ??= {
   followups: {},
   literature: { evidence: snapshot.evidence, lastRefresh: snapshot.fetchedAt },
   booking: { ...EMPTY_BOOKING },
+  version: 0,
+  events: [],
 });
 // Stores created before these fields existed (dev hot reload) get them here.
 store.analyses ??= {};
 store.followups ??= {};
 store.literature ??= { evidence: snapshot.evidence, lastRefresh: snapshot.fetchedAt };
 store.booking ??= { ...EMPTY_BOOKING };
+store.version ??= 0;
+store.events ??= [];
+
+/** Records a data change. Every view polls the version and refreshes when it grows. */
+export function markChanged(type: LiveEventType, text: string, id?: string): LiveEvent {
+  store.version += 1;
+  const event: LiveEvent = { version: store.version, at: new Date().toISOString(), type, id, text };
+  store.events = [event, ...store.events].slice(0, 20);
+  return event;
+}
 
 export function allResponses(): SurveyResponse[] {
   return [...store.live, ...(synthetic as SurveyResponse[])];

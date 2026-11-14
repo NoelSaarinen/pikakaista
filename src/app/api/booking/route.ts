@@ -1,6 +1,6 @@
 import { NextResponse } from "next/server";
 import counties from "@/data/counties.json";
-import { regionSlotsPerWeek, runBooking, slotsPerWeek, store } from "@/lib/store";
+import { markChanged, regionSlotsPerWeek, runBooking, slotsPerWeek, store } from "@/lib/store";
 import type { County } from "@/lib/types";
 
 export const dynamic = "force-dynamic";
@@ -33,6 +33,7 @@ export async function POST(request: Request) {
   const body = (await request.json().catch(() => ({}))) as { regionId?: string; slotsOverride?: number | null };
   const regionId = (counties as County[]).some((c) => c.id === body.regionId) ? body.regionId! : store.booking.regionId;
   const override = body.slotsOverride === null || body.slotsOverride === undefined ? null : Math.min(500, Math.max(0, Math.round(Number(body.slotsOverride) || 0)));
-  runBooking(regionId, override);
+  const b = runBooking(regionId, override);
+  markChanged("booking", `Ajat varattu: ${Object.keys(b.bookings).length} varausta, ${b.queue.length} jonossa`);
   return NextResponse.json(state());
 }

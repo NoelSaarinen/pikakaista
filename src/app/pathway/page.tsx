@@ -1,9 +1,11 @@
 "use client";
 
 import { useEffect, useMemo, useState } from "react";
+import { useLiveVersion } from "@/components/LiveData";
 import { PRIORITY_BADGE } from "@/components/AnalysisCard";
 import { formatRisk } from "@/lib/priority";
 import { EngagementBadge, ENGAGEMENT_BADGE, PathwayCard } from "@/components/PathwayCard";
+import { NewAnswers } from "@/components/NewAnswers";
 import { ENGAGEMENT_LABEL, STAGE_LABEL, STAGE_ORDER, type Engagement, type PathwayStage } from "@/lib/pathway";
 import { PLACEMENT_LABEL } from "@/lib/rules";
 import type { WorklistItem } from "@/lib/store";
@@ -18,6 +20,7 @@ export default function PathwayPage() {
   const [query, setQuery] = useState("");
   const [selected, setSelected] = useState<string | null>(null);
 
+  const version = useLiveVersion();
   useEffect(() => {
     let cancelled = false;
     fetch("/api/patients", { cache: "no-store" })
@@ -28,7 +31,7 @@ export default function PathwayPage() {
     return () => {
       cancelled = true;
     };
-  }, []);
+  }, [version]);
 
   const engagementCounts = useMemo(() => {
     const c: Record<Engagement, number> = { engaged: 0, needs_support: 0, at_risk: 0 };
@@ -42,7 +45,8 @@ export default function PathwayPage() {
     return c;
   }, [items]);
 
-  // Fast-lane stages first and the least engaged first, so the nurse sees who needs a call.
+  // New answers given in the demo first, then fast-lane stages and the least engaged
+  // first, so the nurse sees who needs a call.
   const rows = useMemo(() => {
     const q = query.trim().toLowerCase();
     return (items ?? [])
@@ -51,6 +55,9 @@ export default function PathwayPage() {
       .filter((x) => !q || x.response.id.includes(q))
       .sort(
         (a, b) =>
+          (b.live ? 1 : 0) - (a.live ? 1 : 0) ||
+          // Newest demo answer first (ids are zero-padded, e.g. live-010 after live-009).
+          (a.live && b.live ? b.response.id.localeCompare(a.response.id) : 0) ||
           STAGE_ORDER.indexOf(a.pathway.stage) - STAGE_ORDER.indexOf(b.pathway.stage) ||
           ENGAGEMENT_RANK[a.pathway.engagement] - ENGAGEMENT_RANK[b.pathway.engagement] ||
           a.response.id.localeCompare(b.response.id),
@@ -68,6 +75,8 @@ export default function PathwayPage() {
           Jokaisen kyselyyn vastanneen sitoutuminen kyselyyn ja varattuihin käynteihin sekä nykyinen vaihe pikakaistalla. Suomessa ei vielä ole kansallista keuhkosyöpäseulontaa, joten sitoutuminen tarkoittaa tässä riskiryhmäkyselyä ja pikakaistaa. Kaikki tiedot ovat synteettisiä.
         </p>
       </div>
+
+      <NewAnswers items={items} onSelect={setSelected} describe={(x) => `→ ${STAGE_LABEL[x.pathway.stage]} · ${ENGAGEMENT_LABEL[x.pathway.engagement]}`} />
 
       {items && (
         <div className="grid gap-3 md:grid-cols-3">
@@ -152,6 +161,7 @@ export default function PathwayPage() {
                 >
                   <td className="px-3 py-2 font-medium">
                     {x.response.id} · {x.response.age} v
+                    {x.live && <span className="ml-1 rounded bg-emerald-100 px-1 text-xs font-normal text-emerald-800">uusi</span>}
                   </td>
                   <td className="px-3 py-2">
                     <EngagementBadge engagement={x.pathway.engagement} />

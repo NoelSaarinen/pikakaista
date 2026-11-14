@@ -1,6 +1,7 @@
 "use client";
 
 import { useEffect, useState } from "react";
+import { notifyChange } from "@/components/LiveData";
 import type { SurveyAnalysis } from "@/lib/analysis";
 import { formatRisk, IMPUTED_LABEL, PRIORITY_LEVEL_LABEL, type RiskPriority } from "@/lib/priority";
 
@@ -37,6 +38,7 @@ export function AnalysisCard({ id, onAnswered, compact = false, respondent = fal
   async function save() {
     await fetch("/api/followup", { method: "POST", headers: { "Content-Type": "application/json" }, body: JSON.stringify({ id, answers: draft }) });
     setSaved(true);
+    notifyChange();
     onAnswered?.();
   }
 

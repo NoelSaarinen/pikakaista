@@ -1,6 +1,7 @@
 "use client";
 
-import { useEffect, useState } from "react";
+import { useEffect, useRef, useState } from "react";
+import { notifyChange, useLiveVersion } from "@/components/LiveData";
 import { formatSlot, TIER_LABEL, type Booking, type QueueEntry } from "@/lib/booking";
 
 interface BookingState {
@@ -22,7 +23,11 @@ export function BookingPanel({ onBooked }: { onBooked: () => void }) {
   const [regionId, setRegionId] = useState("pirkanmaa");
   const [override, setOverride] = useState("");
   const [busy, setBusy] = useState(false);
+  const version = useLiveVersion();
+  const formLoaded = useRef(false);
 
+  // Refresh the booking totals on every data change. The form (region, slots) is
+  // filled from the server only once, so a refresh never overwrites what the user typed.
   useEffect(() => {
     let cancelled = false;
     fetch("/api/booking", { cache: "no-store" })
@@ -30,13 +35,16 @@ export function BookingPanel({ onBooked }: { onBooked: () => void }) {
       .then((json: BookingState) => {
         if (cancelled) return;
         setS(json);
-        setRegionId(json.regionId);
-        setOverride(json.slotsOverride === null ? "" : String(json.slotsOverride));
+        if (!formLoaded.current) {
+          formLoaded.current = true;
+          setRegionId(json.regionId);
+          setOverride(json.slotsOverride === null ? "" : String(json.slotsOverride));
+        }
       });
     return () => {
       cancelled = true;
     };
-  }, []);
+  }, [version]);
 
   async function run() {
     setBusy(true);
@@ -47,6 +55,7 @@ export function BookingPanel({ onBooked }: { onBooked: () => void }) {
         body: JSON.stringify({ regionId, slotsOverride: override === "" ? null : Number(override) }),
       });
       setS(await res.json());
+      notifyChange();
       onBooked();
     } finally {
       setBusy(false);

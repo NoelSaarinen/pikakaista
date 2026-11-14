@@ -1,6 +1,7 @@
 "use client";
 
 import { useCallback, useEffect, useState } from "react";
+import { notifyChange, useLiveVersion } from "@/components/LiveData";
 import { AnalysisCard, PRIORITY_BADGE } from "@/components/AnalysisCard";
 import { BookingBadge, BookingPanel } from "@/components/BookingPanel";
 import { EngagementBadge, PathwayCard } from "@/components/PathwayCard";
@@ -45,6 +46,7 @@ export default function ClinicianPage() {
     setData(await res.json());
   }, []);
 
+  const version = useLiveVersion();
   useEffect(() => {
     let cancelled = false;
     fetch("/api/worklist", { cache: "no-store" })
@@ -55,7 +57,7 @@ export default function ClinicianPage() {
     return () => {
       cancelled = true;
     };
-  }, []);
+  }, [version]);
 
   async function open(id: string) {
     setSelected(id);
@@ -71,12 +73,14 @@ export default function ClinicianPage() {
 
   async function cancelBooking(id: string) {
     await fetch("/api/booking/cancel", { method: "POST", headers: { "Content-Type": "application/json" }, body: JSON.stringify({ id }) });
+    notifyChange();
     await load();
   }
 
   async function decide(placement: Placement) {
     if (!selected) return;
     await fetch("/api/decision", { method: "POST", headers: { "Content-Type": "application/json" }, body: JSON.stringify({ id: selected, placement }) });
+    notifyChange();
     await load();
   }
 

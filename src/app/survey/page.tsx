@@ -2,6 +2,7 @@
 
 import { useState } from "react";
 import { AnalysisCard } from "@/components/AnalysisCard";
+import { notifyChange } from "@/components/LiveData";
 import { PLACEMENT_LABEL } from "@/lib/rules";
 import type { Channel, RuleResult } from "@/lib/types";
 
@@ -88,6 +89,8 @@ export default function SurveyPage() {
       const data = await res.json();
       setResult(data.rule);
       setResponseId(data.response.id);
+      // Tell the other open views in this browser right away (others refresh on the next poll).
+      notifyChange();
     } finally {
       setSending(false);
     }

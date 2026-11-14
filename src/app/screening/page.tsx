@@ -1,7 +1,9 @@
 "use client";
 
 import { useEffect, useMemo, useState } from "react";
+import { useLiveVersion } from "@/components/LiveData";
 import { PRIORITY_BADGE } from "@/components/AnalysisCard";
+import { NewAnswers } from "@/components/NewAnswers";
 import { formatRisk, IMPUTED_LABEL } from "@/lib/priority";
 import {
   DEFAULT_SCREENING,
@@ -32,6 +34,7 @@ export default function ScreeningPage() {
   const [showAll, setShowAll] = useState(false);
   const [selected, setSelected] = useState<string | null>(null);
 
+  const version = useLiveVersion();
   useEffect(() => {
     let cancelled = false;
     fetch("/api/patients", { cache: "no-store" })
@@ -42,7 +45,7 @@ export default function ScreeningPage() {
     return () => {
       cancelled = true;
     };
-  }, []);
+  }, [version]);
 
   const summary = useMemo(() => (people ? screeningList(people, settings) : null), [people, settings]);
   const rows = summary?.rows.filter((r) => showAll || r.status === "invite" || r.status === "waiting" || r.status === "below_threshold") ?? [];
@@ -58,6 +61,19 @@ export default function ScreeningPage() {
           tupakoineet järjestetään PLCOm2012-mallin tutkimukseen perustuvien riskitekijöiden mukaan, suurin riski ensin. Oletuksena ikä ei vaikuta järjestykseen. Kutsuja tehdään listan kärjestä niin monta kuin seulonnan TT-kapasiteetti sallii.
         </p>
       </div>
+
+      <NewAnswers
+        items={people as (ScreeningPerson & { live?: boolean })[] | null}
+        onSelect={setSelected}
+        describe={(x) => {
+          const r = summary?.rows.find((y) => y.person.response.id === x.response.id);
+          if (!r) return "";
+          if (r.status === "invite") return `→ Kutsutaan viikolla ${r.inviteWeek} (sija ${r.rank})`;
+          if (r.status === "waiting") return `→ Odottaa kutsua (sija ${r.rank})`;
+          if (r.status === "symptomatic") return "→ Oireita: ei seulontalistalla, vaan lääkärin listalla (porras 1)";
+          return `→ ${SCREENING_STATUS_LABEL[r.status]}`;
+        }}
+      />
 
       <section className="rounded-lg border border-sky-200 bg-sky-50 p-3 text-xs text-sky-900">
         <p className="font-semibold">Mihin järjestys perustuu</p>
@@ -213,6 +229,7 @@ export default function ScreeningPage() {
                       <button type="button" onClick={() => setSelected(p.response.id)} className="text-left font-medium text-sky-800 hover:underline">
                         {p.response.id} · {p.response.age} v
                       </button>
+                      {(p as ScreeningPerson & { live?: boolean }).live && <span className="ml-1 rounded bg-emerald-100 px-1 text-xs text-emerald-800">uusi</span>}
                       <span className="block text-xs text-slate-500">
                         {SMOKING_LABEL[p.response.smoking.status]}
                         {p.response.smoking.status !== "never" && `, ${p.response.smoking.pack_years} askivuotta`}

@@ -1,7 +1,7 @@
 import { NextResponse } from "next/server";
 import { PLCO_RACE } from "@/lib/plco";
 import { evaluate } from "@/lib/rules";
-import { bookNewAnswer, store } from "@/lib/store";
+import { bookNewAnswer, markChanged, store } from "@/lib/store";
 import type { PlcoInputs, PlcoRace, SmokingStatus, SurveyResponse } from "@/lib/types";
 
 export const dynamic = "force-dynamic";
@@ -73,5 +73,6 @@ export async function POST(request: Request) {
   store.live.unshift(response);
   // After a booking run, a new high-risk answer gets the next free simulated slot.
   const booking = bookNewAnswer(response.id);
+  markChanged("response", `Uusi kyselyvastaus ${response.id}${booking ? ", lääkäriaika varattu" : ""}`, response.id);
   return NextResponse.json({ response, rule: evaluate(response), booking });
 }
