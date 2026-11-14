@@ -1,0 +1,65 @@
+[
+  {
+    "id": "strategy",
+    "title": "Kansallinen syöpästrategia 2026–2035",
+    "url": "https://files.hackjunction.app/resources/Kansallinen_syopastrategia_2026_2035_FINAL.pdf",
+    "retrieved": "2026-11-13",
+    "note": "Goal 3 indicators p. 5. About a third of patients are of working age p. 6. Symptom-to-diagnosis time is not collected p. 30."
+  },
+  {
+    "id": "roadmap",
+    "title": "Kansallisen syöpästrategian toimeenpanon tiekartta 2026–2031",
+    "url": "https://files.hackjunction.app/resources/Kansallinen_syopastrategia_toimeenpanon_tiekartta_2026_2031.pdf",
+    "retrieved": "2026-11-13",
+    "note": "Public versus private route p. 11. Lung cancer screening pilot pp. 45–46. Standardized referral criteria pp. 52–53."
+  },
+  {
+    "id": "filha-2026",
+    "title": "Valtakunnallinen keuhkosyöpäohjelma 2026–2035 (preprint)",
+    "url": "https://www.filha.fi/wp-content/uploads/2026/05/Valtakunnallinen-keuhkosyopaohjelma-2026-2035_180526_preprint.pdf",
+    "retrieved": "2026-11-13",
+    "note": "About 65–70% of lung cancers are found after spreading. Typical symptoms and stigma pp. 2–4 and 15–16."
+  },
+  {
+    "id": "uh-acta-2025",
+    "title": "Khalife et al. Comparative study of lung cancer care and survival outcomes across the Nordic countries. Acta Oncologica 2025;64:734–741",
+    "url": "https://doi.org/10.2340/1651-226X.2025.42778",
+    "retrieved": "2026-11-13",
+    "note": "Via University of Helsinki news, 7 Nov 2025: about two weeks to a primary-care appointment in Finland versus usually under one week elsewhere in the Nordics."
+  },
+  {
+    "id": "jensen-2017",
+    "title": "Jensen et al. 2017, BMC Cancer: Danish cancer patient pathways",
+    "url": "https://doaj.org/article/15ccea42331548b1b43b87ac43ae986c",
+    "retrieved": "2026-11-14",
+    "note": "Fast-track referral with hospital assessment within three days. Survival improvement may partly reflect lead-time and selection bias."
+  },
+  {
+    "id": "guldbrandt",
+    "title": "Guldbrandt et al., BMC Health Services Research: lung cancer and the Danish fast track",
+    "url": "https://www.ncbi.nlm.nih.gov/pmc/articles/PMC4307896/",
+    "retrieved": "2026-11-14",
+    "note": "In 2010 only 27.4% of lung cancer patients were referred from the GP to the fast track."
+  },
+  {
+    "id": "pfizer-2025",
+    "title": "Pfizer and Suomen Syöpäpotilaat ry: lung cancer patient survey, 25 Nov 2025",
+    "url": "https://www.pfizer.fi/ajankohtaista/tiedotteet/keuhkosyopapotilaiden-hoitopolku-kaipaa-parannuksia-%E2%80%93-hoidon-viiveet-ja-tiedon-puute-huolestuttavat",
+    "retrieved": "2026-11-14",
+    "note": "n = 71, self-selected, 82% women, pharma-funded. 33% saw a doctor over a month after symptoms began. For about a third, symptoms were first treated as another illness."
+  },
+  {
+    "id": "assumption",
+    "title": "Team assumption",
+    "url": "",
+    "retrieved": "2026-11-14",
+    "note": "No source yet. Shown as an adjustable slider."
+  },
+  {
+    "id": "mock",
+    "title": "Placeholder value",
+    "url": "",
+    "retrieved": "2026-11-14",
+    "note": "Not real data. Replace with public data before the pitch."
+  }
+]

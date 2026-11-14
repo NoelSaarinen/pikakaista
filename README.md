@@ -4,6 +4,38 @@ JYNKKARIT JUNCTION’s private development workspace and shared knowledge base f
 
 **First team task** [TODO before hacking](docs/TODO_BEFORE_HACKING.md) covers team setup, challenge briefs, hardware, software and submission checks.
 
+## Run the demo
+
+Lung cancer fast-lane demo for AstraZeneca's *Equal Care Across Finland*. It uses synthetic data only. It needs Node.js 20 or later.
+
+```sh
+npm install
+npm run dev
+```
+
+Open http://localhost:3000. The demo has three views:
+
+| View | Path | What it shows |
+| --- | --- | --- |
+| Decision-maker | `/county` | The Two Doors gap, the fast lane and the benefit analysis with sources and adjustable assumptions, plus an AI brief. A toggle switches between **Kaksi ovea** (health-centre fast lane only) and **Kaksi ovea + kysely** (the same fast lane plus the risk-group survey). |
+| Survey | `/survey` | The risk-group survey, or the same questions as a nurse's checklist at a health-centre contact. |
+| Physician | `/clinician` | Rules put alarm signs on the list, AI summarizes each case and the physician decides. |
+
+AI features use the Claude API. Copy `.env.example` to `.env.local` and set `ANTHROPIC_API_KEY`. Never commit the key. Without a key, the demo uses deterministic template text, so it still runs offline.
+
+| Command | Purpose |
+| --- | --- |
+| `npm test` | Unit tests for the rules and the benefit analysis |
+| `npm run lint` | ESLint |
+| `npm run build` | Production build |
+| `npm run generate:synthetic` | Regenerate the 200 synthetic survey answers in `src/data/synthetic/` |
+
+Where things live:
+- **Rules:** [src/lib/rules.ts](src/lib/rules.ts). Alarm thresholds are team assumptions and need medical review.
+- **Simulation:** [src/lib/simulation.ts](src/lib/simulation.ts). Every parameter has a source or is labelled as an assumption.
+- **Data:** [src/data/counties.json](src/data/counties.json). County figures are `mock` placeholders until they are replaced with public data. Sources are in [src/data/sources.json](src/data/sources.json).
+- **AI:** [src/lib/llm.ts](src/lib/llm.ts), [src/lib/summarize.ts](src/lib/summarize.ts) and [src/lib/brief.ts](src/lib/brief.ts). Code computes every number. AI only writes text.
+
 ## Get started
 
 1. Accept the GitHub collaborator invitation. Owners can send one from **Settings → Collaborators → Add people**. [GitHub instructions](https://docs.github.com/en/repositories/managing-your-repositorys-settings-and-features/repository-access-and-collaboration/inviting-collaborators-to-a-personal-repository)

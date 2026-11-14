@@ -1,0 +1,4301 @@
+[
+  {
+    "id": "p-0001",
+    "age": 66,
+    "language": "fi",
+    "smoking": {
+      "status": "former",
+      "pack_years": 39
+    },
+    "symptoms": {
+      "cough_weeks": 0,
+      "blood_in_sputum": false,
+      "weight_loss": false,
+      "breathlessness": true,
+      "chest_pain": false,
+      "pneumonias_last_year": 0
+    },
+    "previous_visits": [],
+    "channel": "survey",
+    "synthetic": true,
+    "free_text": "Hengästyn portaissa enemmän kuin ennen."
+  },
+  {
+    "id": "p-0002",
+    "age": 61,
+    "language": "fi",
+    "smoking": {
+      "status": "former",
+      "pack_years": 36
+    },
+    "symptoms": {
+      "cough_weeks": 0,
+      "blood_in_sputum": false,
+      "weight_loss": false,
+      "breathlessness": false,
+      "chest_pain": false,
+      "pneumonias_last_year": 0
+    },
+    "previous_visits": [],
+    "channel": "survey",
+    "synthetic": true
+  },
+  {
+    "id": "p-0003",
+    "age": 60,
+    "language": "sv",
+    "smoking": {
+      "status": "former",
+      "pack_years": 21
+    },
+    "symptoms": {
+      "cough_weeks": 7,
+      "blood_in_sputum": false,
+      "weight_loss": false,
+      "breathlessness": true,
+      "chest_pain": false,
+      "pneumonias_last_year": 0
+    },
+    "previous_visits": [],
+    "channel": "health_centre",
+    "synthetic": true,
+    "free_text": "Jag blir andfådd lättare än förut."
+  },
+  {
+    "id": "p-0004",
+    "age": 56,
+    "language": "fi",
+    "smoking": {
+      "status": "former",
+      "pack_years": 20
+    },
+    "symptoms": {
+      "cough_weeks": 0,
+      "blood_in_sputum": false,
+      "weight_loss": false,
+      "breathlessness": false,
+      "chest_pain": false,
+      "pneumonias_last_year": 0
+    },
+    "previous_visits": [],
+    "channel": "survey",
+    "synthetic": true
+  },
+  {
+    "id": "p-0005",
+    "age": 77,
+    "language": "fi",
+    "smoking": {
+      "status": "former",
+      "pack_years": 59
+    },
+    "symptoms": {
+      "cough_weeks": 5,
+      "blood_in_sputum": true,
+      "weight_loss": false,
+      "breathlessness": false,
+      "chest_pain": true,
+      "pneumonias_last_year": 2
+    },
+    "previous_visits": [
+      {
+        "months_ago": 4,
+        "reason": "astma"
+      }
+    ],
+    "channel": "survey",
+    "synthetic": true,
+    "free_text": "Astmalääke ei auttanut yskään."
+  },
+  {
+    "id": "p-0006",
+    "age": 72,
+    "language": "fi",
+    "smoking": {
+      "status": "current",
+      "pack_years": 38
+    },
+    "symptoms": {
+      "cough_weeks": 15,
+      "blood_in_sputum": false,
+      "weight_loss": false,
+      "breathlessness": false,
+      "chest_pain": true,
+      "pneumonias_last_year": 0
+    },
+    "previous_visits": [],
+    "channel": "survey",
+    "synthetic": true
+  },
+  {
+    "id": "p-0007",
+    "age": 50,
+    "language": "fi",
+    "smoking": {
+      "status": "former",
+      "pack_years": 56
+    },
+    "symptoms": {
+      "cough_weeks": 2,
+      "blood_in_sputum": false,
+      "weight_loss": false,
+      "breathlessness": false,
+      "chest_pain": false,
+      "pneumonias_last_year": 0
+    },
+    "previous_visits": [],
+    "channel": "survey",
+    "synthetic": true,
+    "free_text": "Laihduin vaikka en yrittänyt."
+  },
+  {
+    "id": "p-0008",
+    "age": 83,
+    "language": "fi",
+    "smoking": {
+      "status": "never",
+      "pack_years": 0
+    },
+    "symptoms": {
+      "cough_weeks": 0,
+      "blood_in_sputum": false,
+      "weight_loss": false,
+      "breathlessness": false,
+      "chest_pain": false,
+      "pneumonias_last_year": 0
+    },
+    "previous_visits": [],
+    "channel": "survey",
+    "synthetic": true
+  },
+  {
+    "id": "p-0009",
+    "age": 52,
+    "language": "fi",
+    "smoking": {
+      "status": "current",
+      "pack_years": 56
+    },
+    "symptoms": {
+      "cough_weeks": 0,
+      "blood_in_sputum": false,
+      "weight_loss": false,
+      "breathlessness": false,
+      "chest_pain": false,
+      "pneumonias_last_year": 0
+    },
+    "previous_visits": [
+      {
+        "months_ago": 12,
+        "reason": "yskä"
+      }
+    ],
+    "channel": "survey",
+    "synthetic": true
+  },
+  {
+    "id": "p-0010",
+    "age": 85,
+    "language": "fi",
+    "smoking": {
+      "status": "never",
+      "pack_years": 0
+    },
+    "symptoms": {
+      "cough_weeks": 0,
+      "blood_in_sputum": false,
+      "weight_loss": false,
+      "breathlessness": false,
+      "chest_pain": true,
+      "pneumonias_last_year": 0
+    },
+    "previous_visits": [],
+    "channel": "survey",
+    "synthetic": true
+  },
+  {
+    "id": "p-0011",
+    "age": 63,
+    "language": "fi",
+    "smoking": {
+      "status": "former",
+      "pack_years": 42
+    },
+    "symptoms": {
+      "cough_weeks": 0,
+      "blood_in_sputum": false,
+      "weight_loss": false,
+      "breathlessness": true,
+      "chest_pain": false,
+      "pneumonias_last_year": 0
+    },
+    "previous_visits": [],
+    "channel": "survey",
+    "synthetic": true,
+    "free_text": "Hengästyn portaissa enemmän kuin ennen."
+  },
+  {
+    "id": "p-0012",
+    "age": 62,
+    "language": "fi",
+    "smoking": {
+      "status": "never",
+      "pack_years": 0
+    },
+    "symptoms": {
+      "cough_weeks": 1,
+      "blood_in_sputum": false,
+      "weight_loss": false,
+      "breathlessness": false,
+      "chest_pain": false,
+      "pneumonias_last_year": 0
+    },
+    "previous_visits": [],
+    "channel": "survey",
+    "synthetic": true
+  },
+  {
+    "id": "p-0013",
+    "age": 83,
+    "language": "fi",
+    "smoking": {
+      "status": "former",
+      "pack_years": 14
+    },
+    "symptoms": {
+      "cough_weeks": 0,
+      "blood_in_sputum": false,
+      "weight_loss": false,
+      "breathlessness": false,
+      "chest_pain": false,
+      "pneumonias_last_year": 0
+    },
+    "previous_visits": [],
+    "channel": "survey",
+    "synthetic": true
+  },
+  {
+    "id": "p-0014",
+    "age": 77,
+    "language": "fi",
+    "smoking": {
+      "status": "former",
+      "pack_years": 13
+    },
+    "symptoms": {
+      "cough_weeks": 1,
+      "blood_in_sputum": false,
+      "weight_loss": false,
+      "breathlessness": true,
+      "chest_pain": false,
+      "pneumonias_last_year": 0
+    },
+    "previous_visits": [
+      {
+        "months_ago": 8,
+        "reason": "yskä"
+      }
+    ],
+    "channel": "survey",
+    "synthetic": true
+  },
+  {
+    "id": "p-0015",
+    "age": 52,
+    "language": "fi",
+    "smoking": {
+      "status": "current",
+      "pack_years": 32
+    },
+    "symptoms": {
+      "cough_weeks": 0,
+      "blood_in_sputum": false,
+      "weight_loss": false,
+      "breathlessness": true,
+      "chest_pain": false,
+      "pneumonias_last_year": 0
+    },
+    "previous_visits": [],
+    "channel": "survey",
+    "synthetic": true
+  },
+  {
+    "id": "p-0016",
+    "age": 61,
+    "language": "fi",
+    "smoking": {
+      "status": "former",
+      "pack_years": 12
+    },
+    "symptoms": {
+      "cough_weeks": 0,
+      "blood_in_sputum": false,
+      "weight_loss": false,
+      "breathlessness": false,
+      "chest_pain": false,
+      "pneumonias_last_year": 0
+    },
+    "previous_visits": [],
+    "channel": "survey",
+    "synthetic": true
+  },
+  {
+    "id": "p-0017",
+    "age": 84,
+    "language": "sv",
+    "smoking": {
+      "status": "current",
+      "pack_years": 46
+    },
+    "symptoms": {
+      "cough_weeks": 0,
+      "blood_in_sputum": false,
+      "weight_loss": false,
+      "breathlessness": false,
+      "chest_pain": false,
+      "pneumonias_last_year": 0
+    },
+    "previous_visits": [],
+    "channel": "survey",
+    "synthetic": true
+  },
+  {
+    "id": "p-0018",
+    "age": 83,
+    "language": "fi",
+    "smoking": {
+      "status": "current",
+      "pack_years": 43
+    },
+    "symptoms": {
+      "cough_weeks": 0,
+      "blood_in_sputum": false,
+      "weight_loss": false,
+      "breathlessness": false,
+      "chest_pain": false,
+      "pneumonias_last_year": 0
+    },
+    "previous_visits": [],
+    "channel": "survey",
+    "synthetic": true
+  },
+  {
+    "id": "p-0019",
+    "age": 58,
+    "language": "fi",
+    "smoking": {
+      "status": "current",
+      "pack_years": 33
+    },
+    "symptoms": {
+      "cough_weeks": 0,
+      "blood_in_sputum": false,
+      "weight_loss": false,
+      "breathlessness": false,
+      "chest_pain": false,
+      "pneumonias_last_year": 0
+    },
+    "previous_visits": [],
+    "channel": "survey",
+    "synthetic": true
+  },
+  {
+    "id": "p-0020",
+    "age": 82,
+    "language": "sv",
+    "smoking": {
+      "status": "former",
+      "pack_years": 59
+    },
+    "symptoms": {
+      "cough_weeks": 0,
+      "blood_in_sputum": false,
+      "weight_loss": false,
+      "breathlessness": false,
+      "chest_pain": false,
+      "pneumonias_last_year": 0
+    },
+    "previous_visits": [
+      {
+        "months_ago": 11,
+        "reason": "astma"
+      }
+    ],
+    "channel": "survey",
+    "synthetic": true
+  },
+  {
+    "id": "p-0021",
+    "age": 71,
+    "language": "fi",
+    "smoking": {
+      "status": "current",
+      "pack_years": 38
+    },
+    "symptoms": {
+      "cough_weeks": 0,
+      "blood_in_sputum": false,
+      "weight_loss": false,
+      "breathlessness": false,
+      "chest_pain": false,
+      "pneumonias_last_year": 0
+    },
+    "previous_visits": [],
+    "channel": "survey",
+    "synthetic": true
+  },
+  {
+    "id": "p-0022",
+    "age": 56,
+    "language": "fi",
+    "smoking": {
+      "status": "current",
+      "pack_years": 8
+    },
+    "symptoms": {
+      "cough_weeks": 0,
+      "blood_in_sputum": false,
+      "weight_loss": false,
+      "breathlessness": false,
+      "chest_pain": false,
+      "pneumonias_last_year": 0
+    },
+    "previous_visits": [
+      {
+        "months_ago": 8,
+        "reason": "astma"
+      }
+    ],
+    "channel": "survey",
+    "synthetic": true,
+    "free_text": "Yskä ei ole mennyt ohi flunssan jälkeen."
+  },
+  {
+    "id": "p-0023",
+    "age": 66,
+    "language": "fi",
+    "smoking": {
+      "status": "former",
+      "pack_years": 32
+    },
+    "symptoms": {
+      "cough_weeks": 0,
+      "blood_in_sputum": false,
+      "weight_loss": false,
+      "breathlessness": false,
+      "chest_pain": false,
+      "pneumonias_last_year": 0
+    },
+    "previous_visits": [],
+    "channel": "survey",
+    "synthetic": true,
+    "free_text": "Yskä ei ole mennyt ohi flunssan jälkeen."
+  },
+  {
+    "id": "p-0024",
+    "age": 74,
+    "language": "fi",
+    "smoking": {
+      "status": "current",
+      "pack_years": 38
+    },
+    "symptoms": {
+      "cough_weeks": 4,
+      "blood_in_sputum": false,
+      "weight_loss": false,
+      "breathlessness": false,
+      "chest_pain": false,
+      "pneumonias_last_year": 0
+    },
+    "previous_visits": [],
+    "channel": "survey",
+    "synthetic": true
+  },
+  {
+    "id": "p-0025",
+    "age": 72,
+    "language": "sv",
+    "smoking": {
+      "status": "current",
+      "pack_years": 52
+    },
+    "symptoms": {
+      "cough_weeks": 0,
+      "blood_in_sputum": false,
+      "weight_loss": false,
+      "breathlessness": false,
+      "chest_pain": false,
+      "pneumonias_last_year": 1
+    },
+    "previous_visits": [],
+    "channel": "survey",
+    "synthetic": true
+  },
+  {
+    "id": "p-0026",
+    "age": 77,
+    "language": "fi",
+    "smoking": {
+      "status": "current",
+      "pack_years": 60
+    },
+    "symptoms": {
+      "cough_weeks": 0,
+      "blood_in_sputum": false,
+      "weight_loss": false,
+      "breathlessness": false,
+      "chest_pain": false,
+      "pneumonias_last_year": 0
+    },
+    "previous_visits": [],
+    "channel": "survey",
+    "synthetic": true,
+    "free_text": "Yskä ei ole mennyt ohi flunssan jälkeen."
+  },
+  {
+    "id": "p-0027",
+    "age": 64,
+    "language": "fi",
+    "smoking": {
+      "status": "current",
+      "pack_years": 33
+    },
+    "symptoms": {
+      "cough_weeks": 9,
+      "blood_in_sputum": true,
+      "weight_loss": false,
+      "breathlessness": true,
+      "chest_pain": false,
+      "pneumonias_last_year": 1
+    },
+    "previous_visits": [
+      {
+        "months_ago": 2,
+        "reason": "keuhkokuume"
+      }
+    ],
+    "channel": "survey",
+    "synthetic": true,
+    "free_text": "Astmalääke ei auttanut yskään."
+  },
+  {
+    "id": "p-0028",
+    "age": 83,
+    "language": "fi",
+    "smoking": {
+      "status": "never",
+      "pack_years": 0
+    },
+    "symptoms": {
+      "cough_weeks": 5,
+      "blood_in_sputum": false,
+      "weight_loss": false,
+      "breathlessness": false,
+      "chest_pain": true,
+      "pneumonias_last_year": 0
+    },
+    "previous_visits": [
+      {
+        "months_ago": 1,
+        "reason": "flunssa"
+      }
+    ],
+    "channel": "survey",
+    "synthetic": true
+  },
+  {
+    "id": "p-0029",
+    "age": 71,
+    "language": "fi",
+    "smoking": {
+      "status": "former",
+      "pack_years": 28
+    },
+    "symptoms": {
+      "cough_weeks": 0,
+      "blood_in_sputum": false,
+      "weight_loss": false,
+      "breathlessness": true,
+      "chest_pain": false,
+      "pneumonias_last_year": 0
+    },
+    "previous_visits": [],
+    "channel": "survey",
+    "synthetic": true
+  },
+  {
+    "id": "p-0030",
+    "age": 82,
+    "language": "fi",
+    "smoking": {
+      "status": "current",
+      "pack_years": 52
+    },
+    "symptoms": {
+      "cough_weeks": 2,
+      "blood_in_sputum": true,
+      "weight_loss": false,
+      "breathlessness": false,
+      "chest_pain": false,
+      "pneumonias_last_year": 0
+    },
+    "previous_visits": [],
+    "channel": "survey",
+    "synthetic": true
+  },
+  {
+    "id": "p-0031",
+    "age": 60,
+    "language": "fi",
+    "smoking": {
+      "status": "former",
+      "pack_years": 37
+    },
+    "symptoms": {
+      "cough_weeks": 0,
+      "blood_in_sputum": false,
+      "weight_loss": false,
+      "breathlessness": false,
+      "chest_pain": false,
+      "pneumonias_last_year": 0
+    },
+    "previous_visits": [],
+    "channel": "survey",
+    "synthetic": true,
+    "free_text": "Hengästyn portaissa enemmän kuin ennen."
+  },
+  {
+    "id": "p-0032",
+    "age": 53,
+    "language": "fi",
+    "smoking": {
+      "status": "former",
+      "pack_years": 21
+    },
+    "symptoms": {
+      "cough_weeks": 0,
+      "blood_in_sputum": false,
+      "weight_loss": false,
+      "breathlessness": false,
+      "chest_pain": false,
+      "pneumonias_last_year": 0
+    },
+    "previous_visits": [],
+    "channel": "survey",
+    "synthetic": true
+  },
+  {
+    "id": "p-0033",
+    "age": 64,
+    "language": "fi",
+    "smoking": {
+      "status": "current",
+      "pack_years": 40
+    },
+    "symptoms": {
+      "cough_weeks": 0,
+      "blood_in_sputum": false,
+      "weight_loss": false,
+      "breathlessness": false,
+      "chest_pain": false,
+      "pneumonias_last_year": 0
+    },
+    "previous_visits": [
+      {
+        "months_ago": 12,
+        "reason": "yskä"
+      }
+    ],
+    "channel": "survey",
+    "synthetic": true
+  },
+  {
+    "id": "p-0034",
+    "age": 57,
+    "language": "en",
+    "smoking": {
+      "status": "current",
+      "pack_years": 10
+    },
+    "symptoms": {
+      "cough_weeks": 0,
+      "blood_in_sputum": false,
+      "weight_loss": false,
+      "breathlessness": false,
+      "chest_pain": false,
+      "pneumonias_last_year": 0
+    },
+    "previous_visits": [],
+    "channel": "survey",
+    "synthetic": true
+  },
+  {
+    "id": "p-0035",
+    "age": 68,
+    "language": "fi",
+    "smoking": {
+      "status": "current",
+      "pack_years": 40
+    },
+    "symptoms": {
+      "cough_weeks": 0,
+      "blood_in_sputum": false,
+      "weight_loss": false,
+      "breathlessness": false,
+      "chest_pain": false,
+      "pneumonias_last_year": 0
+    },
+    "previous_visits": [
+      {
+        "months_ago": 8,
+        "reason": "flunssa"
+      }
+    ],
+    "channel": "survey",
+    "synthetic": true
+  },
+  {
+    "id": "p-0036",
+    "age": 82,
+    "language": "fi",
+    "smoking": {
+      "status": "former",
+      "pack_years": 8
+    },
+    "symptoms": {
+      "cough_weeks": 2,
+      "blood_in_sputum": false,
+      "weight_loss": false,
+      "breathlessness": false,
+      "chest_pain": false,
+      "pneumonias_last_year": 0
+    },
+    "previous_visits": [],
+    "channel": "survey",
+    "synthetic": true,
+    "free_text": "Aamuisin yskösissä oli vähän verta."
+  },
+  {
+    "id": "p-0037",
+    "age": 68,
+    "language": "fi",
+    "smoking": {
+      "status": "former",
+      "pack_years": 27
+    },
+    "symptoms": {
+      "cough_weeks": 0,
+      "blood_in_sputum": false,
+      "weight_loss": false,
+      "breathlessness": false,
+      "chest_pain": false,
+      "pneumonias_last_year": 0
+    },
+    "previous_visits": [
+      {
+        "months_ago": 12,
+        "reason": "keuhkokuume"
+      }
+    ],
+    "channel": "survey",
+    "synthetic": true
+  },
+  {
+    "id": "p-0038",
+    "age": 57,
+    "language": "fi",
+    "smoking": {
+      "status": "current",
+      "pack_years": 55
+    },
+    "symptoms": {
+      "cough_weeks": 0,
+      "blood_in_sputum": false,
+      "weight_loss": false,
+      "breathlessness": true,
+      "chest_pain": false,
+      "pneumonias_last_year": 0
+    },
+    "previous_visits": [],
+    "channel": "survey",
+    "synthetic": true
+  },
+  {
+    "id": "p-0039",
+    "age": 54,
+    "language": "fi",
+    "smoking": {
+      "status": "former",
+      "pack_years": 24
+    },
+    "symptoms": {
+      "cough_weeks": 0,
+      "blood_in_sputum": false,
+      "weight_loss": false,
+      "breathlessness": false,
+      "chest_pain": false,
+      "pneumonias_last_year": 0
+    },
+    "previous_visits": [
+      {
+        "months_ago": 3,
+        "reason": "flunssa"
+      }
+    ],
+    "channel": "survey",
+    "synthetic": true
+  },
+  {
+    "id": "p-0040",
+    "age": 51,
+    "language": "fi",
+    "smoking": {
+      "status": "former",
+      "pack_years": 42
+    },
+    "symptoms": {
+      "cough_weeks": 0,
+      "blood_in_sputum": false,
+      "weight_loss": false,
+      "breathlessness": false,
+      "chest_pain": false,
+      "pneumonias_last_year": 0
+    },
+    "previous_visits": [
+      {
+        "months_ago": 5,
+        "reason": "keuhkokuume"
+      }
+    ],
+    "channel": "survey",
+    "synthetic": true,
+    "free_text": "Laihduin vaikka en yrittänyt."
+  },
+  {
+    "id": "p-0041",
+    "age": 76,
+    "language": "fi",
+    "smoking": {
+      "status": "current",
+      "pack_years": 39
+    },
+    "symptoms": {
+      "cough_weeks": 0,
+      "blood_in_sputum": false,
+      "weight_loss": false,
+      "breathlessness": false,
+      "chest_pain": false,
+      "pneumonias_last_year": 0
+    },
+    "previous_visits": [
+      {
+        "months_ago": 1,
+        "reason": "yskä"
+      }
+    ],
+    "channel": "survey",
+    "synthetic": true
+  },
+  {
+    "id": "p-0042",
+    "age": 54,
+    "language": "fi",
+    "smoking": {
+      "status": "never",
+      "pack_years": 0
+    },
+    "symptoms": {
+      "cough_weeks": 16,
+      "blood_in_sputum": false,
+      "weight_loss": false,
+      "breathlessness": true,
+      "chest_pain": false,
+      "pneumonias_last_year": 0
+    },
+    "previous_visits": [],
+    "channel": "health_centre",
+    "synthetic": true
+  },
+  {
+    "id": "p-0043",
+    "age": 58,
+    "language": "fi",
+    "smoking": {
+      "status": "never",
+      "pack_years": 0
+    },
+    "symptoms": {
+      "cough_weeks": 0,
+      "blood_in_sputum": false,
+      "weight_loss": false,
+      "breathlessness": false,
+      "chest_pain": false,
+      "pneumonias_last_year": 0
+    },
+    "previous_visits": [],
+    "channel": "survey",
+    "synthetic": true
+  },
+  {
+    "id": "p-0044",
+    "age": 69,
+    "language": "fi",
+    "smoking": {
+      "status": "former",
+      "pack_years": 29
+    },
+    "symptoms": {
+      "cough_weeks": 1,
+      "blood_in_sputum": false,
+      "weight_loss": false,
+      "breathlessness": false,
+      "chest_pain": false,
+      "pneumonias_last_year": 0
+    },
+    "previous_visits": [],
+    "channel": "survey",
+    "synthetic": true,
+    "free_text": "Laihduin vaikka en yrittänyt."
+  },
+  {
+    "id": "p-0045",
+    "age": 62,
+    "language": "fi",
+    "smoking": {
+      "status": "former",
+      "pack_years": 46
+    },
+    "symptoms": {
+      "cough_weeks": 0,
+      "blood_in_sputum": false,
+      "weight_loss": false,
+      "breathlessness": true,
+      "chest_pain": false,
+      "pneumonias_last_year": 0
+    },
+    "previous_visits": [],
+    "channel": "survey",
+    "synthetic": true
+  },
+  {
+    "id": "p-0046",
+    "age": 53,
+    "language": "fi",
+    "smoking": {
+      "status": "former",
+      "pack_years": 14
+    },
+    "symptoms": {
+      "cough_weeks": 1,
+      "blood_in_sputum": false,
+      "weight_loss": false,
+      "breathlessness": false,
+      "chest_pain": false,
+      "pneumonias_last_year": 0
+    },
+    "previous_visits": [],
+    "channel": "survey",
+    "synthetic": true
+  },
+  {
+    "id": "p-0047",
+    "age": 55,
+    "language": "fi",
+    "smoking": {
+      "status": "former",
+      "pack_years": 14
+    },
+    "symptoms": {
+      "cough_weeks": 0,
+      "blood_in_sputum": false,
+      "weight_loss": true,
+      "breathlessness": false,
+      "chest_pain": false,
+      "pneumonias_last_year": 0
+    },
+    "previous_visits": [],
+    "channel": "survey",
+    "synthetic": true
+  },
+  {
+    "id": "p-0048",
+    "age": 61,
+    "language": "sv",
+    "smoking": {
+      "status": "former",
+      "pack_years": 57
+    },
+    "symptoms": {
+      "cough_weeks": 0,
+      "blood_in_sputum": false,
+      "weight_loss": false,
+      "breathlessness": false,
+      "chest_pain": false,
+      "pneumonias_last_year": 0
+    },
+    "previous_visits": [
+      {
+        "months_ago": 12,
+        "reason": "flunssa"
+      }
+    ],
+    "channel": "survey",
+    "synthetic": true
+  },
+  {
+    "id": "p-0049",
+    "age": 68,
+    "language": "fi",
+    "smoking": {
+      "status": "former",
+      "pack_years": 56
+    },
+    "symptoms": {
+      "cough_weeks": 6,
+      "blood_in_sputum": false,
+      "weight_loss": false,
+      "breathlessness": true,
+      "chest_pain": false,
+      "pneumonias_last_year": 2
+    },
+    "previous_visits": [
+      {
+        "months_ago": 9,
+        "reason": "flunssa"
+      }
+    ],
+    "channel": "survey",
+    "synthetic": true
+  },
+  {
+    "id": "p-0050",
+    "age": 69,
+    "language": "fi",
+    "smoking": {
+      "status": "former",
+      "pack_years": 23
+    },
+    "symptoms": {
+      "cough_weeks": 1,
+      "blood_in_sputum": false,
+      "weight_loss": false,
+      "breathlessness": false,
+      "chest_pain": false,
+      "pneumonias_last_year": 0
+    },
+    "previous_visits": [],
+    "channel": "survey",
+    "synthetic": true
+  },
+  {
+    "id": "p-0051",
+    "age": 57,
+    "language": "fi",
+    "smoking": {
+      "status": "former",
+      "pack_years": 6
+    },
+    "symptoms": {
+      "cough_weeks": 0,
+      "blood_in_sputum": false,
+      "weight_loss": false,
+      "breathlessness": false,
+      "chest_pain": false,
+      "pneumonias_last_year": 0
+    },
+    "previous_visits": [],
+    "channel": "survey",
+    "synthetic": true
+  },
+  {
+    "id": "p-0052",
+    "age": 80,
+    "language": "fi",
+    "smoking": {
+      "status": "former",
+      "pack_years": 46
+    },
+    "symptoms": {
+      "cough_weeks": 0,
+      "blood_in_sputum": false,
+      "weight_loss": false,
+      "breathlessness": false,
+      "chest_pain": false,
+      "pneumonias_last_year": 0
+    },
+    "previous_visits": [],
+    "channel": "survey",
+    "synthetic": true
+  },
+  {
+    "id": "p-0053",
+    "age": 59,
+    "language": "fi",
+    "smoking": {
+      "status": "current",
+      "pack_years": 56
+    },
+    "symptoms": {
+      "cough_weeks": 0,
+      "blood_in_sputum": false,
+      "weight_loss": false,
+      "breathlessness": false,
+      "chest_pain": false,
+      "pneumonias_last_year": 0
+    },
+    "previous_visits": [],
+    "channel": "survey",
+    "synthetic": true,
+    "free_text": "Aamuisin yskösissä oli vähän verta."
+  },
+  {
+    "id": "p-0054",
+    "age": 52,
+    "language": "fi",
+    "smoking": {
+      "status": "current",
+      "pack_years": 15
+    },
+    "symptoms": {
+      "cough_weeks": 0,
+      "blood_in_sputum": false,
+      "weight_loss": false,
+      "breathlessness": false,
+      "chest_pain": false,
+      "pneumonias_last_year": 0
+    },
+    "previous_visits": [
+      {
+        "months_ago": 3,
+        "reason": "verenpaine"
+      }
+    ],
+    "channel": "survey",
+    "synthetic": true
+  },
+  {
+    "id": "p-0055",
+    "age": 51,
+    "language": "fi",
+    "smoking": {
+      "status": "current",
+      "pack_years": 37
+    },
+    "symptoms": {
+      "cough_weeks": 3,
+      "blood_in_sputum": false,
+      "weight_loss": false,
+      "breathlessness": false,
+      "chest_pain": false,
+      "pneumonias_last_year": 0
+    },
+    "previous_visits": [],
+    "channel": "survey",
+    "synthetic": true
+  },
+  {
+    "id": "p-0056",
+    "age": 62,
+    "language": "fi",
+    "smoking": {
+      "status": "former",
+      "pack_years": 53
+    },
+    "symptoms": {
+      "cough_weeks": 0,
+      "blood_in_sputum": false,
+      "weight_loss": false,
+      "breathlessness": false,
+      "chest_pain": false,
+      "pneumonias_last_year": 0
+    },
+    "previous_visits": [],
+    "channel": "survey",
+    "synthetic": true,
+    "free_text": "Ei erityisiä oireita."
+  },
+  {
+    "id": "p-0057",
+    "age": 73,
+    "language": "en",
+    "smoking": {
+      "status": "current",
+      "pack_years": 36
+    },
+    "symptoms": {
+      "cough_weeks": 0,
+      "blood_in_sputum": false,
+      "weight_loss": false,
+      "breathlessness": false,
+      "chest_pain": false,
+      "pneumonias_last_year": 0
+    },
+    "previous_visits": [],
+    "channel": "survey",
+    "synthetic": true,
+    "free_text": "My cough has lasted since the summer."
+  },
+  {
+    "id": "p-0058",
+    "age": 72,
+    "language": "fi",
+    "smoking": {
+      "status": "former",
+      "pack_years": 47
+    },
+    "symptoms": {
+      "cough_weeks": 0,
+      "blood_in_sputum": false,
+      "weight_loss": false,
+      "breathlessness": false,
+      "chest_pain": false,
+      "pneumonias_last_year": 0
+    },
+    "previous_visits": [
+      {
+        "months_ago": 7,
+        "reason": "keuhkokuume"
+      }
+    ],
+    "channel": "survey",
+    "synthetic": true
+  },
+  {
+    "id": "p-0059",
+    "age": 82,
+    "language": "fi",
+    "smoking": {
+      "status": "never",
+      "pack_years": 0
+    },
+    "symptoms": {
+      "cough_weeks": 0,
+      "blood_in_sputum": false,
+      "weight_loss": false,
+      "breathlessness": false,
+      "chest_pain": false,
+      "pneumonias_last_year": 0
+    },
+    "previous_visits": [],
+    "channel": "survey",
+    "synthetic": true
+  },
+  {
+    "id": "p-0060",
+    "age": 58,
+    "language": "en",
+    "smoking": {
+      "status": "former",
+      "pack_years": 46
+    },
+    "symptoms": {
+      "cough_weeks": 0,
+      "blood_in_sputum": false,
+      "weight_loss": false,
+      "breathlessness": false,
+      "chest_pain": false,
+      "pneumonias_last_year": 0
+    },
+    "previous_visits": [],
+    "channel": "survey",
+    "synthetic": true,
+    "free_text": "I have had pneumonia twice this year."
+  },
+  {
+    "id": "p-0061",
+    "age": 57,
+    "language": "fi",
+    "smoking": {
+      "status": "former",
+      "pack_years": 17
+    },
+    "symptoms": {
+      "cough_weeks": 0,
+      "blood_in_sputum": false,
+      "weight_loss": false,
+      "breathlessness": false,
+      "chest_pain": false,
+      "pneumonias_last_year": 0
+    },
+    "previous_visits": [],
+    "channel": "survey",
+    "synthetic": true
+  },
+  {
+    "id": "p-0062",
+    "age": 60,
+    "language": "fi",
+    "smoking": {
+      "status": "current",
+      "pack_years": 34
+    },
+    "symptoms": {
+      "cough_weeks": 0,
+      "blood_in_sputum": false,
+      "weight_loss": false,
+      "breathlessness": false,
+      "chest_pain": false,
+      "pneumonias_last_year": 0
+    },
+    "previous_visits": [],
+    "channel": "survey",
+    "synthetic": true
+  },
+  {
+    "id": "p-0063",
+    "age": 80,
+    "language": "fi",
+    "smoking": {
+      "status": "current",
+      "pack_years": 38
+    },
+    "symptoms": {
+      "cough_weeks": 0,
+      "blood_in_sputum": false,
+      "weight_loss": false,
+      "breathlessness": true,
+      "chest_pain": false,
+      "pneumonias_last_year": 0
+    },
+    "previous_visits": [],
+    "channel": "survey",
+    "synthetic": true,
+    "free_text": "Yskä ei ole mennyt ohi flunssan jälkeen."
+  },
+  {
+    "id": "p-0064",
+    "age": 53,
+    "language": "en",
+    "smoking": {
+      "status": "former",
+      "pack_years": 15
+    },
+    "symptoms": {
+      "cough_weeks": 0,
+      "blood_in_sputum": false,
+      "weight_loss": false,
+      "breathlessness": false,
+      "chest_pain": false,
+      "pneumonias_last_year": 0
+    },
+    "previous_visits": [],
+    "channel": "survey",
+    "synthetic": true
+  },
+  {
+    "id": "p-0065",
+    "age": 61,
+    "language": "fi",
+    "smoking": {
+      "status": "former",
+      "pack_years": 26
+    },
+    "symptoms": {
+      "cough_weeks": 0,
+      "blood_in_sputum": false,
+      "weight_loss": false,
+      "breathlessness": false,
+      "chest_pain": false,
+      "pneumonias_last_year": 0
+    },
+    "previous_visits": [
+      {
+        "months_ago": 6,
+        "reason": "astma"
+      }
+    ],
+    "channel": "survey",
+    "synthetic": true
+  },
+  {
+    "id": "p-0066",
+    "age": 83,
+    "language": "fi",
+    "smoking": {
+      "status": "current",
+      "pack_years": 6
+    },
+    "symptoms": {
+      "cough_weeks": 0,
+      "blood_in_sputum": false,
+      "weight_loss": false,
+      "breathlessness": false,
+      "chest_pain": false,
+      "pneumonias_last_year": 0
+    },
+    "previous_visits": [],
+    "channel": "survey",
+    "synthetic": true
+  },
+  {
+    "id": "p-0067",
+    "age": 72,
+    "language": "fi",
+    "smoking": {
+      "status": "former",
+      "pack_years": 19
+    },
+    "symptoms": {
+      "cough_weeks": 3,
+      "blood_in_sputum": false,
+      "weight_loss": false,
+      "breathlessness": false,
+      "chest_pain": false,
+      "pneumonias_last_year": 0
+    },
+    "previous_visits": [
+      {
+        "months_ago": 6,
+        "reason": "keuhkokuume"
+      }
+    ],
+    "channel": "survey",
+    "synthetic": true
+  },
+  {
+    "id": "p-0068",
+    "age": 84,
+    "language": "fi",
+    "smoking": {
+      "status": "never",
+      "pack_years": 0
+    },
+    "symptoms": {
+      "cough_weeks": 0,
+      "blood_in_sputum": false,
+      "weight_loss": false,
+      "breathlessness": false,
+      "chest_pain": false,
+      "pneumonias_last_year": 0
+    },
+    "previous_visits": [],
+    "channel": "survey",
+    "synthetic": true
+  },
+  {
+    "id": "p-0069",
+    "age": 61,
+    "language": "fi",
+    "smoking": {
+      "status": "former",
+      "pack_years": 16
+    },
+    "symptoms": {
+      "cough_weeks": 0,
+      "blood_in_sputum": false,
+      "weight_loss": false,
+      "breathlessness": true,
+      "chest_pain": false,
+      "pneumonias_last_year": 0
+    },
+    "previous_visits": [
+      {
+        "months_ago": 9,
+        "reason": "selkäkipu"
+      }
+    ],
+    "channel": "survey",
+    "synthetic": true,
+    "free_text": "Astmalääke ei auttanut yskään."
+  },
+  {
+    "id": "p-0070",
+    "age": 81,
+    "language": "fi",
+    "smoking": {
+      "status": "never",
+      "pack_years": 0
+    },
+    "symptoms": {
+      "cough_weeks": 0,
+      "blood_in_sputum": false,
+      "weight_loss": false,
+      "breathlessness": false,
+      "chest_pain": false,
+      "pneumonias_last_year": 1
+    },
+    "previous_visits": [],
+    "channel": "survey",
+    "synthetic": true,
+    "free_text": "Yskä ei ole mennyt ohi flunssan jälkeen."
+  },
+  {
+    "id": "p-0071",
+    "age": 60,
+    "language": "fi",
+    "smoking": {
+      "status": "current",
+      "pack_years": 30
+    },
+    "symptoms": {
+      "cough_weeks": 11,
+      "blood_in_sputum": false,
+      "weight_loss": false,
+      "breathlessness": true,
+      "chest_pain": false,
+      "pneumonias_last_year": 0
+    },
+    "previous_visits": [],
+    "channel": "health_centre",
+    "synthetic": true,
+    "free_text": "Aamuisin yskösissä oli vähän verta."
+  },
+  {
+    "id": "p-0072",
+    "age": 54,
+    "language": "fi",
+    "smoking": {
+      "status": "current",
+      "pack_years": 38
+    },
+    "symptoms": {
+      "cough_weeks": 12,
+      "blood_in_sputum": true,
+      "weight_loss": false,
+      "breathlessness": true,
+      "chest_pain": true,
+      "pneumonias_last_year": 3
+    },
+    "previous_visits": [],
+    "channel": "survey",
+    "synthetic": true
+  },
+  {
+    "id": "p-0073",
+    "age": 80,
+    "language": "fi",
+    "smoking": {
+      "status": "current",
+      "pack_years": 47
+    },
+    "symptoms": {
+      "cough_weeks": 0,
+      "blood_in_sputum": false,
+      "weight_loss": false,
+      "breathlessness": false,
+      "chest_pain": false,
+      "pneumonias_last_year": 0
+    },
+    "previous_visits": [],
+    "channel": "survey",
+    "synthetic": true
+  },
+  {
+    "id": "p-0074",
+    "age": 74,
+    "language": "fi",
+    "smoking": {
+      "status": "current",
+      "pack_years": 41
+    },
+    "symptoms": {
+      "cough_weeks": 1,
+      "blood_in_sputum": false,
+      "weight_loss": false,
+      "breathlessness": false,
+      "chest_pain": false,
+      "pneumonias_last_year": 0
+    },
+    "previous_visits": [],
+    "channel": "survey",
+    "synthetic": true
+  },
+  {
+    "id": "p-0075",
+    "age": 54,
+    "language": "fi",
+    "smoking": {
+      "status": "never",
+      "pack_years": 0
+    },
+    "symptoms": {
+      "cough_weeks": 0,
+      "blood_in_sputum": false,
+      "weight_loss": false,
+      "breathlessness": false,
+      "chest_pain": false,
+      "pneumonias_last_year": 0
+    },
+    "previous_visits": [],
+    "channel": "survey",
+    "synthetic": true
+  },
+  {
+    "id": "p-0076",
+    "age": 76,
+    "language": "fi",
+    "smoking": {
+      "status": "former",
+      "pack_years": 53
+    },
+    "symptoms": {
+      "cough_weeks": 0,
+      "blood_in_sputum": false,
+      "weight_loss": false,
+      "breathlessness": false,
+      "chest_pain": false,
+      "pneumonias_last_year": 1
+    },
+    "previous_visits": [],
+    "channel": "survey",
+    "synthetic": true
+  },
+  {
+    "id": "p-0077",
+    "age": 80,
+    "language": "fi",
+    "smoking": {
+      "status": "current",
+      "pack_years": 47
+    },
+    "symptoms": {
+      "cough_weeks": 0,
+      "blood_in_sputum": false,
+      "weight_loss": false,
+      "breathlessness": false,
+      "chest_pain": false,
+      "pneumonias_last_year": 0
+    },
+    "previous_visits": [
+      {
+        "months_ago": 4,
+        "reason": "selkäkipu"
+      }
+    ],
+    "channel": "survey",
+    "synthetic": true
+  },
+  {
+    "id": "p-0078",
+    "age": 70,
+    "language": "fi",
+    "smoking": {
+      "status": "former",
+      "pack_years": 51
+    },
+    "symptoms": {
+      "cough_weeks": 0,
+      "blood_in_sputum": false,
+      "weight_loss": false,
+      "breathlessness": true,
+      "chest_pain": false,
+      "pneumonias_last_year": 0
+    },
+    "previous_visits": [],
+    "channel": "survey",
+    "synthetic": true,
+    "free_text": "Astmalääke ei auttanut yskään."
+  },
+  {
+    "id": "p-0079",
+    "age": 55,
+    "language": "fi",
+    "smoking": {
+      "status": "never",
+      "pack_years": 0
+    },
+    "symptoms": {
+      "cough_weeks": 16,
+      "blood_in_sputum": false,
+      "weight_loss": true,
+      "breathlessness": false,
+      "chest_pain": false,
+      "pneumonias_last_year": 3
+    },
+    "previous_visits": [
+      {
+        "months_ago": 10,
+        "reason": "flunssa"
+      }
+    ],
+    "channel": "health_centre",
+    "synthetic": true
+  },
+  {
+    "id": "p-0080",
+    "age": 58,
+    "language": "fi",
+    "smoking": {
+      "status": "current",
+      "pack_years": 52
+    },
+    "symptoms": {
+      "cough_weeks": 5,
+      "blood_in_sputum": false,
+      "weight_loss": false,
+      "breathlessness": true,
+      "chest_pain": true,
+      "pneumonias_last_year": 0
+    },
+    "previous_visits": [
+      {
+        "months_ago": 11,
+        "reason": "astma"
+      }
+    ],
+    "channel": "survey",
+    "synthetic": true
+  },
+  {
+    "id": "p-0081",
+    "age": 57,
+    "language": "fi",
+    "smoking": {
+      "status": "former",
+      "pack_years": 8
+    },
+    "symptoms": {
+      "cough_weeks": 0,
+      "blood_in_sputum": false,
+      "weight_loss": false,
+      "breathlessness": false,
+      "chest_pain": false,
+      "pneumonias_last_year": 0
+    },
+    "previous_visits": [],
+    "channel": "survey",
+    "synthetic": true
+  },
+  {
+    "id": "p-0082",
+    "age": 80,
+    "language": "fi",
+    "smoking": {
+      "status": "former",
+      "pack_years": 55
+    },
+    "symptoms": {
+      "cough_weeks": 0,
+      "blood_in_sputum": false,
+      "weight_loss": false,
+      "breathlessness": false,
+      "chest_pain": false,
+      "pneumonias_last_year": 0
+    },
+    "previous_visits": [],
+    "channel": "survey",
+    "synthetic": true
+  },
+  {
+    "id": "p-0083",
+    "age": 70,
+    "language": "fi",
+    "smoking": {
+      "status": "current",
+      "pack_years": 24
+    },
+    "symptoms": {
+      "cough_weeks": 0,
+      "blood_in_sputum": false,
+      "weight_loss": false,
+      "breathlessness": false,
+      "chest_pain": false,
+      "pneumonias_last_year": 0
+    },
+    "previous_visits": [],
+    "channel": "survey",
+    "synthetic": true
+  },
+  {
+    "id": "p-0084",
+    "age": 78,
+    "language": "fi",
+    "smoking": {
+      "status": "former",
+      "pack_years": 60
+    },
+    "symptoms": {
+      "cough_weeks": 0,
+      "blood_in_sputum": false,
+      "weight_loss": false,
+      "breathlessness": false,
+      "chest_pain": false,
+      "pneumonias_last_year": 0
+    },
+    "previous_visits": [],
+    "channel": "survey",
+    "synthetic": true,
+    "free_text": "Laihduin vaikka en yrittänyt."
+  },
+  {
+    "id": "p-0085",
+    "age": 62,
+    "language": "fi",
+    "smoking": {
+      "status": "never",
+      "pack_years": 0
+    },
+    "symptoms": {
+      "cough_weeks": 0,
+      "blood_in_sputum": false,
+      "weight_loss": true,
+      "breathlessness": false,
+      "chest_pain": false,
+      "pneumonias_last_year": 0
+    },
+    "previous_visits": [],
+    "channel": "survey",
+    "synthetic": true,
+    "free_text": "Yskä ei ole mennyt ohi flunssan jälkeen."
+  },
+  {
+    "id": "p-0086",
+    "age": 51,
+    "language": "fi",
+    "smoking": {
+      "status": "former",
+      "pack_years": 14
+    },
+    "symptoms": {
+      "cough_weeks": 0,
+      "blood_in_sputum": false,
+      "weight_loss": false,
+      "breathlessness": false,
+      "chest_pain": false,
+      "pneumonias_last_year": 0
+    },
+    "previous_visits": [],
+    "channel": "survey",
+    "synthetic": true,
+    "free_text": "Hengästyn portaissa enemmän kuin ennen."
+  },
+  {
+    "id": "p-0087",
+    "age": 64,
+    "language": "fi",
+    "smoking": {
+      "status": "former",
+      "pack_years": 54
+    },
+    "symptoms": {
+      "cough_weeks": 0,
+      "blood_in_sputum": false,
+      "weight_loss": false,
+      "breathlessness": true,
+      "chest_pain": false,
+      "pneumonias_last_year": 0
+    },
+    "previous_visits": [],
+    "channel": "survey",
+    "synthetic": true,
+    "free_text": "Hengästyn portaissa enemmän kuin ennen."
+  },
+  {
+    "id": "p-0088",
+    "age": 66,
+    "language": "fi",
+    "smoking": {
+      "status": "current",
+      "pack_years": 14
+    },
+    "symptoms": {
+      "cough_weeks": 1,
+      "blood_in_sputum": false,
+      "weight_loss": false,
+      "breathlessness": false,
+      "chest_pain": false,
+      "pneumonias_last_year": 0
+    },
+    "previous_visits": [],
+    "channel": "survey",
+    "synthetic": true
+  },
+  {
+    "id": "p-0089",
+    "age": 76,
+    "language": "fi",
+    "smoking": {
+      "status": "current",
+      "pack_years": 26
+    },
+    "symptoms": {
+      "cough_weeks": 0,
+      "blood_in_sputum": false,
+      "weight_loss": false,
+      "breathlessness": false,
+      "chest_pain": false,
+      "pneumonias_last_year": 0
+    },
+    "previous_visits": [],
+    "channel": "survey",
+    "synthetic": true
+  },
+  {
+    "id": "p-0090",
+    "age": 77,
+    "language": "fi",
+    "smoking": {
+      "status": "former",
+      "pack_years": 38
+    },
+    "symptoms": {
+      "cough_weeks": 0,
+      "blood_in_sputum": false,
+      "weight_loss": false,
+      "breathlessness": false,
+      "chest_pain": false,
+      "pneumonias_last_year": 1
+    },
+    "previous_visits": [],
+    "channel": "survey",
+    "synthetic": true,
+    "free_text": "Ei erityisiä oireita."
+  },
+  {
+    "id": "p-0091",
+    "age": 54,
+    "language": "sv",
+    "smoking": {
+      "status": "current",
+      "pack_years": 30
+    },
+    "symptoms": {
+      "cough_weeks": 0,
+      "blood_in_sputum": false,
+      "weight_loss": false,
+      "breathlessness": true,
+      "chest_pain": false,
+      "pneumonias_last_year": 0
+    },
+    "previous_visits": [],
+    "channel": "survey",
+    "synthetic": true,
+    "free_text": "Jag blir andfådd lättare än förut."
+  },
+  {
+    "id": "p-0092",
+    "age": 72,
+    "language": "fi",
+    "smoking": {
+      "status": "former",
+      "pack_years": 31
+    },
+    "symptoms": {
+      "cough_weeks": 4,
+      "blood_in_sputum": false,
+      "weight_loss": false,
+      "breathlessness": false,
+      "chest_pain": false,
+      "pneumonias_last_year": 0
+    },
+    "previous_visits": [],
+    "channel": "survey",
+    "synthetic": true,
+    "free_text": "Laihduin vaikka en yrittänyt."
+  },
+  {
+    "id": "p-0093",
+    "age": 74,
+    "language": "en",
+    "smoking": {
+      "status": "former",
+      "pack_years": 50
+    },
+    "symptoms": {
+      "cough_weeks": 3,
+      "blood_in_sputum": false,
+      "weight_loss": false,
+      "breathlessness": false,
+      "chest_pain": false,
+      "pneumonias_last_year": 0
+    },
+    "previous_visits": [],
+    "channel": "survey",
+    "synthetic": true
+  },
+  {
+    "id": "p-0094",
+    "age": 65,
+    "language": "fi",
+    "smoking": {
+      "status": "current",
+      "pack_years": 41
+    },
+    "symptoms": {
+      "cough_weeks": 2,
+      "blood_in_sputum": false,
+      "weight_loss": true,
+      "breathlessness": false,
+      "chest_pain": false,
+      "pneumonias_last_year": 0
+    },
+    "previous_visits": [],
+    "channel": "survey",
+    "synthetic": true
+  },
+  {
+    "id": "p-0095",
+    "age": 74,
+    "language": "fi",
+    "smoking": {
+      "status": "never",
+      "pack_years": 0
+    },
+    "symptoms": {
+      "cough_weeks": 0,
+      "blood_in_sputum": false,
+      "weight_loss": false,
+      "breathlessness": false,
+      "chest_pain": false,
+      "pneumonias_last_year": 0
+    },
+    "previous_visits": [],
+    "channel": "survey",
+    "synthetic": true,
+    "free_text": "Yskä ei ole mennyt ohi flunssan jälkeen."
+  },
+  {
+    "id": "p-0096",
+    "age": 73,
+    "language": "fi",
+    "smoking": {
+      "status": "current",
+      "pack_years": 13
+    },
+    "symptoms": {
+      "cough_weeks": 0,
+      "blood_in_sputum": false,
+      "weight_loss": false,
+      "breathlessness": false,
+      "chest_pain": false,
+      "pneumonias_last_year": 0
+    },
+    "previous_visits": [],
+    "channel": "survey",
+    "synthetic": true
+  },
+  {
+    "id": "p-0097",
+    "age": 64,
+    "language": "sv",
+    "smoking": {
+      "status": "former",
+      "pack_years": 47
+    },
+    "symptoms": {
+      "cough_weeks": 0,
+      "blood_in_sputum": false,
+      "weight_loss": false,
+      "breathlessness": false,
+      "chest_pain": false,
+      "pneumonias_last_year": 0
+    },
+    "previous_visits": [],
+    "channel": "survey",
+    "synthetic": true,
+    "free_text": "Hostan har inte gått över på flera veckor."
+  },
+  {
+    "id": "p-0098",
+    "age": 54,
+    "language": "fi",
+    "smoking": {
+      "status": "former",
+      "pack_years": 25
+    },
+    "symptoms": {
+      "cough_weeks": 0,
+      "blood_in_sputum": false,
+      "weight_loss": false,
+      "breathlessness": false,
+      "chest_pain": false,
+      "pneumonias_last_year": 0
+    },
+    "previous_visits": [],
+    "channel": "survey",
+    "synthetic": true
+  },
+  {
+    "id": "p-0099",
+    "age": 82,
+    "language": "fi",
+    "smoking": {
+      "status": "former",
+      "pack_years": 22
+    },
+    "symptoms": {
+      "cough_weeks": 0,
+      "blood_in_sputum": false,
+      "weight_loss": false,
+      "breathlessness": false,
+      "chest_pain": false,
+      "pneumonias_last_year": 0
+    },
+    "previous_visits": [],
+    "channel": "survey",
+    "synthetic": true,
+    "free_text": "Yskä ei ole mennyt ohi flunssan jälkeen."
+  },
+  {
+    "id": "p-0100",
+    "age": 50,
+    "language": "fi",
+    "smoking": {
+      "status": "never",
+      "pack_years": 0
+    },
+    "symptoms": {
+      "cough_weeks": 3,
+      "blood_in_sputum": false,
+      "weight_loss": false,
+      "breathlessness": false,
+      "chest_pain": false,
+      "pneumonias_last_year": 0
+    },
+    "previous_visits": [],
+    "channel": "survey",
+    "synthetic": true,
+    "free_text": "Laihduin vaikka en yrittänyt."
+  },
+  {
+    "id": "p-0101",
+    "age": 55,
+    "language": "fi",
+    "smoking": {
+      "status": "never",
+      "pack_years": 0
+    },
+    "symptoms": {
+      "cough_weeks": 0,
+      "blood_in_sputum": false,
+      "weight_loss": true,
+      "breathlessness": false,
+      "chest_pain": false,
+      "pneumonias_last_year": 0
+    },
+    "previous_visits": [],
+    "channel": "survey",
+    "synthetic": true,
+    "free_text": "Yskä ei ole mennyt ohi flunssan jälkeen."
+  },
+  {
+    "id": "p-0102",
+    "age": 63,
+    "language": "fi",
+    "smoking": {
+      "status": "former",
+      "pack_years": 36
+    },
+    "symptoms": {
+      "cough_weeks": 0,
+      "blood_in_sputum": false,
+      "weight_loss": false,
+      "breathlessness": false,
+      "chest_pain": false,
+      "pneumonias_last_year": 0
+    },
+    "previous_visits": [
+      {
+        "months_ago": 1,
+        "reason": "yskä"
+      }
+    ],
+    "channel": "survey",
+    "synthetic": true,
+    "free_text": "Aamuisin yskösissä oli vähän verta."
+  },
+  {
+    "id": "p-0103",
+    "age": 77,
+    "language": "fi",
+    "smoking": {
+      "status": "never",
+      "pack_years": 0
+    },
+    "symptoms": {
+      "cough_weeks": 1,
+      "blood_in_sputum": false,
+      "weight_loss": false,
+      "breathlessness": false,
+      "chest_pain": false,
+      "pneumonias_last_year": 0
+    },
+    "previous_visits": [],
+    "channel": "survey",
+    "synthetic": true,
+    "free_text": "Aamuisin yskösissä oli vähän verta."
+  },
+  {
+    "id": "p-0104",
+    "age": 83,
+    "language": "fi",
+    "smoking": {
+      "status": "current",
+      "pack_years": 46
+    },
+    "symptoms": {
+      "cough_weeks": 0,
+      "blood_in_sputum": false,
+      "weight_loss": false,
+      "breathlessness": false,
+      "chest_pain": false,
+      "pneumonias_last_year": 0
+    },
+    "previous_visits": [],
+    "channel": "survey",
+    "synthetic": true
+  },
+  {
+    "id": "p-0105",
+    "age": 61,
+    "language": "fi",
+    "smoking": {
+      "status": "current",
+      "pack_years": 8
+    },
+    "symptoms": {
+      "cough_weeks": 0,
+      "blood_in_sputum": false,
+      "weight_loss": false,
+      "breathlessness": true,
+      "chest_pain": false,
+      "pneumonias_last_year": 0
+    },
+    "previous_visits": [],
+    "channel": "survey",
+    "synthetic": true,
+    "free_text": "Hengästyn portaissa enemmän kuin ennen."
+  },
+  {
+    "id": "p-0106",
+    "age": 64,
+    "language": "fi",
+    "smoking": {
+      "status": "former",
+      "pack_years": 32
+    },
+    "symptoms": {
+      "cough_weeks": 0,
+      "blood_in_sputum": false,
+      "weight_loss": false,
+      "breathlessness": false,
+      "chest_pain": false,
+      "pneumonias_last_year": 0
+    },
+    "previous_visits": [],
+    "channel": "survey",
+    "synthetic": true
+  },
+  {
+    "id": "p-0107",
+    "age": 73,
+    "language": "fi",
+    "smoking": {
+      "status": "current",
+      "pack_years": 16
+    },
+    "symptoms": {
+      "cough_weeks": 0,
+      "blood_in_sputum": false,
+      "weight_loss": false,
+      "breathlessness": true,
+      "chest_pain": false,
+      "pneumonias_last_year": 0
+    },
+    "previous_visits": [],
+    "channel": "survey",
+    "synthetic": true,
+    "free_text": "Laihduin vaikka en yrittänyt."
+  },
+  {
+    "id": "p-0108",
+    "age": 65,
+    "language": "fi",
+    "smoking": {
+      "status": "never",
+      "pack_years": 0
+    },
+    "symptoms": {
+      "cough_weeks": 14,
+      "blood_in_sputum": false,
+      "weight_loss": true,
+      "breathlessness": false,
+      "chest_pain": false,
+      "pneumonias_last_year": 0
+    },
+    "previous_visits": [],
+    "channel": "health_centre",
+    "synthetic": true
+  },
+  {
+    "id": "p-0109",
+    "age": 64,
+    "language": "fi",
+    "smoking": {
+      "status": "current",
+      "pack_years": 17
+    },
+    "symptoms": {
+      "cough_weeks": 0,
+      "blood_in_sputum": false,
+      "weight_loss": false,
+      "breathlessness": false,
+      "chest_pain": false,
+      "pneumonias_last_year": 0
+    },
+    "previous_visits": [],
+    "channel": "survey",
+    "synthetic": true
+  },
+  {
+    "id": "p-0110",
+    "age": 85,
+    "language": "fi",
+    "smoking": {
+      "status": "former",
+      "pack_years": 51
+    },
+    "symptoms": {
+      "cough_weeks": 0,
+      "blood_in_sputum": false,
+      "weight_loss": false,
+      "breathlessness": false,
+      "chest_pain": false,
+      "pneumonias_last_year": 0
+    },
+    "previous_visits": [],
+    "channel": "survey",
+    "synthetic": true
+  },
+  {
+    "id": "p-0111",
+    "age": 83,
+    "language": "sv",
+    "smoking": {
+      "status": "former",
+      "pack_years": 55
+    },
+    "symptoms": {
+      "cough_weeks": 12,
+      "blood_in_sputum": true,
+      "weight_loss": false,
+      "breathlessness": true,
+      "chest_pain": false,
+      "pneumonias_last_year": 3
+    },
+    "previous_visits": [],
+    "channel": "health_centre",
+    "synthetic": true
+  },
+  {
+    "id": "p-0112",
+    "age": 65,
+    "language": "fi",
+    "smoking": {
+      "status": "current",
+      "pack_years": 56
+    },
+    "symptoms": {
+      "cough_weeks": 0,
+      "blood_in_sputum": false,
+      "weight_loss": false,
+      "breathlessness": false,
+      "chest_pain": true,
+      "pneumonias_last_year": 0
+    },
+    "previous_visits": [],
+    "channel": "survey",
+    "synthetic": true
+  },
+  {
+    "id": "p-0113",
+    "age": 61,
+    "language": "fi",
+    "smoking": {
+      "status": "former",
+      "pack_years": 15
+    },
+    "symptoms": {
+      "cough_weeks": 0,
+      "blood_in_sputum": false,
+      "weight_loss": false,
+      "breathlessness": false,
+      "chest_pain": false,
+      "pneumonias_last_year": 0
+    },
+    "previous_visits": [],
+    "channel": "survey",
+    "synthetic": true
+  },
+  {
+    "id": "p-0114",
+    "age": 81,
+    "language": "fi",
+    "smoking": {
+      "status": "former",
+      "pack_years": 58
+    },
+    "symptoms": {
+      "cough_weeks": 3,
+      "blood_in_sputum": false,
+      "weight_loss": false,
+      "breathlessness": false,
+      "chest_pain": false,
+      "pneumonias_last_year": 0
+    },
+    "previous_visits": [],
+    "channel": "survey",
+    "synthetic": true,
+    "free_text": "Ei erityisiä oireita."
+  },
+  {
+    "id": "p-0115",
+    "age": 59,
+    "language": "fi",
+    "smoking": {
+      "status": "current",
+      "pack_years": 33
+    },
+    "symptoms": {
+      "cough_weeks": 3,
+      "blood_in_sputum": false,
+      "weight_loss": false,
+      "breathlessness": false,
+      "chest_pain": false,
+      "pneumonias_last_year": 0
+    },
+    "previous_visits": [],
+    "channel": "survey",
+    "synthetic": true
+  },
+  {
+    "id": "p-0116",
+    "age": 70,
+    "language": "fi",
+    "smoking": {
+      "status": "former",
+      "pack_years": 10
+    },
+    "symptoms": {
+      "cough_weeks": 11,
+      "blood_in_sputum": false,
+      "weight_loss": true,
+      "breathlessness": true,
+      "chest_pain": false,
+      "pneumonias_last_year": 0
+    },
+    "previous_visits": [
+      {
+        "months_ago": 10,
+        "reason": "flunssa"
+      }
+    ],
+    "channel": "health_centre",
+    "synthetic": true
+  },
+  {
+    "id": "p-0117",
+    "age": 52,
+    "language": "fi",
+    "smoking": {
+      "status": "former",
+      "pack_years": 13
+    },
+    "symptoms": {
+      "cough_weeks": 4,
+      "blood_in_sputum": false,
+      "weight_loss": false,
+      "breathlessness": false,
+      "chest_pain": false,
+      "pneumonias_last_year": 0
+    },
+    "previous_visits": [],
+    "channel": "survey",
+    "synthetic": true
+  },
+  {
+    "id": "p-0118",
+    "age": 51,
+    "language": "fi",
+    "smoking": {
+      "status": "former",
+      "pack_years": 21
+    },
+    "symptoms": {
+      "cough_weeks": 0,
+      "blood_in_sputum": false,
+      "weight_loss": false,
+      "breathlessness": false,
+      "chest_pain": false,
+      "pneumonias_last_year": 0
+    },
+    "previous_visits": [
+      {
+        "months_ago": 12,
+        "reason": "verenpaine"
+      }
+    ],
+    "channel": "survey",
+    "synthetic": true
+  },
+  {
+    "id": "p-0119",
+    "age": 64,
+    "language": "fi",
+    "smoking": {
+      "status": "never",
+      "pack_years": 0
+    },
+    "symptoms": {
+      "cough_weeks": 0,
+      "blood_in_sputum": false,
+      "weight_loss": false,
+      "breathlessness": false,
+      "chest_pain": false,
+      "pneumonias_last_year": 0
+    },
+    "previous_visits": [],
+    "channel": "survey",
+    "synthetic": true
+  },
+  {
+    "id": "p-0120",
+    "age": 51,
+    "language": "fi",
+    "smoking": {
+      "status": "former",
+      "pack_years": 34
+    },
+    "symptoms": {
+      "cough_weeks": 0,
+      "blood_in_sputum": false,
+      "weight_loss": false,
+      "breathlessness": false,
+      "chest_pain": false,
+      "pneumonias_last_year": 0
+    },
+    "previous_visits": [],
+    "channel": "survey",
+    "synthetic": true,
+    "free_text": "Ei erityisiä oireita."
+  },
+  {
+    "id": "p-0121",
+    "age": 78,
+    "language": "fi",
+    "smoking": {
+      "status": "former",
+      "pack_years": 29
+    },
+    "symptoms": {
+      "cough_weeks": 0,
+      "blood_in_sputum": false,
+      "weight_loss": false,
+      "breathlessness": false,
+      "chest_pain": true,
+      "pneumonias_last_year": 0
+    },
+    "previous_visits": [
+      {
+        "months_ago": 10,
+        "reason": "verenpaine"
+      }
+    ],
+    "channel": "survey",
+    "synthetic": true,
+    "free_text": "Hengästyn portaissa enemmän kuin ennen."
+  },
+  {
+    "id": "p-0122",
+    "age": 72,
+    "language": "fi",
+    "smoking": {
+      "status": "former",
+      "pack_years": 27
+    },
+    "symptoms": {
+      "cough_weeks": 0,
+      "blood_in_sputum": true,
+      "weight_loss": false,
+      "breathlessness": false,
+      "chest_pain": false,
+      "pneumonias_last_year": 0
+    },
+    "previous_visits": [],
+    "channel": "survey",
+    "synthetic": true,
+    "free_text": "Astmalääke ei auttanut yskään."
+  },
+  {
+    "id": "p-0123",
+    "age": 84,
+    "language": "fi",
+    "smoking": {
+      "status": "current",
+      "pack_years": 44
+    },
+    "symptoms": {
+      "cough_weeks": 7,
+      "blood_in_sputum": true,
+      "weight_loss": false,
+      "breathlessness": true,
+      "chest_pain": false,
+      "pneumonias_last_year": 0
+    },
+    "previous_visits": [
+      {
+        "months_ago": 1,
+        "reason": "keuhkokuume"
+      }
+    ],
+    "channel": "health_centre",
+    "synthetic": true
+  },
+  {
+    "id": "p-0124",
+    "age": 82,
+    "language": "fi",
+    "smoking": {
+      "status": "former",
+      "pack_years": 53
+    },
+    "symptoms": {
+      "cough_weeks": 0,
+      "blood_in_sputum": false,
+      "weight_loss": false,
+      "breathlessness": false,
+      "chest_pain": false,
+      "pneumonias_last_year": 0
+    },
+    "previous_visits": [
+      {
+        "months_ago": 11,
+        "reason": "keuhkokuume"
+      }
+    ],
+    "channel": "survey",
+    "synthetic": true
+  },
+  {
+    "id": "p-0125",
+    "age": 70,
+    "language": "fi",
+    "smoking": {
+      "status": "former",
+      "pack_years": 43
+    },
+    "symptoms": {
+      "cough_weeks": 4,
+      "blood_in_sputum": true,
+      "weight_loss": false,
+      "breathlessness": false,
+      "chest_pain": true,
+      "pneumonias_last_year": 0
+    },
+    "previous_visits": [],
+    "channel": "survey",
+    "synthetic": true
+  },
+  {
+    "id": "p-0126",
+    "age": 55,
+    "language": "fi",
+    "smoking": {
+      "status": "current",
+      "pack_years": 6
+    },
+    "symptoms": {
+      "cough_weeks": 0,
+      "blood_in_sputum": false,
+      "weight_loss": false,
+      "breathlessness": true,
+      "chest_pain": false,
+      "pneumonias_last_year": 0
+    },
+    "previous_visits": [],
+    "channel": "survey",
+    "synthetic": true
+  },
+  {
+    "id": "p-0127",
+    "age": 82,
+    "language": "fi",
+    "smoking": {
+      "status": "current",
+      "pack_years": 10
+    },
+    "symptoms": {
+      "cough_weeks": 4,
+      "blood_in_sputum": false,
+      "weight_loss": false,
+      "breathlessness": false,
+      "chest_pain": false,
+      "pneumonias_last_year": 0
+    },
+    "previous_visits": [],
+    "channel": "survey",
+    "synthetic": true,
+    "free_text": "Aamuisin yskösissä oli vähän verta."
+  },
+  {
+    "id": "p-0128",
+    "age": 74,
+    "language": "fi",
+    "smoking": {
+      "status": "former",
+      "pack_years": 23
+    },
+    "symptoms": {
+      "cough_weeks": 4,
+      "blood_in_sputum": false,
+      "weight_loss": false,
+      "breathlessness": false,
+      "chest_pain": false,
+      "pneumonias_last_year": 0
+    },
+    "previous_visits": [],
+    "channel": "survey",
+    "synthetic": true,
+    "free_text": "Astmalääke ei auttanut yskään."
+  },
+  {
+    "id": "p-0129",
+    "age": 66,
+    "language": "fi",
+    "smoking": {
+      "status": "current",
+      "pack_years": 49
+    },
+    "symptoms": {
+      "cough_weeks": 0,
+      "blood_in_sputum": false,
+      "weight_loss": false,
+      "breathlessness": false,
+      "chest_pain": false,
+      "pneumonias_last_year": 0
+    },
+    "previous_visits": [
+      {
+        "months_ago": 2,
+        "reason": "verenpaine"
+      }
+    ],
+    "channel": "survey",
+    "synthetic": true
+  },
+  {
+    "id": "p-0130",
+    "age": 58,
+    "language": "fi",
+    "smoking": {
+      "status": "former",
+      "pack_years": 25
+    },
+    "symptoms": {
+      "cough_weeks": 0,
+      "blood_in_sputum": false,
+      "weight_loss": false,
+      "breathlessness": false,
+      "chest_pain": false,
+      "pneumonias_last_year": 0
+    },
+    "previous_visits": [],
+    "channel": "survey",
+    "synthetic": true,
+    "free_text": "Hengästyn portaissa enemmän kuin ennen."
+  },
+  {
+    "id": "p-0131",
+    "age": 66,
+    "language": "fi",
+    "smoking": {
+      "status": "former",
+      "pack_years": 43
+    },
+    "symptoms": {
+      "cough_weeks": 0,
+      "blood_in_sputum": false,
+      "weight_loss": false,
+      "breathlessness": true,
+      "chest_pain": true,
+      "pneumonias_last_year": 0
+    },
+    "previous_visits": [],
+    "channel": "survey",
+    "synthetic": true,
+    "free_text": "Astmalääke ei auttanut yskään."
+  },
+  {
+    "id": "p-0132",
+    "age": 75,
+    "language": "fi",
+    "smoking": {
+      "status": "current",
+      "pack_years": 22
+    },
+    "symptoms": {
+      "cough_weeks": 9,
+      "blood_in_sputum": true,
+      "weight_loss": false,
+      "breathlessness": true,
+      "chest_pain": false,
+      "pneumonias_last_year": 3
+    },
+    "previous_visits": [],
+    "channel": "survey",
+    "synthetic": true
+  },
+  {
+    "id": "p-0133",
+    "age": 63,
+    "language": "fi",
+    "smoking": {
+      "status": "former",
+      "pack_years": 40
+    },
+    "symptoms": {
+      "cough_weeks": 0,
+      "blood_in_sputum": false,
+      "weight_loss": false,
+      "breathlessness": false,
+      "chest_pain": false,
+      "pneumonias_last_year": 0
+    },
+    "previous_visits": [
+      {
+        "months_ago": 5,
+        "reason": "astma"
+      }
+    ],
+    "channel": "survey",
+    "synthetic": true
+  },
+  {
+    "id": "p-0134",
+    "age": 63,
+    "language": "sv",
+    "smoking": {
+      "status": "former",
+      "pack_years": 33
+    },
+    "symptoms": {
+      "cough_weeks": 0,
+      "blood_in_sputum": false,
+      "weight_loss": false,
+      "breathlessness": false,
+      "chest_pain": false,
+      "pneumonias_last_year": 0
+    },
+    "previous_visits": [],
+    "channel": "survey",
+    "synthetic": true,
+    "free_text": "Jag blir andfådd lättare än förut."
+  },
+  {
+    "id": "p-0135",
+    "age": 52,
+    "language": "fi",
+    "smoking": {
+      "status": "current",
+      "pack_years": 12
+    },
+    "symptoms": {
+      "cough_weeks": 4,
+      "blood_in_sputum": false,
+      "weight_loss": false,
+      "breathlessness": false,
+      "chest_pain": false,
+      "pneumonias_last_year": 0
+    },
+    "previous_visits": [
+      {
+        "months_ago": 10,
+        "reason": "flunssa"
+      }
+    ],
+    "channel": "survey",
+    "synthetic": true
+  },
+  {
+    "id": "p-0136",
+    "age": 75,
+    "language": "fi",
+    "smoking": {
+      "status": "current",
+      "pack_years": 46
+    },
+    "symptoms": {
+      "cough_weeks": 0,
+      "blood_in_sputum": false,
+      "weight_loss": false,
+      "breathlessness": true,
+      "chest_pain": false,
+      "pneumonias_last_year": 0
+    },
+    "previous_visits": [],
+    "channel": "survey",
+    "synthetic": true
+  },
+  {
+    "id": "p-0137",
+    "age": 55,
+    "language": "sv",
+    "smoking": {
+      "status": "current",
+      "pack_years": 27
+    },
+    "symptoms": {
+      "cough_weeks": 3,
+      "blood_in_sputum": false,
+      "weight_loss": false,
+      "breathlessness": false,
+      "chest_pain": false,
+      "pneumonias_last_year": 0
+    },
+    "previous_visits": [],
+    "channel": "survey",
+    "synthetic": true,
+    "free_text": "Hostan har inte gått över på flera veckor."
+  },
+  {
+    "id": "p-0138",
+    "age": 61,
+    "language": "fi",
+    "smoking": {
+      "status": "former",
+      "pack_years": 60
+    },
+    "symptoms": {
+      "cough_weeks": 1,
+      "blood_in_sputum": false,
+      "weight_loss": false,
+      "breathlessness": false,
+      "chest_pain": false,
+      "pneumonias_last_year": 1
+    },
+    "previous_visits": [
+      {
+        "months_ago": 11,
+        "reason": "astma"
+      }
+    ],
+    "channel": "survey",
+    "synthetic": true,
+    "free_text": "Yskä ei ole mennyt ohi flunssan jälkeen."
+  },
+  {
+    "id": "p-0139",
+    "age": 75,
+    "language": "fi",
+    "smoking": {
+      "status": "current",
+      "pack_years": 57
+    },
+    "symptoms": {
+      "cough_weeks": 0,
+      "blood_in_sputum": false,
+      "weight_loss": false,
+      "breathlessness": true,
+      "chest_pain": false,
+      "pneumonias_last_year": 0
+    },
+    "previous_visits": [
+      {
+        "months_ago": 7,
+        "reason": "astma"
+      }
+    ],
+    "channel": "survey",
+    "synthetic": true
+  },
+  {
+    "id": "p-0140",
+    "age": 54,
+    "language": "fi",
+    "smoking": {
+      "status": "former",
+      "pack_years": 31
+    },
+    "symptoms": {
+      "cough_weeks": 0,
+      "blood_in_sputum": false,
+      "weight_loss": false,
+      "breathlessness": false,
+      "chest_pain": false,
+      "pneumonias_last_year": 0
+    },
+    "previous_visits": [],
+    "channel": "survey",
+    "synthetic": true
+  },
+  {
+    "id": "p-0141",
+    "age": 62,
+    "language": "fi",
+    "smoking": {
+      "status": "former",
+      "pack_years": 51
+    },
+    "symptoms": {
+      "cough_weeks": 2,
+      "blood_in_sputum": false,
+      "weight_loss": false,
+      "breathlessness": false,
+      "chest_pain": false,
+      "pneumonias_last_year": 0
+    },
+    "previous_visits": [],
+    "channel": "survey",
+    "synthetic": true
+  },
+  {
+    "id": "p-0142",
+    "age": 59,
+    "language": "fi",
+    "smoking": {
+      "status": "current",
+      "pack_years": 49
+    },
+    "symptoms": {
+      "cough_weeks": 0,
+      "blood_in_sputum": false,
+      "weight_loss": false,
+      "breathlessness": false,
+      "chest_pain": false,
+      "pneumonias_last_year": 0
+    },
+    "previous_visits": [],
+    "channel": "survey",
+    "synthetic": true,
+    "free_text": "Laihduin vaikka en yrittänyt."
+  },
+  {
+    "id": "p-0143",
+    "age": 68,
+    "language": "fi",
+    "smoking": {
+      "status": "former",
+      "pack_years": 35
+    },
+    "symptoms": {
+      "cough_weeks": 0,
+      "blood_in_sputum": false,
+      "weight_loss": false,
+      "breathlessness": false,
+      "chest_pain": false,
+      "pneumonias_last_year": 0
+    },
+    "previous_visits": [],
+    "channel": "survey",
+    "synthetic": true
+  },
+  {
+    "id": "p-0144",
+    "age": 68,
+    "language": "fi",
+    "smoking": {
+      "status": "current",
+      "pack_years": 8
+    },
+    "symptoms": {
+      "cough_weeks": 2,
+      "blood_in_sputum": false,
+      "weight_loss": false,
+      "breathlessness": false,
+      "chest_pain": false,
+      "pneumonias_last_year": 0
+    },
+    "previous_visits": [],
+    "channel": "survey",
+    "synthetic": true
+  },
+  {
+    "id": "p-0145",
+    "age": 57,
+    "language": "fi",
+    "smoking": {
+      "status": "current",
+      "pack_years": 15
+    },
+    "symptoms": {
+      "cough_weeks": 1,
+      "blood_in_sputum": false,
+      "weight_loss": false,
+      "breathlessness": false,
+      "chest_pain": false,
+      "pneumonias_last_year": 0
+    },
+    "previous_visits": [],
+    "channel": "survey",
+    "synthetic": true
+  },
+  {
+    "id": "p-0146",
+    "age": 65,
+    "language": "fi",
+    "smoking": {
+      "status": "former",
+      "pack_years": 51
+    },
+    "symptoms": {
+      "cough_weeks": 0,
+      "blood_in_sputum": false,
+      "weight_loss": false,
+      "breathlessness": true,
+      "chest_pain": false,
+      "pneumonias_last_year": 0
+    },
+    "previous_visits": [
+      {
+        "months_ago": 2,
+        "reason": "yskä"
+      }
+    ],
+    "channel": "survey",
+    "synthetic": true
+  },
+  {
+    "id": "p-0147",
+    "age": 76,
+    "language": "fi",
+    "smoking": {
+      "status": "current",
+      "pack_years": 19
+    },
+    "symptoms": {
+      "cough_weeks": 0,
+      "blood_in_sputum": false,
+      "weight_loss": false,
+      "breathlessness": false,
+      "chest_pain": false,
+      "pneumonias_last_year": 0
+    },
+    "previous_visits": [],
+    "channel": "survey",
+    "synthetic": true,
+    "free_text": "Astmalääke ei auttanut yskään."
+  },
+  {
+    "id": "p-0148",
+    "age": 52,
+    "language": "fi",
+    "smoking": {
+      "status": "never",
+      "pack_years": 0
+    },
+    "symptoms": {
+      "cough_weeks": 0,
+      "blood_in_sputum": false,
+      "weight_loss": false,
+      "breathlessness": false,
+      "chest_pain": false,
+      "pneumonias_last_year": 0
+    },
+    "previous_visits": [],
+    "channel": "survey",
+    "synthetic": true
+  },
+  {
+    "id": "p-0149",
+    "age": 55,
+    "language": "fi",
+    "smoking": {
+      "status": "never",
+      "pack_years": 0
+    },
+    "symptoms": {
+      "cough_weeks": 2,
+      "blood_in_sputum": false,
+      "weight_loss": false,
+      "breathlessness": true,
+      "chest_pain": false,
+      "pneumonias_last_year": 0
+    },
+    "previous_visits": [],
+    "channel": "survey",
+    "synthetic": true
+  },
+  {
+    "id": "p-0150",
+    "age": 50,
+    "language": "fi",
+    "smoking": {
+      "status": "current",
+      "pack_years": 39
+    },
+    "symptoms": {
+      "cough_weeks": 0,
+      "blood_in_sputum": false,
+      "weight_loss": false,
+      "breathlessness": false,
+      "chest_pain": false,
+      "pneumonias_last_year": 0
+    },
+    "previous_visits": [],
+    "channel": "survey",
+    "synthetic": true,
+    "free_text": "Aamuisin yskösissä oli vähän verta."
+  },
+  {
+    "id": "p-0151",
+    "age": 61,
+    "language": "fi",
+    "smoking": {
+      "status": "current",
+      "pack_years": 43
+    },
+    "symptoms": {
+      "cough_weeks": 0,
+      "blood_in_sputum": false,
+      "weight_loss": true,
+      "breathlessness": false,
+      "chest_pain": false,
+      "pneumonias_last_year": 0
+    },
+    "previous_visits": [],
+    "channel": "survey",
+    "synthetic": true
+  },
+  {
+    "id": "p-0152",
+    "age": 78,
+    "language": "fi",
+    "smoking": {
+      "status": "current",
+      "pack_years": 50
+    },
+    "symptoms": {
+      "cough_weeks": 0,
+      "blood_in_sputum": false,
+      "weight_loss": false,
+      "breathlessness": false,
+      "chest_pain": false,
+      "pneumonias_last_year": 0
+    },
+    "previous_visits": [
+      {
+        "months_ago": 6,
+        "reason": "verenpaine"
+      }
+    ],
+    "channel": "survey",
+    "synthetic": true
+  },
+  {
+    "id": "p-0153",
+    "age": 53,
+    "language": "fi",
+    "smoking": {
+      "status": "current",
+      "pack_years": 53
+    },
+    "symptoms": {
+      "cough_weeks": 0,
+      "blood_in_sputum": false,
+      "weight_loss": false,
+      "breathlessness": false,
+      "chest_pain": false,
+      "pneumonias_last_year": 0
+    },
+    "previous_visits": [],
+    "channel": "survey",
+    "synthetic": true
+  },
+  {
+    "id": "p-0154",
+    "age": 54,
+    "language": "fi",
+    "smoking": {
+      "status": "never",
+      "pack_years": 0
+    },
+    "symptoms": {
+      "cough_weeks": 0,
+      "blood_in_sputum": false,
+      "weight_loss": false,
+      "breathlessness": false,
+      "chest_pain": false,
+      "pneumonias_last_year": 0
+    },
+    "previous_visits": [],
+    "channel": "survey",
+    "synthetic": true
+  },
+  {
+    "id": "p-0155",
+    "age": 75,
+    "language": "fi",
+    "smoking": {
+      "status": "former",
+      "pack_years": 59
+    },
+    "symptoms": {
+      "cough_weeks": 1,
+      "blood_in_sputum": false,
+      "weight_loss": false,
+      "breathlessness": false,
+      "chest_pain": false,
+      "pneumonias_last_year": 0
+    },
+    "previous_visits": [],
+    "channel": "survey",
+    "synthetic": true,
+    "free_text": "Yskä ei ole mennyt ohi flunssan jälkeen."
+  },
+  {
+    "id": "p-0156",
+    "age": 84,
+    "language": "fi",
+    "smoking": {
+      "status": "former",
+      "pack_years": 41
+    },
+    "symptoms": {
+      "cough_weeks": 0,
+      "blood_in_sputum": false,
+      "weight_loss": false,
+      "breathlessness": false,
+      "chest_pain": false,
+      "pneumonias_last_year": 1
+    },
+    "previous_visits": [],
+    "channel": "survey",
+    "synthetic": true,
+    "free_text": "Laihduin vaikka en yrittänyt."
+  },
+  {
+    "id": "p-0157",
+    "age": 66,
+    "language": "fi",
+    "smoking": {
+      "status": "former",
+      "pack_years": 41
+    },
+    "symptoms": {
+      "cough_weeks": 0,
+      "blood_in_sputum": false,
+      "weight_loss": false,
+      "breathlessness": true,
+      "chest_pain": false,
+      "pneumonias_last_year": 0
+    },
+    "previous_visits": [
+      {
+        "months_ago": 9,
+        "reason": "selkäkipu"
+      }
+    ],
+    "channel": "survey",
+    "synthetic": true
+  },
+  {
+    "id": "p-0158",
+    "age": 63,
+    "language": "fi",
+    "smoking": {
+      "status": "former",
+      "pack_years": 15
+    },
+    "symptoms": {
+      "cough_weeks": 0,
+      "blood_in_sputum": false,
+      "weight_loss": false,
+      "breathlessness": false,
+      "chest_pain": false,
+      "pneumonias_last_year": 0
+    },
+    "previous_visits": [],
+    "channel": "survey",
+    "synthetic": true
+  },
+  {
+    "id": "p-0159",
+    "age": 56,
+    "language": "sv",
+    "smoking": {
+      "status": "former",
+      "pack_years": 32
+    },
+    "symptoms": {
+      "cough_weeks": 0,
+      "blood_in_sputum": false,
+      "weight_loss": false,
+      "breathlessness": false,
+      "chest_pain": false,
+      "pneumonias_last_year": 0
+    },
+    "previous_visits": [],
+    "channel": "survey",
+    "synthetic": true,
+    "free_text": "Jag blir andfådd lättare än förut."
+  },
+  {
+    "id": "p-0160",
+    "age": 51,
+    "language": "fi",
+    "smoking": {
+      "status": "never",
+      "pack_years": 0
+    },
+    "symptoms": {
+      "cough_weeks": 4,
+      "blood_in_sputum": true,
+      "weight_loss": false,
+      "breathlessness": false,
+      "chest_pain": false,
+      "pneumonias_last_year": 0
+    },
+    "previous_visits": [],
+    "channel": "survey",
+    "synthetic": true,
+    "free_text": "Yskä ei ole mennyt ohi flunssan jälkeen."
+  },
+  {
+    "id": "p-0161",
+    "age": 53,
+    "language": "fi",
+    "smoking": {
+      "status": "never",
+      "pack_years": 0
+    },
+    "symptoms": {
+      "cough_weeks": 0,
+      "blood_in_sputum": false,
+      "weight_loss": false,
+      "breathlessness": true,
+      "chest_pain": false,
+      "pneumonias_last_year": 0
+    },
+    "previous_visits": [],
+    "channel": "survey",
+    "synthetic": true,
+    "free_text": "Laihduin vaikka en yrittänyt."
+  },
+  {
+    "id": "p-0162",
+    "age": 50,
+    "language": "fi",
+    "smoking": {
+      "status": "current",
+      "pack_years": 13
+    },
+    "symptoms": {
+      "cough_weeks": 0,
+      "blood_in_sputum": false,
+      "weight_loss": false,
+      "breathlessness": false,
+      "chest_pain": false,
+      "pneumonias_last_year": 0
+    },
+    "previous_visits": [],
+    "channel": "survey",
+    "synthetic": true
+  },
+  {
+    "id": "p-0163",
+    "age": 70,
+    "language": "fi",
+    "smoking": {
+      "status": "former",
+      "pack_years": 22
+    },
+    "symptoms": {
+      "cough_weeks": 0,
+      "blood_in_sputum": false,
+      "weight_loss": false,
+      "breathlessness": true,
+      "chest_pain": false,
+      "pneumonias_last_year": 0
+    },
+    "previous_visits": [],
+    "channel": "survey",
+    "synthetic": true
+  },
+  {
+    "id": "p-0164",
+    "age": 62,
+    "language": "fi",
+    "smoking": {
+      "status": "current",
+      "pack_years": 49
+    },
+    "symptoms": {
+      "cough_weeks": 16,
+      "blood_in_sputum": true,
+      "weight_loss": false,
+      "breathlessness": false,
+      "chest_pain": false,
+      "pneumonias_last_year": 0
+    },
+    "previous_visits": [
+      {
+        "months_ago": 8,
+        "reason": "yskä"
+      }
+    ],
+    "channel": "health_centre",
+    "synthetic": true,
+    "free_text": "Laihduin vaikka en yrittänyt."
+  },
+  {
+    "id": "p-0165",
+    "age": 79,
+    "language": "fi",
+    "smoking": {
+      "status": "former",
+      "pack_years": 16
+    },
+    "symptoms": {
+      "cough_weeks": 0,
+      "blood_in_sputum": false,
+      "weight_loss": false,
+      "breathlessness": false,
+      "chest_pain": false,
+      "pneumonias_last_year": 0
+    },
+    "previous_visits": [],
+    "channel": "survey",
+    "synthetic": true
+  },
+  {
+    "id": "p-0166",
+    "age": 84,
+    "language": "fi",
+    "smoking": {
+      "status": "current",
+      "pack_years": 49
+    },
+    "symptoms": {
+      "cough_weeks": 0,
+      "blood_in_sputum": false,
+      "weight_loss": false,
+      "breathlessness": false,
+      "chest_pain": false,
+      "pneumonias_last_year": 0
+    },
+    "previous_visits": [],
+    "channel": "survey",
+    "synthetic": true,
+    "free_text": "Astmalääke ei auttanut yskään."
+  },
+  {
+    "id": "p-0167",
+    "age": 57,
+    "language": "fi",
+    "smoking": {
+      "status": "never",
+      "pack_years": 0
+    },
+    "symptoms": {
+      "cough_weeks": 0,
+      "blood_in_sputum": false,
+      "weight_loss": false,
+      "breathlessness": false,
+      "chest_pain": true,
+      "pneumonias_last_year": 0
+    },
+    "previous_visits": [
+      {
+        "months_ago": 5,
+        "reason": "astma"
+      }
+    ],
+    "channel": "survey",
+    "synthetic": true,
+    "free_text": "Aamuisin yskösissä oli vähän verta."
+  },
+  {
+    "id": "p-0168",
+    "age": 63,
+    "language": "fi",
+    "smoking": {
+      "status": "never",
+      "pack_years": 0
+    },
+    "symptoms": {
+      "cough_weeks": 0,
+      "blood_in_sputum": false,
+      "weight_loss": false,
+      "breathlessness": false,
+      "chest_pain": false,
+      "pneumonias_last_year": 0
+    },
+    "previous_visits": [],
+    "channel": "survey",
+    "synthetic": true,
+    "free_text": "Laihduin vaikka en yrittänyt."
+  },
+  {
+    "id": "p-0169",
+    "age": 64,
+    "language": "fi",
+    "smoking": {
+      "status": "current",
+      "pack_years": 32
+    },
+    "symptoms": {
+      "cough_weeks": 0,
+      "blood_in_sputum": false,
+      "weight_loss": false,
+      "breathlessness": false,
+      "chest_pain": false,
+      "pneumonias_last_year": 1
+    },
+    "previous_visits": [
+      {
+        "months_ago": 7,
+        "reason": "keuhkokuume"
+      }
+    ],
+    "channel": "survey",
+    "synthetic": true,
+    "free_text": "Astmalääke ei auttanut yskään."
+  },
+  {
+    "id": "p-0170",
+    "age": 83,
+    "language": "fi",
+    "smoking": {
+      "status": "current",
+      "pack_years": 33
+    },
+    "symptoms": {
+      "cough_weeks": 0,
+      "blood_in_sputum": false,
+      "weight_loss": false,
+      "breathlessness": false,
+      "chest_pain": false,
+      "pneumonias_last_year": 0
+    },
+    "previous_visits": [],
+    "channel": "survey",
+    "synthetic": true,
+    "free_text": "Yskä ei ole mennyt ohi flunssan jälkeen."
+  },
+  {
+    "id": "p-0171",
+    "age": 79,
+    "language": "sv",
+    "smoking": {
+      "status": "former",
+      "pack_years": 18
+    },
+    "symptoms": {
+      "cough_weeks": 0,
+      "blood_in_sputum": false,
+      "weight_loss": false,
+      "breathlessness": false,
+      "chest_pain": false,
+      "pneumonias_last_year": 0
+    },
+    "previous_visits": [],
+    "channel": "survey",
+    "synthetic": true,
+    "free_text": "Hostan har inte gått över på flera veckor."
+  },
+  {
+    "id": "p-0172",
+    "age": 72,
+    "language": "fi",
+    "smoking": {
+      "status": "never",
+      "pack_years": 0
+    },
+    "symptoms": {
+      "cough_weeks": 0,
+      "blood_in_sputum": false,
+      "weight_loss": true,
+      "breathlessness": false,
+      "chest_pain": true,
+      "pneumonias_last_year": 0
+    },
+    "previous_visits": [],
+    "channel": "survey",
+    "synthetic": true
+  },
+  {
+    "id": "p-0173",
+    "age": 81,
+    "language": "fi",
+    "smoking": {
+      "status": "current",
+      "pack_years": 51
+    },
+    "symptoms": {
+      "cough_weeks": 0,
+      "blood_in_sputum": false,
+      "weight_loss": false,
+      "breathlessness": false,
+      "chest_pain": false,
+      "pneumonias_last_year": 0
+    },
+    "previous_visits": [],
+    "channel": "survey",
+    "synthetic": true,
+    "free_text": "Hengästyn portaissa enemmän kuin ennen."
+  },
+  {
+    "id": "p-0174",
+    "age": 64,
+    "language": "fi",
+    "smoking": {
+      "status": "current",
+      "pack_years": 53
+    },
+    "symptoms": {
+      "cough_weeks": 0,
+      "blood_in_sputum": false,
+      "weight_loss": false,
+      "breathlessness": false,
+      "chest_pain": false,
+      "pneumonias_last_year": 0
+    },
+    "previous_visits": [],
+    "channel": "survey",
+    "synthetic": true,
+    "free_text": "Hengästyn portaissa enemmän kuin ennen."
+  },
+  {
+    "id": "p-0175",
+    "age": 55,
+    "language": "fi",
+    "smoking": {
+      "status": "former",
+      "pack_years": 49
+    },
+    "symptoms": {
+      "cough_weeks": 3,
+      "blood_in_sputum": false,
+      "weight_loss": false,
+      "breathlessness": false,
+      "chest_pain": false,
+      "pneumonias_last_year": 0
+    },
+    "previous_visits": [
+      {
+        "months_ago": 7,
+        "reason": "verenpaine"
+      }
+    ],
+    "channel": "survey",
+    "synthetic": true,
+    "free_text": "Yskä ei ole mennyt ohi flunssan jälkeen."
+  },
+  {
+    "id": "p-0176",
+    "age": 52,
+    "language": "fi",
+    "smoking": {
+      "status": "current",
+      "pack_years": 48
+    },
+    "symptoms": {
+      "cough_weeks": 14,
+      "blood_in_sputum": true,
+      "weight_loss": true,
+      "breathlessness": false,
+      "chest_pain": false,
+      "pneumonias_last_year": 0
+    },
+    "previous_visits": [],
+    "channel": "survey",
+    "synthetic": true
+  },
+  {
+    "id": "p-0177",
+    "age": 68,
+    "language": "sv",
+    "smoking": {
+      "status": "former",
+      "pack_years": 8
+    },
+    "symptoms": {
+      "cough_weeks": 0,
+      "blood_in_sputum": false,
+      "weight_loss": false,
+      "breathlessness": false,
+      "chest_pain": false,
+      "pneumonias_last_year": 0
+    },
+    "previous_visits": [],
+    "channel": "survey",
+    "synthetic": true
+  },
+  {
+    "id": "p-0178",
+    "age": 60,
+    "language": "fi",
+    "smoking": {
+      "status": "former",
+      "pack_years": 19
+    },
+    "symptoms": {
+      "cough_weeks": 2,
+      "blood_in_sputum": false,
+      "weight_loss": false,
+      "breathlessness": false,
+      "chest_pain": false,
+      "pneumonias_last_year": 1
+    },
+    "previous_visits": [],
+    "channel": "survey",
+    "synthetic": true
+  },
+  {
+    "id": "p-0179",
+    "age": 72,
+    "language": "fi",
+    "smoking": {
+      "status": "former",
+      "pack_years": 14
+    },
+    "symptoms": {
+      "cough_weeks": 0,
+      "blood_in_sputum": false,
+      "weight_loss": false,
+      "breathlessness": false,
+      "chest_pain": false,
+      "pneumonias_last_year": 0
+    },
+    "previous_visits": [],
+    "channel": "survey",
+    "synthetic": true
+  },
+  {
+    "id": "p-0180",
+    "age": 82,
+    "language": "fi",
+    "smoking": {
+      "status": "former",
+      "pack_years": 52
+    },
+    "symptoms": {
+      "cough_weeks": 0,
+      "blood_in_sputum": false,
+      "weight_loss": false,
+      "breathlessness": false,
+      "chest_pain": false,
+      "pneumonias_last_year": 0
+    },
+    "previous_visits": [],
+    "channel": "survey",
+    "synthetic": true
+  },
+  {
+    "id": "p-0181",
+    "age": 66,
+    "language": "fi",
+    "smoking": {
+      "status": "former",
+      "pack_years": 36
+    },
+    "symptoms": {
+      "cough_weeks": 0,
+      "blood_in_sputum": false,
+      "weight_loss": false,
+      "breathlessness": false,
+      "chest_pain": true,
+      "pneumonias_last_year": 0
+    },
+    "previous_visits": [],
+    "channel": "survey",
+    "synthetic": true
+  },
+  {
+    "id": "p-0182",
+    "age": 62,
+    "language": "fi",
+    "smoking": {
+      "status": "never",
+      "pack_years": 0
+    },
+    "symptoms": {
+      "cough_weeks": 0,
+      "blood_in_sputum": false,
+      "weight_loss": false,
+      "breathlessness": false,
+      "chest_pain": false,
+      "pneumonias_last_year": 0
+    },
+    "previous_visits": [],
+    "channel": "survey",
+    "synthetic": true,
+    "free_text": "Ei erityisiä oireita."
+  },
+  {
+    "id": "p-0183",
+    "age": 62,
+    "language": "fi",
+    "smoking": {
+      "status": "current",
+      "pack_years": 20
+    },
+    "symptoms": {
+      "cough_weeks": 0,
+      "blood_in_sputum": false,
+      "weight_loss": false,
+      "breathlessness": false,
+      "chest_pain": false,
+      "pneumonias_last_year": 0
+    },
+    "previous_visits": [],
+    "channel": "survey",
+    "synthetic": true
+  },
+  {
+    "id": "p-0184",
+    "age": 69,
+    "language": "fi",
+    "smoking": {
+      "status": "former",
+      "pack_years": 53
+    },
+    "symptoms": {
+      "cough_weeks": 2,
+      "blood_in_sputum": false,
+      "weight_loss": false,
+      "breathlessness": false,
+      "chest_pain": false,
+      "pneumonias_last_year": 0
+    },
+    "previous_visits": [],
+    "channel": "survey",
+    "synthetic": true
+  },
+  {
+    "id": "p-0185",
+    "age": 79,
+    "language": "fi",
+    "smoking": {
+      "status": "never",
+      "pack_years": 0
+    },
+    "symptoms": {
+      "cough_weeks": 1,
+      "blood_in_sputum": false,
+      "weight_loss": false,
+      "breathlessness": false,
+      "chest_pain": false,
+      "pneumonias_last_year": 0
+    },
+    "previous_visits": [],
+    "channel": "survey",
+    "synthetic": true,
+    "free_text": "Hengästyn portaissa enemmän kuin ennen."
+  },
+  {
+    "id": "p-0186",
+    "age": 77,
+    "language": "fi",
+    "smoking": {
+      "status": "former",
+      "pack_years": 5
+    },
+    "symptoms": {
+      "cough_weeks": 0,
+      "blood_in_sputum": false,
+      "weight_loss": false,
+      "breathlessness": false,
+      "chest_pain": false,
+      "pneumonias_last_year": 1
+    },
+    "previous_visits": [
+      {
+        "months_ago": 6,
+        "reason": "flunssa"
+      }
+    ],
+    "channel": "survey",
+    "synthetic": true,
+    "free_text": "Astmalääke ei auttanut yskään."
+  },
+  {
+    "id": "p-0187",
+    "age": 74,
+    "language": "sv",
+    "smoking": {
+      "status": "current",
+      "pack_years": 56
+    },
+    "symptoms": {
+      "cough_weeks": 0,
+      "blood_in_sputum": false,
+      "weight_loss": false,
+      "breathlessness": false,
+      "chest_pain": false,
+      "pneumonias_last_year": 0
+    },
+    "previous_visits": [],
+    "channel": "survey",
+    "synthetic": true,
+    "free_text": "Hostan har inte gått över på flera veckor."
+  },
+  {
+    "id": "p-0188",
+    "age": 85,
+    "language": "sv",
+    "smoking": {
+      "status": "former",
+      "pack_years": 47
+    },
+    "symptoms": {
+      "cough_weeks": 0,
+      "blood_in_sputum": false,
+      "weight_loss": false,
+      "breathlessness": false,
+      "chest_pain": false,
+      "pneumonias_last_year": 0
+    },
+    "previous_visits": [],
+    "channel": "survey",
+    "synthetic": true
+  },
+  {
+    "id": "p-0189",
+    "age": 70,
+    "language": "fi",
+    "smoking": {
+      "status": "former",
+      "pack_years": 5
+    },
+    "symptoms": {
+      "cough_weeks": 5,
+      "blood_in_sputum": false,
+      "weight_loss": false,
+      "breathlessness": true,
+      "chest_pain": true,
+      "pneumonias_last_year": 0
+    },
+    "previous_visits": [
+      {
+        "months_ago": 11,
+        "reason": "astma"
+      }
+    ],
+    "channel": "survey",
+    "synthetic": true,
+    "free_text": "Hengästyn portaissa enemmän kuin ennen."
+  },
+  {
+    "id": "p-0190",
+    "age": 85,
+    "language": "fi",
+    "smoking": {
+      "status": "never",
+      "pack_years": 0
+    },
+    "symptoms": {
+      "cough_weeks": 0,
+      "blood_in_sputum": false,
+      "weight_loss": false,
+      "breathlessness": false,
+      "chest_pain": false,
+      "pneumonias_last_year": 0
+    },
+    "previous_visits": [
+      {
+        "months_ago": 12,
+        "reason": "verenpaine"
+      }
+    ],
+    "channel": "survey",
+    "synthetic": true,
+    "free_text": "Laihduin vaikka en yrittänyt."
+  },
+  {
+    "id": "p-0191",
+    "age": 75,
+    "language": "fi",
+    "smoking": {
+      "status": "former",
+      "pack_years": 50
+    },
+    "symptoms": {
+      "cough_weeks": 0,
+      "blood_in_sputum": false,
+      "weight_loss": false,
+      "breathlessness": false,
+      "chest_pain": false,
+      "pneumonias_last_year": 0
+    },
+    "previous_visits": [],
+    "channel": "survey",
+    "synthetic": true
+  },
+  {
+    "id": "p-0192",
+    "age": 77,
+    "language": "fi",
+    "smoking": {
+      "status": "never",
+      "pack_years": 0
+    },
+    "symptoms": {
+      "cough_weeks": 16,
+      "blood_in_sputum": false,
+      "weight_loss": true,
+      "breathlessness": false,
+      "chest_pain": true,
+      "pneumonias_last_year": 2
+    },
+    "previous_visits": [],
+    "channel": "survey",
+    "synthetic": true
+  },
+  {
+    "id": "p-0193",
+    "age": 74,
+    "language": "fi",
+    "smoking": {
+      "status": "current",
+      "pack_years": 27
+    },
+    "symptoms": {
+      "cough_weeks": 0,
+      "blood_in_sputum": false,
+      "weight_loss": false,
+      "breathlessness": false,
+      "chest_pain": false,
+      "pneumonias_last_year": 0
+    },
+    "previous_visits": [],
+    "channel": "survey",
+    "synthetic": true
+  },
+  {
+    "id": "p-0194",
+    "age": 57,
+    "language": "fi",
+    "smoking": {
+      "status": "current",
+      "pack_years": 46
+    },
+    "symptoms": {
+      "cough_weeks": 0,
+      "blood_in_sputum": false,
+      "weight_loss": false,
+      "breathlessness": false,
+      "chest_pain": false,
+      "pneumonias_last_year": 1
+    },
+    "previous_visits": [],
+    "channel": "survey",
+    "synthetic": true
+  },
+  {
+    "id": "p-0195",
+    "age": 54,
+    "language": "fi",
+    "smoking": {
+      "status": "never",
+      "pack_years": 0
+    },
+    "symptoms": {
+      "cough_weeks": 0,
+      "blood_in_sputum": false,
+      "weight_loss": false,
+      "breathlessness": true,
+      "chest_pain": false,
+      "pneumonias_last_year": 0
+    },
+    "previous_visits": [],
+    "channel": "survey",
+    "synthetic": true
+  },
+  {
+    "id": "p-0196",
+    "age": 85,
+    "language": "fi",
+    "smoking": {
+      "status": "former",
+      "pack_years": 22
+    },
+    "symptoms": {
+      "cough_weeks": 0,
+      "blood_in_sputum": false,
+      "weight_loss": false,
+      "breathlessness": true,
+      "chest_pain": false,
+      "pneumonias_last_year": 0
+    },
+    "previous_visits": [],
+    "channel": "survey",
+    "synthetic": true
+  },
+  {
+    "id": "p-0197",
+    "age": 81,
+    "language": "en",
+    "smoking": {
+      "status": "current",
+      "pack_years": 8
+    },
+    "symptoms": {
+      "cough_weeks": 0,
+      "blood_in_sputum": false,
+      "weight_loss": false,
+      "breathlessness": false,
+      "chest_pain": false,
+      "pneumonias_last_year": 0
+    },
+    "previous_visits": [],
+    "channel": "survey",
+    "synthetic": true
+  },
+  {
+    "id": "p-0198",
+    "age": 56,
+    "language": "fi",
+    "smoking": {
+      "status": "former",
+      "pack_years": 8
+    },
+    "symptoms": {
+      "cough_weeks": 0,
+      "blood_in_sputum": false,
+      "weight_loss": false,
+      "breathlessness": false,
+      "chest_pain": false,
+      "pneumonias_last_year": 1
+    },
+    "previous_visits": [],
+    "channel": "survey",
+    "synthetic": true,
+    "free_text": "Laihduin vaikka en yrittänyt."
+  },
+  {
+    "id": "p-0199",
+    "age": 68,
+    "language": "fi",
+    "smoking": {
+      "status": "never",
+      "pack_years": 0
+    },
+    "symptoms": {
+      "cough_weeks": 4,
+      "blood_in_sputum": false,
+      "weight_loss": false,
+      "breathlessness": true,
+      "chest_pain": false,
+      "pneumonias_last_year": 0
+    },
+    "previous_visits": [
+      {
+        "months_ago": 4,
+        "reason": "yskä"
+      }
+    ],
+    "channel": "survey",
+    "synthetic": true
+  },
+  {
+    "id": "p-0200",
+    "age": 67,
+    "language": "fi",
+    "smoking": {
+      "status": "current",
+      "pack_years": 53
+    },
+    "symptoms": {
+      "cough_weeks": 0,
+      "blood_in_sputum": false,
+      "weight_loss": false,
+      "breathlessness": false,
+      "chest_pain": false,
+      "pneumonias_last_year": 0
+    },
+    "previous_visits": [],
+    "channel": "survey",
+    "synthetic": true
+  }
+]
