@@ -1,6 +1,6 @@
 # Project
 
-> **Draft MVP plan · updated 2026-11-14 00:40 EET.** Based on the team's concept from 2026-11-14: a symptom survey to a risk group, AI-prepared fast-lane cases, and a benefit analysis for decision-makers. The team has not formally confirmed the challenge yet (see [HAASTEVERTAILU.md](HAASTEVERTAILU.md)). Mark anything you verify with its source and date.
+> **Draft MVP plan · updated 2026-11-14 01:40 EET.** Based on the team's concept from 2026-11-14: a symptom survey to a risk group, AI-prepared fast-lane cases, and a benefit analysis for decision-makers. The team has not formally confirmed the challenge yet (see [HAASTEVERTAILU.md](HAASTEVERTAILU.md)). Mark anything you verify with its source and date.
 
 ## One-sentence pitch
 
@@ -50,6 +50,62 @@ Every year, a wellbeing services county sends a short symptom survey to people a
 - a physician signs every referral.
 
 A real pilot would need data permits and a decision on medical-device status.
+
+## Positioning and evidence
+
+### What is new, and what is the landing
+
+- **The survey is the core and the insight.** It finds people who would not come in themselves. Lead the pitch with it and spend most of the demo on it: the survey, the AI summaries and the physician's decision.
+- **The fast lane is where survey-positive people land.** Without it, survey-positive people join the normal two-week queue and nothing gets faster. Keep it simple: reserved physician and CT slots plus direct referral. Do not invent it. Plug into the Nordic-style pathways that the Roadmap already pilots (action 2.5.2).
+- **Pitch line:** "We find the people who would not come in themselves, and make sure they reach a scan in days, not weeks."
+
+### Why people do not seek care, and how the survey lowers the threshold
+
+| Barrier | Survey response | AI needed? |
+| --- | --- | --- |
+| Symptoms are non-specific, and the lungs do not hurt (Lung Cancer Programme pp. 2–4) | Ask concrete questions, for example "cough longer than 3 weeks?" or "blood in sputum?", so people do not have to judge for themselves | No |
+| Stigma, for example about smoking (Lung Cancer Programme pp. 15–16) | The county sends it to the whole risk group as routine. Nobody has to reach out. | No |
+| Effort and waiting | Two minutes on a phone. An alarm sign books directly into the fast lane. | No |
+| Language and difficulty describing symptoms | A free-text "in your own words" field in any language. AI translates it and flags possible symptoms for the physician. AI can only add flags, never remove them. | **Yes** |
+
+### Survey channel (decided 2026-11-14)
+
+1. Text-message survey to everyone in the risk group.
+2. A reminder after one week.
+3. A nurse calls non-responders and people over 75 and fills in the same survey. Answers flow into the same system.
+
+Non-responders are often the oldest and most disadvantaged people, which is the equity point of the challenge.
+
+An AI voice call was considered and rejected for now. Many people do not answer unknown numbers because of scam calls, speech recognition is weak in dialects, and a live demo in a noisy hall is risky. It can be a later extension.
+
+### Evidence for the approach
+
+Collected 2026-11-14. Use with the caveats shown.
+
+- **Danish cancer patient pathways (fast lanes).** In 2008 Denmark introduced fast-track referral: patients with specific symptoms, such as sustained cough, had to be seen at the hospital within three days of referral. After implementation, three-year relative survival for symptomatic patients diagnosed via primary care rose from 45% to 54% (all cancers combined). CPP-referred patients had lower excess mortality. **Caveat:** the authors note the change may partly reflect lead-time and selection bias. [Jensen et al. 2017, BMC Cancer](https://doaj.org/article/15ccea42331548b1b43b87ac43ae986c)
+- **A fast lane alone is not enough for lung cancer.** In Denmark in 2010, only 27.4% of lung cancer patients were referred from the GP to the fast track. The authors concluded that the fast track must be supplemented to detect lung cancer earlier. **This is the core argument for the survey.** [Guldbrandt et al., BMC Health Services Research](https://www.ncbi.nlm.nih.gov/pmc/articles/PMC4307896/)
+- **Route matters.** Danish patients diagnosed through an unplanned admission had a much higher one-year mortality than those diagnosed through a primary-care pathway (OR 3.38). This is an association, not causation. [Danckert et al.](https://research.regionh.dk/en/publications/routes-to-diagnosis-and-the-association-with-the-prognosis-in-pat/)
+- **Getting people to come earlier gives mixed evidence.**
+  - England's national Be Clear on Cancer lung campaign was linked to about 700 extra diagnoses, 300 of them with potentially curative treatment. [GOV.UK](https://gov.uk/government/news/be-clear-on-cancer-campaign-findings)
+  - The Welsh campaign found no significant change in early-stage diagnoses. [Cardiff evaluation](https://orca.cardiff.ac.uk/126586/2/BCOC%20paper%20BJC%20Rev%201%20submitted%2024.10.2019%20_CLEAN_with%20tables%20for%20ORCA_pre%20print.pdf)
+  - These were mass-media campaigns. **No direct evidence for a targeted symptom survey has been found yet. This is our biggest evidence gap.**
+- **Speed versus survival.** Lung cancer shows a "waiting time paradox": the sickest patients are diagnosed fastest and still do worst, so studies are mixed. [Cancer Epidemiology 2015](https://core.ac.uk/download/77409558.pdf) For stage I–II disease, waiting more than four weeks from diagnosis to surgery was associated with worse survival. [J Thorac Dis](https://jtd.amegroups.org/article/view/104706/html) Benefit is most plausible for early-stage patients with mild symptoms, the group the survey targets.
+
+### What we claim, and what we do not
+
+1. **Certain and measurable:** time to CT gets shorter. The demo computes this.
+2. **Plausible and evidence-based:** fast lanes are associated with better prognosis in Denmark, but a fast lane alone reaches only some lung cancer patients, so outreach is needed.
+3. **Assumption, not a promise:** earlier detection improves survival.
+
+### How a pilot would prove it
+
+The county starts in one health centre area and compares it with a control area on four measures:
+- time from first contact to CT
+- share of cancers found at a curable stage
+- number of cancers found through the survey
+- share of fast-lane patients who turn out to have cancer.
+
+We do not promise the effect. We give a tool that measures it.
 
 ### The two-minute brief for decision-makers
 
@@ -166,7 +222,7 @@ Keep API keys in `.env.local`. Never commit them.
   - Is a symptom survey to a risk group credible?
   - Which alarm criteria should we use?
 - What share of fast-lane patients turn out to have cancer in the Nordic package pathways? This drives CT load. Find a source.
-- Is there evidence that symptom surveys or risk-group invitations find lung cancer earlier? England's Lung Health Check invites a risk group to CT. Verify its results before citing it.
+- Is there direct evidence that a targeted symptom survey or risk-group invitation finds lung cancer earlier? See [Evidence for the approach](#evidence-for-the-approach). England's Lung Health Check invites a risk group to CT; verify its results before citing it.
 - Response rate assumption, and who does not answer (equity).
 - County-level data: Cancer Registry figures, smoking prevalence, and the Syöpäjärjestöt report.
 - THL 21/2016: where does the target-time clock start?

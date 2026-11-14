@@ -10,10 +10,32 @@ Add entries in chronological order. Link evidence, and link any later entry that
 
 ## 2026-11-13 — Proposed MVP: Kaksi ovea AI analyst with a lung cancer fast lane
 
-- **Status** Proposed by Noel. Team confirmation pending.
+- **Status** Superseded by [2026-11-14 — Risk-group symptom survey with an AI-prepared fast lane](#2026-11-14--risk-group-symptom-survey-with-an-ai-prepared-fast-lane).
 - **Context and options considered** AstraZeneca *Equal Care Across Finland* versus Aalto *Beyond the Clinic* ([HAASTEVERTAILU.md](HAASTEVERTAILU.md)). Within AstraZeneca: Two Doors, Pilot Map, Symptom Clock, Distance Tax and Nordic Gap ([IDEAS.md](IDEAS.md)). Wider lung cancer screening was considered and rejected as the main recommendation. It is only being evaluated nationally, a county cannot start it now, and per the team's notes it belongs to Strategy Goal 2.
 - **Rationale and trade-offs** The idea locates the gap at a pathway stage a county can change now (primary-care contact → imaging) and fits Roadmap action 2.5.2. The AI analyst meets the AI requirement while code computes all numbers. The design drops a nurse-only triage gate, because 40–60% of Finnish patients see a nurse first while other Nordic countries start with a physician (University of Helsinki, 7 Nov 2025). Trade-offs: route-to-diagnosis data is unverified, the two-times delay figure comes from a single unpublished study, and imaging capacity may be the real bottleneck. Fallback: Pilot Map.
 - **Evidence and follow-up** [PROJECT.md](PROJECT.md) lists sources and open questions. Record Kaisa Kaitila's answer on imaging capacity, then confirm or supersede this entry.
+
+## 2026-11-14 — Risk-group symptom survey with an AI-prepared fast lane
+
+- **Status** Proposed (team concept, 2026-11-14 00:30). Supersedes the 2026-11-13 Kaksi ovea AI analyst proposal.
+- **Context and options considered**
+  - Passive fast lane only. It reaches only people who come in: in Denmark only 27.4% of lung cancer patients were fast-tracked from the GP.
+  - Analysis-only tool. The team judged it not to be a real solution.
+  - LDCT screening. It is a national decision still under evaluation.
+  - AI voice calls. Trust and live-demo risk are too high.
+  - Text-message survey to the risk group plus a fast lane (chosen).
+- **Decision**
+  - The county sends a yearly symptom survey to a lung cancer risk group, with a reminder and nurse calls for non-responders and people over 75.
+  - Fixed rules score the answers.
+  - AI summarizes each alarm case and proposes a placement with quoted reasons. A physician approves every placement.
+  - Reserved physician and CT slots form the fast lane.
+  - A deterministic benefit analysis and an AI brief serve decision-makers.
+- **Rationale and trade-offs**
+  - Targets late detection (the brief's first bottleneck) and the primary-care step.
+  - Actionable for a county now, and fits Roadmap action 2.5.2.
+  - AI makes county-scale outreach feasible without deciding anything.
+  - Trade-offs: no direct evidence yet for a targeted symptom survey, the response rate is unknown, and CT load depends on the share of fast-lane patients with cancer.
+- **Evidence and follow-up** [PROJECT.md](PROJECT.md#evidence-for-the-approach). Ask Kaisa Kaitila about credibility and alarm criteria. Find the positive rate in Nordic pathways.
 
 ## Entry template
 
