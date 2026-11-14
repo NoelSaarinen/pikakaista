@@ -49,6 +49,38 @@
     "note": "n = 71, self-selected, 82% women, pharma-funded. 33% saw a doctor over a month after symptoms began. For about a third, symptoms were first treated as another illness."
   },
   {
+    "id": "statfin-11re",
+    "title": "Tilastokeskus, StatFin 11re: Väestö iän (1-v.) ja sukupuolen mukaan alueittain, 1972–2025",
+    "url": "https://pxdata.stat.fi/PxWeb/pxweb/fi/StatFin/StatFin__vaerak/11re.px/",
+    "page": "Table 11re, population on 31 Dec 2025, ages 55–80, both sexes, all municipalities. API: https://pxdata.stat.fi/PxWeb/api/v1/fi/StatFin/vaerak/11re.px",
+    "retrieved": "2026-11-14",
+    "note": "Municipalities summed to wellbeing services counties with the Statistics Finland key kunta_1_20260101#hyvinvointialue_1_20260101 (https://stat.fi/fi/luokitukset/corrmaps/kunta_1_20260101%23hyvinvointialue_1_20260101/). Every county total matches StatFin 11ra. Snapshot: src/data/raw/statfin-population-55-80.json."
+  },
+  {
+    "id": "thl-sotkanet-4404",
+    "title": "THL Sotkanet, indikaattori 4404: Päivittäin tupakoivien osuus (%) (Terve Suomi -tutkimus)",
+    "url": "https://sotkanet.fi/sotkanet/fi/metadata/indicators/4404",
+    "page": "Indicator 4404, wellbeing services counties, both sexes, 2024 (2022 for comparison). API: https://sotkanet.fi/rest/1.1/json?indicator=4404&years=2022&years=2024&genders=total",
+    "retrieved": "2026-11-14",
+    "note": "Share of people aged 20 or over who answer \"yes, daily\" to \"Do you currently smoke (cigarettes, cigars or a pipe)?\". Self-reported, weighted for non-response. Used as a proxy for the ever-smoker share, which has no regional indicator. Snapshot: src/data/raw/sotkanet.json."
+  },
+  {
+    "id": "syoparekisteri-lung",
+    "title": "Suomen Syöpärekisteri, tilastosovellus: keuhkosyövän (C33–C34) uudet tapaukset hyvinvointialueittain",
+    "url": "https://tilastot.syoparekisteri.fi/syovat/",
+    "page": "Uudet syöpätapaukset (ilmaantuvuus); Molemmat yhdessä; all wellbeing services counties; Keuhkot, henkitorvi (C33-34); Vuosi (1953-2024); Todettuja syöpiä. Table tab, years 2015–2024.",
+    "retrieved": "2026-11-14",
+    "note": "Counts by home municipality in the year of diagnosis. The demo uses the 2020–2024 mean. The app has no open API, so the table was copied by hand. Snapshot: src/data/raw/syoparekisteri-lung-c33-c34.json."
+  },
+  {
+    "id": "thl-sotkanet-2371",
+    "title": "THL Sotkanet, indikaattori 2371: Työterveyshuollon lääkärikäynnit / 1 000 15–64-vuotiasta",
+    "url": "https://sotkanet.fi/sotkanet/fi/metadata/indicators/2371",
+    "page": "Indicator 2371, wellbeing services counties, 2025. API: https://sotkanet.fi/rest/1.1/json?indicator=2371&years=2025&genders=total",
+    "retrieved": "2026-11-14",
+    "note": "THL primary care statistics. Measures use of occupational health care, not how many people are covered. THL notes gaps in the Vantaa, Helsinki and Kerava data. Snapshot: src/data/raw/sotkanet.json."
+  },
+  {
     "id": "assumption",
     "title": "Team assumption",
     "url": "",
