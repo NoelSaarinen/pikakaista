@@ -2,13 +2,14 @@
 
 import { useMemo, useState } from "react";
 import countiesData from "@/data/counties.json";
-import sourcesData from "@/data/sources.json";
 import { RichText } from "@/components/RichText";
+import { allSources, curativeRanking, regionalFindings, SIGNAL_LABEL } from "@/lib/regional";
 import { PARAM_META, SCENARIOS, simulateDoors, simulateRange, type SimulationParams, type SimulationResult } from "@/lib/simulation";
-import type { County, SourceRef } from "@/lib/types";
+import type { County } from "@/lib/types";
 
 const counties = countiesData as County[];
-const sources = sourcesData as SourceRef[];
+const sources = allSources;
+const pct = (share: number) => `${nf1.format(share * 100)} %`;
 const nf = new Intl.NumberFormat("fi-FI", { maximumFractionDigits: 0 });
 const nf1 = new Intl.NumberFormat("fi-FI", { maximumFractionDigits: 1 });
 const fmt = (n: number) => nf.format(Math.round(n));
@@ -38,6 +39,7 @@ function SourceTag({ id }: { id: string }) {
 function formatParam(value: number, unit: string) {
   if (unit === "share") return `${nf1.format(value * 100)} %`;
   if (unit === "days") return `${value} pv`;
+  if (unit === "ratio") return nf1.format(value);
   return `${value} vk`;
 }
 
@@ -76,6 +78,8 @@ export default function CountyPage() {
   const doors = useMemo(() => simulateDoors(county, { ...SCENARIOS.base, ...overrides }), [county, overrides]);
   const usesMock = [county.population_55_80, county.ever_smoker_share, county.lung_cancer_cases_per_year].some((v) => v.source_id === "mock");
   const maxDays = Math.max(doors.publicDaysToCt, doors.privateDaysToCt, doors.fastLaneDaysToCt);
+  const findings = useMemo(() => regionalFindings(countyId), [countyId]);
+  const ranking = useMemo(() => curativeRanking(), []);
 
   async function makeBrief() {
     setLoading(true);
@@ -167,13 +171,83 @@ export default function CountyPage() {
       </div>
 
       <section className="rounded-lg border border-slate-200 bg-white p-4">
+        <h2 className="font-semibold">Tavoite 3: missä aukko on suurin?</h2>
+        <p className="mt-1 text-sm text-slate-600">
+          Kansallinen syöpästrategia: keuhkosyövän viiden vuoden elossaolon pitää nousta pohjoismaiselle tasolle ja syöpäkuolleisuuden laskea.
+          <SourceTag id="strategy" />
+        </p>
+        <div className="mt-4 grid gap-4 md:grid-cols-3">
+          <div className="rounded bg-slate-50 p-3">
+            <p className="text-sm text-slate-600">Parantavaa hoitoa sai ({findings.curativePeriod})</p>
+            <p className="mt-1 text-2xl font-bold">
+              {findings.curativeShare !== undefined ? pct(findings.curativeShare) : "–"}
+              <SourceTag id={findings.curativeSourceId} />
+            </p>
+            <p className="text-sm text-slate-600">
+              koko maa {pct(findings.curativeNational)}
+              {findings.curativeRank !== undefined && ` · ${findings.curativeRank}. / ${findings.curativeCount} aluetta`}
+            </p>
+            <p className="mt-2 text-xs text-slate-500">Matala osuus viittaa myöhäiseen toteamiseen. Osuudet ovat ikävakioimattomia.</p>
+          </div>
+          <div className="rounded bg-slate-50 p-3">
+            <p className="text-sm text-slate-600">Keuhkosyöpäkuolleisuus, ikävakioitu (2020–2024)</p>
+            <p className="mt-1 text-2xl font-bold">
+              {findings.mortalityAsr ? `${nf1.format(findings.mortalityAsr.value)} / 100 000` : "–"}
+              <SourceTag id="fcr-mortality" />
+            </p>
+            <p className="text-sm text-slate-600">
+              koko maa {nf1.format(findings.mortalityNational.value)}
+              {findings.deathsPerYear !== undefined && ` · noin ${fmt(findings.deathsPerYear)} kuolemaa vuodessa`}
+            </p>
+            {findings.signal && (
+              <p className={`mt-2 text-xs ${findings.signal === "consistently_higher" ? "font-semibold text-rose-700" : "text-slate-500"}`}>{SIGNAL_LABEL[findings.signal]}</p>
+            )}
+          </div>
+          <div className="rounded bg-slate-50 p-3">
+            <p className="text-sm text-slate-600">Viiden vuoden suhteellinen elossaolo (2022–2024)</p>
+            <p className="mt-1 text-2xl font-bold">
+              {findings.survival ? `${nf1.format(findings.survival.value)} %` : "–"}
+              <SourceTag id="fcr-survival" />
+            </p>
+            <p className="text-sm text-slate-600">
+              {findings.survivalAreaName ?? "yhteistyöalue"} · koko maa {nf1.format(findings.survivalNational.value)} %
+            </p>
+            <p className="mt-2 text-xs text-slate-500">Julkaistaan vain viidelle yhteistyöalueelle. Alueiden erot ovat satunnaisvaihtelun sisällä.</p>
+          </div>
+        </div>
+        <details className="mt-4">
+          <summary className="cursor-pointer text-sm font-medium text-sky-700">Parantavan hoidon osuus kaikilla alueilla</summary>
+          <ul className="mt-2 space-y-1 text-sm">
+            {ranking.map((c) => (
+              <li key={c.id} className="flex items-center gap-2">
+                <span className={`w-36 shrink-0 truncate ${c.id === countyId ? "font-semibold" : ""}`}>{c.name}</span>
+                <span className="h-2 flex-1 rounded bg-slate-100">
+                  <span
+                    className={`block h-2 rounded ${c.id === countyId ? "bg-sky-700" : c.curative_share < findings.curativeNational ? "bg-rose-400" : "bg-emerald-400"}`}
+                    style={{ width: `${(c.curative_share / ranking[0].curative_share) * 100}%` }}
+                  />
+                </span>
+                <span className="w-14 text-right tabular-nums">{pct(c.curative_share)}</span>
+              </li>
+            ))}
+          </ul>
+          <p className="mt-2 text-xs text-slate-500">
+            Ikävakioimattomat osuudet, 2019–2023. Pienten alueiden luvut vaihtelevat paljon, ja puuttuva hoitotieto voi johtua kirjauskäytännöistä.
+          </p>
+        </details>
+        <p className="mt-3 text-xs text-slate-500">
+          Korkea kuolleisuus johtuu osin korkeasta ilmaantuvuudesta (tupakointihistoria), joten se ei yksin osoita hoidon eroja.
+        </p>
+      </section>
+
+      <section className="rounded-lg border border-slate-200 bg-white p-4">
         <h2 className="font-semibold">Kaksi ovea: kuka pääsee nopeasti?</h2>
         <p className="mt-1 text-sm text-slate-600">
-          Työterveys on nopea ovi, terveyskeskus hidas.<SourceTag id="roadmap" /> Vain noin kolmannes sairastuneista on työikäisiä, joten valtaosa tulee hitaan oven kautta.<SourceTag id="strategy" />
+          Työterveys on nopea ovi, terveyskeskus hidas.<SourceTag id="roadmap" /> Lymfoomatutkimuksessa oireista hoitoon kului terveyskeskuksen kautta mediaani 127 päivää, työterveyden tai yksityisen kautta 76 päivää.<SourceTag id="kuitunen-2026" /> Vain noin kolmannes sairastuneista on työikäisiä, joten valtaosa tulee hitaan oven kautta.<SourceTag id="strategy" />
         </p>
         <div className="mt-4 grid gap-4 md:grid-cols-2">
           <div className="space-y-3">
-            <DoorBar label="Työterveys tai yksityinen" days={doors.privateDaysToCt} max={maxDays} share={`noin ${fmt(doors.viaPrivateDoor)} potilasta vuodessa`} color="bg-emerald-500" source="roadmap" />
+            <DoorBar label="Työterveys tai yksityinen" days={doors.privateDaysToCt} max={maxDays} share={`noin ${fmt(doors.viaPrivateDoor)} potilasta vuodessa`} color="bg-emerald-500" source="kuitunen-2026" />
             <DoorBar label="Terveyskeskus nyt" days={doors.publicDaysToCt} max={maxDays} share={`noin ${fmt(doors.viaPublicDoor)} potilasta vuodessa`} color="bg-rose-500" source="uh-acta-2025" />
             <DoorBar label="Terveyskeskus pikakaistalla" days={doors.fastLaneDaysToCt} max={maxDays} color="bg-sky-600" source="jensen-2017" />
           </div>
@@ -197,7 +271,7 @@ export default function CountyPage() {
           </div>
         </div>
         <p className="mt-3 text-xs text-slate-500">
-          Ovien ajat ovat arvioita: kahden kertaisen eron lähde on yksi julkaisematon lymfoomatutkimus, ja oven jakauma kysytään mentoreilta.
+          Ovien ajat ja jakauma ovat arvioita. Ne perustuvat julkaistuun lymfoomatutkimukseen (160 potilasta, 2014–2020), koska keuhkosyövästä vastaavaa tietoa ei ole. Keuhkosyövän luvut kysytään mentoreilta.
         </p>
       </section>
 

@@ -6,6 +6,7 @@
 //   "doors_survey" The team plan: the same fast lane plus a yearly risk-group survey.
 
 import { complete } from "./llm";
+import { regionalFindings, SIGNAL_LABEL } from "./regional";
 import type { DoorsResult, SimulationResult } from "./simulation";
 import type { County, SourceRef } from "./types";
 
@@ -22,13 +23,24 @@ const span = (r: Range, key: keyof SimulationResult) => {
 
 export function briefFacts(county: County, range: Range, doors: DoorsResult, mode: BriefMode) {
   const usesMock = [county.population_55_80, county.ever_smoker_share, county.lung_cancer_cases_per_year].some((v) => v.source_id === "mock");
+  const g3 = regionalFindings(county.id);
+  const f1 = new Intl.NumberFormat("fi-FI", { maximumFractionDigits: 1 });
+  const pct = (share: number) => `${f1.format(share * 100)} %`;
   const common = {
+    parantava_hoito_alueella: {
+      arvo: g3.curativeShare !== undefined ? `${pct(g3.curativeShare)} (koko maa ${pct(g3.curativeNational)}, ${g3.curativeRank}. / ${g3.curativeCount} aluetta, 2019–2023)` : "ei tietoa",
+      lahde: g3.curativeSourceId,
+    },
+    keuhkosyopakuolleisuus_alueella: {
+      arvo: g3.mortalityAsr ? `${f1.format(g3.mortalityAsr.value)} / 100 000 ikävakioituna (koko maa ${f1.format(g3.mortalityNational.value)}), ${g3.signal ? SIGNAL_LABEL[g3.signal].toLowerCase() : "ei vertailua"}` : "ei tietoa",
+      lahde: "fcr-mortality",
+    },
     alue: county.name,
     malli: mode === "doors" ? "Kaksi ovea: terveyskeskuksen pikakaista" : "Kaksi ovea ja riskiryhmän oirekysely",
     keuhkosyopia_vuodessa: { arvo: fmt(county.lung_cancer_cases_per_year.value), lahde: county.lung_cancer_cases_per_year.source_id },
     levinneena_loydetyt: { arvo: "noin 65–70 %", lahde: "filha-2026" },
     tyoikaisia_sairastuneista: { arvo: "noin kolmannes", lahde: "strategy" },
-    julkinen_reitti_hitaampi: { arvo: "noin kaksinkertainen aika diagnoosiin (lymfoomatutkimus, julkaisematon)", lahde: "roadmap" },
+    julkinen_reitti_hitaampi: { arvo: "lymfoomassa oireista hoitoon mediaani 127 päivää terveyskeskuksen ja 76 päivää työterveyden tai yksityisen kautta", lahde: "kuitunen-2026" },
     terveyskeskusodotus_nyt: { arvo: "noin 2 viikkoa (kansallinen arvio)", lahde: "uh-acta-2025" },
     terveyskeskuksen_kautta_tulevia: { arvo: fmt(doors.viaPublicDoor), lahde: "laskelma, oletus" },
     paivat_tt_kuvaukseen_terveyskeskus_nyt: { arvo: fmt(doors.publicDaysToCt), lahde: "laskelma" },
@@ -53,8 +65,8 @@ export function templateBrief(county: County, range: Range, doors: DoorsResult, 
   const f = briefFacts(county, range, doors, mode);
   const lines = [
     `**${f.alue}: ${f.malli.toLowerCase()}**`,
-    `**Löydös:** alueella todetaan noin ${f.keuhkosyopia_vuodessa.arvo} keuhkosyöpää vuodessa [${f.keuhkosyopia_vuodessa.lahde}], ja noin 65–70 % löytyy vasta levinneenä [filha-2026].`,
-    `**Missä polku jumittaa:** työterveyden kautta pääsee nopeasti, terveyskeskuksen kautta hitaasti [roadmap]. Vain noin kolmannes sairastuneista on työikäisiä [strategy], joten noin ${f.terveyskeskuksen_kautta_tulevia.arvo} potilasta vuodessa kulkee hitaan oven kautta: TT-kuvaukseen noin ${f.paivat_tt_kuvaukseen_terveyskeskus_nyt.arvo} päivässä, työterveydessä noin ${f.paivat_tt_kuvaukseen_tyoterveys.arvo} [laskelma].`,
+    `**Löydös:** alueella todetaan noin ${f.keuhkosyopia_vuodessa.arvo} keuhkosyöpää vuodessa [${f.keuhkosyopia_vuodessa.lahde}], ja noin 65–70 % löytyy vasta levinneenä [filha-2026]. Parantavaa hoitoa sai ${f.parantava_hoito_alueella.arvo} [${f.parantava_hoito_alueella.lahde}]. Keuhkosyöpäkuolleisuus: ${f.keuhkosyopakuolleisuus_alueella.arvo} [fcr-mortality].`,
+    `**Missä polku jumittaa:** työterveyden kautta pääsee nopeasti, terveyskeskuksen kautta hitaasti [roadmap]; ${f.julkinen_reitti_hitaampi.arvo} [kuitunen-2026]. Vain noin kolmannes sairastuneista on työikäisiä [strategy], joten noin ${f.terveyskeskuksen_kautta_tulevia.arvo} potilasta vuodessa kulkee hitaan oven kautta: TT-kuvaukseen noin ${f.paivat_tt_kuvaukseen_terveyskeskus_nyt.arvo} päivässä, työterveydessä noin ${f.paivat_tt_kuvaukseen_tyoterveys.arvo} [laskelma].`,
   ];
   if (mode === "doors") {
     lines.push(

@@ -1,9 +1,9 @@
 import { NextResponse } from "next/server";
 import counties from "@/data/counties.json";
-import sources from "@/data/sources.json";
 import { writeBrief, type BriefMode } from "@/lib/brief";
+import { allSources } from "@/lib/regional";
 import { SCENARIOS, simulateDoors, simulateRange, type SimulationParams } from "@/lib/simulation";
-import type { County, SourceRef } from "@/lib/types";
+import type { County } from "@/lib/types";
 
 export const dynamic = "force-dynamic";
 
@@ -13,6 +13,6 @@ export async function POST(request: Request) {
   if (!county) return NextResponse.json({ error: "not found" }, { status: 404 });
   const range = simulateRange(county, overrides ?? {});
   const doors = simulateDoors(county, { ...SCENARIOS.base, ...(overrides ?? {}) });
-  const brief = await writeBrief(county, range, doors, mode === "doors" ? "doors" : "doors_survey", sources as SourceRef[]);
+  const brief = await writeBrief(county, range, doors, mode === "doors" ? "doors" : "doors_survey", allSources);
   return NextResponse.json(brief);
 }

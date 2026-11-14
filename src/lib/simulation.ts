@@ -10,7 +10,9 @@ import type { County } from "./types";
 export type ScenarioName = "cautious" | "base" | "optimistic";
 
 export interface SimulationParams {
-  /** Share of ever-smokers aged 55–80 with enough pack-years for the risk group. */
+  /** Former smokers per current daily smoker, added to the risk group. The team decides the risk group. */
+  formerPerCurrentSmoker: number;
+  /** Share of current and added former smokers aged 55–80 with enough pack-years for the risk group. */
   heavySmokerShareOfEver: number;
   /** Share of invited people who answer the survey (after reminder and nurse calls). */
   responseRate: number;
@@ -43,7 +45,7 @@ export interface SimulationParams {
 export interface ParamMeta {
   key: keyof SimulationParams;
   label: string;
-  unit: "share" | "days" | "weeks";
+  unit: "share" | "days" | "weeks" | "ratio";
   min: number;
   max: number;
   step: number;
@@ -53,23 +55,25 @@ export interface ParamMeta {
 }
 
 export const PARAM_META: ParamMeta[] = [
-  { key: "heavySmokerShareOfEver", label: "Riskiryhmään kuuluvien osuus tupakoineista (vähintään 20 askivuotta)", unit: "share", min: 0.2, max: 0.8, step: 0.05, source_id: "assumption" },
+  { key: "formerPerCurrentSmoker", label: "Entisiä tupakoitsijoita yhtä nykyistä kohden (lisätään riskiryhmään)", unit: "ratio", min: 0, max: 4, step: 0.5, source_id: "assumption", note: "Päätetään tiimissä. Alueen luku on päivittäin tupakoivien osuus (Sotkanet 4404). Entisistä tupakoitsijoista ei ole aluelukua. 0 = riskiryhmässä vain nykyiset tupakoitsijat." },
+  { key: "heavySmokerShareOfEver", label: "Riskiryhmään kuuluvien osuus tupakoitsijoista (vähintään 20 askivuotta)", unit: "share", min: 0.2, max: 0.8, step: 0.05, source_id: "assumption" },
   { key: "responseRate", label: "Kyselyyn vastaavien osuus", unit: "share", min: 0.1, max: 0.9, step: 0.05, source_id: "assumption", note: "Muistutus ja hoitajan soitot mukana. Ei suomalaista dataa." },
   { key: "alarmShare", label: "Pikakaistalle ohjautuvien osuus vastaajista", unit: "share", min: 0.02, max: 0.4, step: 0.01, source_id: "assumption" },
   { key: "directCtShare", label: "Suoraan TT-kuvaukseen ohjattujen osuus pikakaistasta", unit: "share", min: 0, max: 1, step: 0.05, source_id: "assumption" },
   { key: "ctAfterVisitShare", label: "Lääkärikäynnin jälkeen TT-kuvaukseen ohjattujen osuus", unit: "share", min: 0, max: 1, step: 0.05, source_id: "assumption" },
-  { key: "cancerYieldPerCt", label: "Keuhkosyöpä löytyy pikakaistan TT-kuvauksista", unit: "share", min: 0.005, max: 0.2, step: 0.005, source_id: "assumption", note: "Etsitään lähde pohjoismaisista pakettipoluista." },
+  { key: "cancerYieldPerCt", label: "Keuhkosyöpä löytyy pikakaistan TT-kuvauksista", unit: "share", min: 0.005, max: 0.2, step: 0.005, source_id: "assumption", note: "Vertailukohtia: Tanskassa yleislääkärin tilaamista TT-kuvauksista syöpä löytyi 2,3 %:lla ja Englannin riskiryhmäkuvauksissa 1,7 %:lla (PROJECT.md)." },
   { key: "surveyWeeks", label: "Kyselykierroksen käsittelyaika", unit: "weeks", min: 4, max: 52, step: 1, source_id: "assumption" },
   { key: "currentPrimaryCareWaitDays", label: "Nykyään: odotus terveyskeskuslääkärille", unit: "days", min: 0, max: 60, step: 1, source_id: "uh-acta-2025", note: "Kansallinen arvio noin kaksi viikkoa. Alueittaista lukua ei ole." },
   { key: "currentCtQueueDays", label: "Nykyään: lähetteestä TT-kuvaukseen", unit: "days", min: 0, max: 90, step: 1, source_id: "assumption", note: "Kysytään mentoreilta." },
   { key: "fastPhysicianDays", label: "Pikakaista: lääkärille", unit: "days", min: 0, max: 30, step: 1, source_id: "jensen-2017", note: "Tavoitearvo. Tanskan mallissa sairaalaan kolmessa päivässä lähetteestä." },
   { key: "fastCtDays", label: "Pikakaista: TT-kuvaukseen", unit: "days", min: 0, max: 30, step: 1, source_id: "assumption", note: "Tavoitearvo, joka vaatii varatut kuvausajat." },
-  { key: "publicDoorShare", label: "Kaksi ovea: terveyskeskuksen kautta tulevien osuus", unit: "share", min: 0.3, max: 0.95, step: 0.05, source_id: "strategy", note: "Vain noin kolmannes sairastuneista on työikäisiä (s. 6). Tarkka jakauma kysytään mentoreilta." },
-  { key: "privateDoorDaysToCt", label: "Kaksi ovea: työterveys tai yksityinen, päiviä TT-kuvaukseen", unit: "days", min: 0, max: 60, step: 1, source_id: "roadmap", note: "Oletus: puolet julkisen reitin ajasta. Lymfoomatutkimuksessa julkinen reitti kesti kaksi kertaa kauemmin (s. 11)." },
-  { key: "healthCentreYield", label: "Kaksi ovea: keuhkosyöpä löytyy terveyskeskuksen pikakaistan TT-kuvauksista", unit: "share", min: 0.01, max: 0.4, step: 0.01, source_id: "assumption", note: "Oireisilla potilailla korkeampi kuin kyselyssä. Etsitään lähde." },
+  { key: "publicDoorShare", label: "Kaksi ovea: terveyskeskuksen kautta tulevien osuus", unit: "share", min: 0.3, max: 0.95, step: 0.05, source_id: "kuitunen-2026", note: "Lymfoomatutkimuksessa 87 potilasta tuli terveyskeskuksen ja 39 työterveyden tai yksityisen kautta (69 %). Keuhkosyövän jakaumaa ei tiedetä; kysytään mentoreilta." },
+  { key: "privateDoorDaysToCt", label: "Kaksi ovea: työterveys tai yksityinen, päiviä TT-kuvaukseen", unit: "days", min: 0, max: 60, step: 1, source_id: "kuitunen-2026", note: "Oletus: 60 % julkisen reitin ajasta. Lymfoomatutkimuksessa oireista hoitoon kului mediaani 76 päivää työterveyden tai yksityisen ja 127 päivää terveyskeskuksen kautta." },
+  { key: "healthCentreYield", label: "Kaksi ovea: keuhkosyöpä löytyy terveyskeskuksen pikakaistan TT-kuvauksista", unit: "share", min: 0.01, max: 0.4, step: 0.01, source_id: "assumption", note: "Oireisilla potilailla korkeampi kuin kyselyssä. Tanskassa yleislääkärin pikalähetteistä 7,5 % oli keuhkosyöpää (PROJECT.md)." },
 ];
 
 const COMMON: Omit<SimulationParams, "heavySmokerShareOfEver" | "responseRate" | "alarmShare" | "cancerYieldPerCt"> = {
+  formerPerCurrentSmoker: 0,
   directCtShare: 0.3,
   ctAfterVisitShare: 0.5,
   surveyWeeks: 12,
@@ -77,8 +81,8 @@ const COMMON: Omit<SimulationParams, "heavySmokerShareOfEver" | "responseRate" |
   currentCtQueueDays: 21,
   fastPhysicianDays: 3,
   fastCtDays: 7,
-  publicDoorShare: 0.65,
-  privateDoorDaysToCt: 17,
+  publicDoorShare: 0.7,
+  privateDoorDaysToCt: 21,
   healthCentreYield: 0.1,
 };
 
@@ -105,7 +109,8 @@ export interface SimulationResult {
 }
 
 export function simulate(county: Pick<County, "population_55_80" | "ever_smoker_share">, p: SimulationParams): SimulationResult {
-  const riskGroup = county.population_55_80.value * county.ever_smoker_share.value * p.heavySmokerShareOfEver;
+  const smokers = county.population_55_80.value * county.ever_smoker_share.value * (1 + p.formerPerCurrentSmoker);
+  const riskGroup = smokers * p.heavySmokerShareOfEver;
   const respondents = riskGroup * p.responseRate;
   const fastLane = respondents * p.alarmShare;
   const directCt = fastLane * p.directCtShare;

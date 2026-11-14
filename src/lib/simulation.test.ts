@@ -38,6 +38,13 @@ describe("simulate", () => {
     expect(r.ctScans).toBe(0);
     expect(Number.isFinite(r.fastDaysToCt)).toBe(true);
   });
+
+  it("adds former smokers to the risk group only when the team sets a ratio", () => {
+    expect(SCENARIOS.base.formerPerCurrentSmoker).toBe(0);
+    const withFormer = simulate(county, { ...SCENARIOS.base, formerPerCurrentSmoker: 2 });
+    // 100 000 × 0.4 × (1 + 2) × 0.5 = 60 000
+    expect(withFormer.riskGroup).toBeCloseTo(60000);
+  });
 });
 
 describe("simulateDoors", () => {
@@ -45,22 +52,22 @@ describe("simulateDoors", () => {
 
   it("splits patients between the two doors", () => {
     const r = simulateDoors(withCases, SCENARIOS.base);
-    expect(r.viaPublicDoor).toBeCloseTo(300 * 0.65);
-    expect(r.viaPrivateDoor).toBeCloseTo(300 * 0.35);
+    expect(r.viaPublicDoor).toBeCloseTo(300 * 0.7);
+    expect(r.viaPrivateDoor).toBeCloseTo(300 * 0.3);
   });
 
   it("shows the gap between doors now and after the fast lane", () => {
     const r = simulateDoors(withCases, SCENARIOS.base);
     expect(r.publicDaysToCt).toBe(35);
-    expect(r.gapDaysNow).toBe(35 - 17);
+    expect(r.gapDaysNow).toBe(35 - 21);
     expect(r.fastLaneDaysToCt).toBe(10);
-    expect(r.gapDaysAfter).toBe(10 - 17);
+    expect(r.gapDaysAfter).toBe(10 - 21);
     expect(r.daysSavedPerPatient).toBe(25);
   });
 
   it("derives weekly CT referrals from the yield", () => {
     const r = simulateDoors(withCases, { ...SCENARIOS.base, healthCentreYield: 0.1 });
-    expect(r.ctReferralsPerWeek).toBeCloseTo((300 * 0.65) / 0.1 / 52);
+    expect(r.ctReferralsPerWeek).toBeCloseTo((300 * 0.7) / 0.1 / 52);
   });
 
   it("does not divide by zero with a zero yield", () => {

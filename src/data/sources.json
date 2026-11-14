@@ -81,6 +81,22 @@
     "note": "THL primary care statistics. Measures use of occupational health care, not how many people are covered. THL notes gaps in the Vantaa, Helsinki and Kerava data. Snapshot: src/data/raw/sotkanet.json."
   },
   {
+    "id": "kuitunen-2026",
+    "title": "Kuitunen et al. Socioeconomic Status and Access to Treatment in Diffuse Large B-Cell Lymphoma. Cancer Medicine 2026;15:e71920",
+    "url": "https://doi.org/10.1002/cam4.71920",
+    "page": "Table 1 (first contact), Section 3.2 (symptom-to-treatment interval)",
+    "retrieved": "2026-11-14",
+    "note": "Lymphoma, 160 patients, seven Finnish hospitals, 2014–2020. Symptoms to treatment: median 127 days via a health-centre appointment, 76 days via private or occupational care. First contact: 87 via health centres and 39 via private or occupational care (69% public). Not lung cancer."
+  },
+  {
+    "id": "fcr-quality-lung-2026",
+    "title": "Suomen Syöpärekisteri: Keuhkosyöpä Suomessa 2019–2023. Rekisteripohjainen katsaus diagnostiikkaan, hoitopolkuihin ja hoidon laatuun",
+    "url": "https://syoparekisteri.fi/assets/themes/ssy3/factsheets/keuhkosyoparaportti.html",
+    "page": "Table 11: curative treatment within 12 months by wellbeing services county",
+    "retrieved": "2026-11-14",
+    "note": "Crude shares, not age-standardised. Region is the home municipality at the start of the diagnosis year. A high share with no treatment record may reflect recording practice."
+  },
+  {
     "id": "assumption",
     "title": "Team assumption",
     "url": "",

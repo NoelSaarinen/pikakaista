@@ -1,0 +1,30 @@
+{
+  "source_id": "fcr-quality-lung-2026",
+  "period": "2019–2023",
+  "definition": "Share of new lung cancer patients who received curative treatment within 12 months of diagnosis. Crude, not age-standardised.",
+  "national": { "new_cases": 14873, "curative_share": 0.27, "no_treatment_record_share": 0.275 },
+  "counties": [
+    { "id": "vantaa-kerava", "name": "Vantaa ja Kerava", "new_cases": 595, "curative_share": 0.356, "no_treatment_record_share": 0.289 },
+    { "id": "keski-uusimaa", "name": "Keski-Uusimaa", "new_cases": 481, "curative_share": 0.337, "no_treatment_record_share": 0.264 },
+    { "id": "helsinki", "name": "Helsinki", "new_cases": 1486, "curative_share": 0.33, "no_treatment_record_share": 0.291 },
+    { "id": "lansi-uusimaa", "name": "Länsi-Uusimaa", "new_cases": 1058, "curative_share": 0.319, "no_treatment_record_share": 0.285 },
+    { "id": "pirkanmaa", "name": "Pirkanmaa", "new_cases": 1253, "curative_share": 0.319, "no_treatment_record_share": 0.179 },
+    { "id": "etela-pohjanmaa", "name": "Etelä-Pohjanmaa", "new_cases": 540, "curative_share": 0.306, "no_treatment_record_share": 0.257 },
+    { "id": "paijat-hame", "name": "Päijät-Häme", "new_cases": 659, "curative_share": 0.296, "no_treatment_record_share": 0.178 },
+    { "id": "ita-uusimaa", "name": "Itä-Uusimaa", "new_cases": 272, "curative_share": 0.283, "no_treatment_record_share": 0.316 },
+    { "id": "pohjanmaa", "name": "Pohjanmaa", "new_cases": 449, "curative_share": 0.278, "no_treatment_record_share": 0.229 },
+    { "id": "keski-suomi", "name": "Keski-Suomi", "new_cases": 637, "curative_share": 0.272, "no_treatment_record_share": 0.245 },
+    { "id": "pohjois-savo", "name": "Pohjois-Savo", "new_cases": 641, "curative_share": 0.245, "no_treatment_record_share": 0.193 },
+    { "id": "satakunta", "name": "Satakunta", "new_cases": 682, "curative_share": 0.245, "no_treatment_record_share": 0.298 },
+    { "id": "varsinais-suomi", "name": "Varsinais-Suomi", "new_cases": 1437, "curative_share": 0.243, "no_treatment_record_share": 0.431 },
+    { "id": "pohjois-pohjanmaa", "name": "Pohjois-Pohjanmaa", "new_cases": 1050, "curative_share": 0.236, "no_treatment_record_share": 0.25 },
+    { "id": "etela-savo", "name": "Etelä-Savo", "new_cases": 448, "curative_share": 0.234, "no_treatment_record_share": 0.232 },
+    { "id": "kanta-hame", "name": "Kanta-Häme", "new_cases": 546, "curative_share": 0.234, "no_treatment_record_share": 0.321 },
+    { "id": "keski-pohjanmaa", "name": "Keski-Pohjanmaa", "new_cases": 148, "curative_share": 0.223, "no_treatment_record_share": 0.25 },
+    { "id": "pohjois-karjala", "name": "Pohjois-Karjala", "new_cases": 510, "curative_share": 0.214, "no_treatment_record_share": 0.222 },
+    { "id": "kainuu", "name": "Kainuu", "new_cases": 226, "curative_share": 0.208, "no_treatment_record_share": 0.283 },
+    { "id": "kymenlaakso", "name": "Kymenlaakso", "new_cases": 591, "curative_share": 0.193, "no_treatment_record_share": 0.164 },
+    { "id": "etela-karjala", "name": "Etelä-Karjala", "new_cases": 355, "curative_share": 0.189, "no_treatment_record_share": 0.428 },
+    { "id": "lappi", "name": "Lappi", "new_cases": 710, "curative_share": 0.185, "no_treatment_record_share": 0.338 }
+  ]
+}

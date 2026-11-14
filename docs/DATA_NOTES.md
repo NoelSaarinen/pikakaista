@@ -36,6 +36,11 @@ National reference values from the same snapshots:
 - Chosen: 4404 (aged 20+), because it is one published number that covers the whole 55–80 group. A mix of 4405 and 4406 weighted by population would be closer in age but would add our own calculation.
 - Impact: county values range from 6.8% (Helsinki) to 12.5% (Vantaa and Kerava, Satakunta), against the mock value of 40%. The simulation's risk group falls about five-fold. For Pirkanmaa, the base scenario drops from about 32,000 people to 5,862.
 - The slider "Riskiryhmään kuuluvien osuus tupakoineista" still assumes the share applies to ever-smokers. Applied to daily smokers, the true share with 20+ pack-years is probably higher. The team should either relabel the field and slider or find an ever-smoker figure.
+- **Update 2026-11-14:** the simulation has a new slider, `formerPerCurrentSmoker` ("Entisiä tupakoitsijoita yhtä nykyistä kohden"). It adds former smokers to the risk group as a multiple of current daily smokers.
+  - Risk group = population 55–80 × daily-smoker share × (1 + ratio) × pack-year share.
+  - The default is 0, so the numbers stay as they were until the team decides the risk group.
+  - The pack-year slider is relabelled "osuus tupakoitsijoista".
+  - A national former-smoker figure (FinTerveys 2017 or Healthy Finland) was not found in a quick search.
 - Survey noise: county values move by up to about 4 percentage points between 2022 and 2024. Etelä-Savo went from 11.5% to 7.2%, and Kanta-Häme from 13.9% to 10.2%. Each note also gives the 2022 value.
 
 **Lung cancer.**
@@ -53,7 +58,11 @@ National reference values from the same snapshots:
 ## Gaps and next steps
 
 - **Ever-smoker share aged 55–80.** No regional figure was found. The Healthy Finland report or the FinTerveys 2017 report may give a national ever-smoker or former-smoker share by age. One option is a national ratio of ever-smokers to daily smokers, labelled as an assumption. Unverified.
-- **Lung cancer screening pilot counties (`in_ldct_pilot`).** Still mock. Ask the mentors or check roadmap pp. 45–46.
+- **Lung cancer screening pilot counties (`in_ldct_pilot`).** Still mock.
+  - Roadmap p. 46 (action 2.3.4, read 2026-11-14): a randomised lung cancer screening pilot study started in early 2026 in Helsinki and eight wellbeing services counties.
+  - In 2026–2028 the pilot is planned to expand regionally and invite the target population set by the EU recommendation.
+  - The roadmap does not name the counties or give invitation criteria. Ask the mentors.
+  - Position the survey so that it does not overlap the screening pilot.
 - **Kela occupational health coverage by region.** Not found. Try Kelasto's occupational health reports, or ask Kela or the mentors.
 - **Stage at diagnosis by county.** The registry app offers a "Syövän levinneisyys (2020-2024)" view. If it works with the county filter, it could back the claim that 65–70% are found late with county data. Not fetched.
 
