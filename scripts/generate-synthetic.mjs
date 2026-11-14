@@ -40,7 +40,9 @@ const FREE_TEXT = {
 const VISIT_REASONS = ["yskä", "flunssa", "keuhkokuume", "astma", "selkäkipu", "verenpaine"];
 
 function makePerson(i) {
-  const age = intBetween(50, 85);
+  // Drawn first so the random stream (and every other field) stays the same; survey
+  // respondents are moved into the survey age range 50–74 once the channel is known.
+  const drawnAge = intBetween(50, 85);
   const smokingStatus = chance(0.15) ? "never" : chance(0.45) ? "current" : "former";
   const packYears = smokingStatus === "never" ? 0 : intBetween(5, 60);
   const language = chance(0.88) ? "fi" : chance(0.6) ? "sv" : "en";
@@ -62,6 +64,12 @@ function makePerson(i) {
     previous_visits.push({ months_ago: intBetween(1, 12), reason: concerning ? pick(["yskä", "flunssa", "keuhkokuume", "astma"]) : pick(VISIT_REASONS) });
   }
 
+  // Two Doors: some symptomatic people come in themselves; the nurse fills the same checklist.
+  const channel = concerning && chance(0.4) ? "health_centre" : "survey";
+  // The survey goes only to 50–74-year-olds (same as the screening pilot). The health
+  // centre checklist is for anyone, so those people keep any age.
+  const age = channel === "survey" && drawnAge > 74 ? 50 + (((drawnAge - 75) * 7) % 25) : drawnAge;
+
   const person = {
     id: `p-${String(i + 1).padStart(4, "0")}`,
     age,
@@ -69,8 +77,7 @@ function makePerson(i) {
     smoking: { status: smokingStatus, pack_years: packYears },
     symptoms,
     previous_visits,
-    // Two Doors: some symptomatic people come in themselves; the nurse fills the same checklist.
-    channel: concerning && chance(0.4) ? "health_centre" : "survey",
+    channel,
     synthetic: true,
   };
   if (chance(0.35)) {
