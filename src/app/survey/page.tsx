@@ -11,6 +11,11 @@ const RESPONDENT_MESSAGE: Record<RuleResult["placement"], string> = {
   not_eligible: "Kiitos vastauksestasi! Kysely on tarkoitettu tupakoineille 55–80-vuotiaille.",
 };
 
+// Safety net: the survey is not read in real time, so acute symptoms must get an
+// instruction on screen at once. Wording to be checked by Delun before real use.
+const BLOOD_EMERGENCY_TEXT =
+  "Jos yskit verta runsaasti tai jatkuvasti, tai sinulla on samalla vaikea hengenahdistus tai rintakipu, soita heti 112.";
+
 const SYMPTOMS: { key: string; label: string }[] = [
   { key: "blood_in_sputum", label: "Verta yskösissä" },
   { key: "breathlessness", label: "Hengenahdistusta yli 3 viikon ajan" },
@@ -93,6 +98,11 @@ export default function SurveyPage() {
         {result ? (
           <div className="space-y-4 py-6 text-center">
             <p className="text-lg font-semibold">{channel === "survey" ? RESPONDENT_MESSAGE[result.placement] : NURSE_MESSAGE[result.placement]}</p>
+            {result.redFlag && (
+              <p role="alert" className="rounded border border-red-300 bg-red-50 p-3 text-left text-sm font-medium text-red-900">
+                {channel === "survey" ? BLOOD_EMERGENCY_TEXT : "Runsas verenyskä tai vaikea hengenahdistus: ohjaa potilas päivystykseen tai soita 112."}
+              </p>
+            )}
             <div className="rounded bg-slate-100 p-3 text-left text-xs text-slate-600">
               <p className="font-semibold">Demo: sääntöjen tulos (ei näy vastaajalle)</p>
               <p>Ehdotus: {PLACEMENT_LABEL[result.placement]}</p>
@@ -109,6 +119,9 @@ export default function SurveyPage() {
               <div>
                 <h1 className="text-lg font-bold">Keuhkojen terveyskysely</h1>
                 <p className="text-slate-600">Hyvinvointialueesi kysyy tämän kaikilta 55–80-vuotiailta. Vastaaminen vie kaksi minuuttia.</p>
+                <p className="mt-2 rounded border border-amber-300 bg-amber-50 p-2 text-xs text-amber-900">
+                  Tämä kysely ei ole kiireellinen palvelu. Jos sinulla on äkillisiä tai vakavia oireita, soita 112 tai Päivystysapuun 116117.
+                </p>
               </div>
             ) : (
               <div>
@@ -160,6 +173,11 @@ export default function SurveyPage() {
                   {s.label}
                 </label>
               ))}
+              {checks.blood_in_sputum && (
+                <p role="alert" className="mt-1 rounded border border-red-300 bg-red-50 p-2 text-xs font-medium text-red-900">
+                  {BLOOD_EMERGENCY_TEXT}
+                </p>
+              )}
             </fieldset>
 
             <label className="block">
