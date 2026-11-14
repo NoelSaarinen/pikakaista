@@ -73,3 +73,18 @@ npm run data:counties
 ```
 
 That command builds from the committed snapshots without any network. Run `node scripts/build-county-data.mjs --fetch` to refresh the StatFin and Sotkanet snapshots from their APIs first. The Cancer Registry snapshot must be updated by hand. The build stops with an error if a county is missing a value or a cross-check fails. `src/data/counties.test.ts` checks that every value has a known source, a year, an estimate flag and a note.
+
+## Survey languages for the risk group (verified 2026-11-14)
+
+Mother tongue of 55–79-year-olds at the end of 2025, from [StatFin 11rl](https://pxdata.stat.fi/PxWeb/pxweb/fi/StatFin/StatFin__vaerak/11rl.px/) (population register; registered mother tongue only, so Sámi is undercounted).
+
+| Languages offered | Share of 55–79-year-olds reached, Finland | Lapland |
+| --- | ---: | ---: |
+| Finnish | 89.8 % | 97.0 % |
+| + Swedish | 94.6 % | 97.2 % |
+| + Russian, Estonian | 96.9 % | 98.0 % |
+| + Ukrainian, English, Arabic | 97.9 % | 98.6 % |
+
+- **Whole country:** 1 375 463 people aged 55–79, of whom 73 611 (5.4 %) have a foreign mother tongue. The largest groups are Russian 21 265, Estonian 11 043, Ukrainian 4 545, English 4 003 and Arabic 3 960. Thai, Chinese, Somali, Kurdish and Farsi follow, each 1 600–1 900.
+- **Lapland:** 49 810 people aged 55–79, of whom 994 (2.0 %) have a foreign mother tongue. Sámi is registered for 406 of the 494 Sámi speakers in this age group nationwide.
+- **Legal note (unverified here):** Swedish is a national language, and the Sámi Language Act gives language rights in the Sámi homeland in northern Lapland. Check the exact obligations before the pitch.
