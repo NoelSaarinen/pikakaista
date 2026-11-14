@@ -16,6 +16,7 @@ import {
   type ScreeningStatus,
 } from "@/lib/screening";
 import { SMOKING_LABEL } from "@/lib/search";
+import { ISC_LDCT, PILOT_REASON_LABEL, pilotEligibility } from "@/lib/pilot";
 
 const STATUS_BADGE: Record<ScreeningStatus, string> = {
   invite: "bg-emerald-100 text-emerald-800",
@@ -134,6 +135,23 @@ export default function ScreeningPage() {
         </label>
       </div>
 
+      {summary && (() => {
+        // ISC-LDCT inclusion criteria applied to everyone on the list (tier 2 pool).
+        const pool = summary.rows.filter((r) => r.status === "invite" || r.status === "waiting" || r.status === "below_threshold");
+        const eligible = pool.filter((r) => pilotEligibility(r.person.response).eligible).length;
+        const former = pool.filter((r) => r.person.response.smoking.status === "former").length;
+        return (
+          <section className="rounded-lg border border-violet-200 bg-violet-50/40 p-3 text-sm" aria-label="Seulontapilotin kriteerit">
+            <p className="font-semibold">Kansallisen seulontapilotin {ISC_LDCT.name} kriteerit tällä listalla</p>
+            <p className="mt-1">
+              Listan {pool.length} oireettomasta tupakoineesta <strong>{eligible}</strong> täyttää pilotin kriteerit (50–74 v, tupakoi nyt, vähintään 15 savuketta/25 v tai 10/30 v).
+              {" "}{former} on lopettaneita, joille pilotti ei sovi, mutta seulontalista voi kutsua heidät PLCOm2012-riskin perusteella.
+            </p>
+            <p className="mt-1 text-xs text-slate-600">Pilotin poissulkukriteereitä (aiempi melanooma tai keuhko-, munuais- tai rintasyöpä, TT alle vuosi sitten) ja älypuhelinvaatimusta kysely ei kysy. Pilotin {ISC_LDCT.participants.toLocaleString("fi-FI")} paikkaa täyttyivät muutamassa vuorokaudessa; tuloksia ei ole julkaistu.</p>
+          </section>
+        );
+      })()}
+
       {summary && (
         <div className="grid gap-3 md:grid-cols-4">
           <div className="rounded-lg border border-slate-200 bg-white p-3">
@@ -234,6 +252,14 @@ export default function ScreeningPage() {
                         {SMOKING_LABEL[p.response.smoking.status]}
                         {p.response.smoking.status !== "never" && `, ${p.response.smoking.pack_years} askivuotta`}
                       </span>
+                      {(() => {
+                        const e = pilotEligibility(p.response);
+                        return e.eligible ? (
+                          <span className="mt-0.5 inline-block rounded bg-violet-100 px-1 text-xs text-violet-900">ISC-LDCT-kriteerit täyttyvät</span>
+                        ) : (
+                          <span className="block text-xs text-slate-400" title="Kansallisen seulontapilotin kriteerit">Ei pilottikriteereitä: {PILOT_REASON_LABEL[e.reason]}</span>
+                        );
+                      })()}
                       {(r.missingInputs.length > 0 || r.outsideModelAge) && (
                         <span className="block text-xs text-amber-800">
                           {r.missingInputs.length > 0 && "Täydennä tiedot ennen kutsua. "}

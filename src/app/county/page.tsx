@@ -2,6 +2,8 @@
 
 import { useMemo, useState } from "react";
 import { LiveTotalsPanel } from "@/components/LiveData";
+import { PilotPanel } from "@/components/PilotPanel";
+import { cancerYieldPerScan } from "@/lib/pilot";
 import countiesData from "@/data/counties.json";
 import { RichText } from "@/components/RichText";
 import { allSources, curativeRanking, regionalFindings, SIGNAL_LABEL } from "@/lib/regional";
@@ -172,6 +174,15 @@ export default function CountyPage() {
           <p className="text-sm text-slate-600">aika TT-kuvaukseen terveyskeskuksen kautta, nyt → pikakaistalla</p>
         </section>
       </div>
+
+      <PilotPanel
+        county={county}
+        yieldInUse={overrides.cancerYieldPerCt === cancerYieldPerScan}
+        onUseYield={() => {
+          setOverrides(({ cancerYieldPerCt, ...rest }) => (cancerYieldPerCt === cancerYieldPerScan ? rest : { ...rest, cancerYieldPerCt: cancerYieldPerScan }));
+          setBrief(null);
+        }}
+      />
 
       <section className="rounded-lg border border-slate-200 bg-white p-4">
         <h2 className="font-semibold">Tavoite 3: missä aukko on suurin?</h2>

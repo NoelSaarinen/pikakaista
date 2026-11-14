@@ -138,3 +138,14 @@ Add entries in chronological order. Link evidence, and link any later entry that
   - The real 6-year risk is still shown next to it, and the page compares both rankings for the same capacity.
 - **Result on the demo data** (20 slots): mean age of the invited 69.6 vs 73.2 years, aged 75+ 6 vs 9, model-expected cancers among the invited 1.60 vs 1.68 (about 5 % fewer).
 - **Trade-offs** Age is a real risk factor, so the equity ranking finds slightly fewer cancers per scan according to the model. Smoking duration still grows with age, so older heavy smokers still rank high, which is intended because it is exposure. Ranking by expected life-years gained is a researched alternative (not yet checked).
+
+## 2026-11-14 — Base the demo's pilot data on ISC-LDCT and its Oulu predecessor
+
+- **Status** Requested by Delun on 2026-11-14. Pilot facts from `docs/seulontapilotti/SEULONTAPILOTTI.md` (checked 2026-11-14) and the `wichmann-2025` source entry.
+- **Context** The national screening pilot ISC-LDCT (NCT07331519) runs in five areas, but its results are not published. The predecessor LDCT-SC-FI (Oulu, same criteria) has published results.
+- **Decision**
+  - `src/lib/pilot.ts` holds the ISC-LDCT design (areas, 1,200 places, 50–74 current smokers, ≥15 cigarettes/25 years or 10/30 years, three arms) and the LDCT-SC-FI results (6/383 scans = 1.6 % yield, 5/6 stage I, PPV 75 %, 2.5 % via healthcare referral).
+  - `counties.json` `in_ldct_pilot` is filled for nine areas. "Uusimaa" = Helsinki and the four Uusimaa counties is a team inference, to confirm with mentors.
+  - The decision-maker view shows the pilot for the selected county, the share of the pilot areas' risk group its places cover (about 0.6 % with the base scenario) and the predecessor results. A toggle uses the 1.6 % yield in the benefit calculation.
+  - The screening list shows who meets the pilot's inclusion criteria. Exclusions and the smartphone requirement are not asked, so a clinician confirms them.
+- **Trade-offs** The predecessor's yield is from asymptomatic volunteers, so it understates the yield of a symptomatic fast lane. The coverage comparison is indicative because the pilot's and the demo's risk-group criteria differ.

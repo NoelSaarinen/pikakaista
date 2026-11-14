@@ -163,6 +163,20 @@
     "note": "Suomalaiset julkisen sektorin työntekijät (3 697 vastaajaa, vastausprosentti 26,4): päivittäinen yli 8 viikon yskä 7,2 %, 3–8 viikon yskä 3,4 %. Kaikki työikäiset, ei vain tupakoineet. Hakutuloksen tiivistelmästä, ei avattu."
   },
   {
+    "id": "isc-ldct",
+    "title": "ISC-LDCT: Integrating Smoking Cessation With Low-dose CT-screening for Lung Cancer – a Randomized Study (ClinicalTrials.gov NCT07331519)",
+    "url": "https://clinicaltrials.gov/study/NCT07331519",
+    "retrieved": "2026-11-14",
+    "note": "Kansallinen keuhkosyövän seulontapilotti, alkoi 2.2.2026. 1 200 osallistujaa, 50–74-vuotiaat nykyiset tupakoitsijat (vähintään 15 savuketta/25 v tai 10/30 v), kolme arvottua ryhmää. Tuloksia ei ole julkaistu. Tiedot tiimin muistiosta docs/seulontapilotti/SEULONTAPILOTTI.md (rekisteriversio 13.11.2026)."
+  },
+  {
+    "id": "syopajarjestot-2026",
+    "title": "Syöpäjärjestöt 21.1.2026: Keuhkosyövän seulontapilotti käynnistyy – mukaan etsitään pitkään tupakoineita 50–74-vuotiaita",
+    "url": "https://www.syopajarjestot.fi/uutinen/keuhkosyovan-seulontapilotti-kaynnistyy-mukaan-etsitaan-pitkaan-tupakoineita-50-74-vuotiaita/",
+    "retrieved": "2026-11-14",
+    "note": "Pilottialueet: Uusimaa, Pirkanmaa, Pohjanmaa, Pohjois-Pohjanmaa ja Varsinais-Suomi; sairaalat HUS, OYS, TAYS, TYKS ja Vaasan keskussairaala."
+  },
+  {
     "id": "assumption",
     "title": "Team assumption",
     "url": "",
