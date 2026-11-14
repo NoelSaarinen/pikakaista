@@ -10,12 +10,9 @@
     </linearGradient>
   </defs>
   <rect width="64" height="64" rx="18" fill="url(#bg)"/>
-  <path d="M32 9V24" stroke="#fff" stroke-width="4" stroke-linecap="round" fill="none"/>
-  <path d="M32 24C32 28 29 29 27 30M32 24C32 28 35 29 37 30" stroke="#fff" stroke-width="3" stroke-linecap="round" fill="none"/>
-  <path d="M27 22C27 17 22 15 19 20C14 28 10 38 10 46C10 51 14 53 19 52C24 51 27 48 27 43Z" fill="#8b7b88"/>
-  <circle cx="18" cy="33" r="4.2" fill="#2a1622"/>
-  <circle cx="21.5" cy="43.5" r="2.6" fill="#2a1622"/>
-  <circle cx="14.5" cy="44" r="1.9" fill="#2a1622"/>
-  <circle cx="22.5" cy="25.5" r="1.6" fill="#2a1622"/>
+  <path d="M27 22C27 17 22 15 19 20C14 28 10 38 10 46C10 51 14 53 19 52C24 51 27 48 27 43Z" fill="url(#healthy)"/>
   <path d="M37 22C37 17 42 15 45 20C50 28 54 38 54 46C54 51 50 53 45 52C40 51 37 48 37 43Z" fill="url(#healthy)"/>
+  <path d="M32 24C32 28 29 29 27 30M32 24C32 28 35 29 37 30" stroke="#fff" stroke-width="3" stroke-linecap="round" fill="none"/>
+  <path d="M32 26V12" stroke="#e9b44c" stroke-width="4.5" stroke-linecap="round" fill="none"/>
+  <path d="M27 15.5L32 9.5L37 15.5" stroke="#e9b44c" stroke-width="4.5" stroke-linecap="round" stroke-linejoin="round" fill="none"/>
 </svg>

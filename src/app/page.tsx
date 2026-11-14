@@ -63,11 +63,11 @@ export default function Home() {
             Oirekysely riskiryhmälle kerran vuodessa. Hälytysmerkit TT-kuvaukseen päivissä, ei viikoissa.
           </p>
           <div className="mt-9 flex flex-wrap gap-3">
-            <Link href="/survey" className="rounded-xl bg-brand-gold px-6 py-3 font-semibold text-brand-navy shadow-lg transition hover:-translate-y-0.5 hover:brightness-105">
-              Kokeile kyselyä
-            </Link>
-            <Link href="/county" className="rounded-xl bg-white/10 px-6 py-3 font-semibold text-white ring-1 ring-white/30 transition hover:bg-white/20">
+            <Link href="/county" className="rounded-xl bg-brand-gold px-6 py-3 font-semibold text-brand-navy shadow-lg transition hover:-translate-y-0.5 hover:brightness-105">
               Katso alueesi luvut →
+            </Link>
+            <Link href="/survey" className="rounded-xl bg-white/10 px-6 py-3 font-semibold text-white ring-1 ring-white/30 transition hover:bg-white/20">
+              Kokeile kyselyä
             </Link>
           </div>
         </div>

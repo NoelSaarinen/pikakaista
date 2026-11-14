@@ -174,3 +174,10 @@ Add entries in chronological order. Link evidence, and link any later entry that
   - The home page shows a four-stage illustration of a tumour growing while symptoms stay small (`src/components/LungStory.tsx`). It plays only while visible, can be paused, and respects reduced-motion settings.
   - Every statement comes from the National Lung Cancer Programme 2026–2035 (`filha-2026`, pp. 2–4, checked from the PDF on 2026-11-14): the most common symptoms (cough, breathlessness, chest pain, weight loss, haemoptysis), a long symptom-free period, 65–70 % found only after spreading, most cancer deaths in Finland, and curative treatment when found early. "Cough over 3 weeks" is from the Pirkanmaa pathway (`pirha-hoitopolku`).
 - **Trade-offs** The order of symptoms is illustrative and varies between patients; the page says so and notes that the same symptoms occur in many other diseases.
+
+## 2026-11-14 — Logo with healthy lungs and an upward arrow
+
+- **Status** Requested by Noel on 2026-11-14 after a UI review. Replaces the mark from "Home page lung illustration and lung logo" above; the home page story is unchanged.
+- **Context** The old mark showed a grey lobe with tumours. The same mark appears in the invitation survey for smokers, who already respond less than others (Yorkshire: adjusted OR 0.44 for current smokers, `ylst-2022`). A diseased-lung image resembles a cigarette-pack warning and can shame or frighten. At 16–40 px the lesions also read as smudges.
+- **Decision** The mark now shows two healthy lungs with a gold arrow rising through the trachea ("faster forward"), in `src/components/Logo.tsx` and `src/app/icon.svg`. The diseased-lung imagery stays in the home page story, where it is explained. The tagline under the name is larger (12 px). The home page's primary button now opens the decision-maker view, and the clinician area shows a placeholder instead of a blank page while it loads.
+- **Trade-offs** The mark no longer shows the disease directly; the name and tagline carry that meaning.

@@ -37,10 +37,17 @@ function setRole(doctor: boolean) {
  * one-click choice stored in this browser. A real service needs authentication.
  */
 export default function ClinicianLayout({ children }: { children: React.ReactNode }) {
-  // Server render has no role yet: render nothing until the browser value is known.
+  // Server render has no role yet: show a calm placeholder until the browser value is known,
+  // so the page never flashes empty in a live demo.
   const role = useSyncExternalStore(subscribe, readRole, () => null);
 
-  if (role === null) return null;
+  if (role === null) {
+    return (
+      <div role="status" aria-live="polite" className="mx-auto max-w-lg animate-pulse rounded-xl border border-slate-200 bg-white p-6 text-center text-sm text-slate-500">
+        Avataan lääkärin työtilaa…
+      </div>
+    );
+  }
 
   if (role !== "doctor") {
     return (

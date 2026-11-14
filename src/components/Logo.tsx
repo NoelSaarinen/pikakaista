@@ -12,6 +12,10 @@ export const LUNG = {
   bronchi: "M32 24C32 28 29 29 27 30M32 24C32 28 35 29 37 30",
 } as const;
 
+const BRAND_GOLD = "#e9b44c";
+/** Upward arrow along the trachea in the brand mark. */
+const ARROW = { shaft: "M32 26V12", head: "M27 15.5L32 9.5L37 15.5" } as const;
+
 export const LUNG_COLORS = {
   healthy: "#f6a5b6",
   healthyLight: "#fdd3dc",
@@ -20,7 +24,11 @@ export const LUNG_COLORS = {
   tumour: "#2a1622",
 } as const;
 
-/** Pikakaista mark: lungs with a healthy right lobe and a diseased left lobe. */
+/**
+ * Pikakaista mark: two healthy lungs with a gold arrow rising through the trachea, for
+ * "faster forward". The diseased-lung imagery stays in the home page story, where it is
+ * explained; a brand mark seen by smokers in an invitation should not shame or frighten.
+ */
 export function LogoMark({ size = 40 }: { size?: number }) {
   const id = useId();
   return (
@@ -36,16 +44,11 @@ export function LogoMark({ size = 40 }: { size?: number }) {
         </linearGradient>
       </defs>
       <rect width="64" height="64" rx="18" fill={`url(#${id}-bg)`} />
-      <path d={LUNG.trachea} stroke="#ffffff" strokeWidth="4" strokeLinecap="round" fill="none" />
-      <path d={LUNG.bronchi} stroke="#ffffff" strokeWidth="3" strokeLinecap="round" fill="none" />
-      {/* Diseased lobe (viewer's left): grey tissue with dark lesions. */}
-      <path d={LUNG.left} fill={LUNG_COLORS.sick} />
-      <circle cx="18" cy="33" r="4.2" fill={LUNG_COLORS.tumour} />
-      <circle cx="21.5" cy="43.5" r="2.6" fill={LUNG_COLORS.tumour} />
-      <circle cx="14.5" cy="44" r="1.9" fill={LUNG_COLORS.tumour} />
-      <circle cx="22.5" cy="25.5" r="1.6" fill={LUNG_COLORS.tumour} />
-      {/* Healthy lobe (viewer's right). */}
+      <path d={LUNG.left} fill={`url(#${id}-healthy)`} />
       <path d={LUNG.right} fill={`url(#${id}-healthy)`} />
+      <path d={LUNG.bronchi} stroke="#ffffff" strokeWidth="3" strokeLinecap="round" fill="none" />
+      <path d={ARROW.shaft} stroke={BRAND_GOLD} strokeWidth="4.5" strokeLinecap="round" fill="none" />
+      <path d={ARROW.head} stroke={BRAND_GOLD} strokeWidth="4.5" strokeLinecap="round" strokeLinejoin="round" fill="none" />
     </svg>
   );
 }
@@ -56,7 +59,7 @@ export function Logo() {
       <LogoMark />
       <span className="leading-tight">
         <span className="block text-lg font-extrabold tracking-tight text-brand-navy">Pikakaista</span>
-        <span className="block text-[10px] font-medium uppercase tracking-[0.14em] text-slate-500">Keuhkosyöpä · nopeammin hoitoon</span>
+        <span className="block text-xs font-medium tracking-wide text-slate-600">Keuhkosyöpä · nopeammin hoitoon</span>
       </span>
     </span>
   );
