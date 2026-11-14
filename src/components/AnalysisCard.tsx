@@ -3,6 +3,7 @@
 import { useEffect, useState } from "react";
 import { notifyChange } from "@/components/LiveData";
 import type { SurveyAnalysis } from "@/lib/analysis";
+import type { SurveyText } from "@/lib/i18n/survey-text";
 import { formatRisk, IMPUTED_LABEL, PRIORITY_LEVEL_LABEL, type RiskPriority } from "@/lib/priority";
 
 type Analysis = SurveyAnalysis & { priority: RiskPriority; answers: Record<string, string> };
@@ -15,7 +16,20 @@ export const PRIORITY_BADGE: Record<RiskPriority["level"], string> = {
 };
 
 /** Preliminary AI analysis for one person: urgency and long-term risk apart, plus follow-up questions. */
-export function AnalysisCard({ id, onAnswered, compact = false, respondent = false }: { id: string; onAnswered?: () => void; compact?: boolean; respondent?: boolean }) {
+export function AnalysisCard({
+  id,
+  onAnswered,
+  compact = false,
+  respondent = false,
+  texts,
+}: {
+  id: string;
+  onAnswered?: () => void;
+  compact?: boolean;
+  respondent?: boolean;
+  /** Respondent-language texts. Stored answer values stay "kyllä"/"ei". */
+  texts?: SurveyText;
+}) {
   const [data, setData] = useState<Analysis | null>(null);
   const [draft, setDraft] = useState<Record<string, string>>({});
   const [saved, setSaved] = useState(false);
@@ -42,16 +56,16 @@ export function AnalysisCard({ id, onAnswered, compact = false, respondent = fal
     onAnswered?.();
   }
 
-  if (!data) return <div className="rounded border border-slate-200 p-3 text-sm text-slate-500">Analysoidaan vastausta…</div>;
+  if (!data) return <div className="rounded border border-slate-200 p-3 text-sm text-slate-500">{texts?.loading ?? "Analysoidaan vastausta…"}</div>;
   const p = data.priority;
 
   const questions = (
     <div>
-      <p className="text-xs font-semibold text-slate-600">{respondent ? "Vastaa halutessasi, se auttaa lääkäriä" : "Mukautuvat jatkokysymykset"}</p>
+      <p className="text-xs font-semibold text-slate-600">{respondent ? (texts?.followUpHint ?? "Vastaa halutessasi, se auttaa lääkäriä") : "Mukautuvat jatkokysymykset"}</p>
       <div className="mt-1 space-y-2">
         {data.questions.map((q) => (
           <label key={q.id} className="block">
-            <span className="text-xs">{q.text}</span>
+            <span className="text-xs">{(respondent && texts?.followUps[q.id]) || q.text}</span>
             {q.kind === "yes_no" ? (
               <div className="mt-0.5 flex gap-1">
                 {["kyllä", "ei"].map((v) => (
@@ -61,7 +75,7 @@ export function AnalysisCard({ id, onAnswered, compact = false, respondent = fal
                     onClick={() => setDraft((d) => ({ ...d, [q.id]: v }))}
                     className={`rounded border px-2 py-0.5 text-xs ${draft[q.id] === v ? "border-violet-600 bg-violet-100 font-semibold" : "border-slate-300 bg-white"}`}
                   >
-                    {v}
+                    {texts ? (v === "kyllä" ? texts.answerYes : texts.answerNo) : v}
                   </button>
                 ))}
               </div>
@@ -78,9 +92,9 @@ export function AnalysisCard({ id, onAnswered, compact = false, respondent = fal
         ))}
       </div>
       <button type="button" onClick={save} className="mt-2 rounded bg-violet-700 px-2.5 py-1 text-xs font-medium text-white hover:bg-violet-800">
-        {respondent ? "Lähetä vastaukset" : "Tallenna vastaukset"}
+        {respondent ? (texts?.followUpSend ?? "Lähetä vastaukset") : "Tallenna vastaukset"}
       </button>
-      {saved && <span className="ml-2 text-xs text-emerald-700">✓ {respondent ? "Kiitos!" : "Tallennettu. Lääkärin yhteenveto päivittyy."}</span>}
+      {saved && <span className="ml-2 text-xs text-emerald-700">✓ {respondent ? (texts?.thanks ?? "Kiitos!") : "Tallennettu. Lääkärin yhteenveto päivittyy."}</span>}
     </div>
   );
 
