@@ -3,7 +3,7 @@
 import { useEffect, useState } from "react";
 import { LEVEL_LABEL, type Assessment } from "@/lib/assessment-labels";
 
-type Result = Assessment & { provider: string | null; model: string | null };
+type Result = Assessment;
 
 const COMPARISON_TEXT: Record<Assessment["comparison"], string> = {
   same: "Tekoälyn ehdotus on sama kuin sääntöjen taso.",
@@ -35,7 +35,7 @@ export function AssessmentCard({ id, version = 0 }: { id: string; version?: numb
     <div className="space-y-2 rounded border border-violet-200 bg-violet-50 p-3 text-sm">
       <div className="flex flex-wrap items-center justify-between gap-2">
         <p className="text-xs font-semibold text-violet-900">
-          {data.generatedBy === "llm" ? `Tekoälyn arvio · ${data.provider} · ${data.model}` : "Arvio ilman tekoälyä (sääntöpohja)"}
+          {data.generatedBy === "llm" ? "Tekoälyn arvio" : "Arvio ilman tekoälyä (sääntöpohja)"}
         </p>
       </div>
       <dl className="grid grid-cols-[auto_1fr] gap-x-3 gap-y-1">

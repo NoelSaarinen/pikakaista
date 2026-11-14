@@ -1,6 +1,5 @@
 import { NextResponse } from "next/server";
 import { assessCase, type Assessment } from "@/lib/assessment";
-import { activeModel, providerLabel } from "@/lib/llm";
 import { riskPriority } from "@/lib/priority";
 import { evaluate } from "@/lib/rules";
 import { findResponse, store } from "@/lib/store";
@@ -24,5 +23,5 @@ export async function POST(request: Request) {
     assessment = await assessCase(response, evaluate(response), riskPriority(response), followups);
     if (assessment.generatedBy === "llm") cache.set(key, assessment);
   }
-  return NextResponse.json({ ...assessment, provider: assessment.generatedBy === "llm" ? providerLabel() : null, model: assessment.generatedBy === "llm" ? activeModel() : null });
+  return NextResponse.json(assessment);
 }
