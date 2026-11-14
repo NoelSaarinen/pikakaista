@@ -37,6 +37,7 @@ export interface SurveyText {
   increase: string;
   fillRequired: string;
   chooseLanguage: string;
+  moreLanguages: string;
   language: string;
   draftNote: string;
   title: string;
@@ -104,6 +105,7 @@ const fi: SurveyText = {
   decrease: "Vähennä",
   increase: "Lisää",
   fillRequired: "Täytä kaikki kohdat jatkaaksesi.",
+  moreLanguages: "Muut kielet",
   chooseLanguage: "Valitse kieli",
   language: "Kieli",
   draftNote: "",
@@ -190,6 +192,7 @@ const sv: SurveyText = {
   decrease: "Minska",
   increase: "Öka",
   fillRequired: "Fyll i alla fält för att fortsätta.",
+  moreLanguages: "Fler språk",
   chooseLanguage: "Välj språk",
   language: "Språk",
   draftNote: "Utkast till översättning, ska granskas.",
@@ -286,6 +289,7 @@ const en: SurveyText = {
   decrease: "Decrease",
   increase: "Increase",
   fillRequired: "Fill in all fields to continue.",
+  moreLanguages: "More languages",
   chooseLanguage: "Choose your language",
   language: "Language",
   draftNote: "Draft translation, to be reviewed.",
@@ -382,6 +386,7 @@ const ru: SurveyText = {
   decrease: "Уменьшить",
   increase: "Увеличить",
   fillRequired: "Заполните все поля, чтобы продолжить.",
+  moreLanguages: "Другие языки",
   chooseLanguage: "Выберите язык",
   language: "Язык",
   draftNote: "Черновой перевод, требует проверки.",
@@ -478,6 +483,7 @@ const et: SurveyText = {
   decrease: "Vähenda",
   increase: "Suurenda",
   fillRequired: "Jätkamiseks täitke kõik väljad.",
+  moreLanguages: "Muud keeled",
   chooseLanguage: "Valige keel",
   language: "Keel",
   draftNote: "Tõlke mustand, vajab ülevaatamist.",
@@ -574,6 +580,7 @@ const uk: SurveyText = {
   decrease: "Зменшити",
   increase: "Збільшити",
   fillRequired: "Заповніть усі поля, щоб продовжити.",
+  moreLanguages: "Інші мови",
   chooseLanguage: "Оберіть мову",
   language: "Мова",
   draftNote: "Чернетка перекладу, потребує перевірки.",
@@ -670,6 +677,7 @@ const ar: SurveyText = {
   decrease: "إنقاص",
   increase: "زيادة",
   fillRequired: "املأ جميع الحقول للمتابعة.",
+  moreLanguages: "لغات أخرى",
   chooseLanguage: "اختر لغتك",
   language: "اللغة",
   draftNote: "مسودة ترجمة، تحتاج إلى مراجعة.",
@@ -763,6 +771,7 @@ const se: Partial<SurveyText> = {
   next: "Viidáseappot",
   back: "Maŋás",
   stepOf: (i, n) => `Lávki ${i}/${n}`,
+  moreLanguages: "Eará gielat",
   chooseLanguage: "Vállje giela",
   language: "Giella",
   draftNote: "Jorgalusa álgu, galgá dárkkistuvvot. Muhtun osiid leat suomagillii.",

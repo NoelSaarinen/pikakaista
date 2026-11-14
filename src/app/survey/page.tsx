@@ -5,6 +5,8 @@ import { AnalysisCard } from "@/components/AnalysisCard";
 import { notifyChange } from "@/components/LiveData";
 import { More } from "@/components/More";
 import { ChoiceButtons, NumberStepper, ToggleCard } from "@/components/survey/Controls";
+import countiesData from "@/data/counties.json";
+import { regionLanguages } from "@/lib/i18n/region-languages";
 import { SURVEY_LANGS, surveyText, type SurveyLang, type SymptomKey, type VisitValue } from "@/lib/i18n/survey-text";
 import { PLACEMENT_LABEL, RULES_CONFIG } from "@/lib/rules";
 import type { Channel, RuleResult } from "@/lib/types";
@@ -13,6 +15,9 @@ import type { Channel, RuleResult } from "@/lib/types";
 // controls, no drop-down menus or number spinners, and the 112 safety text on screen.
 // Stored values are unchanged, so Delun's rules work as before.
 
+const COUNTIES = (countiesData as { id: string; name: string }[]).map((c) => ({ id: c.id, name: c.name })).sort((a, b) => a.name.localeCompare(b.name, "fi"));
+const ALL_LANGS = SURVEY_LANGS.map((l) => l.code);
+const pctFi = (share: number) => `${(share * 100).toLocaleString("fi-FI", { maximumFractionDigits: 1 })} %`;
 const SYMPTOM_KEYS: SymptomKey[] = ["blood_in_sputum", "breathlessness", "chest_pain", "weight_loss"];
 const VISIT_VALUES: VisitValue[] = ["", "yskä", "flunssa", "keuhkokuume", "astma"];
 type Smoking = "current" | "former" | "never";
@@ -48,6 +53,8 @@ const RACES = [
 export default function SurveyPage() {
   const [channel, setChannel] = useState<Channel>("survey");
   const [lang, setLang] = useState<SurveyLang>("fi");
+  const [countyId, setCountyId] = useState("lappi");
+  const [showAllLangs, setShowAllLangs] = useState(false);
   const [step, setStep] = useState(0);
   const [age, setAge] = useState<Num>(66);
   const [smoking, setSmoking] = useState<Smoking | "">("");
@@ -70,6 +77,14 @@ export default function SurveyPage() {
   const [result, setResult] = useState<RuleResult | null>(null);
   const [responseId, setResponseId] = useState<string | null>(null);
   const [sending, setSending] = useState(false);
+
+  // Languages are offered per region from Statistics Finland data (StatFin 11rl):
+  // Finnish and Swedish always, then the region's translated languages by local size.
+  const regionLangs = regionLanguages(countyId, ALL_LANGS);
+  const langButtons = [
+    ...regionLangs.primary.map((p) => SURVEY_LANGS.find((l) => l.code === p.code)!),
+    ...(showAllLangs || regionLangs.primary.every((p) => p.code !== lang) ? SURVEY_LANGS.filter((l) => regionLangs.more.includes(l.code) && (showAllLangs || l.code === lang)) : []),
+  ];
 
   // The nurse's checklist is for Finnish staff; the respondent survey follows the chosen language.
   const uiLang: SurveyLang = channel === "survey" ? lang : "fi";
@@ -177,6 +192,32 @@ export default function SurveyPage() {
       <p className="text-center text-xs text-slate-500">
         {channel === "survey" ? "Esimerkki tekstiviestilinkin takaa avautuvasta kyselystä" : "Kaksi ovea: samat kysymykset hoitajan tarkistuslistana, kun potilas ottaa yhteyttä terveyskeskukseen"}
       </p>
+      {channel === "survey" && (
+        <div className="mt-2 rounded-lg border border-slate-200 bg-white p-2 text-xs text-slate-600">
+          <label className="flex items-center justify-between gap-2">
+            <span className="font-medium">Demo: vastaajan hyvinvointialue</span>
+            <select
+              value={countyId}
+              onChange={(e) => {
+                setCountyId(e.target.value);
+                setShowAllLangs(false);
+              }}
+              className="rounded border border-slate-300 bg-white px-1.5 py-1"
+            >
+              {COUNTIES.map((c) => (
+                <option key={c.id} value={c.id}>
+                  {c.name}
+                </option>
+              ))}
+            </select>
+          </label>
+          <p className="mt-1">
+            Kielet alueen 55–79-vuotiaiden äidinkielten mukaan{regionLangs.sharedRegion ? ` (${regionLangs.regionName}, koko maakunta)` : ""}. Käännetyt kielet kattavat {pctFi(regionLangs.coverage)}.
+            {regionLangs.interpreter.length > 0 &&
+              ` Ilman käännöstä: ${regionLangs.interpreter.map((l) => `${l.name} ${l.count.toLocaleString("fi-FI")}`).join(", ")}. Heille hoitajan soitto tulkin kanssa.`}
+          </p>
+        </div>
+      )}
 
       <div dir={langInfo.dir} lang={uiLang} className="mt-2 rounded-[2rem] border-[10px] border-slate-800 bg-white px-5 pb-6 pt-5 text-lg leading-relaxed text-slate-900 shadow-xl">
         {result ? (
@@ -260,7 +301,7 @@ export default function SurveyPage() {
                     <fieldset>
                       <legend className="text-sm font-medium text-slate-500">{t.chooseLanguage}</legend>
                       <div className="mt-2 grid grid-cols-2 gap-2">
-                        {SURVEY_LANGS.map((l) => (
+                        {langButtons.map((l) => (
                           <button
                             key={l.code}
                             type="button"
@@ -274,6 +315,15 @@ export default function SurveyPage() {
                           </button>
                         ))}
                       </div>
+                      {!showAllLangs && regionLangs.more.length > 0 && (
+                        <button
+                          type="button"
+                          onClick={() => setShowAllLangs(true)}
+                          className="mt-2 min-h-11 w-full rounded-xl border-2 border-dashed border-slate-300 px-3 text-base text-slate-600 hover:bg-slate-50"
+                        >
+                          {t.moreLanguages} ({regionLangs.more.length})
+                        </button>
+                      )}
                       {t.draftNote && <p className="mt-1 text-xs text-slate-400">{t.draftNote}</p>}
                     </fieldset>
                     <div>

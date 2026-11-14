@@ -7,6 +7,8 @@ import { More } from "@/components/More";
 import countiesData from "@/data/counties.json";
 import { RichText } from "@/components/RichText";
 import { SourceTag, sourceLabel } from "@/components/SourceTag";
+import { regionLanguages } from "@/lib/i18n/region-languages";
+import { SURVEY_LANGS } from "@/lib/i18n/survey-text";
 import { allSources, curativeRanking, regionalFindings, SIGNAL_LABEL } from "@/lib/regional";
 import { PARAM_META, SCENARIOS, simulateDoors, simulateRange, type SimulationParams, type SimulationResult } from "@/lib/simulation";
 import type { County } from "@/lib/types";
@@ -79,6 +81,7 @@ export default function CountyPage() {
   const usesMock = [county.population_55_80, county.ever_smoker_share, county.lung_cancer_cases_per_year].some((v) => v.source_id === "mock");
   const maxDays = Math.max(doors.publicDaysToCt, doors.privateDaysToCt, doors.fastLaneDaysToCt);
   const findings = useMemo(() => regionalFindings(countyId), [countyId]);
+  const langs = useMemo(() => regionLanguages(countyId, SURVEY_LANGS.map((l) => l.code)), [countyId]);
   const params = { ...SCENARIOS.base, ...overrides };
   const cost = { total: range.base.physicianVisits * VISIT_COST + range.base.ctScans * ctPrice };
   const ranking = useMemo(() => curativeRanking(), []);
@@ -186,9 +189,15 @@ export default function CountyPage() {
           </p>
           <p className="text-sm text-slate-600">aika TT-kuvaukseen, nyt → pikakaistalla</p>
           <p className="mt-3 text-sm">
-            Kysely kahdeksalla kielellä tavoittaa {countyId === "lappi" ? "99,2 % Lapin" : "97,9 % koko maan"} 55–79-vuotiaista heidän äidinkielellään.
+            Kysely alueen kielillä ({langs.primary.map((l) => l.name).join(", ")}) tavoittaa <strong>{pct(langs.coverage)}</strong> 55–79-vuotiaista äidinkielellään
+            {langs.sharedRegion ? ` (${langs.regionName}, koko maakunta)` : ""}.
             <SourceTag id="statfin-11rl" />
           </p>
+          {langs.interpreter.length > 0 && (
+            <p className="mt-1 text-xs text-slate-600">
+              Ilman käännöstä suurimmat: {langs.interpreter.map((l) => `${l.name} ${fmt(l.count)}`).join(", ")}. Heille hoitajan soitto tulkin kanssa.
+            </p>
+          )}
         </li>
       </ol>
 
@@ -196,13 +205,15 @@ export default function CountyPage() {
         <p className="text-xs font-semibold uppercase tracking-wide text-sky-800">4 · Mitä {county.name} päättää</p>
         <div className="mt-2 grid gap-4 md:grid-cols-3">
           <div>
-            <p className="text-sm text-slate-600">Varaa {fmt(params.surveyWeeks)} viikon kyselykierrokselle</p>
-            <p className="mt-1 text-2xl font-bold tabular-nums">{fmt(range.base.physicianSlotsPerWeek)} lääkäriaikaa</p>
-            <p className="text-2xl font-bold tabular-nums">{fmt(range.base.ctSlotsPerWeek)} TT-aikaa</p>
-            <p className="text-sm text-slate-600">viikossa (perusskenaario)</p>
+            <p className="text-sm text-slate-600">Varaa vuodessa (yksi {fmt(params.surveyWeeks)} viikon kierros)</p>
+            <p className="mt-1 text-2xl font-bold tabular-nums">{fmt(range.base.physicianVisits)} lääkäriaikaa</p>
+            <p className="text-2xl font-bold tabular-nums">{fmt(range.base.ctScans)} TT-aikaa</p>
+            <p className="text-sm text-slate-600">
+              eli {fmt(range.base.physicianSlotsPerWeek)} + {fmt(range.base.ctSlotsPerWeek)} viikossa kierroksen aikana (perusskenaario)
+            </p>
           </div>
           <div>
-            <p className="text-sm text-slate-600">Kustannus kierrokselta</p>
+            <p className="text-sm text-slate-600">Kustannus vuodessa (sama kierros)</p>
             <p className="mt-1 text-2xl font-bold tabular-nums">noin {fmt(cost.total / 1000)} t€</p>
             <p className="text-sm text-slate-600">
               {fmt(range.base.physicianVisits)} lääkärikäyntiä × {VISIT_COST} €<SourceTag id="thl-yksikkokustannukset" /> + {fmt(range.base.ctScans)} TT-kuvausta × {ctPrice} €
