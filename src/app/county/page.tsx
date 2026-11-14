@@ -6,6 +6,7 @@ import { PilotPanel } from "@/components/PilotPanel";
 import { More } from "@/components/More";
 import countiesData from "@/data/counties.json";
 import { RichText } from "@/components/RichText";
+import { SourceTag, sourceLabel } from "@/components/SourceTag";
 import { allSources, curativeRanking, regionalFindings, SIGNAL_LABEL } from "@/lib/regional";
 import { PARAM_META, SCENARIOS, simulateDoors, simulateRange, type SimulationParams, type SimulationResult } from "@/lib/simulation";
 import type { County } from "@/lib/types";
@@ -28,16 +29,10 @@ const ROWS: { key: keyof SimulationResult; label: string; small?: boolean }[] = 
   { key: "physicianSlotsPerWeek", label: "Varattavia lääkäriaikoja viikossa" },
 ];
 
-function SourceTag({ id }: { id: string }) {
-  const s = sources.find((x) => x.id === id);
-  const color = id === "mock" ? "bg-amber-100 text-amber-900" : id === "assumption" ? "bg-slate-200 text-slate-700" : "bg-sky-100 text-sky-800";
-  const label = id === "mock" ? "paikkamerkki" : id === "assumption" ? "oletus" : id;
-  return (
-    <span title={s?.title} className={`ml-1 rounded px-1 text-xs font-medium ${color}`}>
-      {label}
-    </span>
-  );
-}
+/** National unit cost of a primary-care physician visit, 1–20 min, 2024 (THL). */
+const VISIT_COST = 125;
+/** CT price is a team assumption: no public unit cost was found. The region enters its own. */
+const DEFAULT_CT_PRICE = 250;
 
 function formatParam(value: number, unit: string) {
   if (unit === "share") return `${nf1.format(value * 100)} %`;
@@ -69,7 +64,9 @@ function DoorBar({ label, days, max, share, color, source }: { label: string; da
 }
 
 export default function CountyPage() {
-  const [countyId, setCountyId] = useState(counties[0].id);
+  // Lapland first: the team's case region, with the highest lung cancer mortality.
+  const [countyId, setCountyId] = useState(counties.some((c) => c.id === "lappi") ? "lappi" : counties[0].id);
+  const [ctPrice, setCtPrice] = useState(DEFAULT_CT_PRICE);
   // The team chose "Two Doors + survey" (2026-11-14); the "Two Doors only" view was removed.
   const mode: Mode = "doors_survey";
   const [overrides, setOverrides] = useState<Partial<SimulationParams>>({});
@@ -82,6 +79,8 @@ export default function CountyPage() {
   const usesMock = [county.population_55_80, county.ever_smoker_share, county.lung_cancer_cases_per_year].some((v) => v.source_id === "mock");
   const maxDays = Math.max(doors.publicDaysToCt, doors.privateDaysToCt, doors.fastLaneDaysToCt);
   const findings = useMemo(() => regionalFindings(countyId), [countyId]);
+  const params = { ...SCENARIOS.base, ...overrides };
+  const cost = { total: range.base.physicianVisits * VISIT_COST + range.base.ctScans * ctPrice };
   const ranking = useMemo(() => curativeRanking(), []);
 
   async function makeBrief() {
@@ -128,41 +127,119 @@ export default function CountyPage() {
         </p>
       )}
 
-      <div className="grid gap-4 md:grid-cols-3">
-        <section className="rounded-lg border border-slate-200 bg-white p-4">
-          <h2 className="font-semibold">Löydös</h2>
-          <p className="mt-2 text-3xl font-bold">
-            {fmt(county.lung_cancer_cases_per_year.value)}
-            <SourceTag id={county.lung_cancer_cases_per_year.source_id} />
-          </p>
-          <p className="text-sm text-slate-600">keuhkosyöpää vuodessa</p>
-          <p className="mt-3 text-sm">
-            Noin 65–70 % löytyy vasta levinneenä.
-            <SourceTag id="filha-2026" />
-          </p>
-        </section>
-        <section className="rounded-lg border border-slate-200 bg-white p-4">
-          <h2 className="font-semibold">Missä polku jumittaa</h2>
-          <p className="mt-2 text-sm">Potilaskyselyssä kolmannes hakeutui lääkäriin vasta yli kuukauden päästä oireista.<SourceTag id="pfizer-2025" /></p>
-          <More className="mt-2" label="Miksi">
-            <p>Terveyskeskuslääkärille odotetaan noin kaksi viikkoa.<SourceTag id="uh-acta-2025" /> Ensimmäisestä käynnistä lähetteeseen kuluu vielä noin kaksi viikkoa.<SourceTag id="mattila-2025" /></p>
-            <p>Pelkkä pikakaista tavoitti Tanskassa vain 27 % keuhkosyöpäpotilaista, joten tarvitaan myös kysely.<SourceTag id="guldbrandt" /></p>
+      <ol className="grid gap-4 md:grid-cols-3">
+        <li className="rounded-lg border border-slate-200 bg-white p-4">
+          <p className="text-xs font-semibold uppercase tracking-wide text-rose-700">1 · Aukko</p>
+          {findings.mortalityAsr ? (
+            <>
+              <p className="mt-2 text-3xl font-bold tabular-nums">
+                {nf1.format(findings.mortalityAsr.value)}
+                <span className="text-base font-medium text-slate-500"> / 100 000</span>
+              </p>
+              <p className="text-sm text-slate-600">
+                keuhkosyöpäkuolleisuus, koko maa {nf1.format(findings.mortalityNational.value)}
+                <SourceTag id="fcr-mortality" />
+              </p>
+            </>
+          ) : (
+            <p className="mt-2 text-3xl font-bold">{fmt(county.lung_cancer_cases_per_year.value)}</p>
+          )}
+          {findings.curativeShare !== undefined && (
+            <p className="mt-3 text-sm">
+              Parantavaa hoitoa sai <strong>{pct(findings.curativeShare)}</strong> (koko maa {pct(findings.curativeNational)}
+              {findings.curativeRank !== undefined && `, sija ${findings.curativeRank}/${findings.curativeCount}`}).
+              <SourceTag id={findings.curativeSourceId} />
+            </p>
+          )}
+          {findings.signal && (
+            <p className={`mt-2 text-xs ${findings.signal === "consistently_higher" ? "font-semibold text-rose-700" : "text-slate-500"}`}>{SIGNAL_LABEL[findings.signal]}</p>
+          )}
+        </li>
+        <li className="rounded-lg border border-slate-200 bg-white p-4">
+          <p className="text-xs font-semibold uppercase tracking-wide text-amber-700">2 · Missä se syntyy</p>
+          <p className="mt-2 text-lg font-semibold">Terveyskeskuksessa, ennen lähetettä</p>
+          <ul className="mt-2 space-y-1 text-sm">
+            <li className="flex justify-between gap-2">
+              <span>Lääkäriaika<SourceTag id="uh-acta-2025" /></span>
+              <span className="whitespace-nowrap tabular-nums">{fmt(params.currentPrimaryCareWaitDays)} pv</span>
+            </li>
+            <li className="flex justify-between gap-2">
+              <span>Käynnistä lähetteeseen<SourceTag id="mattila-2025" /></span>
+              <span className="whitespace-nowrap tabular-nums">{fmt(params.currentVisitToReferralDays)} pv</span>
+            </li>
+            <li className="flex justify-between gap-2">
+              <span>Lähetteestä TT:hen<SourceTag id="pirha-hoitopolku" /></span>
+              <span className="whitespace-nowrap tabular-nums">{fmt(params.currentCtQueueDays)} pv</span>
+            </li>
+          </ul>
+          <p className="mt-2 text-sm text-slate-600">Suomessa perusterveydenhuolto ei juuri käytä TT:tä, vaan ensin otetaan röntgen.<SourceTag id="uh-acta-2025" /></p>
+          <More className="mt-1" label="Miksi">
+            <p>Noin 65–70 % keuhkosyövistä löytyy vasta levinneenä.<SourceTag id="filha-2026" /></p>
+            <p>Potilaskyselyssä kolmannes hakeutui lääkäriin vasta yli kuukauden päästä oireista.<SourceTag id="pfizer-2025" /> Siksi pelkkä pikakaista ei riitä: Tanskassa se tavoitti vain 27 % potilaista.<SourceTag id="guldbrandt" /></p>
           </More>
-        </section>
-        <section className="rounded-lg border border-slate-200 bg-white p-4">
-          <h2 className="font-semibold">Toimenpide ja vaikutus</h2>
-          <p className="mt-2 text-sm">Pikakaista terveyskeskukseen ja vuosittainen oirekysely riskiryhmälle.</p>
-          <p className="mt-3 text-3xl font-bold">
+        </li>
+        <li className="rounded-lg border border-slate-200 bg-white p-4">
+          <p className="text-xs font-semibold uppercase tracking-wide text-sky-700">3 · Toimenpide</p>
+          <p className="mt-2 text-lg font-semibold">Oirekysely riskiryhmälle ja pikakaista terveyskeskukseen</p>
+          <p className="mt-2 text-3xl font-bold tabular-nums">
             {fmt(doors.publicDaysToCt)} → {fmt(doors.fastLaneDaysToCt)} pv
           </p>
-          <p className="text-sm text-slate-600">aika TT-kuvaukseen terveyskeskuksen kautta, nyt → pikakaistalla</p>
-        </section>
-      </div>
+          <p className="text-sm text-slate-600">aika TT-kuvaukseen, nyt → pikakaistalla</p>
+          <p className="mt-3 text-sm">
+            Kysely kahdeksalla kielellä tavoittaa {countyId === "lappi" ? "99,2 % Lapin" : "97,9 % koko maan"} 55–79-vuotiaista heidän äidinkielellään.
+            <SourceTag id="statfin-11rl" />
+          </p>
+        </li>
+      </ol>
+
+      <section className="rounded-lg border-2 border-sky-700 bg-sky-50/60 p-4">
+        <p className="text-xs font-semibold uppercase tracking-wide text-sky-800">4 · Mitä {county.name} päättää</p>
+        <div className="mt-2 grid gap-4 md:grid-cols-3">
+          <div>
+            <p className="text-sm text-slate-600">Varaa {fmt(params.surveyWeeks)} viikon kyselykierrokselle</p>
+            <p className="mt-1 text-2xl font-bold tabular-nums">{fmt(range.base.physicianSlotsPerWeek)} lääkäriaikaa</p>
+            <p className="text-2xl font-bold tabular-nums">{fmt(range.base.ctSlotsPerWeek)} TT-aikaa</p>
+            <p className="text-sm text-slate-600">viikossa (perusskenaario)</p>
+          </div>
+          <div>
+            <p className="text-sm text-slate-600">Kustannus kierrokselta</p>
+            <p className="mt-1 text-2xl font-bold tabular-nums">noin {fmt(cost.total / 1000)} t€</p>
+            <p className="text-sm text-slate-600">
+              {fmt(range.base.physicianVisits)} lääkärikäyntiä × {VISIT_COST} €<SourceTag id="thl-yksikkokustannukset" /> + {fmt(range.base.ctScans)} TT-kuvausta × {ctPrice} €
+              <SourceTag id="assumption" />
+            </p>
+            {range.base.cancersFound >= 1 && <p className="text-sm text-slate-600">noin {fmt(cost.total / range.base.cancersFound / 1000)} t€ löydettyä syöpää kohden</p>}
+            <label className="mt-2 block text-xs text-slate-600">
+              TT-tutkimuksen hinta alueella (€)
+              <input
+                type="number"
+                min={0}
+                step={10}
+                value={ctPrice}
+                onChange={(e) => setCtPrice(Math.max(0, Number(e.target.value)))}
+                className="ml-2 w-20 rounded border border-slate-300 px-1 py-0.5"
+              />
+            </label>
+          </div>
+          <div>
+            <p className="text-sm text-slate-600">Seuraa näitä mittareita</p>
+            <ul className="mt-1 list-disc space-y-0.5 pl-5 text-sm">
+              <li>aika oireesta TT-kuvaukseen (tavoite {fmt(doors.fastLaneDaysToCt)} pv)</li>
+              <li>kyselyn vastausprosentti</li>
+              <li>vaiheen I–II osuus löydetyistä</li>
+              <li>parantavan hoidon osuus{findings.curativeShare !== undefined && ` (nyt ${pct(findings.curativeShare)})`}</li>
+            </ul>
+          </div>
+        </div>
+        <p className="mt-3 text-xs text-slate-500">
+          Kustannus sisältää lääkärikäynnit ja TT-kuvaukset, ei kyselyn, hoitajan soittojen eikä hoidon kuluja. TT-hinta on oletus: julkista hintaa ei löytynyt, joten alue syöttää oman hinnastonsa.
+        </p>
+      </section>
 
       <PilotPanel county={county} />
 
       <section className="rounded-lg border border-slate-200 bg-white p-4">
-        <h2 className="font-semibold">Tavoite 3: missä aukko on suurin?</h2>
+        <h2 className="font-semibold">Tavoite 3: {county.name} verrattuna koko maahan</h2>
         <p className="mt-1 text-sm text-slate-600">
           Tavoite: elossaolo pohjoismaiselle tasolle.<SourceTag id="strategy" />
         </p>
@@ -261,8 +338,8 @@ export default function CountyPage() {
         </More>
       </section>
 
-      <section className="rounded-lg border border-slate-200 bg-white p-4">
-        <h2 className="font-semibold">Kysely: hyötylaskelma vuodessa (vaihteluväli)</h2>
+      <details className="rounded-lg border border-slate-200 bg-white p-4">
+        <summary className="cursor-pointer font-semibold">Kyselyn laskelma vaihteluväleinä (varovainen, perus, optimistinen)</summary>
         <div className="-mx-1 overflow-x-auto px-1">
         <table className="mt-3 w-full text-sm">
           <thead>
@@ -288,7 +365,7 @@ export default function CountyPage() {
         </table>
         </div>
         <p className="mt-3 text-xs text-slate-500">Arvioi pääsyä TT-kuvaukseen ja tarvittavia aikoja, ei elossaoloa.</p>
-      </section>
+      </details>
 
       <section className="rounded-lg border border-slate-200 bg-white p-4">
         <div className="flex flex-wrap items-center justify-between gap-2">
@@ -355,7 +432,7 @@ export default function CountyPage() {
         <ul className="mt-3 space-y-2 text-sm">
           {sources.map((s) => (
             <li key={s.id}>
-              <span className="font-mono text-xs text-sky-800">{s.id}</span>{" "}
+              <span className="text-xs font-semibold text-sky-800">{sourceLabel(s.id)}</span>{" "}
               {s.url ? (
                 <a href={s.url} target="_blank" rel="noreferrer" className="underline">
                   {s.title}

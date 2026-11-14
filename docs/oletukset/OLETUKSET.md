@@ -134,7 +134,10 @@ Merkinnät:
 29. **Vaikutus levinneisyyteen ja elossaoloon.**
     - 🌍 Englannin Lung Health Check siirsi syöpien löytymistä varhaisempaan vaiheeseen.
     - Pelkästä oirekyselystä ei ole näyttöä.
-30. **Kustannukset**, kuten TT-kuvaus ja hoitajan työaika.
+30. **Kustannukset** (päivitetty 14.11. illalla): päättäjänäkymä laskee kierroksen kustannuksen lääkärikäynneistä ja TT-kuvauksista.
+    - 🇫🇮 Lääkärikäynti 125 € (THL:n kansallinen yksikkökustannus, perustason vastaanotto 1–20 min, 2024). https://thl.fi/data-ja-tilastot/sote-talous/yksikkokustannukset
+    - ❌ TT-tutkimus 250 € on oletus: julkista yksikkökustannusta ei löytynyt. Alue syöttää oman hintansa näkymässä.
+    - Kyselyn, hoitajan soittojen ja hoidon kuluja ei lasketa.
 
 ## Demoon tehdyt muutokset 14.11.
 

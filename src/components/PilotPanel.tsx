@@ -1,24 +1,17 @@
 "use client";
 
 import countiesData from "@/data/counties.json";
-import { allSources } from "@/lib/regional";
 import { cancerYieldPerScan, ISC_LDCT, isPilotCounty, LDCT_SC_FI } from "@/lib/pilot";
 import { SCENARIOS, simulate } from "@/lib/simulation";
 import type { County } from "@/lib/types";
 import { More } from "./More";
+import { SourceTag } from "./SourceTag";
 
 const counties = countiesData as County[];
 const nf = new Intl.NumberFormat("fi-FI", { maximumFractionDigits: 0 });
 const pct = (share: number, digits = 1) => `${new Intl.NumberFormat("fi-FI", { maximumFractionDigits: digits, minimumFractionDigits: digits }).format(share * 100)} %`;
 
-function Source({ id }: { id: string }) {
-  const s = allSources.find((x) => x.id === id);
-  return (
-    <a href={s?.url} target="_blank" rel="noreferrer" title={s?.title} className="ml-1 rounded bg-sky-100 px-1 text-xs font-medium text-sky-800">
-      {id}
-    </a>
-  );
-}
+const Source = SourceTag;
 
 /**
  * How the survey complements the national screening pilot ISC-LDCT. Shows the pilot's

@@ -177,6 +177,20 @@
     "note": "Pilottialueet: Uusimaa, Pirkanmaa, Pohjanmaa, Pohjois-Pohjanmaa ja Varsinais-Suomi; sairaalat HUS, OYS, TAYS, TYKS ja Vaasan keskussairaala."
   },
   {
+    "id": "thl-yksikkokustannukset",
+    "title": "THL: Sosiaali- ja terveydenhuollon kansalliset yksikkökustannukset",
+    "url": "https://thl.fi/data-ja-tilastot/sote-talous/yksikkokustannukset",
+    "retrieved": "2026-11-14",
+    "note": "Perustason vastaanottopalvelut, lääkäri 1–20 min: keskiarvo 123 € (2023, 21 aluetta) ja 125 € (2024, 19 aluetta). TT-tutkimuksen yksikkökustannusta sivulla ei ole."
+  },
+  {
+    "id": "statfin-11rl",
+    "title": "Tilastokeskus, StatFin 11rl: Väestö kielen ja iän mukaan maakunnittain",
+    "url": "https://pxdata.stat.fi/PxWeb/pxweb/fi/StatFin/StatFin__vaerak/11rl.px/",
+    "retrieved": "2026-11-14",
+    "note": "55–79-vuotiaat 31.12.2025: suomi, ruotsi, saame, venäjä, viro, ukraina, englanti ja arabia kattavat 97,9 % koko maassa ja 99,2 % Lapissa (rekisteröity äidinkieli)."
+  },
+  {
     "id": "assumption",
     "title": "Team assumption",
     "url": "",

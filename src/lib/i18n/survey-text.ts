@@ -29,6 +29,14 @@ export type SymptomKey = "blood_in_sputum" | "breathlessness" | "chest_pain" | "
 export type VisitValue = "" | "yskä" | "flunssa" | "keuhkokuume" | "astma";
 
 export interface SurveyText {
+  steps: [string, string, string, string];
+  next: string;
+  back: string;
+  stepOf: (i: number, n: number) => string;
+  decrease: string;
+  increase: string;
+  fillRequired: string;
+  chooseLanguage: string;
   language: string;
   draftNote: string;
   title: string;
@@ -89,6 +97,14 @@ export interface SurveyText {
 }
 
 const fi: SurveyText = {
+  steps: ["Sinusta","Tupakointi","Oireet","Lopuksi"],
+  next: "Seuraava",
+  back: "Takaisin",
+  stepOf: (i, n) => `Vaihe ${i}/${n}`,
+  decrease: "Vähennä",
+  increase: "Lisää",
+  fillRequired: "Täytä kaikki kohdat jatkaaksesi.",
+  chooseLanguage: "Valitse kieli",
   language: "Kieli",
   draftNote: "",
   title: "Keuhkojen terveyskysely",
@@ -167,6 +183,14 @@ const fi: SurveyText = {
 };
 
 const sv: SurveyText = {
+  steps: ["Om dig","Rökning","Symtom","Till sist"],
+  next: "Nästa",
+  back: "Tillbaka",
+  stepOf: (i, n) => `Steg ${i} av ${n}`,
+  decrease: "Minska",
+  increase: "Öka",
+  fillRequired: "Fyll i alla fält för att fortsätta.",
+  chooseLanguage: "Välj språk",
   language: "Språk",
   draftNote: "Utkast till översättning, ska granskas.",
   title: "Enkät om lunghälsa",
@@ -255,6 +279,14 @@ const sv: SurveyText = {
 };
 
 const en: SurveyText = {
+  steps: ["About you","Smoking","Symptoms","Finally"],
+  next: "Next",
+  back: "Back",
+  stepOf: (i, n) => `Step ${i} of ${n}`,
+  decrease: "Decrease",
+  increase: "Increase",
+  fillRequired: "Fill in all fields to continue.",
+  chooseLanguage: "Choose your language",
   language: "Language",
   draftNote: "Draft translation, to be reviewed.",
   title: "Lung health survey",
@@ -343,6 +375,14 @@ const en: SurveyText = {
 };
 
 const ru: SurveyText = {
+  steps: ["О вас","Курение","Симптомы","В завершение"],
+  next: "Далее",
+  back: "Назад",
+  stepOf: (i, n) => `Шаг ${i} из ${n}`,
+  decrease: "Уменьшить",
+  increase: "Увеличить",
+  fillRequired: "Заполните все поля, чтобы продолжить.",
+  chooseLanguage: "Выберите язык",
   language: "Язык",
   draftNote: "Черновой перевод, требует проверки.",
   title: "Опрос о здоровье лёгких",
@@ -431,6 +471,14 @@ const ru: SurveyText = {
 };
 
 const et: SurveyText = {
+  steps: ["Teist","Suitsetamine","Sümptomid","Lõpetuseks"],
+  next: "Edasi",
+  back: "Tagasi",
+  stepOf: (i, n) => `Samm ${i}/${n}`,
+  decrease: "Vähenda",
+  increase: "Suurenda",
+  fillRequired: "Jätkamiseks täitke kõik väljad.",
+  chooseLanguage: "Valige keel",
   language: "Keel",
   draftNote: "Tõlke mustand, vajab ülevaatamist.",
   title: "Kopsutervise küsimustik",
@@ -519,6 +567,14 @@ const et: SurveyText = {
 };
 
 const uk: SurveyText = {
+  steps: ["Про вас","Куріння","Симптоми","Насамкінець"],
+  next: "Далі",
+  back: "Назад",
+  stepOf: (i, n) => `Крок ${i} з ${n}`,
+  decrease: "Зменшити",
+  increase: "Збільшити",
+  fillRequired: "Заповніть усі поля, щоб продовжити.",
+  chooseLanguage: "Оберіть мову",
   language: "Мова",
   draftNote: "Чернетка перекладу, потребує перевірки.",
   title: "Опитування про здоров'я легень",
@@ -607,6 +663,14 @@ const uk: SurveyText = {
 };
 
 const ar: SurveyText = {
+  steps: ["عنك","التدخين","الأعراض","أخيرًا"],
+  next: "التالي",
+  back: "السابق",
+  stepOf: (i, n) => `الخطوة ${i} من ${n}`,
+  decrease: "إنقاص",
+  increase: "زيادة",
+  fillRequired: "املأ جميع الحقول للمتابعة.",
+  chooseLanguage: "اختر لغتك",
   language: "اللغة",
   draftNote: "مسودة ترجمة، تحتاج إلى مراجعة.",
   title: "استبيان صحة الرئة",
@@ -695,6 +759,11 @@ const ar: SurveyText = {
 
 // Northern Sámi: partial draft. The PLCOm2012 research section stays in Finnish.
 const se: Partial<SurveyText> = {
+  steps: ["Dus","Borgguheapmi","Dávdamearkkat","Loahpas"],
+  next: "Viidáseappot",
+  back: "Maŋás",
+  stepOf: (i, n) => `Lávki ${i}/${n}`,
+  chooseLanguage: "Vállje giela",
   language: "Giella",
   draftNote: "Jorgalusa álgu, galgá dárkkistuvvot. Muhtun osiid leat suomagillii.",
   intro: "Váldá guokte minuhta. Geavat ráhkaduvvon dieđuid.",
