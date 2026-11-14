@@ -2,6 +2,7 @@
 
 import { useEffect, useState } from "react";
 import { notifyChange } from "@/components/LiveData";
+import { More } from "@/components/More";
 import type { SurveyAnalysis } from "@/lib/analysis";
 import type { SurveyText } from "@/lib/i18n/survey-text";
 import { formatRisk, IMPUTED_LABEL, PRIORITY_LEVEL_LABEL, type RiskPriority } from "@/lib/priority";
@@ -58,14 +59,27 @@ export function AnalysisCard({
 
   if (!data) return <div className="rounded border border-slate-200 p-3 text-sm text-slate-500">{texts?.loading ?? "Analysoidaan vastausta…"}</div>;
   const p = data.priority;
+  // After saving, the saved draft is the current answer set; before that, what is stored.
+  const answered = saved ? draft : (data.answers ?? {});
+  const answeredCount = data.questions.filter((q) => answered[q.id]?.trim()).length;
 
   const questions = (
     <div>
-      <p className="text-xs font-semibold text-slate-600">{respondent ? (texts?.followUpHint ?? "Vastaa halutessasi, se auttaa lääkäriä") : "Mukautuvat jatkokysymykset"}</p>
+      {respondent ? (
+        <p className="text-xs font-semibold text-slate-600">{texts?.followUpHint ?? "Vastaa halutessasi, se auttaa lääkäriä"}</p>
+      ) : (
+        <div className="flex flex-wrap items-baseline justify-between gap-2">
+          <p className="font-semibold">Kysy puhelimessa tai vastaanotolla</p>
+          <span className={`rounded px-2 py-0.5 text-xs font-medium ${answeredCount ? "bg-emerald-100 text-emerald-800" : "bg-slate-100 text-slate-600"}`}>
+            {answeredCount ? `Vastattu ${answeredCount}/${data.questions.length}` : "Ei vielä vastauksia"}
+          </span>
+          <p className="w-full text-xs text-slate-500">Potilas näki samat kysymykset kyselyn lopussa. Kirjaa vastaukset, jos kysyt ne itse; yhteenveto ja tekoälyn arvio päivittyvät.</p>
+        </div>
+      )}
       <div className="mt-1 space-y-2">
         {data.questions.map((q) => (
           <label key={q.id} className="block">
-            <span className="text-xs">{(respondent && texts?.followUps[q.id]) || q.text}</span>
+            <span className={respondent ? "text-xs" : "text-sm"}>{(respondent && texts?.followUps[q.id]) || q.text}</span>
             {q.kind === "yes_no" ? (
               <div className="mt-0.5 flex gap-1">
                 {["kyllä", "ei"].map((v) => (
@@ -73,7 +87,7 @@ export function AnalysisCard({
                     key={v}
                     type="button"
                     onClick={() => setDraft((d) => ({ ...d, [q.id]: v }))}
-                    className={`rounded border px-2 py-0.5 text-xs ${draft[q.id] === v ? "border-violet-600 bg-violet-100 font-semibold" : "border-slate-300 bg-white"}`}
+                    className={`min-h-8 rounded border px-3 py-1 text-sm ${draft[q.id] === v ? "border-sky-700 bg-sky-50 font-semibold text-sky-900" : "border-slate-300 bg-white hover:bg-slate-50"}`}
                   >
                     {texts ? (v === "kyllä" ? texts.answerYes : texts.answerNo) : v}
                   </button>
@@ -81,17 +95,17 @@ export function AnalysisCard({
               </div>
             ) : (
               <input
-                type={q.kind === "number" ? "number" : "text"}
-                min={0}
+                type="text"
+                inputMode={q.kind === "number" ? "numeric" : "text"}
                 value={draft[q.id] ?? ""}
-                onChange={(e) => setDraft((d) => ({ ...d, [q.id]: e.target.value }))}
-                className="mt-0.5 w-28 rounded border border-slate-300 px-2 py-0.5 text-xs"
+                onChange={(e) => setDraft((d) => ({ ...d, [q.id]: q.kind === "number" ? e.target.value.replace(/[^0-9]/g, "").slice(0, 4) : e.target.value }))}
+                className="mt-0.5 block w-28 rounded border border-slate-300 px-2 py-1 text-sm"
               />
             )}
           </label>
         ))}
       </div>
-      <button type="button" onClick={save} className="mt-2 rounded bg-violet-700 px-2.5 py-1 text-xs font-medium text-white hover:bg-violet-800">
+      <button type="button" onClick={save} className="mt-3 rounded bg-sky-700 px-3 py-1.5 text-sm font-medium text-white hover:bg-sky-800">
         {respondent ? (texts?.followUpSend ?? "Lähetä vastaukset") : "Tallenna vastaukset"}
       </button>
       {saved && <span className="ml-2 text-xs text-emerald-700">✓ {respondent ? (texts?.thanks ?? "Kiitos!") : "Tallennettu. Lääkärin yhteenveto päivittyy."}</span>}
@@ -122,8 +136,10 @@ export function AnalysisCard({
       </div>
 
       {p.contributions.length > 0 && (
-        <div>
-          <p className="text-xs font-semibold text-slate-600">PLCOm2012-mallin tekijät (riskikerroin verrattuna mallin keskitasoon)</p>
+        <More label="Miksi riski on tämä?">
+          <p className="text-xs">
+            Kerroin vertaa tekijää mallin keskivertohenkilöön (62-vuotias, keskimääräinen tupakointihistoria). Yli 1 nostaa ja alle 1 laskee riskiä. Ne eivät vaikuta oireiden kiireellisyyteen.
+          </p>
           <ul className="mt-1 space-y-0.5 text-xs">
             {p.contributions.map((c) => (
               <li key={c.key} className="flex justify-between gap-2">
@@ -135,7 +151,7 @@ export function AnalysisCard({
           {p.imputed.length > 0 && (
             <p className="mt-1 text-xs text-amber-800">Puuttuvat tiedot täydennetty mallin keskiarvolla: {p.imputed.map((k) => IMPUTED_LABEL[k]).join(", ")}.</p>
           )}
-        </div>
+        </More>
       )}
 
       {questions}
