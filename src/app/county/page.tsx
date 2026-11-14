@@ -189,7 +189,7 @@ export default function CountyPage() {
           </p>
           <p className="text-sm text-slate-600">aika TT-kuvaukseen, nyt → pikakaistalla</p>
           <p className="mt-3 text-sm">
-            Kysely alueen kielillä ({langs.primary.map((l) => l.name).join(", ")}) tavoittaa <strong>{pct(langs.coverage)}</strong> 50–74-vuotiaista äidinkielellään
+            Kysely alueen kielillä ({langs.primary.map((l) => l.name.split(",")[0]).join(", ")}) tavoittaa <strong>{pct(langs.coverage)}</strong> 50–74-vuotiaista äidinkielellään
             {langs.sharedRegion ? ` (${langs.regionName}, koko maakunta)` : ""}.
             <SourceTag id="statfin-11rl" />
           </p>
