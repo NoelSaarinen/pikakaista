@@ -66,6 +66,50 @@ This covers all five judging criteria, uses the medical student's knowledge for 
 - **Feasibility within the hackathon** First demo: a county map plus a brief for one county. Fallback: one county analysed in depth.
 - **Potential differentiation** Other teams will compare regions. This shows inequality inside a region, by entry route.
 
+#### Route-to-diagnosis evidence (searched 2026-11-14)
+
+- **Lymphoma: first contact and delay by route.** Kuitunen et al., "Socioeconomic Status and Access to Treatment in Diffuse Large B-Cell Lymphoma", *Cancer Medicine* 2026; 15:e71920, [doi:10.1002/cam4.71920](https://doi.org/10.1002/cam4.71920), open access. Prospective questionnaire plus patient records: 160 DLBCL patients, seven Finnish hospitals, October 2014 to March 2020. It is probably the "unpublished lymphoma study" behind Roadmap p. 11, since it comes from the same research group. **Unverified.**
+  - **First contact** (156 patients with data, Table 1; we computed the shares):
+
+    | First contact | Patients | Share |
+    | --- | ---: | ---: |
+    | Health-centre appointment | 48 | 31% |
+    | Health-centre emergency | 39 | 25% |
+    | Private care | 20 | 13% |
+    | Occupational health | 19 | 12% |
+    | Hospital emergency | 8 | 5% |
+    | Other | 22 | 14% |
+
+  - **Delay:** symptoms to treatment took a median of 127 days (mean 201) via a health-centre appointment, against 76 days (mean 126) via private or occupational care (Mann–Whitney p = 0.027).
+  - **Who uses which route** (Table 3 and text):
+    - Retirees were 56.3% of health-centre appointment users.
+    - People over 70 were 43.8% of health-centre appointment users but 7.7% of private and occupational users.
+    - No patient earning over €5,000 a month used public care.
+  - **Where the gap opens.** Figure 1 gives cumulative mean days at each step. We read the values from the chart labels and assigned them to the two lines ourselves:
+
+    | Step | Private or occupational | Health-centre appointment |
+    | --- | ---: | ---: |
+    | First contact | 42 | 72 |
+    | Physician | 43 | 94 |
+    | Referral | 77 | 147 |
+    | Specialist appointment | 118 | 204 |
+    | Treatment start | 123 | 207 |
+
+    The largest differences are before first contact (+30 days), between first contact and the physician (+21) and between the physician and the referral (+19).
+  - **Limits:**
+    - The cancer is lymphoma, not lung cancer.
+    - The compared groups are small (39 private or occupational patients against 48 health-centre appointment patients).
+    - Patients reported their own symptom onset.
+    - The data is from 2014–2020, before the wellbeing services counties, and has no breakdown by county.
+    - Incyte funded the study.
+- **Lung cancer delays (unpublished).** [Yle MOT](https://yle.fi/a/74-20251023) reports an ongoing study led by Outi Kuittinen (University of Eastern Finland) in Kuopio, Tampere, Turku and Rovaniemi. The article is dated 12 Oct; the page does not print the year, which is probably 2026.
+  - Symptoms to treatment take about 155 days: more than 50 days before the patient seeks care, 41 days in primary care and 58 days in specialist care.
+  - MOT gives totals of 107 days for Sweden and 67 days for Denmark.
+  - The article has no breakdown by route.
+- **Nurse first.** [University of Helsinki, 7 Nov 2025](https://www.helsinki.fi/fi/uutiset/terveys/miksi-suomessa-keuhkosyopaan-kuollaan-aiemmin-kuin-pohjoismaissa): a survey of 42 lung cancer professionals in 2023–2024. In Finland 40–60% of patients see a nurse first. The article gives no figures by route or region.
+- **Occupational health coverage.** Työterveyslaitos, [*Työterveyshuolto Suomessa 2023*](https://www.ttl.fi/file-download/download/public/8733) (preliminary results, 26 Sep 2024): 2,084,752 personal clients, of whom 2,058,032 were wage earners. The slides have no regional breakdown. Kela's yearly occupational health statistic in Kelasto may have regional tables. **Not checked.**
+- **Not found:** public data, by wellbeing services county, on the route to diagnosis for any cancer.
+
 ### 2. Pilot Map
 
 - **Problem** The Roadmap pilots Nordic-style referral criteria in counties in 2026–2028 but does not say where to start (Roadmap pp. 52–53).
@@ -121,7 +165,7 @@ This covers all five judging criteria, uses the medical student's knowledge for 
 
 ### Unknowns to verify with mentors
 
-- Is there regional data on the route to diagnosis, public versus private or occupational health?
+- Is there regional data on the route to diagnosis, public versus private or occupational health? A public search on 2026-11-14 found none (see [Route-to-diagnosis evidence](#route-to-diagnosis-evidence-searched-2026-11-14)). Ask whether the Kuittinen lung cancer study has route data.
 - What target times does THL guidance 21/2016 set? We have not read it.
 - What regional level does the Finnish Cancer Registry statistics app use: wellbeing services county or hospital district? Does it include stage?
 - Does Kela publish occupational health coverage by region?
