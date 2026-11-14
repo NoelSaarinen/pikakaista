@@ -2,6 +2,7 @@
 
 import { useEffect, useRef, useState } from "react";
 import { notifyChange, useLiveVersion } from "@/components/LiveData";
+import { More } from "./More";
 import { formatSlot, TIER_LABEL, type Booking, type QueueEntry } from "@/lib/booking";
 
 interface BookingState {
@@ -70,9 +71,13 @@ export function BookingPanel({ onBooked }: { onBooked: () => void }) {
         <p className="font-semibold">Ajanvaraus prioriteettijärjestyksessä (simuloitu)</p>
         <span className="rounded bg-amber-100 px-2 py-0.5 text-xs text-amber-900">Demo: ei oikeaa ajanvarausta eikä tekstiviestejä</span>
       </div>
-      <p className="text-xs text-slate-600">
+      <p className="text-xs text-slate-600">Varaa lääkäriajat korkean riskin potilaille listan järjestyksessä.</p>
+      <More label="Varausluokat">
+      <p className="text-xs">
         Lääkäriaika varataan korkean riskin potilaille listan järjestyksessä niin kauan kuin alueen pikakaistan aikoja riittää kahden viikon ajalle. A: verta yskösissä ja ikä vähintään 40, aika 3 arkipäivässä (NICE NG12 1.1.1). B: ikä vähintään 40 ja kaksi oiretta tai tupakoinut ja yksi oire (NG12 1.1.2) tai oireita ja PLCOm2012 ≥ 2 %, aika 2 viikossa. Muut lääkäri arvioi itse.
       </p>
+      <p className="text-xs">Aikoja viikossa: alueen väestöön ja tupakointiin perustuva simulaation perusskenaario (Päättäjä-näkymä). Kaikki demossa olevat vastaukset käsitellään valitun alueen vastauksina.</p>
+      </More>
       <div className="flex flex-wrap items-end gap-2">
         <label className="text-xs text-slate-600">
           Alue
@@ -106,7 +111,6 @@ export function BookingPanel({ onBooked }: { onBooked: () => void }) {
           {s.cancelled > 0 && ` Lääkäri perui ${s.cancelled}.`}
         </p>
       )}
-      <p className="text-xs text-slate-500">Aikoja viikossa: alueen väestöön ja tupakointiin perustuva simulaation perusskenaario (Päättäjä-näkymä). Kaikki demossa olevat vastaukset käsitellään valitun alueen vastauksina.</p>
     </section>
   );
 }

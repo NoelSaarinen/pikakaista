@@ -72,6 +72,7 @@ export interface SurveyText {
   symptomReview: string;
   placement: Record<Placement, string>;
   riskTitle: (pct: string) => string;
+  riskMore: string;
   riskNote: string;
   riskAge: string;
   imputedNote: string;
@@ -91,7 +92,7 @@ const fi: SurveyText = {
   language: "Kieli",
   draftNote: "",
   title: "Keuhkojen terveyskysely",
-  intro: "Esimerkkikysely. Seulontaan valinnan ja oireiden arvioinnin säännöt ovat erilliset.",
+  intro: "Kaksi minuuttia. Käytä kuvitteellisia tietoja.",
   emergency: "Tämä kysely ei ole kiireellinen palvelu. Jos sinulla on äkillisiä tai vakavia oireita, soita 112 tai Päivystysapuun 116117.",
   age: "Ikä",
   smokingQuestion: "Tupakoitko tai oletko tupakoinut?",
@@ -141,8 +142,7 @@ const fi: SurveyText = {
   freeText: "Kerro halutessasi omin sanoin, millä tahansa kielellä",
   send: "Lähetä",
   sending: "Lähetetään…",
-  symptomReview:
-    "Ilmoitit oireita. Terveydenhuollon ammattilaisen tulee arvioida ne riippumatta seulontariskistä. Tämä demo ei tee diagnoosia eikä lähetä automaattisesti TT-kuvaukseen.",
+  symptomReview: "Kiitos! Ammattilainen arvioi ilmoittamasi oireet. Tämä ei ole diagnoosi.",
   placement: {
     direct_ct: "Kiitos! Lääkäri arvioi, tarvitaanko TT-tutkimusta. Sovellus ei tee lähetettä automaattisesti.",
     physician_fast: "Kiitos! Vastauksesi perusteella sinulle varataan lääkäriaika lähipäivinä. Saat tekstiviestin.",
@@ -150,11 +150,11 @@ const fi: SurveyText = {
     not_eligible: "Kiitos vastauksestasi! Kysely on tarkoitettu tupakoineille 55–80-vuotiaille.",
   },
   riskTitle: (pct) => `PLCOm2012-mallin kuuden vuoden arvio: ${pct} %`,
+  riskMore: "Mitä luku tarkoittaa",
   riskNote:
     "Yhdysvaltalaisella aineistolla kehitetty tutkimusmalli; sitä ei ole kalibroitu Suomen väestöön eikä tulos yksin ratkaise seulontaa tai hoitoa.",
   riskAge: " Ikä on alkuperäisen tutkimusjoukon 55–74 vuoden ulkopuolella.",
-  imputedNote:
-    "Puuttuvat PLCOm2012-tiedot täydennettiin mallin keskiarvoilla, ja väestöluokan puuttuessa käytettiin mallin vertailuluokkaa. Lääkärinäkymä näyttää, mitkä tiedot täydennettiin.",
+  imputedNote: "Puuttuvat tiedot täydennettiin mallin keskiarvoilla, ja lääkärinäkymä näyttää, mitkä.",
   followUpTitle: "Vielä muutama tarkentava kysymys",
   followUpHint: "Vastaa halutessasi, se auttaa lääkäriä",
   followUpSend: "Lähetä vastaukset",
@@ -170,7 +170,7 @@ const sv: SurveyText = {
   language: "Språk",
   draftNote: "Utkast till översättning, ska granskas.",
   title: "Enkät om lunghälsa",
-  intro: "Exempelenkät. Urvalet till screening och bedömningen av symtom följer separata regler.",
+  intro: "Tar två minuter. Använd påhittade uppgifter.",
   emergency: "Den här enkäten är inte en akut tjänst. Om du har plötsliga eller allvarliga symtom, ring 112 eller Jourhjälpen 116117.",
   age: "Ålder",
   smokingQuestion: "Röker du eller har du rökt?",
@@ -220,8 +220,7 @@ const sv: SurveyText = {
   freeText: "Berätta gärna med egna ord, på vilket språk som helst",
   send: "Skicka",
   sending: "Skickar…",
-  symptomReview:
-    "Du har uppgett symtom. En yrkesperson inom hälso- och sjukvården ska bedöma dem oberoende av screeningrisken. Denna demo ställer ingen diagnos och remitterar inte automatiskt till datortomografi.",
+  symptomReview: "Tack! En yrkesperson bedömer de symtom du har uppgett. Detta är ingen diagnos.",
   placement: {
     direct_ct: "Tack! En läkare bedömer om datortomografi behövs. Appen gör ingen remiss automatiskt.",
     physician_fast: "Tack! Utifrån dina svar får du en läkartid inom de närmaste dagarna. Du får ett textmeddelande.",
@@ -229,11 +228,11 @@ const sv: SurveyText = {
     not_eligible: "Tack för ditt svar! Enkäten är avsedd för personer i åldern 55–80 år som har rökt.",
   },
   riskTitle: (pct) => `PLCOm2012-modellens sexårsuppskattning: ${pct} %`,
+  riskMore: "Vad siffran betyder",
   riskNote:
     "En forskningsmodell utvecklad med amerikanska data. Den har inte kalibrerats för Finlands befolkning, och resultatet avgör inte ensamt screening eller behandling.",
   riskAge: " Åldern ligger utanför den ursprungliga studiegruppens 55–74 år.",
-  imputedNote:
-    "Saknade PLCOm2012-uppgifter ersattes med modellens medelvärden, och referensgruppen användes när befolkningsgrupp saknades. Läkarvyn visar vilka uppgifter som ersattes.",
+  imputedNote: "Saknade uppgifter ersattes med modellens medelvärden, och läkarvyn visar vilka.",
   followUpTitle: "Några frågor till",
   followUpHint: "Svara gärna, det hjälper läkaren",
   followUpSend: "Skicka svaren",
@@ -259,7 +258,7 @@ const en: SurveyText = {
   language: "Language",
   draftNote: "Draft translation, to be reviewed.",
   title: "Lung health survey",
-  intro: "Example survey. Selection for screening and the assessment of symptoms follow separate rules.",
+  intro: "Takes two minutes. Use made-up details.",
   emergency: "This survey is not an urgent service. If you have sudden or severe symptoms, call 112 or the medical helpline 116117.",
   age: "Age",
   smokingQuestion: "Do you smoke or have you ever smoked?",
@@ -309,8 +308,7 @@ const en: SurveyText = {
   freeText: "If you like, tell us in your own words, in any language",
   send: "Send",
   sending: "Sending…",
-  symptomReview:
-    "You reported symptoms. A healthcare professional should assess them, whatever your screening risk. This demo does not make a diagnosis or refer you to a CT scan automatically.",
+  symptomReview: "Thank you! A healthcare professional will assess the symptoms you reported. This is not a diagnosis.",
   placement: {
     direct_ct: "Thank you! A doctor will assess whether a CT scan is needed. The app does not make a referral automatically.",
     physician_fast: "Thank you! Based on your answers, you will get a doctor's appointment in the next few days. You will receive a text message.",
@@ -318,11 +316,11 @@ const en: SurveyText = {
     not_eligible: "Thank you for your answer! The survey is meant for people aged 55–80 who have smoked.",
   },
   riskTitle: (pct) => `Six-year estimate from the PLCOm2012 model: ${pct} %`,
+  riskMore: "What the number means",
   riskNote:
     "A research model developed with US data. It has not been calibrated to the Finnish population, and the result alone does not decide screening or treatment.",
   riskAge: " The age is outside the 55–74 range of the original study group.",
-  imputedNote:
-    "Missing PLCOm2012 details were filled with the model's average values, and the reference group was used when the population group was missing. The doctor's view shows which details were filled in.",
+  imputedNote: "Missing details were filled with the model’s average values, and the doctor’s view shows which.",
   followUpTitle: "A few more questions",
   followUpHint: "Answer if you like. It helps the doctor",
   followUpSend: "Send answers",
@@ -348,7 +346,7 @@ const ru: SurveyText = {
   language: "Язык",
   draftNote: "Черновой перевод, требует проверки.",
   title: "Опрос о здоровье лёгких",
-  intro: "Пример опроса. Отбор для скрининга и оценка симптомов проводятся по отдельным правилам.",
+  intro: "Займёт две минуты. Используйте вымышленные данные.",
   emergency: "Этот опрос не является службой неотложной помощи. При внезапных или тяжёлых симптомах звоните 112 или в службу Päivystysapu 116117.",
   age: "Возраст",
   smokingQuestion: "Вы курите или курили раньше?",
@@ -398,8 +396,7 @@ const ru: SurveyText = {
   freeText: "Если хотите, опишите своими словами на любом языке",
   send: "Отправить",
   sending: "Отправка…",
-  symptomReview:
-    "Вы сообщили о симптомах. Их должен оценить медицинский специалист независимо от риска по скринингу. Это демо не ставит диагноз и не направляет на КТ автоматически.",
+  symptomReview: "Спасибо! Медицинский специалист оценит указанные вами симптомы. Это не диагноз.",
   placement: {
     direct_ct: "Спасибо! Врач оценит, нужна ли компьютерная томография. Приложение не оформляет направление автоматически.",
     physician_fast: "Спасибо! По вашим ответам вам назначат приём у врача в ближайшие дни. Вы получите SMS.",
@@ -407,11 +404,11 @@ const ru: SurveyText = {
     not_eligible: "Спасибо за ответ! Опрос предназначен для людей в возрасте 55–80 лет, которые курят или курили.",
   },
   riskTitle: (pct) => `Шестилетняя оценка по модели PLCOm2012: ${pct} %`,
+  riskMore: "Что означает это число",
   riskNote:
     "Исследовательская модель, разработанная на данных США. Она не откалибрована для населения Финляндии, и результат сам по себе не определяет скрининг или лечение.",
   riskAge: " Возраст вне диапазона 55–74 лет исходной исследуемой группы.",
-  imputedNote:
-    "Недостающие данные PLCOm2012 заменены средними значениями модели, а при отсутствии группы населения использована группа сравнения. В окне врача видно, какие данные были заменены.",
+  imputedNote: "Недостающие данные заменены средними значениями модели; в окне врача видно, какие именно.",
   followUpTitle: "Ещё несколько уточняющих вопросов",
   followUpHint: "Ответьте, если хотите, — это поможет врачу",
   followUpSend: "Отправить ответы",
@@ -437,7 +434,7 @@ const et: SurveyText = {
   language: "Keel",
   draftNote: "Tõlke mustand, vajab ülevaatamist.",
   title: "Kopsutervise küsimustik",
-  intro: "Näidisküsimustik. Sõeluuringusse valimise ja sümptomite hindamise reeglid on eraldi.",
+  intro: "Võtab kaks minutit. Kasutage väljamõeldud andmeid.",
   emergency: "See küsimustik ei ole kiirabiteenus. Kui Teil on äkilised või rasked sümptomid, helistage 112 või nõuandetelefonile Päivystysapu 116117.",
   age: "Vanus",
   smokingQuestion: "Kas Te suitsetate või olete suitsetanud?",
@@ -487,8 +484,7 @@ const et: SurveyText = {
   freeText: "Soovi korral kirjeldage oma sõnadega, mis tahes keeles",
   send: "Saada",
   sending: "Saadan…",
-  symptomReview:
-    "Teatasite sümptomitest. Tervishoiutöötaja peab neid hindama sõltumata sõeluuringuriskist. See demo ei pane diagnoosi ega suuna automaatselt kompuutertomograafiasse.",
+  symptomReview: "Aitäh! Tervishoiutöötaja hindab Teie märgitud sümptomeid. See ei ole diagnoos.",
   placement: {
     direct_ct: "Aitäh! Arst hindab, kas kompuutertomograafia on vajalik. Rakendus ei tee saatekirja automaatselt.",
     physician_fast: "Aitäh! Teie vastuste põhjal broneeritakse Teile lähipäevil arstiaeg. Saate tekstisõnumi.",
@@ -496,11 +492,11 @@ const et: SurveyText = {
     not_eligible: "Aitäh vastamast! Küsimustik on mõeldud 55–80-aastastele, kes on suitsetanud.",
   },
   riskTitle: (pct) => `PLCOm2012 mudeli kuue aasta hinnang: ${pct} %`,
+  riskMore: "Mida see number tähendab",
   riskNote:
     "USA andmetel välja töötatud uurimismudel. Seda ei ole Soome rahvastikule kalibreeritud ja tulemus üksi ei otsusta sõeluuringut ega ravi.",
   riskAge: " Vanus on väljaspool algse uuringurühma 55–74 aastat.",
-  imputedNote:
-    "Puuduvad PLCOm2012 andmed asendati mudeli keskmistega ja rahvastikurühma puudumisel kasutati võrdlusrühma. Arsti vaade näitab, millised andmed asendati.",
+  imputedNote: "Puuduvad andmed asendati mudeli keskmistega ja arsti vaade näitab, millised.",
   followUpTitle: "Veel mõned täpsustavad küsimused",
   followUpHint: "Vastake soovi korral, see aitab arsti",
   followUpSend: "Saada vastused",
@@ -526,7 +522,7 @@ const uk: SurveyText = {
   language: "Мова",
   draftNote: "Чернетка перекладу, потребує перевірки.",
   title: "Опитування про здоров'я легень",
-  intro: "Приклад опитування. Відбір на скринінг і оцінка симптомів проводяться за окремими правилами.",
+  intro: "Займе дві хвилини. Використовуйте вигадані дані.",
   emergency: "Це опитування не є службою невідкладної допомоги. Якщо у вас раптові або тяжкі симптоми, телефонуйте 112 або до служби Päivystysapu 116117.",
   age: "Вік",
   smokingQuestion: "Ви курите або курили раніше?",
@@ -576,8 +572,7 @@ const uk: SurveyText = {
   freeText: "За бажанням опишіть своїми словами будь-якою мовою",
   send: "Надіслати",
   sending: "Надсилання…",
-  symptomReview:
-    "Ви повідомили про симптоми. Їх має оцінити медичний фахівець незалежно від ризику за скринінгом. Це демо не ставить діагноз і не направляє на КТ автоматично.",
+  symptomReview: "Дякуємо! Медичний фахівець оцінить симптоми, про які ви повідомили. Це не діагноз.",
   placement: {
     direct_ct: "Дякуємо! Лікар оцінить, чи потрібна комп'ютерна томографія. Застосунок не оформлює направлення автоматично.",
     physician_fast: "Дякуємо! За вашими відповідями вам призначать прийом у лікаря найближчими днями. Ви отримаєте SMS.",
@@ -585,11 +580,11 @@ const uk: SurveyText = {
     not_eligible: "Дякуємо за відповідь! Опитування призначене для людей віком 55–80 років, які курять або курили.",
   },
   riskTitle: (pct) => `Шестирічна оцінка за моделлю PLCOm2012: ${pct} %`,
+  riskMore: "Що означає це число",
   riskNote:
     "Дослідницька модель, розроблена на даних США. Її не калібрували для населення Фінляндії, і результат сам по собі не визначає скринінг чи лікування.",
   riskAge: " Вік поза діапазоном 55–74 років вихідної досліджуваної групи.",
-  imputedNote:
-    "Відсутні дані PLCOm2012 замінено середніми значеннями моделі, а за відсутності групи населення використано групу порівняння. У вікні лікаря видно, які дані замінено.",
+  imputedNote: "Відсутні дані замінено середніми значеннями моделі; у вікні лікаря видно, які саме.",
   followUpTitle: "Ще кілька уточнювальних запитань",
   followUpHint: "Відповідайте за бажанням — це допоможе лікарю",
   followUpSend: "Надіслати відповіді",
@@ -615,7 +610,7 @@ const ar: SurveyText = {
   language: "اللغة",
   draftNote: "مسودة ترجمة، تحتاج إلى مراجعة.",
   title: "استبيان صحة الرئة",
-  intro: "استبيان تجريبي. يخضع الاختيار للفحص وتقييم الأعراض لقواعد منفصلة.",
+  intro: "يستغرق دقيقتين. استخدم بيانات خيالية.",
   emergency: "هذا الاستبيان ليس خدمة طوارئ. إذا كانت لديك أعراض مفاجئة أو شديدة، فاتصل بالرقم 112 أو بخط المشورة الطبية على الرقم 116117.",
   age: "العمر",
   smokingQuestion: "هل تدخن أو سبق لك التدخين؟",
@@ -665,8 +660,7 @@ const ar: SurveyText = {
   freeText: "إن أردت، صِف حالتك بكلماتك وبأي لغة",
   send: "إرسال",
   sending: "جارٍ الإرسال…",
-  symptomReview:
-    "لقد أبلغت عن أعراض. يجب أن يقيّمها مختص في الرعاية الصحية بغض النظر عن خطر الفحص. لا يضع هذا العرض التجريبي تشخيصًا ولا يحيلك تلقائيًا إلى التصوير المقطعي.",
+  symptomReview: "شكرًا! سيقيّم مختص في الرعاية الصحية الأعراض التي أبلغت عنها. هذا ليس تشخيصًا.",
   placement: {
     direct_ct: "شكرًا! سيقيّم الطبيب ما إذا كان التصوير المقطعي ضروريًا. لا يصدر التطبيق إحالة تلقائيًا.",
     physician_fast: "شكرًا! بناءً على إجاباتك سيُحجز لك موعد مع الطبيب خلال الأيام القادمة. ستصلك رسالة نصية.",
@@ -674,10 +668,10 @@ const ar: SurveyText = {
     not_eligible: "شكرًا على إجابتك! هذا الاستبيان مخصص للأشخاص الذين تتراوح أعمارهم بين 55 و80 عامًا وسبق لهم التدخين.",
   },
   riskTitle: (pct) => `تقدير نموذج PLCOm2012 لست سنوات: ${pct} %`,
+  riskMore: "ماذا يعني هذا الرقم",
   riskNote: "نموذج بحثي طُوّر ببيانات أمريكية. لم يُعايَر على سكان فنلندا، ولا تحدد النتيجة وحدها الفحص أو العلاج.",
   riskAge: " العمر خارج نطاق 55–74 عامًا لمجموعة الدراسة الأصلية.",
-  imputedNote:
-    "استُكملت معلومات PLCOm2012 الناقصة بمتوسطات النموذج، واستُخدمت الفئة المرجعية عند غياب الفئة السكانية. تُظهر شاشة الطبيب المعلومات التي استُكملت.",
+  imputedNote: "استُكملت المعلومات الناقصة بمتوسطات النموذج، وتُظهر شاشة الطبيب ما الذي استُكمل.",
   followUpTitle: "بعض الأسئلة الإضافية",
   followUpHint: "أجب إن أردت، فهذا يساعد الطبيب",
   followUpSend: "إرسال الإجابات",
@@ -703,6 +697,7 @@ const ar: SurveyText = {
 const se: Partial<SurveyText> = {
   language: "Giella",
   draftNote: "Jorgalusa álgu, galgá dárkkistuvvot. Muhtun osiid leat suomagillii.",
+  intro: "Váldá guokte minuhta. Geavat ráhkaduvvon dieđuid.",
   title: "Geahpesdearvvašvuođa jearahallan",
   emergency: "Dát jearahallan ii leat hoahppobálvalus. Jus dus leat fáhkkatlaš dahje garra dávdamearkkat, riŋge 112 dahje Päivystysapu-nummirii 116117.",
   age: "Ahki",
@@ -731,14 +726,14 @@ const se: Partial<SurveyText> = {
   freeText: "Muital háliidettiinat iežat sániiguin, vaikko man gillii",
   send: "Sádde",
   sending: "Sáddemin…",
-  symptomReview:
-    "Don muitalit dávdamearkkaid birra. Dearvvašvuođabargi galgá árvvoštallat daid. Dát demo ii dagat diagnosa iige sádde automáhtalaččat TT-govvemii.",
+  symptomReview: "Giitu! Dearvvašvuođabargi árvvoštallá dávdamearkkaid maid muitalit. Dát ii leat diagnosa.",
   placement: {
     direct_ct: "Giitu! Doavttir árvvoštallá, dárbbašuvvo go TT-govven.",
     physician_fast: "Giitu! Vástádusaid vuođul dutnje várrejuvvo doavttiráigi boahtte beivviid. Oaččut teakstadieđu.",
     normal_route: "Giitu! Vástádusaid vuođul ii leat dál hoahppu. Jus dus bohtet dávdamearkkat, váldde oktavuođa dearvvašvuođaguovddážii.",
     not_eligible: "Giitu vástádusas! Jearahallan lea oaivvilduvvon 55–80-jahkásaččaide geat leat borgguhan.",
   },
+  riskMore: "Maid lohku mearkkaša",
   followUpTitle: "Vel moadde gažaldaga",
   followUpHint: "Vástit jus háliidat, dat veahkeha doaktára",
   followUpSend: "Sádde vástádusaid",

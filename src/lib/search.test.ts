@@ -61,3 +61,12 @@ describe("patient search", () => {
     expect(searchPatients(people, { ...EMPTY_FILTERS, query: "zzzz-ei-ole" })).toEqual([]);
   });
 });
+
+describe("everyday synonyms", () => {
+  it("finds blood in sputum with the word veriyskä", async () => {
+    const { searchText } = await import("./search");
+    const p = { response: { id: "x", age: 60, language: "fi", smoking: { status: "current", pack_years: 30 }, symptoms: { cough_weeks: 0, blood_in_sputum: true, weight_loss: false, breathlessness: false, chest_pain: false, pneumonias_last_year: 0 }, previous_visits: [], synthetic: true },
+      rule: { reasons: [], redFlag: true, symptomReviewRequired: true, placement: "direct_ct" }, pathway: { stage: "awaiting_physician", engagement: "engaged", nextAction: "" } } as never;
+    expect(searchText(p)).toContain("veriyskä");
+  });
+});

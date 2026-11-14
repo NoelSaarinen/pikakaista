@@ -1,6 +1,6 @@
 "use client";
 
-import { useCallback, useEffect, useState } from "react";
+import { useCallback, useEffect, useMemo, useState } from "react";
 import { notifyChange, useLiveVersion } from "@/components/LiveData";
 import { AnalysisCard, PRIORITY_BADGE } from "@/components/AnalysisCard";
 import { AssessmentCard } from "@/components/AssessmentCard";
@@ -10,10 +10,21 @@ import { formatSlot, TIER_LABEL } from "@/lib/booking";
 import { STAGE_LABEL } from "@/lib/pathway";
 import { formatRisk } from "@/lib/priority";
 import { PLACEMENT_LABEL } from "@/lib/rules";
+import { searchText } from "@/lib/search";
+import { More } from "@/components/More";
 import type { CaseSummary, Placement } from "@/lib/types";
 import type { WorklistItem } from "@/lib/store";
 
 type Worklist = { items: WorklistItem[]; counts: Record<Placement, number>; total: number };
+
+type QuickFilter = "all" | "red_flag" | "symptoms" | "new" | "booked";
+const QUICK_FILTERS: { key: QuickFilter; label: string; test: (x: WorklistItem) => boolean }[] = [
+  { key: "all", label: "Kaikki", test: () => true },
+  { key: "red_flag", label: "Hälytysmerkki", test: (x) => x.rule.redFlag },
+  { key: "symptoms", label: "Oireet", test: (x) => x.rule.symptomReviewRequired },
+  { key: "new", label: "Uudet vastaukset", test: (x) => x.live },
+  { key: "booked", label: "Varattu aika", test: (x) => !!x.booking },
+];
 
 const BADGE: Record<Placement, string> = {
   direct_ct: "bg-rose-100 text-rose-800",
@@ -42,6 +53,9 @@ export default function ClinicianPage() {
   const [summary, setSummary] = useState<CaseSummary | null>(null);
   const [loadingSummary, setLoadingSummary] = useState(false);
   const [assessVersion, setAssessVersion] = useState(0);
+
+  const [query, setQuery] = useState("");
+  const [quick, setQuick] = useState<QuickFilter>("all");
 
   const load = useCallback(async () => {
     const res = await fetch("/api/worklist", { cache: "no-store" });
@@ -87,30 +101,67 @@ export default function ClinicianPage() {
   }
 
   const item = data?.items.find((x) => x.response.id === selected) ?? null;
+  // Same free-text search as the patient search page: every word must match. The list
+  // order (urgency first) is kept.
+  const shown = useMemo(() => {
+    const words = query.toLocaleLowerCase("fi-FI").normalize("NFC").split(/s+/).filter(Boolean);
+    const test = QUICK_FILTERS.find((f) => f.key === quick)!.test;
+    return (data?.items ?? []).filter((x) => test(x) && (words.length === 0 || words.every((w) => searchText(x).includes(w))));
+  }, [data, query, quick]);
 
   return (
     <div className="space-y-4">
       <div>
-        <p className="text-sm font-medium text-sky-700">Lääkärinäkymä · terveyskeskus</p>
-        <h1 className="text-2xl font-bold">Pikakaistan lista</h1>
+        <p className="text-xs font-semibold uppercase tracking-[0.14em] text-brand-teal">Lääkärinäkymä · terveyskeskus</p>
+        <h1 className="mt-1 text-3xl font-extrabold tracking-tight">Pikakaistan lista</h1>
+        <p className="text-slate-600">Hälytysmerkit ensin. Lääkäri päättää jokaisesta.</p>
         {data && (
-          <p className="text-sm text-slate-600">
+          <More className="mt-1" label="Luvut ja järjestyksen peruste">
+          <p>
             {data.total} vastausta (synteettisiä). Säännöt ohjasivat pikakaistalle {data.counts.direct_ct + data.counts.physician_fast}: suoraan TT {data.counts.direct_ct}, lääkärille {data.counts.physician_fast}. Oirearvioon lisäksi {data.items.filter((x) => x.rule.symptomReviewRequired && x.rule.placement === "not_eligible").length} riskiryhmän ulkopuolista. Tavallinen reitti {data.counts.normal_route}, ei seulontakyselyn riskirajassa {data.counts.not_eligible}.
           </p>
-        )}
-        {data && (
-          <p className="text-xs text-slate-500">
+          <p>
             Järjestys: hälytysmerkit ensin, saman kiireellisyyden sisällä PLCOm2012-mallin kuuden vuoden keuhkosyöpäriski (Tammemägi ym., NEJM 2013).{" "}
             <a href="/evidence" className="text-sky-700 underline">Uusin tutkimus →</a>
           </p>
+          </More>
         )}
       </div>
 
       <BookingPanel onBooked={load} />
 
-      <div className="grid gap-4 md:grid-cols-[minmax(0,2fr)_minmax(0,3fr)]">
-        <ul className="max-h-[70vh] divide-y overflow-auto rounded-lg border border-slate-200 bg-white">
-          {data?.items.map((x) => (
+      <div className="grid grid-cols-1 gap-4 md:grid-cols-[minmax(0,2fr)_minmax(0,3fr)]">
+        <div className="space-y-2">
+        <div className="rounded-lg border border-slate-200 bg-white p-2">
+          <label className="sr-only" htmlFor="worklist-search">Hae listalta</label>
+          <input
+            id="worklist-search"
+            type="search"
+            value={query}
+            onChange={(e) => setQuery(e.target.value)}
+            placeholder="Hae tunnuksella, iällä, oireella tai omin sanoin, esim. veriyskä 67 v"
+            className="w-full rounded border border-slate-300 px-3 py-2 text-sm"
+          />
+          <div className="mt-2 flex flex-wrap items-center gap-1">
+            {QUICK_FILTERS.map((f) => (
+              <button
+                key={f.key}
+                type="button"
+                aria-pressed={quick === f.key}
+                onClick={() => setQuick(f.key)}
+                className={`rounded-full border px-2.5 py-0.5 text-xs ${quick === f.key ? "border-sky-700 bg-sky-700 text-white" : "border-slate-300 text-slate-700 hover:bg-slate-50"}`}
+              >
+                {f.label}
+              </button>
+            ))}
+            <span className="ml-auto text-xs text-slate-500" aria-live="polite">
+              {shown.length} / {data?.items.length ?? 0}
+            </span>
+          </div>
+        </div>
+        <ul className="max-h-[65vh] divide-y overflow-auto rounded-lg border border-slate-200 bg-white">
+          {data && shown.length === 0 && <li className="px-3 py-4 text-sm text-slate-500">Hakua vastaavia henkilöitä ei löytynyt.</li>}
+          {shown.map((x) => (
             <li key={x.response.id}>
               <button onClick={() => open(x.response.id)} className={`w-full px-3 py-2 text-left text-sm hover:bg-slate-50 ${selected === x.response.id ? "bg-sky-50" : ""}`}>
                 <span className="flex items-center justify-between gap-2">
@@ -140,6 +191,7 @@ export default function ClinicianPage() {
             </li>
           ))}
         </ul>
+        </div>
 
         <section className="rounded-lg border border-slate-200 bg-white p-4">
           {!item ? (

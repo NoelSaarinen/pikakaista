@@ -146,3 +146,31 @@ Add entries in chronological order. Link evidence, and link any later entry that
 - **Decision** `llm.ts` uses Verda's OpenAI-compatible endpoint when `VERDA_INFERENCE_API_KEY` is set and Claude only when it is not. Without either key it falls back to rules as before. The default model is `deepseek-4-1-flash-1017` (€0.13 input / €0.53 output per 1M tokens, 1M context, JSON mode). No new dependency is needed, because the call uses `fetch`. JSON answers use Verda's JSON mode with the schema in the system prompt. `completeJson` discards an answer that is missing a required top-level field, so callers fall back to rules.
 - **Verified 2026-11-14** against the local dev server. `/api/ai-status` reports Verda. `/api/brief` returned an AI-written brief for Pirkanmaa in about 3 s. `/api/analyze` returned `generatedBy: "llm"` with follow-up questions from the reviewed question bank. All 83 tests and `tsc` pass.
 - **Trade-offs and follow-up** Claude's strict structured outputs are replaced by prompt plus JSON mode, so field validation in the callers matters more. The key is personal and kept only in Noel's local `.env.local`. A deployment would need its own key in the host's environment.
+
+## 2026-11-14 — Base the demo's pilot data on ISC-LDCT and its Oulu predecessor
+
+- **Status** Requested by Delun on 2026-11-14. Pilot facts from `docs/seulontapilotti/SEULONTAPILOTTI.md` (checked 2026-11-14) and the `wichmann-2025` source entry.
+- **Context** The national screening pilot ISC-LDCT (NCT07331519) runs in five areas, but its results are not published. The predecessor LDCT-SC-FI (Oulu, same criteria) has published results.
+- **Decision**
+  - `src/lib/pilot.ts` holds the ISC-LDCT design (areas, 1,200 places, 50–74 current smokers, ≥15 cigarettes/25 years or 10/30 years, three arms) and the LDCT-SC-FI results (6/383 scans = 1.6 % yield, 5/6 stage I, PPV 75 %, 2.5 % via healthcare referral).
+  - `counties.json` `in_ldct_pilot` is filled for nine areas. "Uusimaa" = Helsinki and the four Uusimaa counties is a team inference, to confirm with mentors.
+  - The decision-maker view shows the pilot for the selected county, the share of the pilot areas' risk group its places cover (about 0.6 % with the base scenario) and the predecessor results, framed as how the survey complements the pilot (reach, recruitment, former smokers and symptomatic people). The predecessor's 1.6 % screening yield is shown but not used in the fast-lane calculation, because it comes from asymptomatic volunteers.
+  - The screening list shows who meets the pilot's inclusion criteria. Exclusions and the smartphone requirement are not asked, so a clinician confirms them.
+- **Trade-offs** The predecessor's yield is from asymptomatic volunteers, so it understates the yield of a symptomatic fast lane. The coverage comparison is indicative because the pilot's and the demo's risk-group criteria differ.
+
+## 2026-11-14 — One model on the decision-maker view; clinician pages in one area
+
+- **Status** Decided by the team on 2026-11-14 (relayed by Delun).
+- **Decision**
+  - The decision-maker view shows only "Two Doors + survey". The "Two Doors only" toggle was removed; the brief is always written for the combined model.
+  - The worklist, screening list, tracking and patient search are grouped under "Lääkäri" (route group `src/app/(laakari)`, URLs unchanged) with their own sub-navigation. The area opens after a one-click "continue as a clinician" choice stored in the browser. **This is not access control**: a real service needs authentication and role-based access.
+  - The worklist got the same free-text search as the patient search page, plus quick filters (red flag, symptoms, new answers, booked). Search also matches everyday synonyms such as "veriyskä".
+
+## 2026-11-14 — Home page lung illustration and lung logo
+
+- **Status** Requested by Delun on 2026-11-14.
+- **Decision**
+  - The logo is a pair of lungs: the lobe on the viewer's left is diseased (grey with dark lesions), the lobe on the right is healthy. Original artwork (`src/components/Logo.tsx`, `src/app/icon.svg`).
+  - The home page shows a four-stage illustration of a tumour growing while symptoms stay small (`src/components/LungStory.tsx`). It plays only while visible, can be paused, and respects reduced-motion settings.
+  - Every statement comes from the National Lung Cancer Programme 2026–2035 (`filha-2026`, pp. 2–4, checked from the PDF on 2026-11-14): the most common symptoms (cough, breathlessness, chest pain, weight loss, haemoptysis), a long symptom-free period, 65–70 % found only after spreading, most cancer deaths in Finland, and curative treatment when found early. "Cough over 3 weeks" is from the Pirkanmaa pathway (`pirha-hoitopolku`).
+- **Trade-offs** The order of symptoms is illustrative and varies between patients; the page says so and notes that the same symptoms occur in many other diseases.

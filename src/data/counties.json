@@ -32,9 +32,9 @@
       "note": "Occupational health doctor visits per 1,000 residents aged 15–64 (THL primary care statistics). Measures use, not coverage: Kela's regional coverage figures were not found."
     },
     "in_ldct_pilot": {
-      "value": null,
-      "source_id": "mock",
-      "note": "Ask mentors which counties are in the screening pilot."
+      "value": true,
+      "source_id": "syopajarjestot-2026",
+      "note": "Nimetty pilottialueeksi tiedotteessa."
     }
   },
   {
@@ -70,9 +70,9 @@
       "note": "Occupational health doctor visits per 1,000 residents aged 15–64 (THL primary care statistics). Measures use, not coverage: Kela's regional coverage figures were not found."
     },
     "in_ldct_pilot": {
-      "value": null,
-      "source_id": "mock",
-      "note": "Ask mentors which counties are in the screening pilot."
+      "value": false,
+      "source_id": "syopajarjestot-2026",
+      "note": "Ei mainittu pilottialueena."
     }
   },
   {
@@ -108,9 +108,9 @@
       "note": "Occupational health doctor visits per 1,000 residents aged 15–64 (THL primary care statistics). Measures use, not coverage: Kela's regional coverage figures were not found."
     },
     "in_ldct_pilot": {
-      "value": null,
-      "source_id": "mock",
-      "note": "Ask mentors which counties are in the screening pilot."
+      "value": false,
+      "source_id": "syopajarjestot-2026",
+      "note": "Ei mainittu pilottialueena."
     }
   },
   {
@@ -146,9 +146,9 @@
       "note": "Occupational health doctor visits per 1,000 residents aged 15–64 (THL primary care statistics). Measures use, not coverage: Kela's regional coverage figures were not found."
     },
     "in_ldct_pilot": {
-      "value": null,
-      "source_id": "mock",
-      "note": "Ask mentors which counties are in the screening pilot."
+      "value": true,
+      "source_id": "syopajarjestot-2026",
+      "note": "Tiedote nimeää Uudenmaan. Tiimin päätelmä: Helsinki ja neljä Uudenmaan hyvinvointialuetta (tiekartta: Helsinki ja kahdeksan hyvinvointialuetta). Vahvistetaan mentoreilta."
     }
   },
   {
@@ -184,9 +184,9 @@
       "note": "Occupational health doctor visits per 1,000 residents aged 15–64 (THL primary care statistics). Measures use, not coverage: Kela's regional coverage figures were not found."
     },
     "in_ldct_pilot": {
-      "value": null,
-      "source_id": "mock",
-      "note": "Ask mentors which counties are in the screening pilot."
+      "value": true,
+      "source_id": "syopajarjestot-2026",
+      "note": "Tiedote nimeää Uudenmaan. Tiimin päätelmä: Helsinki ja neljä Uudenmaan hyvinvointialuetta (tiekartta: Helsinki ja kahdeksan hyvinvointialuetta). Vahvistetaan mentoreilta."
     }
   },
   {
@@ -222,9 +222,9 @@
       "note": "Occupational health doctor visits per 1,000 residents aged 15–64 (THL primary care statistics). Measures use, not coverage: Kela's regional coverage figures were not found."
     },
     "in_ldct_pilot": {
-      "value": null,
-      "source_id": "mock",
-      "note": "Ask mentors which counties are in the screening pilot."
+      "value": true,
+      "source_id": "syopajarjestot-2026",
+      "note": "Tiedote nimeää Uudenmaan. Tiimin päätelmä: Helsinki ja neljä Uudenmaan hyvinvointialuetta (tiekartta: Helsinki ja kahdeksan hyvinvointialuetta). Vahvistetaan mentoreilta."
     }
   },
   {
@@ -260,9 +260,9 @@
       "note": "Occupational health doctor visits per 1,000 residents aged 15–64 (THL primary care statistics). Measures use, not coverage: Kela's regional coverage figures were not found. THL notes gaps in the Helsinki, Vantaa and Kerava data."
     },
     "in_ldct_pilot": {
-      "value": null,
-      "source_id": "mock",
-      "note": "Ask mentors which counties are in the screening pilot."
+      "value": true,
+      "source_id": "syopajarjestot-2026",
+      "note": "Tiedote nimeää Uudenmaan. Tiimin päätelmä: Helsinki ja neljä Uudenmaan hyvinvointialuetta (tiekartta: Helsinki ja kahdeksan hyvinvointialuetta). Vahvistetaan mentoreilta."
     }
   },
   {
@@ -298,9 +298,9 @@
       "note": "Occupational health doctor visits per 1,000 residents aged 15–64 (THL primary care statistics). Measures use, not coverage: Kela's regional coverage figures were not found."
     },
     "in_ldct_pilot": {
-      "value": null,
-      "source_id": "mock",
-      "note": "Ask mentors which counties are in the screening pilot."
+      "value": true,
+      "source_id": "syopajarjestot-2026",
+      "note": "Nimetty pilottialueeksi tiedotteessa."
     }
   },
   {
@@ -336,9 +336,9 @@
       "note": "Occupational health doctor visits per 1,000 residents aged 15–64 (THL primary care statistics). Measures use, not coverage: Kela's regional coverage figures were not found."
     },
     "in_ldct_pilot": {
-      "value": null,
-      "source_id": "mock",
-      "note": "Ask mentors which counties are in the screening pilot."
+      "value": false,
+      "source_id": "syopajarjestot-2026",
+      "note": "Ei mainittu pilottialueena."
     }
   },
   {
@@ -374,9 +374,9 @@
       "note": "Occupational health doctor visits per 1,000 residents aged 15–64 (THL primary care statistics). Measures use, not coverage: Kela's regional coverage figures were not found."
     },
     "in_ldct_pilot": {
-      "value": null,
-      "source_id": "mock",
-      "note": "Ask mentors which counties are in the screening pilot."
+      "value": false,
+      "source_id": "syopajarjestot-2026",
+      "note": "Ei mainittu pilottialueena."
     }
   },
   {
@@ -412,9 +412,9 @@
       "note": "Occupational health doctor visits per 1,000 residents aged 15–64 (THL primary care statistics). Measures use, not coverage: Kela's regional coverage figures were not found."
     },
     "in_ldct_pilot": {
-      "value": null,
-      "source_id": "mock",
-      "note": "Ask mentors which counties are in the screening pilot."
+      "value": false,
+      "source_id": "syopajarjestot-2026",
+      "note": "Ei mainittu pilottialueena."
     }
   },
   {
@@ -450,9 +450,9 @@
       "note": "Occupational health doctor visits per 1,000 residents aged 15–64 (THL primary care statistics). Measures use, not coverage: Kela's regional coverage figures were not found."
     },
     "in_ldct_pilot": {
-      "value": null,
-      "source_id": "mock",
-      "note": "Ask mentors which counties are in the screening pilot."
+      "value": false,
+      "source_id": "syopajarjestot-2026",
+      "note": "Ei mainittu pilottialueena."
     }
   },
   {
@@ -488,9 +488,9 @@
       "note": "Occupational health doctor visits per 1,000 residents aged 15–64 (THL primary care statistics). Measures use, not coverage: Kela's regional coverage figures were not found."
     },
     "in_ldct_pilot": {
-      "value": null,
-      "source_id": "mock",
-      "note": "Ask mentors which counties are in the screening pilot."
+      "value": false,
+      "source_id": "syopajarjestot-2026",
+      "note": "Ei mainittu pilottialueena."
     }
   },
   {
@@ -526,9 +526,9 @@
       "note": "Occupational health doctor visits per 1,000 residents aged 15–64 (THL primary care statistics). Measures use, not coverage: Kela's regional coverage figures were not found."
     },
     "in_ldct_pilot": {
-      "value": null,
-      "source_id": "mock",
-      "note": "Ask mentors which counties are in the screening pilot."
+      "value": false,
+      "source_id": "syopajarjestot-2026",
+      "note": "Ei mainittu pilottialueena."
     }
   },
   {
@@ -564,9 +564,9 @@
       "note": "Occupational health doctor visits per 1,000 residents aged 15–64 (THL primary care statistics). Measures use, not coverage: Kela's regional coverage figures were not found."
     },
     "in_ldct_pilot": {
-      "value": null,
-      "source_id": "mock",
-      "note": "Ask mentors which counties are in the screening pilot."
+      "value": false,
+      "source_id": "syopajarjestot-2026",
+      "note": "Ei mainittu pilottialueena."
     }
   },
   {
@@ -602,9 +602,9 @@
       "note": "Occupational health doctor visits per 1,000 residents aged 15–64 (THL primary care statistics). Measures use, not coverage: Kela's regional coverage figures were not found."
     },
     "in_ldct_pilot": {
-      "value": null,
-      "source_id": "mock",
-      "note": "Ask mentors which counties are in the screening pilot."
+      "value": false,
+      "source_id": "syopajarjestot-2026",
+      "note": "Ei mainittu pilottialueena."
     }
   },
   {
@@ -640,9 +640,9 @@
       "note": "Occupational health doctor visits per 1,000 residents aged 15–64 (THL primary care statistics). Measures use, not coverage: Kela's regional coverage figures were not found."
     },
     "in_ldct_pilot": {
-      "value": null,
-      "source_id": "mock",
-      "note": "Ask mentors which counties are in the screening pilot."
+      "value": false,
+      "source_id": "syopajarjestot-2026",
+      "note": "Ei mainittu pilottialueena."
     }
   },
   {
@@ -678,9 +678,9 @@
       "note": "Occupational health doctor visits per 1,000 residents aged 15–64 (THL primary care statistics). Measures use, not coverage: Kela's regional coverage figures were not found."
     },
     "in_ldct_pilot": {
-      "value": null,
-      "source_id": "mock",
-      "note": "Ask mentors which counties are in the screening pilot."
+      "value": true,
+      "source_id": "syopajarjestot-2026",
+      "note": "Nimetty pilottialueeksi tiedotteessa."
     }
   },
   {
@@ -716,9 +716,9 @@
       "note": "Occupational health doctor visits per 1,000 residents aged 15–64 (THL primary care statistics). Measures use, not coverage: Kela's regional coverage figures were not found."
     },
     "in_ldct_pilot": {
-      "value": null,
-      "source_id": "mock",
-      "note": "Ask mentors which counties are in the screening pilot."
+      "value": false,
+      "source_id": "syopajarjestot-2026",
+      "note": "Ei mainittu pilottialueena."
     }
   },
   {
@@ -754,9 +754,9 @@
       "note": "Occupational health doctor visits per 1,000 residents aged 15–64 (THL primary care statistics). Measures use, not coverage: Kela's regional coverage figures were not found."
     },
     "in_ldct_pilot": {
-      "value": null,
-      "source_id": "mock",
-      "note": "Ask mentors which counties are in the screening pilot."
+      "value": true,
+      "source_id": "syopajarjestot-2026",
+      "note": "Nimetty pilottialueeksi tiedotteessa."
     }
   },
   {
@@ -792,9 +792,9 @@
       "note": "Occupational health doctor visits per 1,000 residents aged 15–64 (THL primary care statistics). Measures use, not coverage: Kela's regional coverage figures were not found."
     },
     "in_ldct_pilot": {
-      "value": null,
-      "source_id": "mock",
-      "note": "Ask mentors which counties are in the screening pilot."
+      "value": false,
+      "source_id": "syopajarjestot-2026",
+      "note": "Ei mainittu pilottialueena."
     }
   },
   {
@@ -830,9 +830,9 @@
       "note": "Occupational health doctor visits per 1,000 residents aged 15–64 (THL primary care statistics). Measures use, not coverage: Kela's regional coverage figures were not found. THL notes gaps in the Helsinki, Vantaa and Kerava data."
     },
     "in_ldct_pilot": {
-      "value": null,
-      "source_id": "mock",
-      "note": "Ask mentors which counties are in the screening pilot."
+      "value": true,
+      "source_id": "syopajarjestot-2026",
+      "note": "Tiedote nimeää Uudenmaan. Tiimin päätelmä: Helsinki ja neljä Uudenmaan hyvinvointialuetta (tiekartta: Helsinki ja kahdeksan hyvinvointialuetta). Vahvistetaan mentoreilta."
     }
   }
 ]

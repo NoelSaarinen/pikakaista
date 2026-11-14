@@ -54,6 +54,6 @@ Wichmann V ym. *Lung cancer screening in Finland: a prospective randomized trial
 
 1. **Kysely ei kilpaile pilotin kanssa.** Pilotissa on 1 200 paikkaa, ja ne täyttyivät päivissä. Siihen pääsevät vain nykyiset tupakoitsijat. Riskiryhmästä valtaosa, myös pilottialueilla, jää sen ulkopuolelle. Kyselymme kattaa myös lopettaneet.
 2. **Pilotin rekrytointiongelma on sama, jonka kyselymme ratkaisee.** Tupakointihistoria ei näy rekistereissä, joten riskiryhmää ei voi kutsua. Oulussa vain 2,5 % osallistujista tuli terveydenhuollon kautta. Riskiryhmän tunnistava oirekysely on tähän suora vastaus.
-3. **`in_ldct_pilot`-tieto voidaan täyttää** (**päätelmä**, ei vielä tehty dataan): Helsinki, Itä-, Keski- ja Länsi-Uusimaa, Vantaa–Kerava, Pirkanmaa, Pohjanmaa, Pohjois-Pohjanmaa ja Varsinais-Suomi. Lähteenä tiedotteet. Tarkka aluejako kannattaa vahvistaa mentoreilta.
+3. **`in_ldct_pilot`-tieto on täytetty** (14.11.2026, **päätelmä** Uudenmaan osalta; demossa `src/lib/pilot.ts`, päättäjänäkymän pilottiosio ja seulontalistan kriteerit): Helsinki, Itä-, Keski- ja Länsi-Uusimaa, Vantaa–Kerava, Pirkanmaa, Pohjanmaa, Pohjois-Pohjanmaa ja Varsinais-Suomi. Lähteenä tiedotteet. Tarkka aluejako kannattaa vahvistaa mentoreilta.
 4. **Kysymykset mentoreille:** laajeneeko pilotti vuosina 2026–2028, kuten tiekartta suunnittelee? Täydentäisikö riskiryhmäkysely pilotin rekrytointia?
 5. **AstraZeneca-kytkös.** AstraZeneca rahoitti Oulun LDCT-SC-FI-tutkimusta, joten aihe on sponsorille tuttu.

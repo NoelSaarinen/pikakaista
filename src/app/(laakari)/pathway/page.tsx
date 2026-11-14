@@ -1,5 +1,6 @@
 "use client";
 
+import { More } from "@/components/More";
 import { useEffect, useMemo, useState } from "react";
 import { useLiveVersion } from "@/components/LiveData";
 import { PRIORITY_BADGE } from "@/components/AnalysisCard";
@@ -69,11 +70,14 @@ export default function PathwayPage() {
   return (
     <div className="space-y-4">
       <div>
-        <p className="text-sm font-medium text-sky-700">Hoitajan seurantanäkymä · hyvinvointialue</p>
-        <h1 className="text-2xl font-bold">Sitoutuminen ja hoitopolun vaihe</h1>
-        <p className="max-w-3xl text-sm text-slate-600">
+        <p className="text-xs font-semibold uppercase tracking-[0.14em] text-brand-teal">Hoitajan seurantanäkymä · hyvinvointialue</p>
+        <h1 className="mt-1 text-3xl font-extrabold tracking-tight">Seuranta</h1>
+        <p className="text-slate-600">Kuka on missäkin vaiheessa ja kenelle hoitaja soittaa.</p>
+        <More className="mt-1" label="Mitä sitoutuminen tarkoittaa">
+        <p>
           Jokaisen kyselyyn vastanneen sitoutuminen kyselyyn ja varattuihin käynteihin sekä nykyinen vaihe pikakaistalla. Suomessa ei vielä ole kansallista keuhkosyöpäseulontaa, joten sitoutuminen tarkoittaa tässä riskiryhmäkyselyä ja pikakaistaa. Kaikki tiedot ovat synteettisiä.
         </p>
+        </More>
       </div>
 
       <NewAnswers items={items} onSelect={setSelected} describe={(x) => `→ ${STAGE_LABEL[x.pathway.stage]} · ${ENGAGEMENT_LABEL[x.pathway.engagement]}`} />
@@ -121,7 +125,7 @@ export default function PathwayPage() {
           placeholder="Hae tunnuksella, esim. p-0005"
           className="rounded border border-slate-300 px-2 py-1"
         />
-        <select value={engagement} onChange={(e) => setEngagement(e.target.value as Engagement | "all")} className="rounded border border-slate-300 px-2 py-1">
+        <select value={engagement} onChange={(e) => setEngagement(e.target.value as Engagement | "all")} className="w-full rounded border border-slate-300 px-2 py-1 sm:w-auto">
           <option value="all">Kaikki sitoutumistasot</option>
           {ENGAGEMENTS.map((e) => (
             <option key={e} value={e}>
@@ -129,7 +133,7 @@ export default function PathwayPage() {
             </option>
           ))}
         </select>
-        <select value={stage} onChange={(e) => setStage(e.target.value as PathwayStage | "all")} className="rounded border border-slate-300 px-2 py-1">
+        <select value={stage} onChange={(e) => setStage(e.target.value as PathwayStage | "all")} className="w-full rounded border border-slate-300 px-2 py-1 sm:w-auto">
           <option value="all">Kaikki vaiheet</option>
           {STAGE_ORDER.map((s) => (
             <option key={s} value={s}>
@@ -140,7 +144,7 @@ export default function PathwayPage() {
         <span className="text-slate-500">{rows.length} henkilöä</span>
       </div>
 
-      <div className="grid gap-4 md:grid-cols-[minmax(0,3fr)_minmax(0,2fr)]">
+      <div className="grid grid-cols-1 gap-4 md:grid-cols-[minmax(0,3fr)_minmax(0,2fr)]">
         <div className="max-h-[70vh] overflow-auto rounded-lg border border-slate-200 bg-white">
           <table className="w-full text-left text-sm">
             <thead className="sticky top-0 bg-slate-50 text-xs text-slate-600">

@@ -2,6 +2,7 @@
 
 import { useState } from "react";
 import { AnalysisCard } from "@/components/AnalysisCard";
+import { More } from "@/components/More";
 import { notifyChange } from "@/components/LiveData";
 import { SURVEY_LANGS, surveyText, type SurveyLang, type SymptomKey, type VisitValue } from "@/lib/i18n/survey-text";
 import { PLACEMENT_LABEL, RULES_CONFIG } from "@/lib/rules";
@@ -158,14 +159,14 @@ export default function SurveyPage() {
             {result.screeningRisk6y !== null && (
               <div className="rounded border border-sky-200 bg-sky-50 p-3 text-start text-sm">
                 <p className="font-semibold">{t.riskTitle((result.screeningRisk6y * 100).toFixed(2))}</p>
-                <p className="mt-1 text-xs text-slate-600">
-                  {t.riskNote}
-                  {result.screeningRiskInOriginalAgeRange === false && t.riskAge}
-                </p>
+                <More className="mt-1" label={t.riskMore}>
+                  <p className="text-xs">
+                    {t.riskNote}
+                    {result.screeningRiskInOriginalAgeRange === false && t.riskAge}
+                    {smoking !== "never" && ` ${t.imputedNote}`}
+                  </p>
+                </More>
               </div>
-            )}
-            {smoking !== "never" && result.screeningRisk6y !== null && (
-              <p className="rounded border border-amber-200 bg-amber-50 p-3 text-start text-xs text-amber-900">{t.imputedNote}</p>
             )}
             <div dir="ltr" lang="fi" className="rounded bg-slate-100 p-3 text-left text-xs text-slate-600">
               <p className="font-semibold">Demo: sääntöjen tulos (ei näy vastaajalle)</p>

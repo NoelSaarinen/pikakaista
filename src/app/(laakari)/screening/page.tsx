@@ -16,6 +16,8 @@ import {
   type ScreeningStatus,
 } from "@/lib/screening";
 import { SMOKING_LABEL } from "@/lib/search";
+import { ISC_LDCT, PILOT_REASON_LABEL, pilotEligibility } from "@/lib/pilot";
+import { More } from "@/components/More";
 
 const STATUS_BADGE: Record<ScreeningStatus, string> = {
   invite: "bg-emerald-100 text-emerald-800",
@@ -54,13 +56,15 @@ export default function ScreeningPage() {
   return (
     <div className="space-y-4">
       <div>
-        <p className="text-sm font-medium text-sky-700">Seulontalista · porras 2 · synteettinen data</p>
-        <h1 className="text-2xl font-bold">Oireettomien tupakoineiden seulontajärjestys</h1>
-        <p className="max-w-3xl text-sm text-slate-600">
+        <p className="text-xs font-semibold uppercase tracking-[0.14em] text-brand-teal">Seulontalista · porras 2 · synteettinen data</p>
+        <h1 className="mt-1 text-3xl font-extrabold tracking-tight">Seulontalista</h1>
+        <p className="text-slate-600">Oireettomat tupakoineet riskin mukaan, suurin ensin. Kutsuja niin monta kuin TT-aikoja riittää.</p>
+        <More className="mt-1" label="Miten lista toimii">
+        <p>
           Priorisointi tehdään kahdessa portaassa. <strong>Porras 1:</strong> kaikki oireiset ohjataan oirearvioon, ja korkean riskin oireisille varataan lääkäriaika NICE NG12 -kriteerien mukaan (Lääkäri-näkymä). <strong>Porras 2</strong> on tämä sivu: oireettomat
           tupakoineet järjestetään PLCOm2012-mallin tutkimukseen perustuvien riskitekijöiden mukaan, suurin riski ensin. Oletuksena ikä ei vaikuta järjestykseen. Kutsuja tehdään listan kärjestä niin monta kuin seulonnan TT-kapasiteetti sallii.
         </p>
-      </div>
+        <ul className="list-disc space-y-0.5 pl-5 text-xs">
 
       <NewAnswers
         items={people as (ScreeningPerson & { live?: boolean })[] | null}
@@ -75,9 +79,6 @@ export default function ScreeningPage() {
         }}
       />
 
-      <section className="rounded-lg border border-sky-200 bg-sky-50 p-3 text-xs text-sky-900">
-        <p className="font-semibold">Mihin järjestys perustuu</p>
-        <ul className="mt-1 list-disc space-y-0.5 pl-5">
           <li>
             Riski: PLCOm2012, Tammemägi ym., <em>N Engl J Med</em> 2013;368:728–736, taulukko 2. Julkaistut kertoimet muuttamattomina, tarkistettu 14.11.2026.
           </li>
@@ -89,7 +90,8 @@ export default function ScreeningPage() {
           <li>TT-kapasiteetti ja kutsujakso ovat säädettäviä oletuksia. Kutsut ovat simuloituja, eikä mitään lähetetä.</li>
           <li>Mallia ei ole kalibroitu Suomen väestöön. Oikea käyttö vaatii lääketieteellisen tarkistuksen ja alueen päätöksen.</li>
         </ul>
-      </section>
+        </More>
+      </div>
 
       <div className="flex flex-wrap items-end gap-3 rounded-lg border border-slate-200 bg-white p-3 text-sm">
         <fieldset className="text-xs text-slate-600">
@@ -134,6 +136,23 @@ export default function ScreeningPage() {
         </label>
       </div>
 
+      {summary && (() => {
+        // ISC-LDCT inclusion criteria applied to everyone on the list (tier 2 pool).
+        const pool = summary.rows.filter((r) => r.status === "invite" || r.status === "waiting" || r.status === "below_threshold");
+        const eligible = pool.filter((r) => pilotEligibility(r.person.response).eligible).length;
+        const former = pool.filter((r) => r.person.response.smoking.status === "former").length;
+        return (
+          <section className="rounded-lg border border-violet-200 bg-violet-50/40 p-3 text-sm" aria-label="Seulontapilotin kriteerit">
+            <p>
+              <strong>{eligible}</strong> / {pool.length} täyttää seulontapilotin {ISC_LDCT.name} kriteerit. <strong>{former}</strong> on lopettaneita, joita pilotti ei ota, mutta tämä lista voi kutsua.
+            </p>
+            <More className="mt-1" label="Pilotin kriteerit">
+            <p className="text-xs">Pilotin poissulkukriteereitä (aiempi melanooma tai keuhko-, munuais- tai rintasyöpä, TT alle vuosi sitten) ja älypuhelinvaatimusta kysely ei kysy. Pilotin {ISC_LDCT.participants.toLocaleString("fi-FI")} paikkaa täyttyivät muutamassa vuorokaudessa; tuloksia ei ole julkaistu.</p>
+            </More>
+          </section>
+        );
+      })()}
+
       {summary && (
         <div className="grid gap-3 md:grid-cols-4">
           <div className="rounded-lg border border-slate-200 bg-white p-3">
@@ -163,6 +182,7 @@ export default function ScreeningPage() {
       )}
 
       {summary && summary.invited > 0 && (
+        <More label="Vertailut: tasa-arvoinen järjestys ja pelkät ikärajat">
         <section className="rounded-lg border border-violet-200 bg-violet-50/40 p-3 text-sm">
           <p className="font-semibold">Mitä tasa-arvoinen järjestys muuttaa (sama kapasiteetti, {summary.capacity} kuvausta)</p>
           <table className="mt-2 w-full max-w-2xl text-left text-xs">
@@ -191,9 +211,6 @@ export default function ScreeningPage() {
             Tasa-arvoinen järjestys jakaa kutsut tasaisemmin ikäryhmien kesken, mutta koska ikä on todellinen riskitekijä, malli odottaa kutsutuilta hieman vähemmän syöpiä. Valinta on arvovalinta, joka kuuluu alueen päätettäväksi.
           </p>
         </section>
-      )}
-
-      {summary && summary.invited > 0 && (
         <section className="rounded-lg border border-slate-200 bg-white p-3 text-sm">
           <p className="font-semibold">Riskijärjestys vs. pelkät ikä- ja askivuosirajat</p>
           <p className="mt-1">
@@ -205,9 +222,10 @@ export default function ScreeningPage() {
             Luvut ovat mallin itse laskemia odotusarvoja synteettisestä datasta, eivät riippumatonta näyttöä. Riippumaton vertailu riskimallin ja rajojen välillä on alkuperäisessä julkaisussa.
           </p>
         </section>
+        </More>
       )}
 
-      <div className="grid gap-4 md:grid-cols-[minmax(0,3fr)_minmax(0,2fr)]">
+      <div className="grid grid-cols-1 gap-4 md:grid-cols-[minmax(0,3fr)_minmax(0,2fr)]">
         <div className="max-h-[70vh] overflow-auto rounded-lg border border-slate-200 bg-white">
           <table className="w-full text-left text-sm">
             <thead className="sticky top-0 bg-slate-50 text-xs text-slate-600">
@@ -234,6 +252,14 @@ export default function ScreeningPage() {
                         {SMOKING_LABEL[p.response.smoking.status]}
                         {p.response.smoking.status !== "never" && `, ${p.response.smoking.pack_years} askivuotta`}
                       </span>
+                      {(() => {
+                        const e = pilotEligibility(p.response);
+                        return e.eligible ? (
+                          <span className="mt-0.5 inline-block rounded bg-violet-100 px-1 text-xs text-violet-900">ISC-LDCT-kriteerit täyttyvät</span>
+                        ) : (
+                          <span className="block text-xs text-slate-400" title="Kansallisen seulontapilotin kriteerit">Ei pilottikriteereitä: {PILOT_REASON_LABEL[e.reason]}</span>
+                        );
+                      })()}
                       {(r.missingInputs.length > 0 || r.outsideModelAge) && (
                         <span className="block text-xs text-amber-800">
                           {r.missingInputs.length > 0 && "Täydennä tiedot ennen kutsua. "}

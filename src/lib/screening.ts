@@ -89,12 +89,13 @@ export const DEFAULT_SCREENING: ScreeningSettings = { ctSlotsPerWeek: 5, weeks: 
 
 /** The score a mode ranks by, in percent. */
 export function rankingScore(p: ScreeningPerson, mode: RankingMode): number {
-  return mode === "equity" ? p.priority.ageStandardisedScore : p.priority.score;
+  // Exact probabilities in percent: the rounded display values could tip someone over the threshold.
+  return (mode === "equity" ? p.priority.ageStandardisedProbability : p.priority.probability) * 100;
 }
 
 function eligible(p: ScreeningPerson, mode: RankingMode): boolean {
-  const real = p.priority.score / 100 >= PLCO_THRESHOLD;
-  return mode === "equity" ? real || p.priority.ageStandardisedScore / 100 >= PLCO_THRESHOLD : real;
+  const real = p.priority.probability >= PLCO_THRESHOLD;
+  return mode === "equity" ? real || p.priority.ageStandardisedProbability >= PLCO_THRESHOLD : real;
 }
 
 /** People above the threshold, in invitation order for the mode. */
@@ -104,7 +105,7 @@ function rankEligible(pool: ScreeningPerson[], mode: RankingMode): ScreeningPers
     .sort(
       (a, b) =>
         rankingScore(b, mode) - rankingScore(a, mode) ||
-        b.priority.score - a.priority.score ||
+        b.priority.probability - a.priority.probability ||
         a.response.id.localeCompare(b.response.id),
     );
 }
@@ -120,7 +121,7 @@ function outcome(invited: ScreeningPerson[]): ModeOutcome {
   const n = invited.length;
   return {
     invited: n,
-    expectedCancers: Math.round(invited.reduce((s, p) => s + p.priority.score / 100, 0) * 100) / 100,
+    expectedCancers: Math.round(invited.reduce((s, p) => s + p.priority.probability, 0) * 100) / 100,
     meanAge: n ? Math.round((invited.reduce((s, p) => s + p.response.age, 0) / n) * 10) / 10 : 0,
     aged75plus: invited.filter((p) => p.response.age >= 75).length,
   };
@@ -205,7 +206,7 @@ export function screeningList(people: ScreeningPerson[], s: ScreeningSettings): 
     .filter((p) => p.response.smoking.pack_years >= RULES_CONFIG.minPackYears)
     .sort((a, b) => b.response.smoking.pack_years - a.response.smoking.pack_years || a.response.id.localeCompare(b.response.id))
     .slice(0, n);
-  const sumRisk = (xs: ScreeningPerson[]) => Math.round(xs.reduce((s2, p) => s2 + p.priority.score / 100, 0) * 100) / 100;
+  const sumRisk = (xs: ScreeningPerson[]) => Math.round(xs.reduce((s2, p) => s2 + p.priority.probability, 0) * 100) / 100;
 
   return {
     rows,
