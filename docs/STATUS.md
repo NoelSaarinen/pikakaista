@@ -4,6 +4,8 @@ Updated 2026-11-13 · All times EET (UTC+02:00).
 
 **Current phase** Challenge discovery and team setup.
 
+**Implementation note · 2026-11-14:** The demo now calculates the published PLCOm2012 six-year estimate separately from symptom review. The estimate is shown only for asymptomatic ever-smokers with complete inputs and carries a US-population calibration warning. Reported symptoms are surfaced to the clinician even when the survey's age/smoking boundary is not met. This is a prototype change; clinical thresholds and Finnish calibration remain unresolved.
+
 **Likely Main Challenge** [AstraZeneca — Equal Care Across Finland](CHALLENGES.md#astrazeneca--equal-care-across-finland). Team selection is pending. The key open dependency is a Goal 3 indicator with usable public aggregate evidence.
 
 | Area | State |

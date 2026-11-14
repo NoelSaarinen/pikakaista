@@ -16,7 +16,23 @@ function getClient(): Anthropic {
   return client;
 }
 
-export async function complete(system: string, user: string): Promise<string | null> {
+/**
+ * Asks Claude for JSON that matches `schema` (structured outputs). Returns the parsed
+ * object, or null without a key or on any failure, so callers fall back to code.
+ * Callers still validate the fields they use.
+ */
+export async function completeJson<T>(system: string, user: string, schema: Record<string, unknown>): Promise<T | null> {
+  const text = await complete(system, user, schema);
+  if (!text) return null;
+  try {
+    return JSON.parse(text) as T;
+  } catch {
+    console.error("Claude API: response was not valid JSON");
+    return null;
+  }
+}
+
+export async function complete(system: string, user: string, jsonSchema?: Record<string, unknown>): Promise<string | null> {
   if (!hasApiKey()) return null;
   try {
     const response = await getClient().beta.messages.create({
@@ -25,7 +41,7 @@ export async function complete(system: string, user: string): Promise<string | n
       // Server-side fallback: if the model declines, the API retries on a fallback model.
       betas: ["server-side-fallback-2026-07-01"],
       fallbacks: "default",
-      output_config: { effort: "low" },
+      output_config: jsonSchema ? { effort: "low", format: { type: "json_schema", schema: jsonSchema } } : { effort: "low" },
       system,
       messages: [{ role: "user", content: user }],
     });

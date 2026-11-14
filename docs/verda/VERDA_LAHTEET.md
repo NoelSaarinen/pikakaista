@@ -7,6 +7,14 @@
 - 🟡 PDF tai muu tiedosto, jonka tekstin purkaminen voi epäonnistua
 - 🔴 estää automaattiset haut tai vaatii selaimen
 
+**Testattu 14.11.2026 palvelinhaulla ilman selainta** (sama tapa kuin demon palvelimella). Linkkejä on 43:
+- 5 avointa rajapintaa palauttaa dataa suoraan: StatFin 11re ja 13u5 sekä Sotkanet 4404, 4405 ja 2371.
+- 20 tavallista sivua palauttaa luettavaa tekstiä.
+- 7 PDF:ää latautuu, mutta teksti pitää purkaa erikseen. Demon palvelimessa ei ole PDF-purkua.
+- 11 linkkiä on estetty tai vaatii selaimen. Niihin kuuluvat molemmat Syöpärekisterin lähteet, joten alueiden syöpäluvut kannattaa tuoda tiedostosta [demo-tilastotuonti.json](../tilastot/demo-tilastotuonti.json).
+
+**Verda ei hae linkkejä itse.** Demossa Verda saa yhden JSON-syötteen (enintään 28 000 merkkiä) ilman työkaluja ja palauttaa JSON-vastauksen. Linkit hakee demon palvelinkoodi, ja Verda näkee vain sen, mitä koodi sille lähettää.
+
 ## Ohjeet Verdalle
 
 1. **Älä keksi lukuja.** Jos lähde ei vastaa tai lukua ei löydy, jätä kohta N/A-tilaan ja kirjaa syy.
@@ -26,14 +34,14 @@
 | Päivittäin tupakoivat 20+ v | https://sotkanet.fi/rest/1.1/json?indicator=4404&years=2024&genders=total | ✅ |
 | Työterveyslääkärikäynnit / 1 000 15–64-v | https://sotkanet.fi/rest/1.1/json?indicator=2371&years=2025&genders=total | ✅ |
 | Kuolemat C32–C34 alueittain (taulukko 13u5) | https://pxdata.stat.fi/PxWeb/api/v1/fi/StatFin/ksyyt/13u5.px | ✅ |
-| Keuhkosyöpätapaukset, ilmaantuvuus, kuolleisuus ja elossaolo (C33–C34) | https://tilastot.syoparekisteri.fi/syovat/ | 🔴 Sovellus estää botit. Käytä Noelin löytämää rajapintaa, jos se on käytössä. |
-| Parantavan hoidon osuus alueittain (taulukko 11) | https://syoparekisteri.fi/assets/themes/ssy3/factsheets/keuhkosyoparaportti.html | 🔴 Estää automaattiset haut |
+| Keuhkosyöpätapaukset, ilmaantuvuus, kuolleisuus ja elossaolo (C33–C34) | https://tilastot.syoparekisteri.fi/syovat/ | 🔴 JavaScript-sovellus, palvelinhaku saa vain tyhjän sivun. Käytä Noelin löytämää rajapintaa, jos se on käytössä. |
+| Parantavan hoidon osuus alueittain (taulukko 11) | https://syoparekisteri.fi/assets/themes/ssy3/factsheets/keuhkosyoparaportti.html | 🔴 Estää automaattiset haut (Cloudflare 403) |
 
 ## 2. Kansalliset luvut ja vertailu Pohjoismaihin
 
 | Mitä | Linkki | Haku |
 | --- | --- | --- |
-| NORDCAN, viiden vuoden elossaolo (Suomi, Norja, Ruotsi) | https://nordcan.iarc.who.int/en/dataviz/survival?cancers=160&populations=246_578_752&sexes=1_2&survival=5 | 🟡 Interaktiivinen kaavio |
+| NORDCAN, viiden vuoden elossaolo (Suomi, Norja, Ruotsi) | https://nordcan.iarc.who.int/en/dataviz/survival?cancers=160&populations=246_578_752&sexes=1_2&survival=5 | 🔴 Vaatii selaimen (JavaScript-sovellus) |
 | Hoitoon pääsy perusterveydenhuollossa 2025 | https://thl.fi/data-ja-tilastot/hoitoon-paasy/perusterveydenhuolto | ✅ Vain kansallinen luku |
 | Tupakkatilasto 2023 (joskus tupakoineet, liitetaulukot 1, 2, 9 ja 10) | https://suomenash.fi/wp-content/uploads/2025/02/tupakkatilasto-2023.pdf | 🟡 PDF |
 | Työterveyshuolto Suomessa 2023 | https://www.ttl.fi/file-download/download/public/8733 | 🟡 PDF |
@@ -52,7 +60,7 @@
 
 | Mitä | Linkki | Haku |
 | --- | --- | --- |
-| Kaksi ovea: 127 vs. 76 päivää (lymfooma, 160 potilasta) | https://doi.org/10.1002/cam4.71920 | 🟡 Wiley tai PDF |
+| Kaksi ovea: 127 vs. 76 päivää (lymfooma, 160 potilasta) | https://doi.org/10.1002/cam4.71920 | 🔴 Estää automaattiset haut (Cloudflare) |
 | Satakunta: 15 pv, 59 pv, 22 % päivystyksen kautta (opinnäyte) | https://www.utupub.fi/handle/10024/180618 | 🟡 PDF |
 | Pirkanmaan hoitopolku: TT noin viikossa, hälytysoireet | https://pirha.fi/documents/d/kehitysversio/keuhkosyopapotilaan-hoitopolku | 🟡 PDF |
 | Terveyskeskukseen noin 2 viikkoa (Pohjoismaiden vertailu) | https://doi.org/10.2340/1651-226X.2025.42778 | ✅ |
@@ -64,7 +72,7 @@
 
 | Mitä | Linkki | Haku |
 | --- | --- | --- |
-| ISC-LDCT-tutkimus (kriteerit, koko, ryhmät) | https://clinicaltrials.gov/study/NCT07331519 | ✅ |
+| ISC-LDCT-tutkimus (kriteerit, koko, ryhmät) | https://clinicaltrials.gov/study/NCT07331519 | 🔴 Vaatii selaimen (JavaScript-sovellus) |
 | Syöpäjärjestöjen tiedote (alueet, ei henkilökohtaisia kutsuja) | https://www.syopajarjestot.fi/uutinen/keuhkosyovan-seulontapilotti-kaynnistyy-mukaan-etsitaan-pitkaan-tupakoineita-50-74-vuotiaita/ | ✅ |
 | OYS:n tiedote | https://www.sttinfo.fi/tiedote/71750363/oys-mukana-keuhkosyovan-seulontapilotissa-tavoitteena-parantaa-taudin-varhaista-toteamista?publisherId=69817636&lang=fi | ✅ |
 | Seura: paikat täyttyivät päivissä | https://seura.fi/asiat/ajankohtaista/keuhkosyopa-voi-kuulua-kansalliseen-seulontaohjelmaan/ | ✅ |
@@ -77,15 +85,15 @@
 | 🇬🇧 NICE NG12, syöpäepäilyn lähetesuositus (Delunin ajanvarauksen luokat) | https://www.nice.org.uk/guidance/ng12 | ✅ |
 | 🇺🇸 PLCOm2012-riskimalli (Delunin riski) | https://pmc.ncbi.nlm.nih.gov/articles/PMC3929969 | ✅ |
 | 🇩🇰 Pikakaista tavoitti vain 27,4 % keuhkosyöpäpotilaista | https://www.ncbi.nlm.nih.gov/pmc/articles/PMC4307896/ | ✅ |
-| 🇩🇰 Pikakaistat: kolmen vuoden elossaolo 45 % → 54 % | https://doaj.org/article/15ccea42331548b1b43b87ac43ae986c | ✅ |
+| 🇩🇰 Pikakaistat: kolmen vuoden elossaolo 45 % → 54 % | https://doaj.org/article/15ccea42331548b1b43b87ac43ae986c | 🔴 Estää automaattiset haut (Cloudflare) |
 | 🇩🇰 Pikakaistan osumatarkkuus 7,5 % | https://ugeskriftet.dk/dmj/reduced-specialist-time-direct-computed-tomography-suspected-lung-cancer-primary-care | ✅ |
 | 🇩🇰 Yleislääkärin suorat TT:t, osumatarkkuus 2,3 % | https://read.qxmd.com/read/25748876/the-effect-of-direct-referral-for-fast-ct-scan-in-early-lung-cancer-detection-in-general-practice-a-clinical-cluster-randomised-trial | ✅ |
 | 🇬🇧 Kiireelliset lähetteet, osumatarkkuus 15,3 % | https://doi.org/10.3399/bjgp22X718217 | ✅ |
 | 🇬🇧 Lung Health Check: 1,7 %, 76 % varhaisvaiheessa, osallistuminen 44 % | https://www.ipsos.com/en-uk/evaluation-targeted-lung-health-check-programme-nhs-england | ✅ |
-| 🇬🇧 Manchesterin pilotti: 80 % varhaisvaiheessa | https://doi.org/10.1136/thoraxjnl-2017-211377 | ✅ |
-| 🇦🇺 CHEST Australia: oirekehotus lisäsi käyntejä 40 % | https://doi.org/10.1136/thoraxjnl-2018-212506 | ✅ |
-| 🇫🇷🇩🇪 Pitkittyneen yskän esiintyvyys tupakoineilla | https://pmc.ncbi.nlm.nih.gov/articles/PMC8752938 | ✅ |
-| Oireiden todennäköisyyssuhteet (meta-analyysi, Okoli 2018) | https://pmc.ncbi.nlm.nih.gov/articles/PMC6248994 | ✅ |
+| 🇬🇧 Manchesterin pilotti: 80 % varhaisvaiheessa | https://doi.org/10.1136/thoraxjnl-2017-211377 | 🔴 Estää automaattiset haut (Cloudflare) |
+| 🇦🇺 CHEST Australia: oirekehotus lisäsi käyntejä 40 % | https://doi.org/10.1136/thoraxjnl-2018-212506 | 🔴 Estää automaattiset haut (Cloudflare) |
+| 🇫🇷🇩🇪 Pitkittyneen yskän esiintyvyys tupakoineilla | https://pmc.ncbi.nlm.nih.gov/articles/PMC8752938 | 🟡 PMC voi pyytää robottitarkistusta toistuvissa hauissa |
+| Oireiden todennäköisyyssuhteet (meta-analyysi, Okoli 2018) | https://pmc.ncbi.nlm.nih.gov/articles/PMC6248994 | 🟡 PMC voi pyytää robottitarkistusta toistuvissa hauissa |
 
 ## Mitä mikään linkki ei anna
 

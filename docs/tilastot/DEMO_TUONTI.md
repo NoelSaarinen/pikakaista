@@ -32,12 +32,12 @@ Demon oletukset (`assumptions` tiedostossa `src/lib/regional-data.ts`) ovat pelk
 
 | Demon oletus | Arvo demossa | Vertailukohdat | Tyyppi |
 | --- | ---: | --- | --- |
-| `survey_response_rate` | 50 % | 🇫🇮 Suolistosyövän seulontaan osallistui 2024 kutsutuista 73,5 % (heikoimmilla alueilla alle 68 %). 🌍 Englannin Lung Health Check 44 %. 🌍 Englannin postikysely 25 % (vahvistamaton). | Vertailukohta, ei keuhkosyöpäkyselyä |
+| `survey_response_rate` | 50 % | 🇫🇮 Suolistosyövän seulontaan osallistui 2024 kutsutuista 73,5 % (heikoimmilla alueilla alle 68 %). 🌍 Yorkshiren kutsuun vastasi 50,8 % tupakoineista 55–80-vuotiaista (kaksi muistutusta). 🌍 Englannin postitettuun oirekyselyyn 25,3 %. | Ulkomainen, lähin vertailukohta |
 | `physician_review_rate` | 12 % | 🌍 Pelkkä pitkittynyt yskä on noin 6–9 %:lla tupakoineista (Ranska, Saksa). Hälytysoireita on useita, joten osuus on suurempi. | Osittain perusteltu |
 | `ct_referral_rate` | 50 % | Ei dataa. 🇫🇮 Pirkanmaalla perusterveydenhuolto ottaa ensin röntgenin, ja TT tehdään erikoissairaanhoidossa. | Oletus |
 | `target_physician_days` | 3 | 🌍 Tanskan pikakaista: sairaalaan kolmessa päivässä lähetteestä (Jensen 2017) | Tavoite ulkomaisen mallin mukaan |
 | `target_ct_days_after_referral` | 7 | 🇫🇮 Pirkanmaa: lähete käsitellään 1–2 arkipäivässä, TT useimmiten viikon sisällä | Kotimainen |
-| Syöpä löytyy TT-kuvauksista (ei demossa) | – | 🌍 Tanska: yleislääkärin suorat TT:t 2,3 %, pikakaista 7,5 %. 🌍 Englanti: kiirelähetteet 15,3 %, Lung Health Check 1,7 %. | Ulkomainen |
+| Syöpä löytyy TT-kuvauksista (ei demossa) | – | 🇫🇮 Oulun TT-seulonta 1,0 % ensimmäisellä kierroksella (oireettomat). 🌍 Tanska: yleislääkärin suorat TT:t 2,3 %, pikakaista 7,5 %. 🌍 Englanti: kiirelähetteet 15,3 %, Lung Health Check 1,7 %. | Ulkomainen |
 
 Tarkat lähteet ovat tiedostoissa [OLETUKSET.md](../oletukset/OLETUKSET.md) ja [kaksi-ovea-tilastot.xlsx](kaksi-ovea-tilastot.xlsx) (välilehti Näyttö).
 

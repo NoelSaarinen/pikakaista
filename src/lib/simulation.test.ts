@@ -9,15 +9,15 @@ const county = {
 describe("simulate", () => {
   it("computes the funnel from risk group to cancers found", () => {
     const r = simulate(county, { ...SCENARIOS.base, formerPerCurrentSmoker: 0 });
-    // 100 000 × 0.4 × 0.5 = 20 000 in the risk group
-    expect(r.riskGroup).toBeCloseTo(20000);
-    expect(r.respondents).toBeCloseTo(10000);
-    expect(r.nonRespondents).toBeCloseTo(10000);
-    expect(r.fastLane).toBeCloseTo(1200);
-    expect(r.directCt).toBeCloseTo(360);
-    expect(r.physicianVisits).toBeCloseTo(840);
-    expect(r.ctScans).toBeCloseTo(360 + 420);
-    expect(r.cancersFound).toBeCloseTo(780 * 0.02);
+    // 100 000 × 0.4 × 0.4 = 16 000 in the risk group
+    expect(r.riskGroup).toBeCloseTo(16000);
+    expect(r.respondents).toBeCloseTo(8000);
+    expect(r.nonRespondents).toBeCloseTo(8000);
+    expect(r.fastLane).toBeCloseTo(960);
+    expect(r.directCt).toBeCloseTo(288);
+    expect(r.physicianVisits).toBeCloseTo(672);
+    expect(r.ctScans).toBeCloseTo(288 + 336);
+    expect(r.cancersFound).toBeCloseTo(624 * 0.02);
   });
 
   it("is faster than today with the default targets", () => {
@@ -42,8 +42,8 @@ describe("simulate", () => {
   it("adds former smokers to the risk group by the national ratio", () => {
     expect(SCENARIOS.base.formerPerCurrentSmoker).toBe(5);
     const withFormer = simulate(county, { ...SCENARIOS.base, formerPerCurrentSmoker: 2 });
-    // 100 000 × 0.4 × (1 + 2) × 0.5 = 60 000
-    expect(withFormer.riskGroup).toBeCloseTo(60000);
+    // 100 000 × 0.4 × (1 + 2) × 0.4 = 48 000
+    expect(withFormer.riskGroup).toBeCloseTo(48000);
   });
 });
 

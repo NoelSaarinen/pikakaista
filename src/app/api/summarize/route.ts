@@ -14,7 +14,7 @@ export async function POST(request: Request) {
   const cached = store.summaries[response.id];
   if (cached) return NextResponse.json({ ...cached, physician_decision: store.decisions[response.id] ?? null });
 
-  const summary = await summarizeCase(response, evaluate(response));
+  const summary = await summarizeCase(response, evaluate(response), store.followups[response.id] ?? {});
   if (summary.generated_by === "llm") store.summaries[response.id] = summary;
   return NextResponse.json({ ...summary, physician_decision: store.decisions[response.id] ?? null });
 }

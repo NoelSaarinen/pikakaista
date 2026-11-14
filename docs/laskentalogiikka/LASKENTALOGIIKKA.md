@@ -79,9 +79,8 @@ perusteet = []
 jos verta yskösissä:            perusteet += "Verta yskösissä" (PUNAINEN LIPPU)
 jos yskä ≥ 3 viikkoa:           perusteet += "Yskä yli 3 viikkoa"           (+1)
 jos laihtuminen:                perusteet += "Selittämätön laihtuminen"     (+1)
-jos hengenahdistus > 3 vk:      perusteet += "Hengenahdistus yli 3 viikkoa" (+1)
-jos rintakehän/hartian kipu > 3 vk: perusteet += "Rintakehän tai hartian kipu yli 3 viikkoa" (+1)
-jos äänen käheys > 3 vk:        perusteet += "Äänen käheys yli 3 viikkoa"   (+1)
+jos hengenahdistus:             perusteet += "Hengenahdistus"               (+1)
+jos rintakipu:                  perusteet += "Rintakipu"                    (+1)
 jos keuhkokuumeita ≥ 2 / v:     perusteet += "Toistuvat keuhkokuumeet"      (+1)
 jos aiempi käynti ≤ 6 kk sitten, sen syy on hengitystieperäinen
    JA jokin oire on yhä päällä: perusteet += "Oireet jatkuvat aiemman käynnin jälkeen" (+1)
@@ -97,14 +96,18 @@ ohjaus = jos ei riskiryhmässä         → "Ei riskiryhmässä"
 
 **Lisätiedot:**
 - **"Hengitystieperäinen syy"** tarkoittaa, että käynnin syy sisältää jonkin näistä sanoista (kirjainkoolla ei väliä): yskä, cough, hengenahdistus, breathlessness, keuhkokuume, pneumonia, astma, asthma, flunssa, flu, keuhkoputkentulehdus, bronchitis.
-- **"Oire yhä päällä"** tarkoittaa, että yskä > 0 viikkoa tai jokin seuraavista on kyllä: veriyskä, laihtuminen, hengenahdistus, rintakehän tai hartian kipu tai äänen käheys.
-- **Kolmen viikon rajat** tulevat Pirkanmaan keuhkosyöpäpotilaan hoitopolusta (`pirha-hoitopolku`). Kysely kysyy oireet suoraan muodossa "yli 3 viikon ajan". Kenttä `hoarseness` on uusi: jos se puuttuu, arvo on ei.
+- **"Oire yhä päällä"** tarkoittaa, että yskä > 0 viikkoa tai jokin seuraavista on kyllä: veriyskä, laihtuminen, hengenahdistus tai rintakipu.
+- **Oireiset lääkärin arvioon aina:** jos vastaaja ilmoittaa minkä tahansa oireen (yskä, veriyskä, laihtuminen, hengenahdistus, rintakipu tai keuhkokuume viimeisen vuoden aikana), `symptomReviewRequired` on tosi iästä ja tupakoinnista riippumatta.
+- **Säännöt ovat Delunin versio** (`feature/combined`, 6f58412), yhdistetty muuttamattomana 14.11.2026. Koko priorisointimalli (PLCOm2012, NICE NG12 -ajanvaraus, seulontalista) on kuvattu tiedostossa [PRIORISOINTIMALLI.md](../PRIORISOINTIMALLI.md).
+- **Ehdotus Delunille:** Pirkanmaan hoitopolku käyttää kolmen viikon rajaa myös hengenahdistukselle ja rintakehän tai hartian kivulle, ja listaa lisäksi äänen käheyden (`pirha-hoitopolku`). Ne eivät ole säännöissä.
 - **Jokaiseen perusteeseen liitetään henkilön oma vastaus**, esimerkiksi "Yskä yli 3 viikkoa: 5 viikkoa". Lääkäri näkee sen sellaisenaan.
-- **Lääkärin lista:** listalla näytetään vain ehdotukset "Suoraan TT-kuvaukseen" ja "Lääkärille muutaman päivän sisällä". Järjestys:
+- **Lääkärin lista** (Delunin `compareWithPriority`):
   1. livenä annetut vastaukset ensin
-  2. sitten suoraan TT:hen ennen lääkärille ohjattuja
-  3. sitten pisteet laskevasti
-  4. lopuksi tunnus aakkosjärjestyksessä.
+  2. hälytysmerkki (verta yskösissä)
+  3. muut oireiset
+  4. sääntöjen ehdotus: TT-arvio, lääkäri, tavallinen reitti
+  5. hälytyspisteet laskevasti
+  6. PLCOm2012-riski laskevasti, vain tasatilanteissa.
 - **Lääkärin päätös** on yksi kolmesta: suoraan TT:hen, lääkärille tai tavallinen reitti. Lääkäri voi hyväksyä ehdotuksen tai muuttaa sen.
 - **Säännöt ovat demosääntöjä, eivät kliinisiä kriteerejä.** Oireet tulevat Filhan keuhkosyöpäohjelmasta ja Pirkanmaan hoitopolusta. Keuhkokuume- ja pisterajat ovat tiimin oletuksia. Delun ja mentorit tarkistavat ne.
 
@@ -141,18 +144,18 @@ TT_aikoja_vk     = TT_kuvauksia ÷ max(1, kyselykierroksen_viikot)
 | Avain | Varovainen | Perus | Optimistinen | Lähde |
 | --- | ---: | ---: | ---: | --- |
 | `formerPerCurrentSmoker` (entisiä tupakoitsijoita yhtä nykyistä kohden) | 5 | 5 | 5 | thl-tupakka-2023: 55–84-v noin 64 % joskus tupakoinut ja noin 10 % päivittäin (tiimin laskelma) |
-| `heavySmokerShareOfEver` (≥ 20 askivuotta) | 40 % | 50 % | 60 % | oletus |
-| `responseRate` (vastausprosentti) | 30 % | 50 % | 65 % | oletus. Vertailukohdat: suolistosyövän seulonta 73,5 % (2024), TLHC 44 %, postikysely 25 % (vahvistamaton) |
-| `alarmShare` (hälytysmerkkien osuus) | 8 % | 12 % | 15 % | oletus. Pelkkä pitkittynyt yskä on noin 6–9 %:lla tupakoineista (Ranska, Saksa). |
-| `directCtShare` (suoraan TT) | 30 % | 30 % | 30 % | oletus |
-| `ctAfterVisitShare` (TT lääkärin jälkeen) | 50 % | 50 % | 50 % | oletus |
-| `cancerYieldPerCt` (osumatarkkuus) | 1 % | 2 % | 4 % | oletus. Vertailukohdat: Tanskan yleislääkärin TT 2,3 %, TLHC 1,7 %, Tanskan pikakaista 7,5 % |
+| `heavySmokerShareOfEver` (≥ 20 askivuotta) | 30 % | 40 % | 50 % | ylst-2024: Yorkshiressa 29 % 55–74-vuotiaista tupakoineista täytti ehdon ≥ 20 askivuotta ja lopettanut ≤ 15 v sitten (alaraja). Perusarvo on arvio. |
+| `responseRate` (vastausprosentti) | 25 % | 50 % | 65 % | ylst-2022: Yorkshiren kutsuun vastasi 50,8 %. wagland-2016: postitettuun oirekyselyyn 25,3 %. Suolistosyövän seulonta 73,5 % (2024). |
+| `alarmShare` (hälytysmerkkien osuus) | 8 % | 12 % | 15 % | wagland-2016: 6,7 % oireisia, jotka eivät olleet käyneet lääkärissä vuoteen (alaraja), 54 % vähintään yksi laaja oire. latti-2018: yli 8 viikon yskä 7,2 % suomalaisista työikäisistä. |
+| `directCtShare` (suoraan TT) | 30 % | 30 % | 30 % | suunnitteluvalinta. Suomessa perusterveydenhuolto ottaa ensin röntgenin (uh-acta-2025, pirha-hoitopolku). |
+| `ctAfterVisitShare` (TT lääkärin jälkeen) | 50 % | 50 % | 50 % | oletus, ei julkista lähdettä |
+| `cancerYieldPerCt` (osumatarkkuus) | 1 % | 2 % | 4 % | wichmann-2025: Oulun TT-seulonnan 1. kierros 1,0 % (oireettomat). Tanskan yleislääkärin TT 2,3 %, TLHC 1,7 %. |
 | `surveyWeeks` (kyselykierroksen viikot) | 12 | 12 | 12 | oletus |
-| `currentPrimaryCareWaitDays` (odotus terveyskeskukseen) | 14 | 14 | 14 | uh-acta-2025 (kansallinen arvio noin 2 viikkoa) |
+| `currentPrimaryCareWaitDays` (odotus terveyskeskukseen) | 14 | 14 | 14 | uh-acta-2025 (kansallinen arvio noin 2 viikkoa; asiantuntijoiden mukaan monilla alueilla jopa kuukausi) |
 | `currentVisitToReferralDays` (käynnistä lähetteeseen) | 15 | 15 | 15 | mattila-2025: Satakunta, mediaani 15 vrk |
 | `currentCtQueueDays` (lähetteestä TT:hen) | 9 | 9 | 9 | pirha-hoitopolku: käsittely 1–2 arkipäivää ja TT viikon sisällä |
 | `fastPhysicianDays` (pikakaista: lääkärille) | 3 | 3 | 3 | jensen-2017 (tavoite) |
-| `fastCtDays` (pikakaista: TT:hen) | 7 | 7 | 7 | oletus (tavoite) |
+| `fastCtDays` (pikakaista: TT:hen) | 7 | 7 | 7 | pirha-hoitopolku: TT useimmiten viikon sisällä (tavoite) |
 | `publicDoorShare` (terveyskeskuksen kautta) | 70 % | 70 % | 70 % | kuitunen-2026: 87 / (87 + 39) = 69 % |
 | `privateDoorDaysToCt` (työterveys/yksityinen TT:hen) | 23 | 23 | 23 | kuitunen-2026: 76 ÷ 127 ≈ 0,6 × 38 pv |
 | `healthCentreYield` (terveyskeskuksen pikakaistan osumatarkkuus) | 10 % | 10 % | 10 % | oletus Tanskan 7,5 %:n ja Englannin 15,3 %:n välissä |
@@ -161,18 +164,20 @@ TT_aikoja_vk     = TT_kuvauksia ÷ max(1, kyselykierroksen_viikot)
 
 | Tulos | Arvo |
 | --- | ---: |
-| Riskiryhmä | 21 324,7 |
-| Vastaajat | 10 662,4 |
-| Pikakaistalle | 1 279,5 |
-| TT-kuvauksia | 831,7 |
-| Löytyy syöpä | 16,6 |
+| Riskiryhmä | 17 059,8 |
+| Vastaajat | 8 529,9 |
+| Pikakaistalle | 1 023,6 |
+| TT-kuvauksia | 665,3 |
+| Löytyy syöpä | 13,3 |
 | Nyt päiviä TT:hen | 38 |
 | Pikakaistalla päiviä TT:hen | 8,62 |
 | Säästö päivinä | 29,4 |
-| Lääkäriaikoja viikossa | 74,6 |
-| TT-aikoja viikossa | 69,3 |
+| Lääkäriaikoja viikossa | 59,7 |
+| TT-aikoja viikossa | 55,4 |
 
-Kun entiset tupakoitsijat ovat mukana, kuorma 12 viikon kierroksella on suuri: Lapissa noin 69 TT-aikaa viikossa. Jos kierros jaetaan koko vuodelle (52 viikkoa), kuorma on noin 16 TT-aikaa viikossa.
+Kun entiset tupakoitsijat ovat mukana, kuorma 12 viikon kierroksella on suuri: Lapissa noin 55 TT-aikaa viikossa. Jos kierros jaetaan koko vuodelle (52 viikkoa), kuorma on noin 13 TT-aikaa viikossa.
+
+**Tarkistus ulkoista dataa vasten:** perusoletuksilla malli löytää syövän 0,16 %:lta vastaajista (0,12 × 0,65 × 0,02). Englannin oirekyselyssä (wagland-2016) syöpä todettiin vuoden sisällä 0,26 %:lla vastaajista (3 / 1 172). Suuruusluokka on sama, ja malli on varovaisempi.
 
 Laskelma ei arvioi elossaoloa eikä levinneisyyden muutosta, koska niille ei ole lähdettä.
 

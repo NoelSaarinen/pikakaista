@@ -39,6 +39,12 @@ All 20 listings were verified in the [Junction participant portal](https://hackj
 | Scailab Scaipipe | Free event access via the portal form. Annotate images, generate synthetic data and train or evaluate computer vision models. | [Portal](https://hackjunction.app/participate/45/hackerpacks/50) |
 | Exa | $50 per participant and full API access during the event, including web search and content retrieval. | [Portal](https://hackjunction.app/participate/45/hackerpacks/49) |
 
+## Public data APIs in use
+
+| Resource | Use | Access | Verified |
+| --- | --- | --- | --- |
+| NCBI PubMed E-utilities (`esearch`, `efetch`) | Newest lung cancer articles from The Lancet, NEJM, JAMA, BMJ, JCO, JTO and Nature Medicine for the `/evidence` view | Free, no key. NCBI asks for at most 3 requests per second without a key. [API docs](https://www.ncbi.nlm.nih.gov/books/NBK25499/) | 2026-11-14: the journal query returned 222 articles for 2025–2026, and the app fetched and parsed 40. |
+
 ## Team accounts
 
 Account availability reported by Patrik on 2026-11-13.

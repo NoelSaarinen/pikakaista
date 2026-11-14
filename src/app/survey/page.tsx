@@ -1,11 +1,13 @@
 "use client";
 
 import { useState } from "react";
+import { AnalysisCard } from "@/components/AnalysisCard";
+import { notifyChange } from "@/components/LiveData";
 import { PLACEMENT_LABEL } from "@/lib/rules";
 import type { Channel, RuleResult } from "@/lib/types";
 
 const RESPONDENT_MESSAGE: Record<RuleResult["placement"], string> = {
-  direct_ct: "Kiitos! Vastauksesi perusteella lääkäri tarkistaa tilanteesi ja sinulle varataan aika lähipäivinä. Saat tekstiviestin.",
+  direct_ct: "Kiitos! Lääkäri arvioi, tarvitaanko TT-tutkimusta. Sovellus ei tee lähetettä automaattisesti.",
   physician_fast: "Kiitos! Vastauksesi perusteella sinulle varataan lääkäriaika lähipäivinä. Saat tekstiviestin.",
   normal_route: "Kiitos! Vastauksesi perusteella kiireellistä tarvetta ei nyt ole. Jos oireita tulee, ota yhteyttä terveysasemalle.",
   not_eligible: "Kiitos vastauksestasi! Kysely on tarkoitettu tupakoineille 55–80-vuotiaille.",
@@ -18,25 +20,32 @@ const BLOOD_EMERGENCY_TEXT =
 
 const SYMPTOMS: { key: string; label: string }[] = [
   { key: "blood_in_sputum", label: "Verta yskösissä" },
-  { key: "breathlessness", label: "Hengenahdistusta yli 3 viikon ajan" },
-  { key: "chest_pain", label: "Rintakehän tai hartian kipua yli 3 viikon ajan" },
-  { key: "hoarseness", label: "Äänen käheyttä yli 3 viikon ajan" },
+  { key: "breathlessness", label: "Hengenahdistusta, joka on uutta tai pahentunut" },
+  { key: "chest_pain", label: "Rintakipua" },
   { key: "weight_loss", label: "Laihtumista ilman yritystä" },
 ];
 
 const NURSE_MESSAGE: Record<RuleResult["placement"], string> = {
-  direct_ct: "Hälytysmerkki täyttyy. Potilas nousee lääkärin pikakaistalistalle, ja lääkäri päättää suorasta TT-lähetteestä.",
+  direct_ct: "Hälytysmerkki täyttyy. Potilas nousee lääkärin listalle, joka arvioi TT-lähetteen tarpeen.",
   physician_fast: "Hälytysmerkki täyttyy. Varaa lääkäriaika pikakaistalta muutaman päivän sisään.",
   normal_route: "Hälytysmerkit eivät täyty. Tavallinen hoitopolku.",
-  not_eligible: "Potilas ei kuulu keuhkosyövän riskiryhmään. Tavallinen hoitopolku.",
+  not_eligible: "Kyselyn riskiraja ei täyty. Arvioi mahdolliset oireet erikseen.",
 };
 
 export default function SurveyPage() {
   const [channel, setChannel] = useState<Channel>("survey");
   const [age, setAge] = useState(66);
   const [smoking, setSmoking] = useState<"current" | "former" | "never">("former");
-  const [perDay, setPerDay] = useState(20);
-  const [years, setYears] = useState(30);
+  const [perDay, setPerDay] = useState("");
+  const [years, setYears] = useState("");
+  const [yearsSinceQuit, setYearsSinceQuit] = useState("");
+  const [plcoRace, setPlcoRace] = useState("");
+  const [plcoEducation, setPlcoEducation] = useState("");
+  const [weightKg, setWeightKg] = useState("");
+  const [heightCm, setHeightCm] = useState("");
+  const [copd, setCopd] = useState("");
+  const [personalCancer, setPersonalCancer] = useState("");
+  const [familyHistoryLungCancer, setFamilyHistoryLungCancer] = useState("");
   const [coughWeeks, setCoughWeeks] = useState(0);
   const [pneumonias, setPneumonias] = useState(0);
   const [checks, setChecks] = useState<Record<string, boolean>>({});
@@ -44,9 +53,12 @@ export default function SurveyPage() {
   const [visitMonths, setVisitMonths] = useState(2);
   const [freeText, setFreeText] = useState("");
   const [result, setResult] = useState<RuleResult | null>(null);
+  const [responseId, setResponseId] = useState<string | null>(null);
   const [sending, setSending] = useState(false);
+  const bmi = Number(heightCm) > 0 && Number(weightKg) > 0 ? Number(weightKg) / (Number(heightCm) / 100) ** 2 : null;
 
-  const packYears = smoking === "never" ? 0 : Math.round((perDay / 20) * years);
+  const smokingHistoryValid = perDay !== "" && years !== "" && Number(perDay) > 0 && Number(years) > 0;
+  const packYears = smoking === "never" || !smokingHistoryValid ? 0 : Math.round((Number(perDay) / 20) * Number(years));
 
   async function submit(e: React.FormEvent) {
     e.preventDefault();
@@ -61,6 +73,18 @@ export default function SurveyPage() {
           language: "fi",
           smoking_status: smoking,
           pack_years: packYears,
+          // PLCOm2012 inputs. Empty answers are left out and the model imputes them.
+          plco: {
+            race: plcoRace || undefined,
+            education: plcoEducation === "" ? undefined : Number(plcoEducation),
+            bmi: bmi ?? undefined,
+            copd,
+            personal_cancer_history: personalCancer,
+            family_history_lung_cancer: familyHistoryLungCancer,
+            cigs_per_day: perDay === "" ? undefined : Number(perDay),
+            smoking_years: years === "" ? undefined : Number(years),
+            years_since_quit: smoking === "current" ? 0 : yearsSinceQuit === "" ? undefined : Number(yearsSinceQuit),
+          },
           symptoms: { ...checks, cough_weeks: coughWeeks, pneumonias_last_year: pneumonias },
           previous_visit_reason: visitReason,
           previous_visit_months_ago: visitMonths,
@@ -69,6 +93,9 @@ export default function SurveyPage() {
       });
       const data = await res.json();
       setResult(data.rule);
+      setResponseId(data.response.id);
+      // Tell the other open views in this browser right away (others refresh on the next poll).
+      notifyChange();
     } finally {
       setSending(false);
     }
@@ -97,10 +124,28 @@ export default function SurveyPage() {
       <div className="mt-2 rounded-3xl border-8 border-slate-800 bg-white p-5 shadow-lg">
         {result ? (
           <div className="space-y-4 py-6 text-center">
-            <p className="text-lg font-semibold">{channel === "survey" ? RESPONDENT_MESSAGE[result.placement] : NURSE_MESSAGE[result.placement]}</p>
+            <p className="text-lg font-semibold">
+              {result.symptomReviewRequired
+                ? "Ilmoitit oireita. Terveydenhuollon ammattilaisen tulee arvioida ne riippumatta seulontariskistä. Tämä demo ei tee diagnoosia eikä lähetä automaattisesti TT-kuvaukseen."
+                : channel === "survey" ? RESPONDENT_MESSAGE[result.placement] : NURSE_MESSAGE[result.placement]}
+            </p>
             {result.redFlag && (
               <p role="alert" className="rounded border border-red-300 bg-red-50 p-3 text-left text-sm font-medium text-red-900">
                 {channel === "survey" ? BLOOD_EMERGENCY_TEXT : "Runsas verenyskä tai vaikea hengenahdistus: ohjaa potilas päivystykseen tai soita 112."}
+              </p>
+            )}
+            {result.screeningRisk6y !== null && (
+              <div className="rounded border border-sky-200 bg-sky-50 p-3 text-left text-sm">
+                <p className="font-semibold">PLCOm2012-mallin kuuden vuoden arvio: {(result.screeningRisk6y * 100).toFixed(2)} %</p>
+                <p className="mt-1 text-xs text-slate-600">
+                  Yhdysvaltalaisella aineistolla kehitetty tutkimusmalli; sitä ei ole kalibroitu Suomen väestöön eikä tulos yksin ratkaise seulontaa tai hoitoa.
+                  {result.screeningRiskInOriginalAgeRange === false && " Ikä on alkuperäisen tutkimusjoukon 55–74 vuoden ulkopuolella."}
+                </p>
+              </div>
+            )}
+            {smoking !== "never" && result.screeningRisk6y !== null && (
+              <p className="rounded border border-amber-200 bg-amber-50 p-3 text-left text-xs text-amber-900">
+                Puuttuvat PLCOm2012-tiedot täydennettiin mallin keskiarvoilla, ja väestöluokan puuttuessa käytettiin mallin vertailuluokkaa. Lääkärinäkymä näyttää, mitkä tiedot täydennettiin.
               </p>
             )}
             <div className="rounded bg-slate-100 p-3 text-left text-xs text-slate-600">
@@ -108,6 +153,12 @@ export default function SurveyPage() {
               <p>Ehdotus: {PLACEMENT_LABEL[result.placement]}</p>
               <p>Hälytysmerkit: {result.reasons.map((r) => r.label).join(", ") || "ei"}</p>
             </div>
+            {responseId && (result.symptomReviewRequired || result.placement !== "not_eligible") && (
+              <div className="text-left">
+                <p className="mb-1 text-sm font-semibold">Vielä muutama tarkentava kysymys</p>
+                <AnalysisCard id={responseId} compact respondent={channel === "survey"} />
+              </div>
+            )}
             <div className="flex justify-center gap-3 text-sm">
               <a href="/clinician" className="rounded bg-sky-700 px-3 py-1.5 font-medium text-white">Lääkärin lista →</a>
               <button onClick={() => setResult(null)} className="underline">Uusi vastaus</button>
@@ -118,7 +169,7 @@ export default function SurveyPage() {
             {channel === "survey" ? (
               <div>
                 <h1 className="text-lg font-bold">Keuhkojen terveyskysely</h1>
-                <p className="text-slate-600">Hyvinvointialueesi kysyy tämän kaikilta 55–80-vuotiailta. Vastaaminen vie kaksi minuuttia.</p>
+                <p className="text-slate-600">Esimerkkikysely. Seulontaan valinnan ja oireiden arvioinnin säännöt ovat erilliset.</p>
                 <p className="mt-2 rounded border border-amber-300 bg-amber-50 p-2 text-xs text-amber-900">
                   Tämä kysely ei ole kiireellinen palvelu. Jos sinulla on äkillisiä tai vakavia oireita, soita 112 tai Päivystysapuun 116117.
                 </p>
@@ -126,7 +177,7 @@ export default function SurveyPage() {
             ) : (
               <div>
                 <h1 className="text-lg font-bold">Keuhko-oireiden tarkistuslista</h1>
-                <p className="text-slate-600">Hoitaja täyttää, kun yli 55-vuotias tupakoinut potilas ottaa yhteyttä yskän, hengenahdistuksen tai muiden keuhko-oireiden takia.</p>
+                <p className="text-slate-600">Hoitaja kirjaa oireet. Oirearvio ei riipu iästä eikä tupakointihistoriasta.</p>
               </div>
             )}
 
@@ -150,14 +201,80 @@ export default function SurveyPage() {
               <div className="grid grid-cols-2 gap-2">
                 <label>
                   Savukkeita päivässä
-                  <input type="number" className="mt-1 w-full rounded border px-2 py-1" value={perDay} min={0} onChange={(e) => setPerDay(Number(e.target.value))} />
+                  <input type="number" className="mt-1 w-full rounded border px-2 py-1" value={perDay} min={1} max={100} required onChange={(e) => setPerDay(e.target.value)} />
                 </label>
                 <label>
                   Vuotta yhteensä
-                  <input type="number" className="mt-1 w-full rounded border px-2 py-1" value={years} min={0} onChange={(e) => setYears(Number(e.target.value))} />
+                  <input type="number" className="mt-1 w-full rounded border px-2 py-1" value={years} min={1} max={80} required onChange={(e) => setYears(e.target.value)} />
                 </label>
                 <p className="col-span-2 text-xs text-slate-500">= {packYears} askivuotta</p>
+                {smoking === "former" && (
+                  <label className="col-span-2">
+                    Kuinka monta vuotta sitten lopetit tupakoinnin?
+                    <input type="number" className="mt-1 w-full rounded border px-2 py-1" value={yearsSinceQuit} min={0} max={80} required onChange={(e) => setYearsSinceQuit(e.target.value)} />
+                  </label>
+                )}
               </div>
+            )}
+
+            {smoking !== "never" && (
+              <details className="rounded border border-slate-200 p-3">
+                <summary className="cursor-pointer font-medium">PLCOm2012-seulontariskin lisätiedot</summary>
+                <p className="my-2 text-xs text-amber-800">
+                  Tämä on yhdysvaltalainen malli, jota ei ole validoitu Suomen väestölle. Demo näyttää mallin laskeman arvion vain tutkimusesimerkkinä; se ei muuta oireohjausta.
+                </p>
+                <div className="space-y-3 text-xs">
+                  <label className="block">
+                    Alkuperäisen mallin väestöluokka (vapaaehtoinen)
+                    <select className="mt-1 w-full rounded border px-2 py-1.5" value={plcoRace} onChange={(e) => setPlcoRace(e.target.value)}>
+                      <option value="">Ei vastausta (vertailuluokka)</option>
+                      <option value="white">White</option>
+                      <option value="black">Black</option>
+                      <option value="hispanic">Hispanic</option>
+                      <option value="asian">Asian</option>
+                      <option value="pacific_islander">Native Hawaiian / Pacific Islander</option>
+                      <option value="native_american">American Indian / Alaska Native</option>
+                    </select>
+                  </label>
+                  <label className="block">
+                    Koulutus (mallin 6 luokkaa)
+                    <select className="mt-1 w-full rounded border px-2 py-1.5" value={plcoEducation} onChange={(e) => setPlcoEducation(e.target.value)}>
+                      <option value="">Valitse</option>
+                      <option value="1">1 · Ei toisen asteen tutkintoa</option>
+                      <option value="2">2 · Toisen asteen tutkinto</option>
+                      <option value="3">3 · Toisen asteen jälkeistä koulutusta</option>
+                      <option value="4">4 · Jonkin verran korkeakouluopintoja</option>
+                      <option value="5">5 · Korkeakoulututkinto</option>
+                      <option value="6">6 · Jatko- tai ammatillinen tutkinto</option>
+                    </select>
+                  </label>
+                  <div className="grid grid-cols-2 gap-2">
+                    <label>
+                      Paino (kg)
+                      <input type="number" className="mt-1 w-full rounded border px-2 py-1" value={weightKg} min={1} max={350} step="any" onChange={(e) => setWeightKg(e.target.value)} />
+                    </label>
+                    <label>
+                      Pituus (cm)
+                      <input type="number" className="mt-1 w-full rounded border px-2 py-1" value={heightCm} min={50} max={250} step="any" onChange={(e) => setHeightCm(e.target.value)} />
+                    </label>
+                  </div>
+                  {([
+                    ["copd", "Keuhkoahtaumatauti (COPD)", copd, setCopd],
+                    ["personalCancer", "Aiempi syöpä", personalCancer, setPersonalCancer],
+                    ["familyHistoryLungCancer", "Keuhkosyöpä lähisuvussa", familyHistoryLungCancer, setFamilyHistoryLungCancer],
+                  ] as const).map(([key, label, value, setValue]) => (
+                    <label key={key} className="block">
+                      {label}
+                      <select className="mt-1 w-full rounded border px-2 py-1.5" value={value} onChange={(e) => setValue(e.target.value)}>
+                        <option value="">Valitse</option>
+                        <option value="no">Ei</option>
+                        <option value="yes">Kyllä</option>
+                      </select>
+                    </label>
+                  ))}
+                  <p className="text-slate-500">Tupakoinnin määrä, kesto ja lopettamisesta kulunut aika täytetään yllä. Puuttuvat tiedot täydennetään mallin keskiarvoilla.</p>
+                </div>
+              </details>
             )}
 
             <label className="block">

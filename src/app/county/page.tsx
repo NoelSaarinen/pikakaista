@@ -1,6 +1,7 @@
 "use client";
 
 import { useMemo, useState } from "react";
+import { LiveTotalsPanel } from "@/components/LiveData";
 import countiesData from "@/data/counties.json";
 import { RichText } from "@/components/RichText";
 import { allSources, curativeRanking, regionalFindings, SIGNAL_LABEL } from "@/lib/regional";
@@ -130,6 +131,8 @@ export default function CountyPage() {
           </select>
         </label>
       </div>
+
+      <LiveTotalsPanel />
 
       {usesMock && (
         <p className="rounded border border-amber-300 bg-amber-50 px-3 py-2 text-sm text-amber-900">

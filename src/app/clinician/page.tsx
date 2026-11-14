@@ -1,6 +1,13 @@
 "use client";
 
 import { useCallback, useEffect, useState } from "react";
+import { notifyChange, useLiveVersion } from "@/components/LiveData";
+import { AnalysisCard, PRIORITY_BADGE } from "@/components/AnalysisCard";
+import { BookingBadge, BookingPanel } from "@/components/BookingPanel";
+import { EngagementBadge, PathwayCard } from "@/components/PathwayCard";
+import { formatSlot, TIER_LABEL } from "@/lib/booking";
+import { STAGE_LABEL } from "@/lib/pathway";
+import { formatRisk } from "@/lib/priority";
 import { PLACEMENT_LABEL } from "@/lib/rules";
 import type { CaseSummary, Placement } from "@/lib/types";
 import type { WorklistItem } from "@/lib/store";
@@ -19,7 +26,7 @@ function referralText(item: WorklistItem, summary: CaseSummary | null) {
   return [
     "LÄHETE: Rintakehän TT-tutkimus, keuhkosyöpäepäilyn pikakaista",
     `Potilas: ${r.id} (synteettinen), ${r.age} v`,
-    `Tupakointi: ${r.smoking.status === "current" ? "tupakoi" : "entinen tupakoija"}, ${r.smoking.pack_years} askivuotta`,
+    `Tupakointi: ${r.smoking.status === "current" ? "tupakoi" : r.smoking.status === "former" ? "entinen tupakoija" : "ei ole tupakoinut"}, ${r.smoking.pack_years} askivuotta`,
     `Oireet: ${item.rule.reasons.map((x) => `${x.label.toLowerCase()} (${x.answer})`).join(", ")}`,
     summary ? `Yhteenveto: ${summary.summary}` : "",
     "Lähettävä lääkäri: ______________________ (allekirjoitus)",
@@ -39,6 +46,7 @@ export default function ClinicianPage() {
     setData(await res.json());
   }, []);
 
+  const version = useLiveVersion();
   useEffect(() => {
     let cancelled = false;
     fetch("/api/worklist", { cache: "no-store" })
@@ -49,7 +57,7 @@ export default function ClinicianPage() {
     return () => {
       cancelled = true;
     };
-  }, []);
+  }, [version]);
 
   async function open(id: string) {
     setSelected(id);
@@ -63,9 +71,16 @@ export default function ClinicianPage() {
     }
   }
 
+  async function cancelBooking(id: string) {
+    await fetch("/api/booking/cancel", { method: "POST", headers: { "Content-Type": "application/json" }, body: JSON.stringify({ id }) });
+    notifyChange();
+    await load();
+  }
+
   async function decide(placement: Placement) {
     if (!selected) return;
     await fetch("/api/decision", { method: "POST", headers: { "Content-Type": "application/json" }, body: JSON.stringify({ id: selected, placement }) });
+    notifyChange();
     await load();
   }
 
@@ -78,10 +93,18 @@ export default function ClinicianPage() {
         <h1 className="text-2xl font-bold">Pikakaistan lista</h1>
         {data && (
           <p className="text-sm text-slate-600">
-            {data.total} vastausta (synteettisiä). Säännöt ohjasivat pikakaistalle {data.counts.direct_ct + data.counts.physician_fast}: suoraan TT {data.counts.direct_ct}, lääkärille {data.counts.physician_fast}. Tavallinen reitti {data.counts.normal_route}, ei riskiryhmässä {data.counts.not_eligible}.
+            {data.total} vastausta (synteettisiä). Säännöt ohjasivat pikakaistalle {data.counts.direct_ct + data.counts.physician_fast}: suoraan TT {data.counts.direct_ct}, lääkärille {data.counts.physician_fast}. Oirearvioon lisäksi {data.items.filter((x) => x.rule.symptomReviewRequired && x.rule.placement === "not_eligible").length} riskiryhmän ulkopuolista. Tavallinen reitti {data.counts.normal_route}, ei seulontakyselyn riskirajassa {data.counts.not_eligible}.
+          </p>
+        )}
+        {data && (
+          <p className="text-xs text-slate-500">
+            Järjestys: hälytysmerkit ensin, saman kiireellisyyden sisällä PLCOm2012-mallin kuuden vuoden keuhkosyöpäriski (Tammemägi ym., NEJM 2013).{" "}
+            <a href="/evidence" className="text-sky-700 underline">Uusin tutkimus →</a>
           </p>
         )}
       </div>
+
+      <BookingPanel onBooked={load} />
 
       <div className="grid gap-4 md:grid-cols-[minmax(0,2fr)_minmax(0,3fr)]">
         <ul className="max-h-[70vh] divide-y overflow-auto rounded-lg border border-slate-200 bg-white">
@@ -93,9 +116,23 @@ export default function ClinicianPage() {
                     {x.response.id} · {x.response.age} v{x.live && <span className="ml-1 rounded bg-emerald-100 px-1 text-xs text-emerald-800">uusi</span>}
                     <span className="ml-1 rounded bg-slate-100 px-1 text-xs text-slate-600">{x.response.channel === "health_centre" ? "terveyskeskus" : "kysely"}</span>
                   </span>
-                  <span className={`rounded px-1.5 text-xs ${BADGE[x.rule.placement]}`}>{PLACEMENT_LABEL[x.rule.placement]}</span>
+                  <span className={`rounded px-1.5 text-xs ${BADGE[x.rule.placement]}`}>
+                    {x.rule.symptomReviewRequired ? "Oireet: ammattilaisen arvio" : PLACEMENT_LABEL[x.rule.placement]}
+                  </span>
                 </span>
                 <span className="block truncate text-xs text-slate-500">{x.rule.reasons.map((r) => r.label).join(", ")}</span>
+                <span className="mt-0.5 flex flex-wrap items-center gap-1.5 text-xs">
+                  <EngagementBadge engagement={x.pathway.engagement} />
+                  <span className="text-slate-600">{STAGE_LABEL[x.pathway.stage]}</span>
+                  <span className={`ml-auto rounded px-1.5 ${PRIORITY_BADGE[x.priority.level]}`} title="PLCOm2012: kuuden vuoden keuhkosyöpäriski">
+                    {x.priority.level === "not_applicable" ? "PLCO –" : `PLCO ${formatRisk(x.priority.score)}`}
+                  </span>
+                </span>
+                {(x.booking || x.queued) && (
+                  <span className="mt-0.5 block">
+                    <BookingBadge booking={x.booking} queued={x.queued} />
+                  </span>
+                )}
                 {x.decision && <span className="text-xs font-medium text-emerald-700">✓ Lääkäri: {PLACEMENT_LABEL[x.decision]}</span>}
               </button>
             </li>
@@ -111,7 +148,11 @@ export default function ClinicianPage() {
                 <h2 className="text-lg font-semibold">
                   {item.response.id} · {item.response.age} v
                 </h2>
-                <span className={`rounded px-2 py-0.5 text-xs ${BADGE[item.rule.placement]}`}>Ehdotus: {PLACEMENT_LABEL[item.rule.placement]}</span>
+                <span className={`rounded px-2 py-0.5 text-xs ${BADGE[item.rule.placement]}`}>
+                  {item.rule.symptomReviewRequired
+                    ? "Oireet arvioitava ammattilaisella; seulontariski arvioidaan erikseen"
+                    : `Ehdotus: ${PLACEMENT_LABEL[item.rule.placement]}`}
+                </span>
               </div>
 
               <div className="rounded bg-sky-50 p-3">
@@ -119,8 +160,33 @@ export default function ClinicianPage() {
                 <p className="mt-1 whitespace-pre-line">{loadingSummary ? "Tiivistetään…" : summary?.summary}</p>
               </div>
 
+              {(item.booking || item.queued) && (
+                <div className={`rounded border p-3 ${item.booking ? "border-emerald-200 bg-emerald-50" : "border-rose-200 bg-rose-50"}`}>
+                  <p className="font-semibold">
+                    {item.booking ? `Lääkäriaika varattu (simuloitu): ${formatSlot(item.booking.start)}` : "Korkea riski, mutta vapaata aikaa ei ole kahden viikon sisällä"}
+                  </p>
+                  <p className="text-xs text-slate-700">
+                    {TIER_LABEL[(item.booking ?? item.queued)!.tier]} · {(item.booking ?? item.queued)!.reason}
+                  </p>
+                  {item.booking && !item.booking.withinTarget && (
+                    <p className="mt-1 text-xs font-medium text-amber-900">Aika on tavoiteajan jälkeen ({item.booking.workdaysFromNow} arkipäivää). Alueen kapasiteetti ei riitä.</p>
+                  )}
+                  {item.queued && <p className="mt-1 text-xs text-rose-900">Lisää alueen pikakaistan aikoja tai arvioi potilas muuta reittiä.</p>}
+                  {item.booking && (
+                    <button onClick={() => cancelBooking(item.response.id)} className="mt-2 rounded border border-slate-300 bg-white px-2 py-1 text-xs hover:bg-slate-50">
+                      Peru aika
+                    </button>
+                  )}
+                </div>
+              )}
+
+              <AnalysisCard id={item.response.id} onAnswered={() => open(item.response.id)} />
+
               <div>
                 <p className="font-semibold">Perustelut (henkilön omat vastaukset)</p>
+                {item.rule.symptomReviewRequired && (
+                  <p className="mt-1 rounded bg-amber-50 p-2 text-amber-900">Henkilö ilmoitti oireita. Ne pitää arvioida ammattilaisen kanssa; seulontarajan alittaminen ei poista tätä tarvetta. Sääntöpisteet eivät ole validoitu kliininen kriteeri.</p>
+                )}
                 <ul className="mt-1 list-disc pl-5">
                   {item.rule.reasons.map((r) => (
                     <li key={r.code}>
@@ -135,6 +201,14 @@ export default function ClinicianPage() {
                   </p>
                 )}
               </div>
+
+              <PathwayCard pathway={item.pathway} />
+              {item.rule.screeningRisk6y !== null && (
+                <div className="rounded border border-sky-200 bg-sky-50 p-3">
+                  <p className="font-semibold">PLCOm2012, 6 vuoden seulontariskin tutkimusarvio: {(item.rule.screeningRisk6y * 100).toFixed(2)} %</p>
+                  <p className="mt-1 text-xs text-slate-600">Yhdysvaltalaisella aineistolla kehitetty malli; ei kalibroitu Suomen väestöön eikä käytetä oireohjaukseen. {item.rule.screeningRiskInOriginalAgeRange === false && "Ikä on alkuperäisen tutkimusjoukon 55–74 vuoden ulkopuolella."}</p>
+                </div>
+              )}
 
               {item.rule.placement === "direct_ct" && (
                 <pre className="whitespace-pre-wrap rounded border border-dashed border-slate-300 p-3 font-mono text-xs">{referralText(item, summary)}</pre>
@@ -153,7 +227,7 @@ export default function ClinicianPage() {
                   ))}
               </div>
               {item.decision && <p className="font-medium text-emerald-700">✓ Lääkäri päätti: {PLACEMENT_LABEL[item.decision]}</p>}
-              <p className="text-xs text-slate-500">Tekoäly vain tiivistää ja ehdottaa. Säännöt päättävät, kuka nousee listalle, ja lääkäri päättää jatkosta.</p>
+              <p className="text-xs text-slate-500">Oireet ja seulontariski arvioidaan erikseen. PLCOm2012 ei ole Suomen väestölle validoitu; lääkäri päättää tutkimuksista ja jatkosta.</p>
             </div>
           )}
         </section>

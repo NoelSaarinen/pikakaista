@@ -52,6 +52,8 @@ Every year, a wellbeing services county sends a short symptom survey to people a
 - fixed rules decide who reaches a physician's list
 - AI output is a proposal with quoted reasons
 - a physician signs every referral.
+- symptom review is separate from screening eligibility: a reported symptom is surfaced for clinician review even when the person is outside the survey's smoking/age criteria
+- PLCOm2012 is an optional, separate six-year screening-risk calculation for asymptomatic ever-smokers; it does not determine symptom triage or a Finnish screening decision, because its original US model has not been calibrated for Finland
 
 A real pilot would need data permits and a decision on medical-device status.
 

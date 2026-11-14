@@ -1,5 +1,5 @@
 import { NextResponse } from "next/server";
-import { findResponse, store } from "@/lib/store";
+import { findResponse, markChanged, store } from "@/lib/store";
 import type { Placement } from "@/lib/types";
 
 export const dynamic = "force-dynamic";
@@ -12,5 +12,6 @@ export async function POST(request: Request) {
   if (!id || !findResponse(id)) return NextResponse.json({ error: "not found" }, { status: 404 });
   if (!placement || !ALLOWED.includes(placement)) return NextResponse.json({ error: "invalid placement" }, { status: 400 });
   store.decisions[id] = placement;
+  markChanged("decision", `Lääkäri päätti: ${id}`, id);
   return NextResponse.json({ id, placement });
 }

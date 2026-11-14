@@ -1,5 +1,12 @@
 [
   {
+    "id": "plcom2012-nejm-2013",
+    "title": "Tammemägi et al. Selection Criteria for Lung-Cancer Screening, NEJM 2013",
+    "url": "https://www.nejm.org/doi/full/10.1056/NEJMoa1211776",
+    "retrieved": "2026-11-14",
+    "note": "Published PLCOm2012 logistic equation and six-year lung-cancer incidence predictors. Model developed from US ever-smokers; not calibrated to the Finnish population."
+  },
+  {
     "id": "strategy",
     "title": "Kansallinen syöpästrategia 2026–2035",
     "url": "https://files.hackjunction.app/resources/Kansallinen_syopastrategia_2026_2035_FINAL.pdf",
@@ -119,6 +126,41 @@
     "page": "Liitetaulukot 1, 2, 9 ja 10",
     "retrieved": "2026-11-14",
     "note": "2022: ei koskaan tupakoineita 50–64-vuotiaista miehistä 28 % ja naisista 40 %, 65–84-vuotiaista miehistä 28 % ja naisista 46 %. Päivittäin tupakoivia 55–64-vuotiaista miehistä 14 % ja naisista 12 %, 65–84-vuotiaista 9 % ja 5 %. Suhdeluku noin 5 entistä yhtä päivittäistä kohden on tiimin laskelma."
+  },
+  {
+    "id": "ylst-2022",
+    "title": "Crosbie et al. Participation in community-based lung cancer screening: the Yorkshire Lung Screening Trial. Eur Respir J 2022",
+    "url": "https://doi.org/10.1183/13993003.00483-2022",
+    "retrieved": "2026-11-14",
+    "note": "Leedsin 55–80-vuotiaat, joilla terveyskeskuksen kirjauksissa tupakointihistoria: 44 943 kutsuttua, 50,8 % vastasi (ennakkokirje, terveyskeskuksen tuki ja kaksi muistutusta; 28 % vastasi ensimmäiseen kirjeeseen). Nykyiset tupakoijat vastasivat harvemmin (adjOR 0,44)."
+  },
+  {
+    "id": "ylst-2024",
+    "title": "Frailty, comorbidity and survival comparisons between populations eligible for screening (Yorkshire Lung Screening Trial). Thorax 2026",
+    "url": "https://doi.org/10.1136/thorax-2024-222487",
+    "retrieved": "2026-11-14",
+    "note": "11 994 riskiarvioon osallistunutta 55–74-vuotiasta tupakoinutta: 3 502 (29 %) täytti USPSTF 2021 -kriteerit (vähintään 20 askivuotta ja lopettanut enintään 15 vuotta sitten). Alaraja demon kriteerille, joka ei rajaa lopettamisaikaa."
+  },
+  {
+    "id": "wagland-2016",
+    "title": "Wagland et al. Promoting help-seeking in response to symptoms amongst primary care patients at high risk of lung cancer: a mixed method study. PLoS ONE 2016;11:e0165677",
+    "url": "https://doi.org/10.1371/journal.pone.0165677",
+    "retrieved": "2026-11-14",
+    "note": "Englanti, postitettu oirekysely korkean riskin potilaille (tupakoineet, COPD): 4 622 kutsuttua, 25,3 % vastasi. Vastaajista 53,7 % (629/1 172) raportoi vähintään yhden yhdeksästä oireesta (mukana väsymys ja hikoilu), ja 6,7 % (61/908) oli oireisia mutta ei ollut käynyt lääkärissä 12 kuukauteen. Kolmella vastaajalla todettiin keuhkosyöpä tai mesoteliooma 4 vk–11 kk kyselyn jälkeen."
+  },
+  {
+    "id": "wichmann-2025",
+    "title": "Wichmann et al. Lung cancer screening in Finland: a prospective randomized trial (LDCT-SC-FI, Oulu). Acta Oncologica 2025;64:769–774",
+    "url": "https://doi.org/10.2340/1651-226X.2025.43093",
+    "retrieved": "2026-11-14",
+    "note": "200 nykyistä tupakoijaa, 50–74 v, mediaani 31 askivuotta. Ensimmäisellä TT-kierroksella keuhkosyöpä löytyi 2/200 (1,0 %), toisella 4/183 (2,2 %), yhteensä 6/383 kuvausta (1,6 %), positiivinen ennustearvo 75 %, viisi kuudesta vaiheessa I. Oireettomia vapaaehtoisia, ei oirekyselyn vastaajia."
+  },
+  {
+    "id": "latti-2018",
+    "title": "Lätti, Pekkanen, Koskela. Defining the risk factors for acute, subacute and chronic cough: a cross-sectional study in a Finnish adult employee population. BMJ Open 2018",
+    "url": "https://pmc.ncbi.nlm.nih.gov/articles/PMC6230813",
+    "retrieved": "2026-11-14",
+    "note": "Suomalaiset julkisen sektorin työntekijät (3 697 vastaajaa, vastausprosentti 26,4): päivittäinen yli 8 viikon yskä 7,2 %, 3–8 viikon yskä 3,4 %. Kaikki työikäiset, ei vain tupakoineet. Hakutuloksen tiivistelmästä, ei avattu."
   },
   {
     "id": "assumption",
