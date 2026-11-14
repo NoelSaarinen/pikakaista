@@ -1,0 +1,2997 @@
+{
+  "meta": {
+    "title": "Goal 3 lung cancer indicators by region (Finland)",
+    "generated": "2026-11-14",
+    "doc": "docs/GOAL3_REGIONAL.md",
+    "goal3_link": "National Cancer Strategy 2026–2035, p. 5, Goal 3 (Varmistetaan yhdenvertainen ja vaikuttava syövänhoito): five-year relative survival of poor-prognosis cancers reaches the Nordic level (more than +14 percentage points for lung cancer from the 2023 NORDCAN level; Nordic level = mean of Sweden and Norway), and cancer mortality falls by 10% (currently 13,300 deaths a year).",
+    "regional_levels": {
+      "mortality_and_incidence": "Wellbeing services county (21 counties + City of Helsinki + Åland). Registry assigns deaths by home municipality in the year of death.",
+      "survival": "Cooperation area (yhteistyöalue, 5 areas = former university-hospital catchment areas) + Åland. Not published by wellbeing services county."
+    },
+    "value_format": "Each figure is {value, unit, source_id, year, is_estimate, note}; optional ci95_low/ci95_high, count, series. is_estimate=true marks our own derived or approximate figures.",
+    "signal_rule": "mortality_signal compares the region with the national age-standardised rate in both 2015–2019 and 2020–2024 using approximate 95% intervals. Only \"consistently_higher\" or \"consistently_lower\" should be presented as a finding.",
+    "retrieved": "2026-11-14"
+  },
+  "sources": [
+    {
+      "id": "strategy",
+      "title": "Kansallinen syöpästrategia 2026–2035",
+      "url": "https://files.hackjunction.app/resources/Kansallinen_syopastrategia_2026_2035_FINAL.pdf",
+      "table": "p. 5, Goal 3 indicators and footnote **",
+      "retrieved": "2026-11-14",
+      "note": "Quoted indicator wording re-read from the PDF on 2026-11-14."
+    },
+    {
+      "id": "fcr-mortality",
+      "title": "Suomen Syöpärekisteri, syöpätilastosovellus: Syöpien aiheuttamat kuolemat (kuolleisuus)",
+      "url": "https://tilastot.syoparekisteri.fi/syovat/",
+      "table": "Minua kiinnostaa = Syöpien aiheuttamat kuolemat; Sukupuoli = Molemmat yhdessä; Alue = all; Syöpätauti = Keuhkot, henkitorvi (C33-34); Näytä arvoja luokiteltuna = Aikajakso (5v.); Arvot = Syöpäkuolemia and Kuolleisuus per 100 000, ikävakioitu (Suomi 2014)",
+      "retrieved": "2026-11-14",
+      "note": "Latest statistics year 2024 (app news 2026-04-24). Regional figures use home municipality in the year of death. Read from the app table in a browser; the app is a Shiny app without a stable deep link."
+    },
+    {
+      "id": "fcr-incidence",
+      "title": "Suomen Syöpärekisteri, syöpätilastosovellus: Uudet syöpätapaukset (ilmaantuvuus)",
+      "url": "https://tilastot.syoparekisteri.fi/syovat/",
+      "table": "Minua kiinnostaa = Uudet syöpätapaukset; Sukupuoli = Molemmat yhdessä (and Miehet/Naiset for the national split); Alue = all; Syöpätauti = Keuhkot, henkitorvi (C33-34); Aikajakso (5v.); Arvot = Todettuja syöpiä and Suhde per 100 000, ikävakioitu (Suomi 2014). Stage: Näytä arvoja luokiteltuna = Syövän levinneisyys (2020-2024), national only.",
+      "retrieved": "2026-11-14",
+      "note": "Latest statistics year 2024."
+    },
+    {
+      "id": "fcr-survival",
+      "title": "Suomen Syöpärekisteri, syöpätilastosovellus: Syöpäpotilaiden ennusteet (eloonjääminen)",
+      "url": "https://tilastot.syoparekisteri.fi/syovat/",
+      "table": "Minua kiinnostaa = Syöpäpotilaiden ennusteet; Sukupuoli = Molemmat yhdessä; Alue = Koko maa + all yhteistyöalueet + Ahvenanmaa; Syöpätauti = Keuhkot, henkitorvi (C33-34); Näytä arvoja luokiteltuna = Vuosia toteamisesta (2022-2024); Arvo = Suhteellinen elossaololuku, ikävakioitu",
+      "retrieved": "2026-11-14",
+      "note": "Regional survival is offered only by cooperation area (yhteistyöalue), not by wellbeing services county. The regional time series is not offered (the 3-year-period trend returns the national row only). No confidence intervals are shown."
+    },
+    {
+      "id": "statfin-13u5",
+      "title": "Tilastokeskus, kuolemansyyt, taulukko 13u5: Kuolleet ja yleinen kuolleisuusluku tilaston peruskuolemansyyn (aikasarjaluokitus) mukaan hyvinvointialueittain, 1969-2025",
+      "url": "https://pxdata.stat.fi/PxWeb/pxweb/fi/StatFin/StatFin__ksyyt/13u5.px/",
+      "table": "API https://pxdata.stat.fi/PXWeb/api/v1/fi/StatFin/ksyyt/13u5.px; Hyvinvointialue = all; Kuolemansyy = 11 Kurkunpään, henkitorven ja keuhkon syöpä (C32-C34) and 04-21 Syövät (C00-C97); Vuosi = 2011-2025; Tiedot = Kuolleet, Yleinen kuolleisuusluku",
+      "retrieved": "2026-11-14",
+      "note": "Table updated 2026-10-28. Includes laryngeal cancer (C32), so counts are slightly higher than the registry C33-C34 counts. Crude rate only; no age-standardised rate by region in this table."
+    },
+    {
+      "id": "nordcan",
+      "title": "NORDCAN 2.0 (IARC / Association of the Nordic Cancer Registries): Survival – Trends, Lung (C33-C34)",
+      "url": "https://nordcan.iarc.who.int/en/dataviz/survival?cancers=160&populations=246_578_752&sexes=1_2&survival=5",
+      "table": "5-year age-standardised relative survival (%), males and females, Finland/Norway/Sweden; API https://canapi.iarc.who.int/api/nordcan/v2/961//survival/population/5/1_2/246_578_752/160/?&surv_period=5&age_surv=0&year_start=1967&year_end=2024",
+      "retrieved": "2026-11-14",
+      "note": "Data version 9.6.1 (11.2026). Survival is given by sex only. NORDCAN warns that Swedish survival for lung cancer may be too high because the Swedish registry does not follow back death-certificate-only cases."
+    },
+    {
+      "id": "team-calc",
+      "title": "Team calculation from the sources above",
+      "url": "",
+      "table": "See docs/GOAL3_REGIONAL.md, section \"Methods\"",
+      "retrieved": "2026-11-14",
+      "note": "Means of published counts, approximate 95% intervals (Byar method on the total count, scaled to the age-standardised rate), signal flags, ratios and gaps. Marked is_estimate=true where approximate."
+    }
+  ],
+  "national": {
+    "id": "finland",
+    "name": "Koko maa",
+    "lung_cancer_deaths_per_year": {
+      "value": 2303.8,
+      "count": 11519,
+      "unit": "deaths per year (C33-C34)",
+      "source_id": "fcr-mortality",
+      "year": "2020-2024",
+      "is_estimate": false,
+      "note": "Mean of 5 years; total 11519 deaths. 2015-2019 total 11441."
+    },
+    "lung_cancer_mortality_asr": {
+      "value": 35.79,
+      "unit": "deaths per 100,000, age-standardised (Finland 2014)",
+      "source_id": "fcr-mortality",
+      "year": "2020-2024",
+      "is_estimate": false,
+      "note": "2015-2019: 39.27."
+    },
+    "lung_cancer_mortality_asr_2015_2019": {
+      "value": 39.27,
+      "unit": "deaths per 100,000, age-standardised (Finland 2014)",
+      "source_id": "fcr-mortality",
+      "year": "2015-2019",
+      "is_estimate": false
+    },
+    "lung_cancer_cases_per_year": {
+      "value": 2994.4,
+      "count": 14972,
+      "unit": "new cases per year (C33-C34)",
+      "source_id": "fcr-incidence",
+      "year": "2020-2024",
+      "is_estimate": false,
+      "note": "Mean of 5 years. Men 8901, women 6071 cases in 2020-2024. 2015-2019 total 14548."
+    },
+    "lung_cancer_incidence_asr": {
+      "value": 46.98,
+      "unit": "cases per 100,000, age-standardised (Finland 2014)",
+      "source_id": "fcr-incidence",
+      "year": "2020-2024",
+      "is_estimate": false,
+      "note": "2015-2019: 50.06."
+    },
+    "mortality_incidence_ratio": {
+      "value": 0.762,
+      "unit": "ratio of age-standardised rates",
+      "source_id": "team-calc",
+      "year": "2020-2024",
+      "is_estimate": true,
+      "note": "Crude proxy only. Not a survival measure and not a Goal 3 indicator."
+    },
+    "deaths_c32_c34_statfin_per_year": {
+      "value": 2344.4,
+      "count": 11722,
+      "unit": "deaths per year (C32-C34, includes larynx)",
+      "source_id": "statfin-13u5",
+      "year": "2021-2025",
+      "is_estimate": false,
+      "series": {
+        "2016": 2309,
+        "2017": 2310,
+        "2018": 2318,
+        "2019": 2383,
+        "2020": 2322,
+        "2021": 2400,
+        "2022": 2447,
+        "2023": 2256,
+        "2024": 2317,
+        "2025": 2302
+      },
+      "note": "Latest year 2025: 2302 deaths. All cancer deaths (C00-C97) 2024: 13316, 2025: 13424; lung (C32-C34) was 17.1% of cancer deaths in 2025."
+    },
+    "survival_relative_5y": {
+      "value": 20.54,
+      "unit": "%",
+      "source_id": "fcr-survival",
+      "year": "2022-2024",
+      "is_estimate": false,
+      "note": "Age-standardised relative survival, both sexes. 1-4 years: 45.97, 33.23, 26.66, 23.02%. Method (period vs cohort, standard weights) not stated in the app help."
+    },
+    "stage_at_diagnosis": {
+      "value": {
+        "unknown": 8107,
+        "localised": 815,
+        "not_localised": 6050
+      },
+      "unit": "cases 2020-2024",
+      "source_id": "fcr-incidence",
+      "year": "2020-2024",
+      "is_estimate": false,
+      "note": "National only; the app does not offer stage by region. Unknown stage 54.1%, localised 5.4%, not localised 40.4% of 14972 cases."
+    },
+    "nordcan_survival_5y": {
+      "men_2015_2019": {
+        "finland": {
+          "value": 17.4,
+          "ci95_low": 16.1,
+          "ci95_high": 18.7,
+          "unit": "%",
+          "source_id": "nordcan",
+          "year": "2015-2019",
+          "is_estimate": false,
+          "note": "5-year age-standardised relative survival, NORDCAN."
+        },
+        "norway": {
+          "value": 26.3,
+          "ci95_low": 25,
+          "ci95_high": 27.6,
+          "unit": "%",
+          "source_id": "nordcan",
+          "year": "2015-2019",
+          "is_estimate": false
+        },
+        "sweden": {
+          "value": 24.8,
+          "ci95_low": 23.6,
+          "ci95_high": 26.1,
+          "unit": "%",
+          "source_id": "nordcan",
+          "year": "2015-2019",
+          "is_estimate": false,
+          "note": "May be biased upwards for lung cancer (NORDCAN caveat on death-certificate-only cases)."
+        },
+        "nordic_level": {
+          "value": 25.55,
+          "unit": "%",
+          "source_id": "team-calc",
+          "year": "2015-2019",
+          "is_estimate": false,
+          "note": "Mean of Norway and Sweden, the Strategy definition of the Nordic level."
+        },
+        "gap_pp": {
+          "value": 8.15,
+          "unit": "percentage points",
+          "source_id": "team-calc",
+          "year": "2015-2019",
+          "is_estimate": false,
+          "note": "Nordic level minus Finland."
+        }
+      },
+      "women_2015_2019": {
+        "finland": {
+          "value": 26.1,
+          "ci95_low": 24.5,
+          "ci95_high": 27.8,
+          "unit": "%",
+          "source_id": "nordcan",
+          "year": "2015-2019",
+          "is_estimate": false,
+          "note": "5-year age-standardised relative survival, NORDCAN."
+        },
+        "norway": {
+          "value": 33.2,
+          "ci95_low": 31.9,
+          "ci95_high": 34.5,
+          "unit": "%",
+          "source_id": "nordcan",
+          "year": "2015-2019",
+          "is_estimate": false
+        },
+        "sweden": {
+          "value": 32.7,
+          "ci95_low": 31.5,
+          "ci95_high": 33.8,
+          "unit": "%",
+          "source_id": "nordcan",
+          "year": "2015-2019",
+          "is_estimate": false,
+          "note": "May be biased upwards for lung cancer (NORDCAN caveat on death-certificate-only cases)."
+        },
+        "nordic_level": {
+          "value": 32.95,
+          "unit": "%",
+          "source_id": "team-calc",
+          "year": "2015-2019",
+          "is_estimate": false,
+          "note": "Mean of Norway and Sweden, the Strategy definition of the Nordic level."
+        },
+        "gap_pp": {
+          "value": 6.85,
+          "unit": "percentage points",
+          "source_id": "team-calc",
+          "year": "2015-2019",
+          "is_estimate": false,
+          "note": "Nordic level minus Finland."
+        }
+      },
+      "men_2020_2024": {
+        "finland": {
+          "value": 17.9,
+          "ci95_low": 16.7,
+          "ci95_high": 19.2,
+          "unit": "%",
+          "source_id": "nordcan",
+          "year": "2020-2024",
+          "is_estimate": false,
+          "note": "5-year age-standardised relative survival, NORDCAN."
+        },
+        "norway": {
+          "value": 30.8,
+          "ci95_low": 29.4,
+          "ci95_high": 32.3,
+          "unit": "%",
+          "source_id": "nordcan",
+          "year": "2020-2024",
+          "is_estimate": false
+        },
+        "sweden": {
+          "value": 31.3,
+          "ci95_low": 30,
+          "ci95_high": 32.7,
+          "unit": "%",
+          "source_id": "nordcan",
+          "year": "2020-2024",
+          "is_estimate": false,
+          "note": "May be biased upwards for lung cancer (NORDCAN caveat on death-certificate-only cases)."
+        },
+        "nordic_level": {
+          "value": 31.05,
+          "unit": "%",
+          "source_id": "team-calc",
+          "year": "2020-2024",
+          "is_estimate": false,
+          "note": "Mean of Norway and Sweden, the Strategy definition of the Nordic level."
+        },
+        "gap_pp": {
+          "value": 13.15,
+          "unit": "percentage points",
+          "source_id": "team-calc",
+          "year": "2020-2024",
+          "is_estimate": false,
+          "note": "Nordic level minus Finland."
+        }
+      },
+      "women_2020_2024": {
+        "finland": {
+          "value": 30.8,
+          "ci95_low": 29.1,
+          "ci95_high": 32.5,
+          "unit": "%",
+          "source_id": "nordcan",
+          "year": "2020-2024",
+          "is_estimate": false,
+          "note": "5-year age-standardised relative survival, NORDCAN."
+        },
+        "norway": {
+          "value": 38.4,
+          "ci95_low": 37.1,
+          "ci95_high": 39.9,
+          "unit": "%",
+          "source_id": "nordcan",
+          "year": "2020-2024",
+          "is_estimate": false
+        },
+        "sweden": {
+          "value": 38.9,
+          "ci95_low": 37.7,
+          "ci95_high": 40.1,
+          "unit": "%",
+          "source_id": "nordcan",
+          "year": "2020-2024",
+          "is_estimate": false,
+          "note": "May be biased upwards for lung cancer (NORDCAN caveat on death-certificate-only cases)."
+        },
+        "nordic_level": {
+          "value": 38.65,
+          "unit": "%",
+          "source_id": "team-calc",
+          "year": "2020-2024",
+          "is_estimate": false,
+          "note": "Mean of Norway and Sweden, the Strategy definition of the Nordic level."
+        },
+        "gap_pp": {
+          "value": 7.85,
+          "unit": "percentage points",
+          "source_id": "team-calc",
+          "year": "2020-2024",
+          "is_estimate": false,
+          "note": "Nordic level minus Finland."
+        }
+      }
+    }
+  },
+  "cooperation_areas": [
+    {
+      "id": "etela-suomi",
+      "name": "Etelä-Suomi (HUS catchment)",
+      "registry_name": "Etelä-Suomen yhteistyöalue",
+      "counties": [
+        "ita-uusimaa",
+        "keski-uusimaa",
+        "lansi-uusimaa",
+        "vantaa-kerava",
+        "paijat-hame",
+        "kymenlaakso",
+        "etela-karjala",
+        "helsinki"
+      ],
+      "survival_relative_5y": {
+        "value": 21.02,
+        "unit": "%",
+        "source_id": "fcr-survival",
+        "year": "2022-2024",
+        "is_estimate": false,
+        "note": "Age-standardised relative survival, both sexes. National 20.54%. Registry shows no confidence interval; our rough 95% half-width is about ±2 percentage points, so differences between areas are not reliable."
+      },
+      "survival_relative_5y_approx_halfwidth_pp": {
+        "value": 2,
+        "unit": "percentage points",
+        "source_id": "team-calc",
+        "year": "2022-2024",
+        "is_estimate": true,
+        "note": "Rough: NORDCAN's national 95% CI half-width for Finnish men 2020-2024 (1.25 pp), taken to rest on the registry's 8901 male cases in 2020-2024, scaled by sqrt(cases) to 3349 cases (3/5 of the area's 2020-2024 cases, because the registry's survival window is 3 years). Order of magnitude only; not a registry figure."
+      },
+      "survival_relative_1y": {
+        "value": 45.63,
+        "unit": "%",
+        "source_id": "fcr-survival",
+        "year": "2022-2024",
+        "is_estimate": false
+      },
+      "lung_cancer_cases_per_year": {
+        "value": 1116.2,
+        "count": 5581,
+        "unit": "new cases per year (C33-C34)",
+        "source_id": "fcr-incidence",
+        "year": "2020-2024",
+        "is_estimate": false
+      }
+    },
+    {
+      "id": "ita-suomi",
+      "name": "Itä-Suomi (KYS catchment)",
+      "registry_name": "Itä-Suomen yhteistyöalue",
+      "counties": [
+        "etela-savo",
+        "pohjois-savo",
+        "pohjois-karjala",
+        "keski-suomi"
+      ],
+      "survival_relative_5y": {
+        "value": 20.37,
+        "unit": "%",
+        "source_id": "fcr-survival",
+        "year": "2022-2024",
+        "is_estimate": false,
+        "note": "Age-standardised relative survival, both sexes. National 20.54%. Registry shows no confidence interval; our rough 95% half-width is about ±3.2 percentage points, so differences between areas are not reliable."
+      },
+      "survival_relative_5y_approx_halfwidth_pp": {
+        "value": 3.2,
+        "unit": "percentage points",
+        "source_id": "team-calc",
+        "year": "2022-2024",
+        "is_estimate": true,
+        "note": "Rough: NORDCAN's national 95% CI half-width for Finnish men 2020-2024 (1.25 pp), taken to rest on the registry's 8901 male cases in 2020-2024, scaled by sqrt(cases) to 1327 cases (3/5 of the area's 2020-2024 cases, because the registry's survival window is 3 years). Order of magnitude only; not a registry figure."
+      },
+      "survival_relative_1y": {
+        "value": 43.34,
+        "unit": "%",
+        "source_id": "fcr-survival",
+        "year": "2022-2024",
+        "is_estimate": false
+      },
+      "lung_cancer_cases_per_year": {
+        "value": 442.2,
+        "count": 2211,
+        "unit": "new cases per year (C33-C34)",
+        "source_id": "fcr-incidence",
+        "year": "2020-2024",
+        "is_estimate": false
+      }
+    },
+    {
+      "id": "sisa-suomi",
+      "name": "Sisä-Suomi (TAYS catchment)",
+      "registry_name": "Sisä-Suomen yhteistyöalue",
+      "counties": [
+        "kanta-hame",
+        "pirkanmaa",
+        "etela-pohjanmaa"
+      ],
+      "survival_relative_5y": {
+        "value": 19.45,
+        "unit": "%",
+        "source_id": "fcr-survival",
+        "year": "2022-2024",
+        "is_estimate": false,
+        "note": "Age-standardised relative survival, both sexes. National 20.54%. Registry shows no confidence interval; our rough 95% half-width is about ±3.1 percentage points, so differences between areas are not reliable."
+      },
+      "survival_relative_5y_approx_halfwidth_pp": {
+        "value": 3.1,
+        "unit": "percentage points",
+        "source_id": "team-calc",
+        "year": "2022-2024",
+        "is_estimate": true,
+        "note": "Rough: NORDCAN's national 95% CI half-width for Finnish men 2020-2024 (1.25 pp), taken to rest on the registry's 8901 male cases in 2020-2024, scaled by sqrt(cases) to 1440 cases (3/5 of the area's 2020-2024 cases, because the registry's survival window is 3 years). Order of magnitude only; not a registry figure."
+      },
+      "survival_relative_1y": {
+        "value": 47.55,
+        "unit": "%",
+        "source_id": "fcr-survival",
+        "year": "2022-2024",
+        "is_estimate": false
+      },
+      "lung_cancer_cases_per_year": {
+        "value": 480,
+        "count": 2400,
+        "unit": "new cases per year (C33-C34)",
+        "source_id": "fcr-incidence",
+        "year": "2020-2024",
+        "is_estimate": false
+      }
+    },
+    {
+      "id": "lansi-suomi",
+      "name": "Länsi-Suomi (TYKS catchment)",
+      "registry_name": "Länsi-Suomen yhteistyöalue",
+      "counties": [
+        "varsinais-suomi",
+        "satakunta",
+        "pohjanmaa"
+      ],
+      "survival_relative_5y": {
+        "value": 21.81,
+        "unit": "%",
+        "source_id": "fcr-survival",
+        "year": "2022-2024",
+        "is_estimate": false,
+        "note": "Age-standardised relative survival, both sexes. National 20.54%. Registry shows no confidence interval; our rough 95% half-width is about ±3 percentage points, so differences between areas are not reliable."
+      },
+      "survival_relative_5y_approx_halfwidth_pp": {
+        "value": 3,
+        "unit": "percentage points",
+        "source_id": "team-calc",
+        "year": "2022-2024",
+        "is_estimate": true,
+        "note": "Rough: NORDCAN's national 95% CI half-width for Finnish men 2020-2024 (1.25 pp), taken to rest on the registry's 8901 male cases in 2020-2024, scaled by sqrt(cases) to 1547 cases (3/5 of the area's 2020-2024 cases, because the registry's survival window is 3 years). Order of magnitude only; not a registry figure."
+      },
+      "survival_relative_1y": {
+        "value": 48.22,
+        "unit": "%",
+        "source_id": "fcr-survival",
+        "year": "2022-2024",
+        "is_estimate": false
+      },
+      "lung_cancer_cases_per_year": {
+        "value": 515.6,
+        "count": 2578,
+        "unit": "new cases per year (C33-C34)",
+        "source_id": "fcr-incidence",
+        "year": "2020-2024",
+        "is_estimate": false
+      }
+    },
+    {
+      "id": "pohjois-suomi",
+      "name": "Pohjois-Suomi (OYS catchment)",
+      "registry_name": "Pohjois-Suomen yhteistyöalue",
+      "counties": [
+        "keski-pohjanmaa",
+        "pohjois-pohjanmaa",
+        "kainuu",
+        "lappi"
+      ],
+      "survival_relative_5y": {
+        "value": 19.35,
+        "unit": "%",
+        "source_id": "fcr-survival",
+        "year": "2022-2024",
+        "is_estimate": false,
+        "note": "Age-standardised relative survival, both sexes. National 20.54%. Registry shows no confidence interval; our rough 95% half-width is about ±3.3 percentage points, so differences between areas are not reliable."
+      },
+      "survival_relative_5y_approx_halfwidth_pp": {
+        "value": 3.3,
+        "unit": "percentage points",
+        "source_id": "team-calc",
+        "year": "2022-2024",
+        "is_estimate": true,
+        "note": "Rough: NORDCAN's national 95% CI half-width for Finnish men 2020-2024 (1.25 pp), taken to rest on the registry's 8901 male cases in 2020-2024, scaled by sqrt(cases) to 1268 cases (3/5 of the area's 2020-2024 cases, because the registry's survival window is 3 years). Order of magnitude only; not a registry figure."
+      },
+      "survival_relative_1y": {
+        "value": 45.47,
+        "unit": "%",
+        "source_id": "fcr-survival",
+        "year": "2022-2024",
+        "is_estimate": false
+      },
+      "lung_cancer_cases_per_year": {
+        "value": 422.6,
+        "count": 2113,
+        "unit": "new cases per year (C33-C34)",
+        "source_id": "fcr-incidence",
+        "year": "2020-2024",
+        "is_estimate": false
+      }
+    },
+    {
+      "id": "ahvenanmaa",
+      "name": "Ahvenanmaa (Åland)",
+      "registry_name": "Ahvenanmaa",
+      "counties": [
+        "ahvenanmaa"
+      ],
+      "survival_relative_5y": {
+        "value": null,
+        "unit": "%",
+        "source_id": "fcr-survival",
+        "year": "2022-2024",
+        "is_estimate": false,
+        "note": "Not published (too few cases)."
+      },
+      "survival_relative_5y_approx_halfwidth_pp": null,
+      "survival_relative_1y": {
+        "value": 33.45,
+        "unit": "%",
+        "source_id": "fcr-survival",
+        "year": "2022-2024",
+        "is_estimate": false
+      },
+      "lung_cancer_cases_per_year": {
+        "value": 17,
+        "count": 85,
+        "unit": "new cases per year (C33-C34)",
+        "source_id": "fcr-incidence",
+        "year": "2020-2024",
+        "is_estimate": false
+      }
+    }
+  ],
+  "regions": [
+    {
+      "id": "ita-uusimaa",
+      "name": "Itä-Uusimaa",
+      "official_name": "Itä-Uudenmaan hyvinvointialue",
+      "statfin_code": "HVA01",
+      "cooperation_area": "etela-suomi",
+      "lung_cancer_deaths_per_year": {
+        "value": 47.6,
+        "count": 238,
+        "unit": "deaths per year (C33-C34)",
+        "source_id": "fcr-mortality",
+        "year": "2020-2024",
+        "is_estimate": false,
+        "note": "Mean of 5 years; total 238 deaths (2015-2019: 209). Under 50 deaths a year: year-to-year noise is large."
+      },
+      "lung_cancer_mortality_asr": {
+        "value": 41.13,
+        "ci95_low": 36.1,
+        "ci95_high": 46.7,
+        "unit": "deaths per 100,000, age-standardised (Finland 2014)",
+        "source_id": "fcr-mortality",
+        "year": "2020-2024",
+        "is_estimate": false,
+        "note": "Rate is published by the registry; the 95% interval is our approximation (is_estimate). National 35.79."
+      },
+      "lung_cancer_mortality_asr_2015_2019": {
+        "value": 41.31,
+        "ci95_low": 35.9,
+        "ci95_high": 47.3,
+        "unit": "deaths per 100,000, age-standardised (Finland 2014)",
+        "source_id": "fcr-mortality",
+        "year": "2015-2019",
+        "is_estimate": false,
+        "note": "Earlier period for a stability check. National 39.27."
+      },
+      "mortality_signal": {
+        "value": "higher_latest_period_only",
+        "source_id": "team-calc",
+        "year": "2015-2024",
+        "is_estimate": true,
+        "note": "Approximate 95% interval vs national rate in both 5-year periods. Present only consistently_higher/consistently_lower as findings."
+      },
+      "excess_deaths_per_year_vs_national_rate": {
+        "value": null,
+        "unit": "deaths per year",
+        "source_id": "team-calc",
+        "year": "2020-2024",
+        "is_estimate": true,
+        "note": "Not computed: the region is not consistently above the national rate."
+      },
+      "lung_cancer_cases_per_year": {
+        "value": 58.2,
+        "count": 291,
+        "unit": "new cases per year (C33-C34)",
+        "source_id": "fcr-incidence",
+        "year": "2020-2024",
+        "is_estimate": false,
+        "note": "Mean of 5 years; total 291 (2015-2019: 283)."
+      },
+      "lung_cancer_incidence_asr": {
+        "value": 50.61,
+        "unit": "cases per 100,000, age-standardised (Finland 2014)",
+        "source_id": "fcr-incidence",
+        "year": "2020-2024",
+        "is_estimate": false,
+        "note": "2015-2019: 55.92. National 46.98. High incidence (smoking history) drives most mortality differences."
+      },
+      "mortality_incidence_ratio": {
+        "value": 0.813,
+        "unit": "ratio of age-standardised rates",
+        "source_id": "team-calc",
+        "year": "2020-2024",
+        "is_estimate": true,
+        "note": "Crude proxy only (national 0.762). Not a survival measure; no interval; noisy for small counties."
+      },
+      "deaths_c32_c34_statfin_per_year": {
+        "value": 49.8,
+        "count": 249,
+        "unit": "deaths per year (C32-C34, includes larynx)",
+        "source_id": "statfin-13u5",
+        "year": "2021-2025",
+        "is_estimate": false,
+        "series": {
+          "2016": 45,
+          "2017": 34,
+          "2018": 41,
+          "2019": 48,
+          "2020": 37,
+          "2021": 57,
+          "2022": 42,
+          "2023": 41,
+          "2024": 64,
+          "2025": 45
+        },
+        "note": "Cross-check including 2025 (45 deaths). Mean crude rate 2021-2025 50.3 per 100,000 (not age-standardised)."
+      },
+      "survival_relative_5y": {
+        "value": null,
+        "source_id": "fcr-survival",
+        "year": "2022-2024",
+        "is_estimate": false,
+        "note": "Not published by wellbeing services county. See cooperation_areas[\"etela-suomi\"] for the area-level figure, which must not be shown as this county's own value."
+      }
+    },
+    {
+      "id": "keski-uusimaa",
+      "name": "Keski-Uusimaa",
+      "official_name": "Keski-Uudenmaan hyvinvointialue",
+      "statfin_code": "HVA02",
+      "cooperation_area": "etela-suomi",
+      "lung_cancer_deaths_per_year": {
+        "value": 72.4,
+        "count": 362,
+        "unit": "deaths per year (C33-C34)",
+        "source_id": "fcr-mortality",
+        "year": "2020-2024",
+        "is_estimate": false,
+        "note": "Mean of 5 years; total 362 deaths (2015-2019: 355)."
+      },
+      "lung_cancer_mortality_asr": {
+        "value": 35.02,
+        "ci95_low": 31.5,
+        "ci95_high": 38.8,
+        "unit": "deaths per 100,000, age-standardised (Finland 2014)",
+        "source_id": "fcr-mortality",
+        "year": "2020-2024",
+        "is_estimate": false,
+        "note": "Rate is published by the registry; the 95% interval is our approximation (is_estimate). National 35.79."
+      },
+      "lung_cancer_mortality_asr_2015_2019": {
+        "value": 40.81,
+        "ci95_low": 36.7,
+        "ci95_high": 45.3,
+        "unit": "deaths per 100,000, age-standardised (Finland 2014)",
+        "source_id": "fcr-mortality",
+        "year": "2015-2019",
+        "is_estimate": false,
+        "note": "Earlier period for a stability check. National 39.27."
+      },
+      "mortality_signal": {
+        "value": "not_distinguishable_from_national",
+        "source_id": "team-calc",
+        "year": "2015-2024",
+        "is_estimate": true,
+        "note": "Approximate 95% interval vs national rate in both 5-year periods. Present only consistently_higher/consistently_lower as findings."
+      },
+      "excess_deaths_per_year_vs_national_rate": {
+        "value": null,
+        "unit": "deaths per year",
+        "source_id": "team-calc",
+        "year": "2020-2024",
+        "is_estimate": true,
+        "note": "Not computed: the region is not consistently above the national rate."
+      },
+      "lung_cancer_cases_per_year": {
+        "value": 99.2,
+        "count": 496,
+        "unit": "new cases per year (C33-C34)",
+        "source_id": "fcr-incidence",
+        "year": "2020-2024",
+        "is_estimate": false,
+        "note": "Mean of 5 years; total 496 (2015-2019: 475)."
+      },
+      "lung_cancer_incidence_asr": {
+        "value": 47.77,
+        "unit": "cases per 100,000, age-standardised (Finland 2014)",
+        "source_id": "fcr-incidence",
+        "year": "2020-2024",
+        "is_estimate": false,
+        "note": "2015-2019: 53.84. National 46.98. High incidence (smoking history) drives most mortality differences."
+      },
+      "mortality_incidence_ratio": {
+        "value": 0.733,
+        "unit": "ratio of age-standardised rates",
+        "source_id": "team-calc",
+        "year": "2020-2024",
+        "is_estimate": true,
+        "note": "Crude proxy only (national 0.762). Not a survival measure; no interval; noisy for small counties."
+      },
+      "deaths_c32_c34_statfin_per_year": {
+        "value": 78.2,
+        "count": 391,
+        "unit": "deaths per year (C32-C34, includes larynx)",
+        "source_id": "statfin-13u5",
+        "year": "2021-2025",
+        "is_estimate": false,
+        "series": {
+          "2016": 64,
+          "2017": 83,
+          "2018": 76,
+          "2019": 83,
+          "2020": 68,
+          "2021": 75,
+          "2022": 75,
+          "2023": 62,
+          "2024": 85,
+          "2025": 94
+        },
+        "note": "Cross-check including 2025 (94 deaths). Mean crude rate 2021-2025 38.2 per 100,000 (not age-standardised)."
+      },
+      "survival_relative_5y": {
+        "value": null,
+        "source_id": "fcr-survival",
+        "year": "2022-2024",
+        "is_estimate": false,
+        "note": "Not published by wellbeing services county. See cooperation_areas[\"etela-suomi\"] for the area-level figure, which must not be shown as this county's own value."
+      }
+    },
+    {
+      "id": "lansi-uusimaa",
+      "name": "Länsi-Uusimaa",
+      "official_name": "Länsi-Uudenmaan hyvinvointialue",
+      "statfin_code": "HVA03",
+      "cooperation_area": "etela-suomi",
+      "lung_cancer_deaths_per_year": {
+        "value": 171.2,
+        "count": 856,
+        "unit": "deaths per year (C33-C34)",
+        "source_id": "fcr-mortality",
+        "year": "2020-2024",
+        "is_estimate": false,
+        "note": "Mean of 5 years; total 856 deaths (2015-2019: 776)."
+      },
+      "lung_cancer_mortality_asr": {
+        "value": 37.52,
+        "ci95_low": 35,
+        "ci95_high": 40.1,
+        "unit": "deaths per 100,000, age-standardised (Finland 2014)",
+        "source_id": "fcr-mortality",
+        "year": "2020-2024",
+        "is_estimate": false,
+        "note": "Rate is published by the registry; the 95% interval is our approximation (is_estimate). National 35.79."
+      },
+      "lung_cancer_mortality_asr_2015_2019": {
+        "value": 39.77,
+        "ci95_low": 37,
+        "ci95_high": 42.7,
+        "unit": "deaths per 100,000, age-standardised (Finland 2014)",
+        "source_id": "fcr-mortality",
+        "year": "2015-2019",
+        "is_estimate": false,
+        "note": "Earlier period for a stability check. National 39.27."
+      },
+      "mortality_signal": {
+        "value": "not_distinguishable_from_national",
+        "source_id": "team-calc",
+        "year": "2015-2024",
+        "is_estimate": true,
+        "note": "Approximate 95% interval vs national rate in both 5-year periods. Present only consistently_higher/consistently_lower as findings."
+      },
+      "excess_deaths_per_year_vs_national_rate": {
+        "value": null,
+        "unit": "deaths per year",
+        "source_id": "team-calc",
+        "year": "2020-2024",
+        "is_estimate": true,
+        "note": "Not computed: the region is not consistently above the national rate."
+      },
+      "lung_cancer_cases_per_year": {
+        "value": 213.2,
+        "count": 1066,
+        "unit": "new cases per year (C33-C34)",
+        "source_id": "fcr-incidence",
+        "year": "2020-2024",
+        "is_estimate": false,
+        "note": "Mean of 5 years; total 1066 (2015-2019: 1007)."
+      },
+      "lung_cancer_incidence_asr": {
+        "value": 46.63,
+        "unit": "cases per 100,000, age-standardised (Finland 2014)",
+        "source_id": "fcr-incidence",
+        "year": "2020-2024",
+        "is_estimate": false,
+        "note": "2015-2019: 51.06. National 46.98. High incidence (smoking history) drives most mortality differences."
+      },
+      "mortality_incidence_ratio": {
+        "value": 0.805,
+        "unit": "ratio of age-standardised rates",
+        "source_id": "team-calc",
+        "year": "2020-2024",
+        "is_estimate": true,
+        "note": "Crude proxy only (national 0.762). Not a survival measure; no interval; noisy for small counties."
+      },
+      "deaths_c32_c34_statfin_per_year": {
+        "value": 171.6,
+        "count": 858,
+        "unit": "deaths per year (C32-C34, includes larynx)",
+        "source_id": "statfin-13u5",
+        "year": "2021-2025",
+        "is_estimate": false,
+        "series": {
+          "2016": 152,
+          "2017": 170,
+          "2018": 146,
+          "2019": 152,
+          "2020": 164,
+          "2021": 187,
+          "2022": 183,
+          "2023": 170,
+          "2024": 168,
+          "2025": 150
+        },
+        "note": "Cross-check including 2025 (150 deaths). Mean crude rate 2021-2025 35 per 100,000 (not age-standardised)."
+      },
+      "survival_relative_5y": {
+        "value": null,
+        "source_id": "fcr-survival",
+        "year": "2022-2024",
+        "is_estimate": false,
+        "note": "Not published by wellbeing services county. See cooperation_areas[\"etela-suomi\"] for the area-level figure, which must not be shown as this county's own value."
+      }
+    },
+    {
+      "id": "vantaa-kerava",
+      "name": "Vantaa ja Kerava",
+      "official_name": "Vantaan ja Keravan hyvinvointialue",
+      "statfin_code": "HVA04",
+      "cooperation_area": "etela-suomi",
+      "lung_cancer_deaths_per_year": {
+        "value": 88,
+        "count": 440,
+        "unit": "deaths per year (C33-C34)",
+        "source_id": "fcr-mortality",
+        "year": "2020-2024",
+        "is_estimate": false,
+        "note": "Mean of 5 years; total 440 deaths (2015-2019: 418)."
+      },
+      "lung_cancer_mortality_asr": {
+        "value": 37.87,
+        "ci95_low": 34.4,
+        "ci95_high": 41.6,
+        "unit": "deaths per 100,000, age-standardised (Finland 2014)",
+        "source_id": "fcr-mortality",
+        "year": "2020-2024",
+        "is_estimate": false,
+        "note": "Rate is published by the registry; the 95% interval is our approximation (is_estimate). National 35.79."
+      },
+      "lung_cancer_mortality_asr_2015_2019": {
+        "value": 41.67,
+        "ci95_low": 37.8,
+        "ci95_high": 45.9,
+        "unit": "deaths per 100,000, age-standardised (Finland 2014)",
+        "source_id": "fcr-mortality",
+        "year": "2015-2019",
+        "is_estimate": false,
+        "note": "Earlier period for a stability check. National 39.27."
+      },
+      "mortality_signal": {
+        "value": "not_distinguishable_from_national",
+        "source_id": "team-calc",
+        "year": "2015-2024",
+        "is_estimate": true,
+        "note": "Approximate 95% interval vs national rate in both 5-year periods. Present only consistently_higher/consistently_lower as findings."
+      },
+      "excess_deaths_per_year_vs_national_rate": {
+        "value": null,
+        "unit": "deaths per year",
+        "source_id": "team-calc",
+        "year": "2020-2024",
+        "is_estimate": true,
+        "note": "Not computed: the region is not consistently above the national rate."
+      },
+      "lung_cancer_cases_per_year": {
+        "value": 118.6,
+        "count": 593,
+        "unit": "new cases per year (C33-C34)",
+        "source_id": "fcr-incidence",
+        "year": "2020-2024",
+        "is_estimate": false,
+        "note": "Mean of 5 years; total 593 (2015-2019: 567)."
+      },
+      "lung_cancer_incidence_asr": {
+        "value": 49.92,
+        "unit": "cases per 100,000, age-standardised (Finland 2014)",
+        "source_id": "fcr-incidence",
+        "year": "2020-2024",
+        "is_estimate": false,
+        "note": "2015-2019: 55.34. National 46.98. High incidence (smoking history) drives most mortality differences."
+      },
+      "mortality_incidence_ratio": {
+        "value": 0.759,
+        "unit": "ratio of age-standardised rates",
+        "source_id": "team-calc",
+        "year": "2020-2024",
+        "is_estimate": true,
+        "note": "Crude proxy only (national 0.762). Not a survival measure; no interval; noisy for small counties."
+      },
+      "deaths_c32_c34_statfin_per_year": {
+        "value": 83.4,
+        "count": 417,
+        "unit": "deaths per year (C32-C34, includes larynx)",
+        "source_id": "statfin-13u5",
+        "year": "2021-2025",
+        "is_estimate": false,
+        "series": {
+          "2016": 89,
+          "2017": 79,
+          "2018": 86,
+          "2019": 86,
+          "2020": 105,
+          "2021": 95,
+          "2022": 82,
+          "2023": 90,
+          "2024": 73,
+          "2025": 77
+        },
+        "note": "Cross-check including 2025 (77 deaths). Mean crude rate 2021-2025 29.5 per 100,000 (not age-standardised)."
+      },
+      "survival_relative_5y": {
+        "value": null,
+        "source_id": "fcr-survival",
+        "year": "2022-2024",
+        "is_estimate": false,
+        "note": "Not published by wellbeing services county. See cooperation_areas[\"etela-suomi\"] for the area-level figure, which must not be shown as this county's own value."
+      }
+    },
+    {
+      "id": "varsinais-suomi",
+      "name": "Varsinais-Suomi",
+      "official_name": "Varsinais-Suomen hyvinvointialue",
+      "statfin_code": "HVA05",
+      "cooperation_area": "lansi-suomi",
+      "lung_cancer_deaths_per_year": {
+        "value": 207.4,
+        "count": 1037,
+        "unit": "deaths per year (C33-C34)",
+        "source_id": "fcr-mortality",
+        "year": "2020-2024",
+        "is_estimate": false,
+        "note": "Mean of 5 years; total 1037 deaths (2015-2019: 1114)."
+      },
+      "lung_cancer_mortality_asr": {
+        "value": 35.85,
+        "ci95_low": 33.7,
+        "ci95_high": 38.1,
+        "unit": "deaths per 100,000, age-standardised (Finland 2014)",
+        "source_id": "fcr-mortality",
+        "year": "2020-2024",
+        "is_estimate": false,
+        "note": "Rate is published by the registry; the 95% interval is our approximation (is_estimate). National 35.79."
+      },
+      "lung_cancer_mortality_asr_2015_2019": {
+        "value": 42.22,
+        "ci95_low": 39.8,
+        "ci95_high": 44.8,
+        "unit": "deaths per 100,000, age-standardised (Finland 2014)",
+        "source_id": "fcr-mortality",
+        "year": "2015-2019",
+        "is_estimate": false,
+        "note": "Earlier period for a stability check. National 39.27."
+      },
+      "mortality_signal": {
+        "value": "not_distinguishable_from_national",
+        "source_id": "team-calc",
+        "year": "2015-2024",
+        "is_estimate": true,
+        "note": "Approximate 95% interval vs national rate in both 5-year periods. Present only consistently_higher/consistently_lower as findings."
+      },
+      "excess_deaths_per_year_vs_national_rate": {
+        "value": null,
+        "unit": "deaths per year",
+        "source_id": "team-calc",
+        "year": "2020-2024",
+        "is_estimate": true,
+        "note": "Not computed: the region is not consistently above the national rate."
+      },
+      "lung_cancer_cases_per_year": {
+        "value": 277.6,
+        "count": 1388,
+        "unit": "new cases per year (C33-C34)",
+        "source_id": "fcr-incidence",
+        "year": "2020-2024",
+        "is_estimate": false,
+        "note": "Mean of 5 years; total 1388 (2015-2019: 1380)."
+      },
+      "lung_cancer_incidence_asr": {
+        "value": 48.5,
+        "unit": "cases per 100,000, age-standardised (Finland 2014)",
+        "source_id": "fcr-incidence",
+        "year": "2020-2024",
+        "is_estimate": false,
+        "note": "2015-2019: 52.54. National 46.98. High incidence (smoking history) drives most mortality differences."
+      },
+      "mortality_incidence_ratio": {
+        "value": 0.739,
+        "unit": "ratio of age-standardised rates",
+        "source_id": "team-calc",
+        "year": "2020-2024",
+        "is_estimate": true,
+        "note": "Crude proxy only (national 0.762). Not a survival measure; no interval; noisy for small counties."
+      },
+      "deaths_c32_c34_statfin_per_year": {
+        "value": 212.6,
+        "count": 1063,
+        "unit": "deaths per year (C32-C34, includes larynx)",
+        "source_id": "statfin-13u5",
+        "year": "2021-2025",
+        "is_estimate": false,
+        "series": {
+          "2016": 244,
+          "2017": 203,
+          "2018": 230,
+          "2019": 247,
+          "2020": 240,
+          "2021": 200,
+          "2022": 214,
+          "2023": 197,
+          "2024": 213,
+          "2025": 239
+        },
+        "note": "Cross-check including 2025 (239 deaths). Mean crude rate 2021-2025 43.5 per 100,000 (not age-standardised)."
+      },
+      "survival_relative_5y": {
+        "value": null,
+        "source_id": "fcr-survival",
+        "year": "2022-2024",
+        "is_estimate": false,
+        "note": "Not published by wellbeing services county. See cooperation_areas[\"lansi-suomi\"] for the area-level figure, which must not be shown as this county's own value."
+      }
+    },
+    {
+      "id": "satakunta",
+      "name": "Satakunta",
+      "official_name": "Satakunnan hyvinvointialue",
+      "statfin_code": "HVA06",
+      "cooperation_area": "lansi-suomi",
+      "lung_cancer_deaths_per_year": {
+        "value": 113.2,
+        "count": 566,
+        "unit": "deaths per year (C33-C34)",
+        "source_id": "fcr-mortality",
+        "year": "2020-2024",
+        "is_estimate": false,
+        "note": "Mean of 5 years; total 566 deaths (2015-2019: 548)."
+      },
+      "lung_cancer_mortality_asr": {
+        "value": 38.44,
+        "ci95_low": 35.3,
+        "ci95_high": 41.7,
+        "unit": "deaths per 100,000, age-standardised (Finland 2014)",
+        "source_id": "fcr-mortality",
+        "year": "2020-2024",
+        "is_estimate": false,
+        "note": "Rate is published by the registry; the 95% interval is our approximation (is_estimate). National 35.79."
+      },
+      "lung_cancer_mortality_asr_2015_2019": {
+        "value": 39.42,
+        "ci95_low": 36.2,
+        "ci95_high": 42.9,
+        "unit": "deaths per 100,000, age-standardised (Finland 2014)",
+        "source_id": "fcr-mortality",
+        "year": "2015-2019",
+        "is_estimate": false,
+        "note": "Earlier period for a stability check. National 39.27."
+      },
+      "mortality_signal": {
+        "value": "not_distinguishable_from_national",
+        "source_id": "team-calc",
+        "year": "2015-2024",
+        "is_estimate": true,
+        "note": "Approximate 95% interval vs national rate in both 5-year periods. Present only consistently_higher/consistently_lower as findings."
+      },
+      "excess_deaths_per_year_vs_national_rate": {
+        "value": null,
+        "unit": "deaths per year",
+        "source_id": "team-calc",
+        "year": "2020-2024",
+        "is_estimate": true,
+        "note": "Not computed: the region is not consistently above the national rate."
+      },
+      "lung_cancer_cases_per_year": {
+        "value": 142.4,
+        "count": 712,
+        "unit": "new cases per year (C33-C34)",
+        "source_id": "fcr-incidence",
+        "year": "2020-2024",
+        "is_estimate": false,
+        "note": "Mean of 5 years; total 712 (2015-2019: 663)."
+      },
+      "lung_cancer_incidence_asr": {
+        "value": 48.83,
+        "unit": "cases per 100,000, age-standardised (Finland 2014)",
+        "source_id": "fcr-incidence",
+        "year": "2020-2024",
+        "is_estimate": false,
+        "note": "2015-2019: 48.33. National 46.98. High incidence (smoking history) drives most mortality differences."
+      },
+      "mortality_incidence_ratio": {
+        "value": 0.787,
+        "unit": "ratio of age-standardised rates",
+        "source_id": "team-calc",
+        "year": "2020-2024",
+        "is_estimate": true,
+        "note": "Crude proxy only (national 0.762). Not a survival measure; no interval; noisy for small counties."
+      },
+      "deaths_c32_c34_statfin_per_year": {
+        "value": 122.6,
+        "count": 613,
+        "unit": "deaths per year (C32-C34, includes larynx)",
+        "source_id": "statfin-13u5",
+        "year": "2021-2025",
+        "is_estimate": false,
+        "series": {
+          "2016": 112,
+          "2017": 109,
+          "2018": 108,
+          "2019": 103,
+          "2020": 87,
+          "2021": 127,
+          "2022": 126,
+          "2023": 119,
+          "2024": 118,
+          "2025": 123
+        },
+        "note": "Cross-check including 2025 (123 deaths). Mean crude rate 2021-2025 57.7 per 100,000 (not age-standardised)."
+      },
+      "survival_relative_5y": {
+        "value": null,
+        "source_id": "fcr-survival",
+        "year": "2022-2024",
+        "is_estimate": false,
+        "note": "Not published by wellbeing services county. See cooperation_areas[\"lansi-suomi\"] for the area-level figure, which must not be shown as this county's own value."
+      }
+    },
+    {
+      "id": "kanta-hame",
+      "name": "Kanta-Häme",
+      "official_name": "Kanta-Hämeen hyvinvointialue",
+      "statfin_code": "HVA07",
+      "cooperation_area": "sisa-suomi",
+      "lung_cancer_deaths_per_year": {
+        "value": 84.6,
+        "count": 423,
+        "unit": "deaths per year (C33-C34)",
+        "source_id": "fcr-mortality",
+        "year": "2020-2024",
+        "is_estimate": false,
+        "note": "Mean of 5 years; total 423 deaths (2015-2019: 407)."
+      },
+      "lung_cancer_mortality_asr": {
+        "value": 37.57,
+        "ci95_low": 34.1,
+        "ci95_high": 41.3,
+        "unit": "deaths per 100,000, age-standardised (Finland 2014)",
+        "source_id": "fcr-mortality",
+        "year": "2020-2024",
+        "is_estimate": false,
+        "note": "Rate is published by the registry; the 95% interval is our approximation (is_estimate). National 35.79."
+      },
+      "lung_cancer_mortality_asr_2015_2019": {
+        "value": 40.07,
+        "ci95_low": 36.3,
+        "ci95_high": 44.2,
+        "unit": "deaths per 100,000, age-standardised (Finland 2014)",
+        "source_id": "fcr-mortality",
+        "year": "2015-2019",
+        "is_estimate": false,
+        "note": "Earlier period for a stability check. National 39.27."
+      },
+      "mortality_signal": {
+        "value": "not_distinguishable_from_national",
+        "source_id": "team-calc",
+        "year": "2015-2024",
+        "is_estimate": true,
+        "note": "Approximate 95% interval vs national rate in both 5-year periods. Present only consistently_higher/consistently_lower as findings."
+      },
+      "excess_deaths_per_year_vs_national_rate": {
+        "value": null,
+        "unit": "deaths per year",
+        "source_id": "team-calc",
+        "year": "2020-2024",
+        "is_estimate": true,
+        "note": "Not computed: the region is not consistently above the national rate."
+      },
+      "lung_cancer_cases_per_year": {
+        "value": 109.2,
+        "count": 546,
+        "unit": "new cases per year (C33-C34)",
+        "source_id": "fcr-incidence",
+        "year": "2020-2024",
+        "is_estimate": false,
+        "note": "Mean of 5 years; total 546 (2015-2019: 510)."
+      },
+      "lung_cancer_incidence_asr": {
+        "value": 48.92,
+        "unit": "cases per 100,000, age-standardised (Finland 2014)",
+        "source_id": "fcr-incidence",
+        "year": "2020-2024",
+        "is_estimate": false,
+        "note": "2015-2019: 50.46. National 46.98. High incidence (smoking history) drives most mortality differences."
+      },
+      "mortality_incidence_ratio": {
+        "value": 0.768,
+        "unit": "ratio of age-standardised rates",
+        "source_id": "team-calc",
+        "year": "2020-2024",
+        "is_estimate": true,
+        "note": "Crude proxy only (national 0.762). Not a survival measure; no interval; noisy for small counties."
+      },
+      "deaths_c32_c34_statfin_per_year": {
+        "value": 83.4,
+        "count": 417,
+        "unit": "deaths per year (C32-C34, includes larynx)",
+        "source_id": "statfin-13u5",
+        "year": "2021-2025",
+        "is_estimate": false,
+        "series": {
+          "2016": 96,
+          "2017": 77,
+          "2018": 85,
+          "2019": 91,
+          "2020": 91,
+          "2021": 87,
+          "2022": 92,
+          "2023": 77,
+          "2024": 88,
+          "2025": 73
+        },
+        "note": "Cross-check including 2025 (73 deaths). Mean crude rate 2021-2025 49.1 per 100,000 (not age-standardised)."
+      },
+      "survival_relative_5y": {
+        "value": null,
+        "source_id": "fcr-survival",
+        "year": "2022-2024",
+        "is_estimate": false,
+        "note": "Not published by wellbeing services county. See cooperation_areas[\"sisa-suomi\"] for the area-level figure, which must not be shown as this county's own value."
+      }
+    },
+    {
+      "id": "pirkanmaa",
+      "name": "Pirkanmaa",
+      "official_name": "Pirkanmaan hyvinvointialue",
+      "statfin_code": "HVA08",
+      "cooperation_area": "sisa-suomi",
+      "lung_cancer_deaths_per_year": {
+        "value": 187.2,
+        "count": 936,
+        "unit": "deaths per year (C33-C34)",
+        "source_id": "fcr-mortality",
+        "year": "2020-2024",
+        "is_estimate": false,
+        "note": "Mean of 5 years; total 936 deaths (2015-2019: 965)."
+      },
+      "lung_cancer_mortality_asr": {
+        "value": 31.61,
+        "ci95_low": 29.6,
+        "ci95_high": 33.7,
+        "unit": "deaths per 100,000, age-standardised (Finland 2014)",
+        "source_id": "fcr-mortality",
+        "year": "2020-2024",
+        "is_estimate": false,
+        "note": "Rate is published by the registry; the 95% interval is our approximation (is_estimate). National 35.79."
+      },
+      "lung_cancer_mortality_asr_2015_2019": {
+        "value": 36.2,
+        "ci95_low": 34,
+        "ci95_high": 38.6,
+        "unit": "deaths per 100,000, age-standardised (Finland 2014)",
+        "source_id": "fcr-mortality",
+        "year": "2015-2019",
+        "is_estimate": false,
+        "note": "Earlier period for a stability check. National 39.27."
+      },
+      "mortality_signal": {
+        "value": "consistently_lower",
+        "source_id": "team-calc",
+        "year": "2015-2024",
+        "is_estimate": true,
+        "note": "Approximate 95% interval vs national rate in both 5-year periods. Present only consistently_higher/consistently_lower as findings."
+      },
+      "excess_deaths_per_year_vs_national_rate": {
+        "value": null,
+        "unit": "deaths per year",
+        "source_id": "team-calc",
+        "year": "2020-2024",
+        "is_estimate": true,
+        "note": "Not computed: the region is not consistently above the national rate."
+      },
+      "lung_cancer_cases_per_year": {
+        "value": 259.6,
+        "count": 1298,
+        "unit": "new cases per year (C33-C34)",
+        "source_id": "fcr-incidence",
+        "year": "2020-2024",
+        "is_estimate": false,
+        "note": "Mean of 5 years; total 1298 (2015-2019: 1254)."
+      },
+      "lung_cancer_incidence_asr": {
+        "value": 43.97,
+        "unit": "cases per 100,000, age-standardised (Finland 2014)",
+        "source_id": "fcr-incidence",
+        "year": "2020-2024",
+        "is_estimate": false,
+        "note": "2015-2019: 47.4. National 46.98. High incidence (smoking history) drives most mortality differences."
+      },
+      "mortality_incidence_ratio": {
+        "value": 0.719,
+        "unit": "ratio of age-standardised rates",
+        "source_id": "team-calc",
+        "year": "2020-2024",
+        "is_estimate": true,
+        "note": "Crude proxy only (national 0.762). Not a survival measure; no interval; noisy for small counties."
+      },
+      "deaths_c32_c34_statfin_per_year": {
+        "value": 192.4,
+        "count": 962,
+        "unit": "deaths per year (C32-C34, includes larynx)",
+        "source_id": "statfin-13u5",
+        "year": "2021-2025",
+        "is_estimate": false,
+        "series": {
+          "2016": 211,
+          "2017": 206,
+          "2018": 189,
+          "2019": 194,
+          "2020": 176,
+          "2021": 183,
+          "2022": 201,
+          "2023": 204,
+          "2024": 182,
+          "2025": 192
+        },
+        "note": "Cross-check including 2025 (192 deaths). Mean crude rate 2021-2025 35.9 per 100,000 (not age-standardised)."
+      },
+      "survival_relative_5y": {
+        "value": null,
+        "source_id": "fcr-survival",
+        "year": "2022-2024",
+        "is_estimate": false,
+        "note": "Not published by wellbeing services county. See cooperation_areas[\"sisa-suomi\"] for the area-level figure, which must not be shown as this county's own value."
+      }
+    },
+    {
+      "id": "paijat-hame",
+      "name": "Päijät-Häme",
+      "official_name": "Päijät-Hämeen hyvinvointialue",
+      "statfin_code": "HVA09",
+      "cooperation_area": "etela-suomi",
+      "lung_cancer_deaths_per_year": {
+        "value": 103.8,
+        "count": 519,
+        "unit": "deaths per year (C33-C34)",
+        "source_id": "fcr-mortality",
+        "year": "2020-2024",
+        "is_estimate": false,
+        "note": "Mean of 5 years; total 519 deaths (2015-2019: 470)."
+      },
+      "lung_cancer_mortality_asr": {
+        "value": 36.9,
+        "ci95_low": 33.8,
+        "ci95_high": 40.2,
+        "unit": "deaths per 100,000, age-standardised (Finland 2014)",
+        "source_id": "fcr-mortality",
+        "year": "2020-2024",
+        "is_estimate": false,
+        "note": "Rate is published by the registry; the 95% interval is our approximation (is_estimate). National 35.79."
+      },
+      "lung_cancer_mortality_asr_2015_2019": {
+        "value": 37.15,
+        "ci95_low": 33.9,
+        "ci95_high": 40.7,
+        "unit": "deaths per 100,000, age-standardised (Finland 2014)",
+        "source_id": "fcr-mortality",
+        "year": "2015-2019",
+        "is_estimate": false,
+        "note": "Earlier period for a stability check. National 39.27."
+      },
+      "mortality_signal": {
+        "value": "not_distinguishable_from_national",
+        "source_id": "team-calc",
+        "year": "2015-2024",
+        "is_estimate": true,
+        "note": "Approximate 95% interval vs national rate in both 5-year periods. Present only consistently_higher/consistently_lower as findings."
+      },
+      "excess_deaths_per_year_vs_national_rate": {
+        "value": null,
+        "unit": "deaths per year",
+        "source_id": "team-calc",
+        "year": "2020-2024",
+        "is_estimate": true,
+        "note": "Not computed: the region is not consistently above the national rate."
+      },
+      "lung_cancer_cases_per_year": {
+        "value": 136.6,
+        "count": 683,
+        "unit": "new cases per year (C33-C34)",
+        "source_id": "fcr-incidence",
+        "year": "2020-2024",
+        "is_estimate": false,
+        "note": "Mean of 5 years; total 683 (2015-2019: 574)."
+      },
+      "lung_cancer_incidence_asr": {
+        "value": 48.89,
+        "unit": "cases per 100,000, age-standardised (Finland 2014)",
+        "source_id": "fcr-incidence",
+        "year": "2020-2024",
+        "is_estimate": false,
+        "note": "2015-2019: 45.22. National 46.98. High incidence (smoking history) drives most mortality differences."
+      },
+      "mortality_incidence_ratio": {
+        "value": 0.755,
+        "unit": "ratio of age-standardised rates",
+        "source_id": "team-calc",
+        "year": "2020-2024",
+        "is_estimate": true,
+        "note": "Crude proxy only (national 0.762). Not a survival measure; no interval; noisy for small counties."
+      },
+      "deaths_c32_c34_statfin_per_year": {
+        "value": 109.4,
+        "count": 547,
+        "unit": "deaths per year (C32-C34, includes larynx)",
+        "source_id": "statfin-13u5",
+        "year": "2021-2025",
+        "is_estimate": false,
+        "series": {
+          "2016": 100,
+          "2017": 99,
+          "2018": 87,
+          "2019": 96,
+          "2020": 81,
+          "2021": 115,
+          "2022": 123,
+          "2023": 110,
+          "2024": 106,
+          "2025": 93
+        },
+        "note": "Cross-check including 2025 (93 deaths). Mean crude rate 2021-2025 53.4 per 100,000 (not age-standardised)."
+      },
+      "survival_relative_5y": {
+        "value": null,
+        "source_id": "fcr-survival",
+        "year": "2022-2024",
+        "is_estimate": false,
+        "note": "Not published by wellbeing services county. See cooperation_areas[\"etela-suomi\"] for the area-level figure, which must not be shown as this county's own value."
+      }
+    },
+    {
+      "id": "kymenlaakso",
+      "name": "Kymenlaakso",
+      "official_name": "Kymenlaakson hyvinvointialue",
+      "statfin_code": "HVA10",
+      "cooperation_area": "etela-suomi",
+      "lung_cancer_deaths_per_year": {
+        "value": 95.2,
+        "count": 476,
+        "unit": "deaths per year (C33-C34)",
+        "source_id": "fcr-mortality",
+        "year": "2020-2024",
+        "is_estimate": false,
+        "note": "Mean of 5 years; total 476 deaths (2015-2019: 456)."
+      },
+      "lung_cancer_mortality_asr": {
+        "value": 40.09,
+        "ci95_low": 36.6,
+        "ci95_high": 43.9,
+        "unit": "deaths per 100,000, age-standardised (Finland 2014)",
+        "source_id": "fcr-mortality",
+        "year": "2020-2024",
+        "is_estimate": false,
+        "note": "Rate is published by the registry; the 95% interval is our approximation (is_estimate). National 35.79."
+      },
+      "lung_cancer_mortality_asr_2015_2019": {
+        "value": 41.71,
+        "ci95_low": 38,
+        "ci95_high": 45.7,
+        "unit": "deaths per 100,000, age-standardised (Finland 2014)",
+        "source_id": "fcr-mortality",
+        "year": "2015-2019",
+        "is_estimate": false,
+        "note": "Earlier period for a stability check. National 39.27."
+      },
+      "mortality_signal": {
+        "value": "higher_latest_period_only",
+        "source_id": "team-calc",
+        "year": "2015-2024",
+        "is_estimate": true,
+        "note": "Approximate 95% interval vs national rate in both 5-year periods. Present only consistently_higher/consistently_lower as findings."
+      },
+      "excess_deaths_per_year_vs_national_rate": {
+        "value": null,
+        "unit": "deaths per year",
+        "source_id": "team-calc",
+        "year": "2020-2024",
+        "is_estimate": true,
+        "note": "Not computed: the region is not consistently above the national rate."
+      },
+      "lung_cancer_cases_per_year": {
+        "value": 118,
+        "count": 590,
+        "unit": "new cases per year (C33-C34)",
+        "source_id": "fcr-incidence",
+        "year": "2020-2024",
+        "is_estimate": false,
+        "note": "Mean of 5 years; total 590 (2015-2019: 555)."
+      },
+      "lung_cancer_incidence_asr": {
+        "value": 51.16,
+        "unit": "cases per 100,000, age-standardised (Finland 2014)",
+        "source_id": "fcr-incidence",
+        "year": "2020-2024",
+        "is_estimate": false,
+        "note": "2015-2019: 51.36. National 46.98. High incidence (smoking history) drives most mortality differences."
+      },
+      "mortality_incidence_ratio": {
+        "value": 0.784,
+        "unit": "ratio of age-standardised rates",
+        "source_id": "team-calc",
+        "year": "2020-2024",
+        "is_estimate": true,
+        "note": "Crude proxy only (national 0.762). Not a survival measure; no interval; noisy for small counties."
+      },
+      "deaths_c32_c34_statfin_per_year": {
+        "value": 97.6,
+        "count": 488,
+        "unit": "deaths per year (C32-C34, includes larynx)",
+        "source_id": "statfin-13u5",
+        "year": "2021-2025",
+        "is_estimate": false,
+        "series": {
+          "2016": 79,
+          "2017": 93,
+          "2018": 96,
+          "2019": 107,
+          "2020": 85,
+          "2021": 97,
+          "2022": 106,
+          "2023": 102,
+          "2024": 96,
+          "2025": 87
+        },
+        "note": "Cross-check including 2025 (87 deaths). Mean crude rate 2021-2025 61.2 per 100,000 (not age-standardised)."
+      },
+      "survival_relative_5y": {
+        "value": null,
+        "source_id": "fcr-survival",
+        "year": "2022-2024",
+        "is_estimate": false,
+        "note": "Not published by wellbeing services county. See cooperation_areas[\"etela-suomi\"] for the area-level figure, which must not be shown as this county's own value."
+      }
+    },
+    {
+      "id": "etela-karjala",
+      "name": "Etelä-Karjala",
+      "official_name": "Etelä-Karjalan hyvinvointialue",
+      "statfin_code": "HVA11",
+      "cooperation_area": "etela-suomi",
+      "lung_cancer_deaths_per_year": {
+        "value": 58.2,
+        "count": 291,
+        "unit": "deaths per year (C33-C34)",
+        "source_id": "fcr-mortality",
+        "year": "2020-2024",
+        "is_estimate": false,
+        "note": "Mean of 5 years; total 291 deaths (2015-2019: 304)."
+      },
+      "lung_cancer_mortality_asr": {
+        "value": 32.86,
+        "ci95_low": 29.2,
+        "ci95_high": 36.9,
+        "unit": "deaths per 100,000, age-standardised (Finland 2014)",
+        "source_id": "fcr-mortality",
+        "year": "2020-2024",
+        "is_estimate": false,
+        "note": "Rate is published by the registry; the 95% interval is our approximation (is_estimate). National 35.79."
+      },
+      "lung_cancer_mortality_asr_2015_2019": {
+        "value": 36.74,
+        "ci95_low": 32.7,
+        "ci95_high": 41.1,
+        "unit": "deaths per 100,000, age-standardised (Finland 2014)",
+        "source_id": "fcr-mortality",
+        "year": "2015-2019",
+        "is_estimate": false,
+        "note": "Earlier period for a stability check. National 39.27."
+      },
+      "mortality_signal": {
+        "value": "not_distinguishable_from_national",
+        "source_id": "team-calc",
+        "year": "2015-2024",
+        "is_estimate": true,
+        "note": "Approximate 95% interval vs national rate in both 5-year periods. Present only consistently_higher/consistently_lower as findings."
+      },
+      "excess_deaths_per_year_vs_national_rate": {
+        "value": null,
+        "unit": "deaths per year",
+        "source_id": "team-calc",
+        "year": "2020-2024",
+        "is_estimate": true,
+        "note": "Not computed: the region is not consistently above the national rate."
+      },
+      "lung_cancer_cases_per_year": {
+        "value": 72.6,
+        "count": 363,
+        "unit": "new cases per year (C33-C34)",
+        "source_id": "fcr-incidence",
+        "year": "2020-2024",
+        "is_estimate": false,
+        "note": "Mean of 5 years; total 363 (2015-2019: 380)."
+      },
+      "lung_cancer_incidence_asr": {
+        "value": 41.62,
+        "unit": "cases per 100,000, age-standardised (Finland 2014)",
+        "source_id": "fcr-incidence",
+        "year": "2020-2024",
+        "is_estimate": false,
+        "note": "2015-2019: 46.29. National 46.98. High incidence (smoking history) drives most mortality differences."
+      },
+      "mortality_incidence_ratio": {
+        "value": 0.79,
+        "unit": "ratio of age-standardised rates",
+        "source_id": "team-calc",
+        "year": "2020-2024",
+        "is_estimate": true,
+        "note": "Crude proxy only (national 0.762). Not a survival measure; no interval; noisy for small counties."
+      },
+      "deaths_c32_c34_statfin_per_year": {
+        "value": 57.4,
+        "count": 287,
+        "unit": "deaths per year (C32-C34, includes larynx)",
+        "source_id": "statfin-13u5",
+        "year": "2021-2025",
+        "is_estimate": false,
+        "series": {
+          "2016": 62,
+          "2017": 60,
+          "2018": 54,
+          "2019": 66,
+          "2020": 64,
+          "2021": 50,
+          "2022": 58,
+          "2023": 51,
+          "2024": 68,
+          "2025": 60
+        },
+        "note": "Cross-check including 2025 (60 deaths). Mean crude rate 2021-2025 45.7 per 100,000 (not age-standardised)."
+      },
+      "survival_relative_5y": {
+        "value": null,
+        "source_id": "fcr-survival",
+        "year": "2022-2024",
+        "is_estimate": false,
+        "note": "Not published by wellbeing services county. See cooperation_areas[\"etela-suomi\"] for the area-level figure, which must not be shown as this county's own value."
+      }
+    },
+    {
+      "id": "etela-savo",
+      "name": "Etelä-Savo",
+      "official_name": "Etelä-Savon hyvinvointialue",
+      "statfin_code": "HVA12",
+      "cooperation_area": "ita-suomi",
+      "lung_cancer_deaths_per_year": {
+        "value": 70.8,
+        "count": 354,
+        "unit": "deaths per year (C33-C34)",
+        "source_id": "fcr-mortality",
+        "year": "2020-2024",
+        "is_estimate": false,
+        "note": "Mean of 5 years; total 354 deaths (2015-2019: 335)."
+      },
+      "lung_cancer_mortality_asr": {
+        "value": 34.37,
+        "ci95_low": 30.9,
+        "ci95_high": 38.1,
+        "unit": "deaths per 100,000, age-standardised (Finland 2014)",
+        "source_id": "fcr-mortality",
+        "year": "2020-2024",
+        "is_estimate": false,
+        "note": "Rate is published by the registry; the 95% interval is our approximation (is_estimate). National 35.79."
+      },
+      "lung_cancer_mortality_asr_2015_2019": {
+        "value": 34.74,
+        "ci95_low": 31.1,
+        "ci95_high": 38.7,
+        "unit": "deaths per 100,000, age-standardised (Finland 2014)",
+        "source_id": "fcr-mortality",
+        "year": "2015-2019",
+        "is_estimate": false,
+        "note": "Earlier period for a stability check. National 39.27."
+      },
+      "mortality_signal": {
+        "value": "not_distinguishable_from_national",
+        "source_id": "team-calc",
+        "year": "2015-2024",
+        "is_estimate": true,
+        "note": "Approximate 95% interval vs national rate in both 5-year periods. Present only consistently_higher/consistently_lower as findings."
+      },
+      "excess_deaths_per_year_vs_national_rate": {
+        "value": null,
+        "unit": "deaths per year",
+        "source_id": "team-calc",
+        "year": "2020-2024",
+        "is_estimate": true,
+        "note": "Not computed: the region is not consistently above the national rate."
+      },
+      "lung_cancer_cases_per_year": {
+        "value": 91,
+        "count": 455,
+        "unit": "new cases per year (C33-C34)",
+        "source_id": "fcr-incidence",
+        "year": "2020-2024",
+        "is_estimate": false,
+        "note": "Mean of 5 years; total 455 (2015-2019: 405)."
+      },
+      "lung_cancer_incidence_asr": {
+        "value": 45.07,
+        "unit": "cases per 100,000, age-standardised (Finland 2014)",
+        "source_id": "fcr-incidence",
+        "year": "2020-2024",
+        "is_estimate": false,
+        "note": "2015-2019: 42.16. National 46.98. High incidence (smoking history) drives most mortality differences."
+      },
+      "mortality_incidence_ratio": {
+        "value": 0.763,
+        "unit": "ratio of age-standardised rates",
+        "source_id": "team-calc",
+        "year": "2020-2024",
+        "is_estimate": true,
+        "note": "Crude proxy only (national 0.762). Not a survival measure; no interval; noisy for small counties."
+      },
+      "deaths_c32_c34_statfin_per_year": {
+        "value": 71.8,
+        "count": 359,
+        "unit": "deaths per year (C32-C34, includes larynx)",
+        "source_id": "statfin-13u5",
+        "year": "2021-2025",
+        "is_estimate": false,
+        "series": {
+          "2016": 74,
+          "2017": 62,
+          "2018": 61,
+          "2019": 69,
+          "2020": 68,
+          "2021": 64,
+          "2022": 95,
+          "2023": 57,
+          "2024": 75,
+          "2025": 68
+        },
+        "note": "Cross-check including 2025 (68 deaths). Mean crude rate 2021-2025 55.1 per 100,000 (not age-standardised)."
+      },
+      "survival_relative_5y": {
+        "value": null,
+        "source_id": "fcr-survival",
+        "year": "2022-2024",
+        "is_estimate": false,
+        "note": "Not published by wellbeing services county. See cooperation_areas[\"ita-suomi\"] for the area-level figure, which must not be shown as this county's own value."
+      }
+    },
+    {
+      "id": "pohjois-savo",
+      "name": "Pohjois-Savo",
+      "official_name": "Pohjois-Savon hyvinvointialue",
+      "statfin_code": "HVA13",
+      "cooperation_area": "ita-suomi",
+      "lung_cancer_deaths_per_year": {
+        "value": 93,
+        "count": 465,
+        "unit": "deaths per year (C33-C34)",
+        "source_id": "fcr-mortality",
+        "year": "2020-2024",
+        "is_estimate": false,
+        "note": "Mean of 5 years; total 465 deaths (2015-2019: 518)."
+      },
+      "lung_cancer_mortality_asr": {
+        "value": 28.24,
+        "ci95_low": 25.7,
+        "ci95_high": 30.9,
+        "unit": "deaths per 100,000, age-standardised (Finland 2014)",
+        "source_id": "fcr-mortality",
+        "year": "2020-2024",
+        "is_estimate": false,
+        "note": "Rate is published by the registry; the 95% interval is our approximation (is_estimate). National 35.79."
+      },
+      "lung_cancer_mortality_asr_2015_2019": {
+        "value": 34.56,
+        "ci95_low": 31.6,
+        "ci95_high": 37.7,
+        "unit": "deaths per 100,000, age-standardised (Finland 2014)",
+        "source_id": "fcr-mortality",
+        "year": "2015-2019",
+        "is_estimate": false,
+        "note": "Earlier period for a stability check. National 39.27."
+      },
+      "mortality_signal": {
+        "value": "consistently_lower",
+        "source_id": "team-calc",
+        "year": "2015-2024",
+        "is_estimate": true,
+        "note": "Approximate 95% interval vs national rate in both 5-year periods. Present only consistently_higher/consistently_lower as findings."
+      },
+      "excess_deaths_per_year_vs_national_rate": {
+        "value": null,
+        "unit": "deaths per year",
+        "source_id": "team-calc",
+        "year": "2020-2024",
+        "is_estimate": true,
+        "note": "Not computed: the region is not consistently above the national rate."
+      },
+      "lung_cancer_cases_per_year": {
+        "value": 127,
+        "count": 635,
+        "unit": "new cases per year (C33-C34)",
+        "source_id": "fcr-incidence",
+        "year": "2020-2024",
+        "is_estimate": false,
+        "note": "Mean of 5 years; total 635 (2015-2019: 665)."
+      },
+      "lung_cancer_incidence_asr": {
+        "value": 38.85,
+        "unit": "cases per 100,000, age-standardised (Finland 2014)",
+        "source_id": "fcr-incidence",
+        "year": "2020-2024",
+        "is_estimate": false,
+        "note": "2015-2019: 44.75. National 46.98. High incidence (smoking history) drives most mortality differences."
+      },
+      "mortality_incidence_ratio": {
+        "value": 0.727,
+        "unit": "ratio of age-standardised rates",
+        "source_id": "team-calc",
+        "year": "2020-2024",
+        "is_estimate": true,
+        "note": "Crude proxy only (national 0.762). Not a survival measure; no interval; noisy for small counties."
+      },
+      "deaths_c32_c34_statfin_per_year": {
+        "value": 97.4,
+        "count": 487,
+        "unit": "deaths per year (C32-C34, includes larynx)",
+        "source_id": "statfin-13u5",
+        "year": "2021-2025",
+        "is_estimate": false,
+        "series": {
+          "2016": 103,
+          "2017": 107,
+          "2018": 104,
+          "2019": 102,
+          "2020": 99,
+          "2021": 101,
+          "2022": 99,
+          "2023": 83,
+          "2024": 94,
+          "2025": 110
+        },
+        "note": "Cross-check including 2025 (110 deaths). Mean crude rate 2021-2025 39.2 per 100,000 (not age-standardised)."
+      },
+      "survival_relative_5y": {
+        "value": null,
+        "source_id": "fcr-survival",
+        "year": "2022-2024",
+        "is_estimate": false,
+        "note": "Not published by wellbeing services county. See cooperation_areas[\"ita-suomi\"] for the area-level figure, which must not be shown as this county's own value."
+      }
+    },
+    {
+      "id": "pohjois-karjala",
+      "name": "Pohjois-Karjala",
+      "official_name": "Pohjois-Karjalan hyvinvointialue",
+      "statfin_code": "HVA14",
+      "cooperation_area": "ita-suomi",
+      "lung_cancer_deaths_per_year": {
+        "value": 81.4,
+        "count": 407,
+        "unit": "deaths per year (C33-C34)",
+        "source_id": "fcr-mortality",
+        "year": "2020-2024",
+        "is_estimate": false,
+        "note": "Mean of 5 years; total 407 deaths (2015-2019: 404)."
+      },
+      "lung_cancer_mortality_asr": {
+        "value": 36.44,
+        "ci95_low": 33,
+        "ci95_high": 40.2,
+        "unit": "deaths per 100,000, age-standardised (Finland 2014)",
+        "source_id": "fcr-mortality",
+        "year": "2020-2024",
+        "is_estimate": false,
+        "note": "Rate is published by the registry; the 95% interval is our approximation (is_estimate). National 35.79."
+      },
+      "lung_cancer_mortality_asr_2015_2019": {
+        "value": 39.34,
+        "ci95_low": 35.6,
+        "ci95_high": 43.4,
+        "unit": "deaths per 100,000, age-standardised (Finland 2014)",
+        "source_id": "fcr-mortality",
+        "year": "2015-2019",
+        "is_estimate": false,
+        "note": "Earlier period for a stability check. National 39.27."
+      },
+      "mortality_signal": {
+        "value": "not_distinguishable_from_national",
+        "source_id": "team-calc",
+        "year": "2015-2024",
+        "is_estimate": true,
+        "note": "Approximate 95% interval vs national rate in both 5-year periods. Present only consistently_higher/consistently_lower as findings."
+      },
+      "excess_deaths_per_year_vs_national_rate": {
+        "value": null,
+        "unit": "deaths per year",
+        "source_id": "team-calc",
+        "year": "2020-2024",
+        "is_estimate": true,
+        "note": "Not computed: the region is not consistently above the national rate."
+      },
+      "lung_cancer_cases_per_year": {
+        "value": 98.8,
+        "count": 494,
+        "unit": "new cases per year (C33-C34)",
+        "source_id": "fcr-incidence",
+        "year": "2020-2024",
+        "is_estimate": false,
+        "note": "Mean of 5 years; total 494 (2015-2019: 495)."
+      },
+      "lung_cancer_incidence_asr": {
+        "value": 44.99,
+        "unit": "cases per 100,000, age-standardised (Finland 2014)",
+        "source_id": "fcr-incidence",
+        "year": "2020-2024",
+        "is_estimate": false,
+        "note": "2015-2019: 48.58. National 46.98. High incidence (smoking history) drives most mortality differences."
+      },
+      "mortality_incidence_ratio": {
+        "value": 0.81,
+        "unit": "ratio of age-standardised rates",
+        "source_id": "team-calc",
+        "year": "2020-2024",
+        "is_estimate": true,
+        "note": "Crude proxy only (national 0.762). Not a survival measure; no interval; noisy for small counties."
+      },
+      "deaths_c32_c34_statfin_per_year": {
+        "value": 80.4,
+        "count": 402,
+        "unit": "deaths per year (C32-C34, includes larynx)",
+        "source_id": "statfin-13u5",
+        "year": "2021-2025",
+        "is_estimate": false,
+        "series": {
+          "2016": 87,
+          "2017": 77,
+          "2018": 88,
+          "2019": 76,
+          "2020": 90,
+          "2021": 97,
+          "2022": 89,
+          "2023": 76,
+          "2024": 65,
+          "2025": 75
+        },
+        "note": "Cross-check including 2025 (75 deaths). Mean crude rate 2021-2025 49.5 per 100,000 (not age-standardised)."
+      },
+      "survival_relative_5y": {
+        "value": null,
+        "source_id": "fcr-survival",
+        "year": "2022-2024",
+        "is_estimate": false,
+        "note": "Not published by wellbeing services county. See cooperation_areas[\"ita-suomi\"] for the area-level figure, which must not be shown as this county's own value."
+      }
+    },
+    {
+      "id": "keski-suomi",
+      "name": "Keski-Suomi",
+      "official_name": "Keski-Suomen hyvinvointialue",
+      "statfin_code": "HVA15",
+      "cooperation_area": "ita-suomi",
+      "lung_cancer_deaths_per_year": {
+        "value": 96.8,
+        "count": 484,
+        "unit": "deaths per year (C33-C34)",
+        "source_id": "fcr-mortality",
+        "year": "2020-2024",
+        "is_estimate": false,
+        "note": "Mean of 5 years; total 484 deaths (2015-2019: 493)."
+      },
+      "lung_cancer_mortality_asr": {
+        "value": 29.3,
+        "ci95_low": 26.7,
+        "ci95_high": 32,
+        "unit": "deaths per 100,000, age-standardised (Finland 2014)",
+        "source_id": "fcr-mortality",
+        "year": "2020-2024",
+        "is_estimate": false,
+        "note": "Rate is published by the registry; the 95% interval is our approximation (is_estimate). National 35.79."
+      },
+      "lung_cancer_mortality_asr_2015_2019": {
+        "value": 32.94,
+        "ci95_low": 30.1,
+        "ci95_high": 36,
+        "unit": "deaths per 100,000, age-standardised (Finland 2014)",
+        "source_id": "fcr-mortality",
+        "year": "2015-2019",
+        "is_estimate": false,
+        "note": "Earlier period for a stability check. National 39.27."
+      },
+      "mortality_signal": {
+        "value": "consistently_lower",
+        "source_id": "team-calc",
+        "year": "2015-2024",
+        "is_estimate": true,
+        "note": "Approximate 95% interval vs national rate in both 5-year periods. Present only consistently_higher/consistently_lower as findings."
+      },
+      "excess_deaths_per_year_vs_national_rate": {
+        "value": null,
+        "unit": "deaths per year",
+        "source_id": "team-calc",
+        "year": "2020-2024",
+        "is_estimate": true,
+        "note": "Not computed: the region is not consistently above the national rate."
+      },
+      "lung_cancer_cases_per_year": {
+        "value": 125.4,
+        "count": 627,
+        "unit": "new cases per year (C33-C34)",
+        "source_id": "fcr-incidence",
+        "year": "2020-2024",
+        "is_estimate": false,
+        "note": "Mean of 5 years; total 627 (2015-2019: 637)."
+      },
+      "lung_cancer_incidence_asr": {
+        "value": 38.67,
+        "unit": "cases per 100,000, age-standardised (Finland 2014)",
+        "source_id": "fcr-incidence",
+        "year": "2020-2024",
+        "is_estimate": false,
+        "note": "2015-2019: 42.63. National 46.98. High incidence (smoking history) drives most mortality differences."
+      },
+      "mortality_incidence_ratio": {
+        "value": 0.758,
+        "unit": "ratio of age-standardised rates",
+        "source_id": "team-calc",
+        "year": "2020-2024",
+        "is_estimate": true,
+        "note": "Crude proxy only (national 0.762). Not a survival measure; no interval; noisy for small counties."
+      },
+      "deaths_c32_c34_statfin_per_year": {
+        "value": 100.8,
+        "count": 504,
+        "unit": "deaths per year (C32-C34, includes larynx)",
+        "source_id": "statfin-13u5",
+        "year": "2021-2025",
+        "is_estimate": false,
+        "series": {
+          "2016": 92,
+          "2017": 109,
+          "2018": 97,
+          "2019": 114,
+          "2020": 81,
+          "2021": 90,
+          "2022": 112,
+          "2023": 112,
+          "2024": 95,
+          "2025": 95
+        },
+        "note": "Cross-check including 2025 (95 deaths). Mean crude rate 2021-2025 36.9 per 100,000 (not age-standardised)."
+      },
+      "survival_relative_5y": {
+        "value": null,
+        "source_id": "fcr-survival",
+        "year": "2022-2024",
+        "is_estimate": false,
+        "note": "Not published by wellbeing services county. See cooperation_areas[\"ita-suomi\"] for the area-level figure, which must not be shown as this county's own value."
+      }
+    },
+    {
+      "id": "etela-pohjanmaa",
+      "name": "Etelä-Pohjanmaa",
+      "official_name": "Etelä-Pohjanmaan hyvinvointialue",
+      "statfin_code": "HVA16",
+      "cooperation_area": "sisa-suomi",
+      "lung_cancer_deaths_per_year": {
+        "value": 81.6,
+        "count": 408,
+        "unit": "deaths per year (C33-C34)",
+        "source_id": "fcr-mortality",
+        "year": "2020-2024",
+        "is_estimate": false,
+        "note": "Mean of 5 years; total 408 deaths (2015-2019: 385)."
+      },
+      "lung_cancer_mortality_asr": {
+        "value": 32.55,
+        "ci95_low": 29.5,
+        "ci95_high": 35.9,
+        "unit": "deaths per 100,000, age-standardised (Finland 2014)",
+        "source_id": "fcr-mortality",
+        "year": "2020-2024",
+        "is_estimate": false,
+        "note": "Rate is published by the registry; the 95% interval is our approximation (is_estimate). National 35.79."
+      },
+      "lung_cancer_mortality_asr_2015_2019": {
+        "value": 33.38,
+        "ci95_low": 30.1,
+        "ci95_high": 36.9,
+        "unit": "deaths per 100,000, age-standardised (Finland 2014)",
+        "source_id": "fcr-mortality",
+        "year": "2015-2019",
+        "is_estimate": false,
+        "note": "Earlier period for a stability check. National 39.27."
+      },
+      "mortality_signal": {
+        "value": "not_distinguishable_from_national",
+        "source_id": "team-calc",
+        "year": "2015-2024",
+        "is_estimate": true,
+        "note": "Approximate 95% interval vs national rate in both 5-year periods. Present only consistently_higher/consistently_lower as findings."
+      },
+      "excess_deaths_per_year_vs_national_rate": {
+        "value": null,
+        "unit": "deaths per year",
+        "source_id": "team-calc",
+        "year": "2020-2024",
+        "is_estimate": true,
+        "note": "Not computed: the region is not consistently above the national rate."
+      },
+      "lung_cancer_cases_per_year": {
+        "value": 111.2,
+        "count": 556,
+        "unit": "new cases per year (C33-C34)",
+        "source_id": "fcr-incidence",
+        "year": "2020-2024",
+        "is_estimate": false,
+        "note": "Mean of 5 years; total 556 (2015-2019: 510)."
+      },
+      "lung_cancer_incidence_asr": {
+        "value": 45.66,
+        "unit": "cases per 100,000, age-standardised (Finland 2014)",
+        "source_id": "fcr-incidence",
+        "year": "2020-2024",
+        "is_estimate": false,
+        "note": "2015-2019: 44.45. National 46.98. High incidence (smoking history) drives most mortality differences."
+      },
+      "mortality_incidence_ratio": {
+        "value": 0.713,
+        "unit": "ratio of age-standardised rates",
+        "source_id": "team-calc",
+        "year": "2020-2024",
+        "is_estimate": true,
+        "note": "Crude proxy only (national 0.762). Not a survival measure; no interval; noisy for small counties."
+      },
+      "deaths_c32_c34_statfin_per_year": {
+        "value": 86.8,
+        "count": 434,
+        "unit": "deaths per year (C32-C34, includes larynx)",
+        "source_id": "statfin-13u5",
+        "year": "2021-2025",
+        "is_estimate": false,
+        "series": {
+          "2016": 66,
+          "2017": 96,
+          "2018": 62,
+          "2019": 76,
+          "2020": 77,
+          "2021": 94,
+          "2022": 94,
+          "2023": 82,
+          "2024": 71,
+          "2025": 93
+        },
+        "note": "Cross-check including 2025 (93 deaths). Mean crude rate 2021-2025 45.5 per 100,000 (not age-standardised)."
+      },
+      "survival_relative_5y": {
+        "value": null,
+        "source_id": "fcr-survival",
+        "year": "2022-2024",
+        "is_estimate": false,
+        "note": "Not published by wellbeing services county. See cooperation_areas[\"sisa-suomi\"] for the area-level figure, which must not be shown as this county's own value."
+      }
+    },
+    {
+      "id": "pohjanmaa",
+      "name": "Pohjanmaa",
+      "official_name": "Pohjanmaan hyvinvointialue",
+      "statfin_code": "HVA17",
+      "cooperation_area": "lansi-suomi",
+      "lung_cancer_deaths_per_year": {
+        "value": 70.4,
+        "count": 352,
+        "unit": "deaths per year (C33-C34)",
+        "source_id": "fcr-mortality",
+        "year": "2020-2024",
+        "is_estimate": false,
+        "note": "Mean of 5 years; total 352 deaths (2015-2019: 371)."
+      },
+      "lung_cancer_mortality_asr": {
+        "value": 33.71,
+        "ci95_low": 30.3,
+        "ci95_high": 37.4,
+        "unit": "deaths per 100,000, age-standardised (Finland 2014)",
+        "source_id": "fcr-mortality",
+        "year": "2020-2024",
+        "is_estimate": false,
+        "note": "Rate is published by the registry; the 95% interval is our approximation (is_estimate). National 35.79."
+      },
+      "lung_cancer_mortality_asr_2015_2019": {
+        "value": 38.72,
+        "ci95_low": 34.9,
+        "ci95_high": 42.9,
+        "unit": "deaths per 100,000, age-standardised (Finland 2014)",
+        "source_id": "fcr-mortality",
+        "year": "2015-2019",
+        "is_estimate": false,
+        "note": "Earlier period for a stability check. National 39.27."
+      },
+      "mortality_signal": {
+        "value": "not_distinguishable_from_national",
+        "source_id": "team-calc",
+        "year": "2015-2024",
+        "is_estimate": true,
+        "note": "Approximate 95% interval vs national rate in both 5-year periods. Present only consistently_higher/consistently_lower as findings."
+      },
+      "excess_deaths_per_year_vs_national_rate": {
+        "value": null,
+        "unit": "deaths per year",
+        "source_id": "team-calc",
+        "year": "2020-2024",
+        "is_estimate": true,
+        "note": "Not computed: the region is not consistently above the national rate."
+      },
+      "lung_cancer_cases_per_year": {
+        "value": 95.6,
+        "count": 478,
+        "unit": "new cases per year (C33-C34)",
+        "source_id": "fcr-incidence",
+        "year": "2020-2024",
+        "is_estimate": false,
+        "note": "Mean of 5 years; total 478 (2015-2019: 471)."
+      },
+      "lung_cancer_incidence_asr": {
+        "value": 46.59,
+        "unit": "cases per 100,000, age-standardised (Finland 2014)",
+        "source_id": "fcr-incidence",
+        "year": "2020-2024",
+        "is_estimate": false,
+        "note": "2015-2019: 49.84. National 46.98. High incidence (smoking history) drives most mortality differences."
+      },
+      "mortality_incidence_ratio": {
+        "value": 0.724,
+        "unit": "ratio of age-standardised rates",
+        "source_id": "team-calc",
+        "year": "2020-2024",
+        "is_estimate": true,
+        "note": "Crude proxy only (national 0.762). Not a survival measure; no interval; noisy for small counties."
+      },
+      "deaths_c32_c34_statfin_per_year": {
+        "value": 68.2,
+        "count": 341,
+        "unit": "deaths per year (C32-C34, includes larynx)",
+        "source_id": "statfin-13u5",
+        "year": "2021-2025",
+        "is_estimate": false,
+        "series": {
+          "2016": 80,
+          "2017": 77,
+          "2018": 70,
+          "2019": 74,
+          "2020": 84,
+          "2021": 66,
+          "2022": 71,
+          "2023": 62,
+          "2024": 73,
+          "2025": 69
+        },
+        "note": "Cross-check including 2025 (69 deaths). Mean crude rate 2021-2025 38.5 per 100,000 (not age-standardised)."
+      },
+      "survival_relative_5y": {
+        "value": null,
+        "source_id": "fcr-survival",
+        "year": "2022-2024",
+        "is_estimate": false,
+        "note": "Not published by wellbeing services county. See cooperation_areas[\"lansi-suomi\"] for the area-level figure, which must not be shown as this county's own value."
+      }
+    },
+    {
+      "id": "keski-pohjanmaa",
+      "name": "Keski-Pohjanmaa",
+      "official_name": "Keski-Pohjanmaan hyvinvointialue",
+      "statfin_code": "HVA18",
+      "cooperation_area": "pohjois-suomi",
+      "lung_cancer_deaths_per_year": {
+        "value": 24.4,
+        "count": 122,
+        "unit": "deaths per year (C33-C34)",
+        "source_id": "fcr-mortality",
+        "year": "2020-2024",
+        "is_estimate": false,
+        "note": "Mean of 5 years; total 122 deaths (2015-2019: 116). Under 50 deaths a year: year-to-year noise is large."
+      },
+      "lung_cancer_mortality_asr": {
+        "value": 29.74,
+        "ci95_low": 24.7,
+        "ci95_high": 35.5,
+        "unit": "deaths per 100,000, age-standardised (Finland 2014)",
+        "source_id": "fcr-mortality",
+        "year": "2020-2024",
+        "is_estimate": false,
+        "note": "Rate is published by the registry; the 95% interval is our approximation (is_estimate). National 35.79."
+      },
+      "lung_cancer_mortality_asr_2015_2019": {
+        "value": 31.1,
+        "ci95_low": 25.7,
+        "ci95_high": 37.3,
+        "unit": "deaths per 100,000, age-standardised (Finland 2014)",
+        "source_id": "fcr-mortality",
+        "year": "2015-2019",
+        "is_estimate": false,
+        "note": "Earlier period for a stability check. National 39.27."
+      },
+      "mortality_signal": {
+        "value": "consistently_lower",
+        "source_id": "team-calc",
+        "year": "2015-2024",
+        "is_estimate": true,
+        "note": "Approximate 95% interval vs national rate in both 5-year periods. Present only consistently_higher/consistently_lower as findings."
+      },
+      "excess_deaths_per_year_vs_national_rate": {
+        "value": null,
+        "unit": "deaths per year",
+        "source_id": "team-calc",
+        "year": "2020-2024",
+        "is_estimate": true,
+        "note": "Not computed: the region is not consistently above the national rate."
+      },
+      "lung_cancer_cases_per_year": {
+        "value": 32.8,
+        "count": 164,
+        "unit": "new cases per year (C33-C34)",
+        "source_id": "fcr-incidence",
+        "year": "2020-2024",
+        "is_estimate": false,
+        "note": "Mean of 5 years; total 164 (2015-2019: 138)."
+      },
+      "lung_cancer_incidence_asr": {
+        "value": 40.77,
+        "unit": "cases per 100,000, age-standardised (Finland 2014)",
+        "source_id": "fcr-incidence",
+        "year": "2020-2024",
+        "is_estimate": false,
+        "note": "2015-2019: 37.16. National 46.98. High incidence (smoking history) drives most mortality differences."
+      },
+      "mortality_incidence_ratio": {
+        "value": 0.729,
+        "unit": "ratio of age-standardised rates",
+        "source_id": "team-calc",
+        "year": "2020-2024",
+        "is_estimate": true,
+        "note": "Crude proxy only (national 0.762). Not a survival measure; no interval; noisy for small counties."
+      },
+      "deaths_c32_c34_statfin_per_year": {
+        "value": 26,
+        "count": 130,
+        "unit": "deaths per year (C32-C34, includes larynx)",
+        "source_id": "statfin-13u5",
+        "year": "2021-2025",
+        "is_estimate": false,
+        "series": {
+          "2016": 15,
+          "2017": 30,
+          "2018": 34,
+          "2019": 17,
+          "2020": 22,
+          "2021": 30,
+          "2022": 25,
+          "2023": 23,
+          "2024": 23,
+          "2025": 29
+        },
+        "note": "Cross-check including 2025 (29 deaths). Mean crude rate 2021-2025 38.3 per 100,000 (not age-standardised)."
+      },
+      "survival_relative_5y": {
+        "value": null,
+        "source_id": "fcr-survival",
+        "year": "2022-2024",
+        "is_estimate": false,
+        "note": "Not published by wellbeing services county. See cooperation_areas[\"pohjois-suomi\"] for the area-level figure, which must not be shown as this county's own value."
+      }
+    },
+    {
+      "id": "pohjois-pohjanmaa",
+      "name": "Pohjois-Pohjanmaa",
+      "official_name": "Pohjois-Pohjanmaan hyvinvointialue",
+      "statfin_code": "HVA19",
+      "cooperation_area": "pohjois-suomi",
+      "lung_cancer_deaths_per_year": {
+        "value": 164.8,
+        "count": 824,
+        "unit": "deaths per year (C33-C34)",
+        "source_id": "fcr-mortality",
+        "year": "2020-2024",
+        "is_estimate": false,
+        "note": "Mean of 5 years; total 824 deaths (2015-2019: 791)."
+      },
+      "lung_cancer_mortality_asr": {
+        "value": 38.65,
+        "ci95_low": 36.1,
+        "ci95_high": 41.4,
+        "unit": "deaths per 100,000, age-standardised (Finland 2014)",
+        "source_id": "fcr-mortality",
+        "year": "2020-2024",
+        "is_estimate": false,
+        "note": "Rate is published by the registry; the 95% interval is our approximation (is_estimate). National 35.79."
+      },
+      "lung_cancer_mortality_asr_2015_2019": {
+        "value": 41.63,
+        "ci95_low": 38.8,
+        "ci95_high": 44.6,
+        "unit": "deaths per 100,000, age-standardised (Finland 2014)",
+        "source_id": "fcr-mortality",
+        "year": "2015-2019",
+        "is_estimate": false,
+        "note": "Earlier period for a stability check. National 39.27."
+      },
+      "mortality_signal": {
+        "value": "higher_latest_period_only",
+        "source_id": "team-calc",
+        "year": "2015-2024",
+        "is_estimate": true,
+        "note": "Approximate 95% interval vs national rate in both 5-year periods. Present only consistently_higher/consistently_lower as findings."
+      },
+      "excess_deaths_per_year_vs_national_rate": {
+        "value": null,
+        "unit": "deaths per year",
+        "source_id": "team-calc",
+        "year": "2020-2024",
+        "is_estimate": true,
+        "note": "Not computed: the region is not consistently above the national rate."
+      },
+      "lung_cancer_cases_per_year": {
+        "value": 207.8,
+        "count": 1039,
+        "unit": "new cases per year (C33-C34)",
+        "source_id": "fcr-incidence",
+        "year": "2020-2024",
+        "is_estimate": false,
+        "note": "Mean of 5 years; total 1039 (2015-2019: 1021)."
+      },
+      "lung_cancer_incidence_asr": {
+        "value": 48.82,
+        "unit": "cases per 100,000, age-standardised (Finland 2014)",
+        "source_id": "fcr-incidence",
+        "year": "2020-2024",
+        "is_estimate": false,
+        "note": "2015-2019: 53.54. National 46.98. High incidence (smoking history) drives most mortality differences."
+      },
+      "mortality_incidence_ratio": {
+        "value": 0.792,
+        "unit": "ratio of age-standardised rates",
+        "source_id": "team-calc",
+        "year": "2020-2024",
+        "is_estimate": true,
+        "note": "Crude proxy only (national 0.762). Not a survival measure; no interval; noisy for small counties."
+      },
+      "deaths_c32_c34_statfin_per_year": {
+        "value": 165.8,
+        "count": 829,
+        "unit": "deaths per year (C32-C34, includes larynx)",
+        "source_id": "statfin-13u5",
+        "year": "2021-2025",
+        "is_estimate": false,
+        "series": {
+          "2016": 154,
+          "2017": 171,
+          "2018": 179,
+          "2019": 173,
+          "2020": 173,
+          "2021": 185,
+          "2022": 152,
+          "2023": 164,
+          "2024": 169,
+          "2025": 159
+        },
+        "note": "Cross-check including 2025 (159 deaths). Mean crude rate 2021-2025 39.8 per 100,000 (not age-standardised)."
+      },
+      "survival_relative_5y": {
+        "value": null,
+        "source_id": "fcr-survival",
+        "year": "2022-2024",
+        "is_estimate": false,
+        "note": "Not published by wellbeing services county. See cooperation_areas[\"pohjois-suomi\"] for the area-level figure, which must not be shown as this county's own value."
+      }
+    },
+    {
+      "id": "kainuu",
+      "name": "Kainuu",
+      "official_name": "Kainuun hyvinvointialue",
+      "statfin_code": "HVA20",
+      "cooperation_area": "pohjois-suomi",
+      "lung_cancer_deaths_per_year": {
+        "value": 41.4,
+        "count": 207,
+        "unit": "deaths per year (C33-C34)",
+        "source_id": "fcr-mortality",
+        "year": "2020-2024",
+        "is_estimate": false,
+        "note": "Mean of 5 years; total 207 deaths (2015-2019: 192). Under 50 deaths a year: year-to-year noise is large."
+      },
+      "lung_cancer_mortality_asr": {
+        "value": 39.94,
+        "ci95_low": 34.7,
+        "ci95_high": 45.8,
+        "unit": "deaths per 100,000, age-standardised (Finland 2014)",
+        "source_id": "fcr-mortality",
+        "year": "2020-2024",
+        "is_estimate": false,
+        "note": "Rate is published by the registry; the 95% interval is our approximation (is_estimate). National 35.79."
+      },
+      "lung_cancer_mortality_asr_2015_2019": {
+        "value": 39.42,
+        "ci95_low": 34,
+        "ci95_high": 45.4,
+        "unit": "deaths per 100,000, age-standardised (Finland 2014)",
+        "source_id": "fcr-mortality",
+        "year": "2015-2019",
+        "is_estimate": false,
+        "note": "Earlier period for a stability check. National 39.27."
+      },
+      "mortality_signal": {
+        "value": "not_distinguishable_from_national",
+        "source_id": "team-calc",
+        "year": "2015-2024",
+        "is_estimate": true,
+        "note": "Approximate 95% interval vs national rate in both 5-year periods. Present only consistently_higher/consistently_lower as findings."
+      },
+      "excess_deaths_per_year_vs_national_rate": {
+        "value": null,
+        "unit": "deaths per year",
+        "source_id": "team-calc",
+        "year": "2020-2024",
+        "is_estimate": true,
+        "note": "Not computed: the region is not consistently above the national rate."
+      },
+      "lung_cancer_cases_per_year": {
+        "value": 47.2,
+        "count": 236,
+        "unit": "new cases per year (C33-C34)",
+        "source_id": "fcr-incidence",
+        "year": "2020-2024",
+        "is_estimate": false,
+        "note": "Mean of 5 years; total 236 (2015-2019: 226)."
+      },
+      "lung_cancer_incidence_asr": {
+        "value": 46.25,
+        "unit": "cases per 100,000, age-standardised (Finland 2014)",
+        "source_id": "fcr-incidence",
+        "year": "2020-2024",
+        "is_estimate": false,
+        "note": "2015-2019: 47.12. National 46.98. High incidence (smoking history) drives most mortality differences."
+      },
+      "mortality_incidence_ratio": {
+        "value": 0.864,
+        "unit": "ratio of age-standardised rates",
+        "source_id": "team-calc",
+        "year": "2020-2024",
+        "is_estimate": true,
+        "note": "Crude proxy only (national 0.762). Not a survival measure; no interval; noisy for small counties."
+      },
+      "deaths_c32_c34_statfin_per_year": {
+        "value": 39.4,
+        "count": 197,
+        "unit": "deaths per year (C32-C34, includes larynx)",
+        "source_id": "statfin-13u5",
+        "year": "2021-2025",
+        "is_estimate": false,
+        "series": {
+          "2016": 35,
+          "2017": 38,
+          "2018": 41,
+          "2019": 42,
+          "2020": 55,
+          "2021": 38,
+          "2022": 38,
+          "2023": 46,
+          "2024": 41,
+          "2025": 34
+        },
+        "note": "Cross-check including 2025 (34 deaths). Mean crude rate 2021-2025 56 per 100,000 (not age-standardised)."
+      },
+      "survival_relative_5y": {
+        "value": null,
+        "source_id": "fcr-survival",
+        "year": "2022-2024",
+        "is_estimate": false,
+        "note": "Not published by wellbeing services county. See cooperation_areas[\"pohjois-suomi\"] for the area-level figure, which must not be shown as this county's own value."
+      }
+    },
+    {
+      "id": "lappi",
+      "name": "Lappi",
+      "official_name": "Lapin hyvinvointialue",
+      "statfin_code": "HVA21",
+      "cooperation_area": "pohjois-suomi",
+      "lung_cancer_deaths_per_year": {
+        "value": 110,
+        "count": 550,
+        "unit": "deaths per year (C33-C34)",
+        "source_id": "fcr-mortality",
+        "year": "2020-2024",
+        "is_estimate": false,
+        "note": "Mean of 5 years; total 550 deaths (2015-2019: 551)."
+      },
+      "lung_cancer_mortality_asr": {
+        "value": 46.79,
+        "ci95_low": 43,
+        "ci95_high": 50.9,
+        "unit": "deaths per 100,000, age-standardised (Finland 2014)",
+        "source_id": "fcr-mortality",
+        "year": "2020-2024",
+        "is_estimate": false,
+        "note": "Rate is published by the registry; the 95% interval is our approximation (is_estimate). National 35.79."
+      },
+      "lung_cancer_mortality_asr_2015_2019": {
+        "value": 51.52,
+        "ci95_low": 47.3,
+        "ci95_high": 56,
+        "unit": "deaths per 100,000, age-standardised (Finland 2014)",
+        "source_id": "fcr-mortality",
+        "year": "2015-2019",
+        "is_estimate": false,
+        "note": "Earlier period for a stability check. National 39.27."
+      },
+      "mortality_signal": {
+        "value": "consistently_higher",
+        "source_id": "team-calc",
+        "year": "2015-2024",
+        "is_estimate": true,
+        "note": "Approximate 95% interval vs national rate in both 5-year periods. Present only consistently_higher/consistently_lower as findings."
+      },
+      "excess_deaths_per_year_vs_national_rate": {
+        "value": 25.9,
+        "unit": "deaths per year",
+        "source_id": "team-calc",
+        "year": "2020-2024",
+        "is_estimate": true,
+        "note": "Deaths per year above what the national age-standardised rate would give: deaths/yr × (1 − national rate / regional rate). Approximate."
+      },
+      "lung_cancer_cases_per_year": {
+        "value": 134.8,
+        "count": 674,
+        "unit": "new cases per year (C33-C34)",
+        "source_id": "fcr-incidence",
+        "year": "2020-2024",
+        "is_estimate": false,
+        "note": "Mean of 5 years; total 674 (2015-2019: 684)."
+      },
+      "lung_cancer_incidence_asr": {
+        "value": 58.26,
+        "unit": "cases per 100,000, age-standardised (Finland 2014)",
+        "source_id": "fcr-incidence",
+        "year": "2020-2024",
+        "is_estimate": false,
+        "note": "2015-2019: 63.96. National 46.98. High incidence (smoking history) drives most mortality differences."
+      },
+      "mortality_incidence_ratio": {
+        "value": 0.803,
+        "unit": "ratio of age-standardised rates",
+        "source_id": "team-calc",
+        "year": "2020-2024",
+        "is_estimate": true,
+        "note": "Crude proxy only (national 0.762). Not a survival measure; no interval; noisy for small counties."
+      },
+      "deaths_c32_c34_statfin_per_year": {
+        "value": 109.4,
+        "count": 547,
+        "unit": "deaths per year (C32-C34, includes larynx)",
+        "source_id": "statfin-13u5",
+        "year": "2021-2025",
+        "is_estimate": false,
+        "series": {
+          "2016": 99,
+          "2017": 92,
+          "2018": 126,
+          "2019": 114,
+          "2020": 125,
+          "2021": 111,
+          "2022": 124,
+          "2023": 102,
+          "2024": 98,
+          "2025": 112
+        },
+        "note": "Cross-check including 2025 (112 deaths). Mean crude rate 2021-2025 62.1 per 100,000 (not age-standardised)."
+      },
+      "survival_relative_5y": {
+        "value": null,
+        "source_id": "fcr-survival",
+        "year": "2022-2024",
+        "is_estimate": false,
+        "note": "Not published by wellbeing services county. See cooperation_areas[\"pohjois-suomi\"] for the area-level figure, which must not be shown as this county's own value."
+      }
+    },
+    {
+      "id": "helsinki",
+      "name": "Helsinki",
+      "official_name": "Helsingin kaupunki",
+      "statfin_code": "HVA90",
+      "cooperation_area": "etela-suomi",
+      "lung_cancer_deaths_per_year": {
+        "value": 223.8,
+        "count": 1119,
+        "unit": "deaths per year (C33-C34)",
+        "source_id": "fcr-mortality",
+        "year": "2020-2024",
+        "is_estimate": false,
+        "note": "Mean of 5 years; total 1119 deaths (2015-2019: 1189)."
+      },
+      "lung_cancer_mortality_asr": {
+        "value": 37.33,
+        "ci95_low": 35.2,
+        "ci95_high": 39.6,
+        "unit": "deaths per 100,000, age-standardised (Finland 2014)",
+        "source_id": "fcr-mortality",
+        "year": "2020-2024",
+        "is_estimate": false,
+        "note": "Rate is published by the registry; the 95% interval is our approximation (is_estimate). National 35.79."
+      },
+      "lung_cancer_mortality_asr_2015_2019": {
+        "value": 43.77,
+        "ci95_low": 41.3,
+        "ci95_high": 46.3,
+        "unit": "deaths per 100,000, age-standardised (Finland 2014)",
+        "source_id": "fcr-mortality",
+        "year": "2015-2019",
+        "is_estimate": false,
+        "note": "Earlier period for a stability check. National 39.27."
+      },
+      "mortality_signal": {
+        "value": "not_distinguishable_from_national",
+        "source_id": "team-calc",
+        "year": "2015-2024",
+        "is_estimate": true,
+        "note": "Approximate 95% interval vs national rate in both 5-year periods. Present only consistently_higher/consistently_lower as findings."
+      },
+      "excess_deaths_per_year_vs_national_rate": {
+        "value": null,
+        "unit": "deaths per year",
+        "source_id": "team-calc",
+        "year": "2020-2024",
+        "is_estimate": true,
+        "note": "Not computed: the region is not consistently above the national rate."
+      },
+      "lung_cancer_cases_per_year": {
+        "value": 299.8,
+        "count": 1499,
+        "unit": "new cases per year (C33-C34)",
+        "source_id": "fcr-incidence",
+        "year": "2020-2024",
+        "is_estimate": false,
+        "note": "Mean of 5 years; total 1499 (2015-2019: 1561)."
+      },
+      "lung_cancer_incidence_asr": {
+        "value": 50.16,
+        "unit": "cases per 100,000, age-standardised (Finland 2014)",
+        "source_id": "fcr-incidence",
+        "year": "2020-2024",
+        "is_estimate": false,
+        "note": "2015-2019: 57.07. National 46.98. High incidence (smoking history) drives most mortality differences."
+      },
+      "mortality_incidence_ratio": {
+        "value": 0.744,
+        "unit": "ratio of age-standardised rates",
+        "source_id": "team-calc",
+        "year": "2020-2024",
+        "is_estimate": true,
+        "note": "Crude proxy only (national 0.762). Not a survival measure; no interval; noisy for small counties."
+      },
+      "deaths_c32_c34_statfin_per_year": {
+        "value": 226.2,
+        "count": 1131,
+        "unit": "deaths per year (C32-C34, includes larynx)",
+        "source_id": "statfin-13u5",
+        "year": "2021-2025",
+        "is_estimate": false,
+        "series": {
+          "2016": 235,
+          "2017": 227,
+          "2018": 247,
+          "2019": 233,
+          "2020": 231,
+          "2021": 241,
+          "2022": 229,
+          "2023": 208,
+          "2024": 236,
+          "2025": 217
+        },
+        "note": "Cross-check including 2025 (217 deaths). Mean crude rate 2021-2025 33.7 per 100,000 (not age-standardised)."
+      },
+      "survival_relative_5y": {
+        "value": null,
+        "source_id": "fcr-survival",
+        "year": "2022-2024",
+        "is_estimate": false,
+        "note": "Not published by wellbeing services county. See cooperation_areas[\"etela-suomi\"] for the area-level figure, which must not be shown as this county's own value."
+      }
+    },
+    {
+      "id": "ahvenanmaa",
+      "name": "Ahvenanmaa",
+      "official_name": "Ahvenanmaa",
+      "statfin_code": "HVA91",
+      "cooperation_area": "ahvenanmaa",
+      "lung_cancer_deaths_per_year": {
+        "value": 16,
+        "count": 80,
+        "unit": "deaths per year (C33-C34)",
+        "source_id": "fcr-mortality",
+        "year": "2020-2024",
+        "is_estimate": false,
+        "note": "Mean of 5 years; total 80 deaths (2015-2019: 69). Under 50 deaths a year: year-to-year noise is large."
+      },
+      "lung_cancer_mortality_asr": {
+        "value": 44.2,
+        "ci95_low": 35,
+        "ci95_high": 55,
+        "unit": "deaths per 100,000, age-standardised (Finland 2014)",
+        "source_id": "fcr-mortality",
+        "year": "2020-2024",
+        "is_estimate": false,
+        "note": "Rate is published by the registry; the 95% interval is our approximation (is_estimate). National 35.79."
+      },
+      "lung_cancer_mortality_asr_2015_2019": {
+        "value": 43.6,
+        "ci95_low": 33.9,
+        "ci95_high": 55.2,
+        "unit": "deaths per 100,000, age-standardised (Finland 2014)",
+        "source_id": "fcr-mortality",
+        "year": "2015-2019",
+        "is_estimate": false,
+        "note": "Earlier period for a stability check. National 39.27."
+      },
+      "mortality_signal": {
+        "value": "not_distinguishable_from_national",
+        "source_id": "team-calc",
+        "year": "2015-2024",
+        "is_estimate": true,
+        "note": "Approximate 95% interval vs national rate in both 5-year periods. Present only consistently_higher/consistently_lower as findings."
+      },
+      "excess_deaths_per_year_vs_national_rate": {
+        "value": null,
+        "unit": "deaths per year",
+        "source_id": "team-calc",
+        "year": "2020-2024",
+        "is_estimate": true,
+        "note": "Not computed: the region is not consistently above the national rate."
+      },
+      "lung_cancer_cases_per_year": {
+        "value": 17,
+        "count": 85,
+        "unit": "new cases per year (C33-C34)",
+        "source_id": "fcr-incidence",
+        "year": "2020-2024",
+        "is_estimate": false,
+        "note": "Mean of 5 years; total 85 (2015-2019: 78)."
+      },
+      "lung_cancer_incidence_asr": {
+        "value": 48.83,
+        "unit": "cases per 100,000, age-standardised (Finland 2014)",
+        "source_id": "fcr-incidence",
+        "year": "2020-2024",
+        "is_estimate": false,
+        "note": "2015-2019: 49.37. National 46.98. High incidence (smoking history) drives most mortality differences."
+      },
+      "mortality_incidence_ratio": {
+        "value": 0.905,
+        "unit": "ratio of age-standardised rates",
+        "source_id": "team-calc",
+        "year": "2020-2024",
+        "is_estimate": true,
+        "note": "Crude proxy only (national 0.762). Not a survival measure; no interval; noisy for small counties."
+      },
+      "deaths_c32_c34_statfin_per_year": {
+        "value": 13.8,
+        "count": 69,
+        "unit": "deaths per year (C32-C34, includes larynx)",
+        "source_id": "statfin-13u5",
+        "year": "2021-2025",
+        "is_estimate": false,
+        "series": {
+          "2016": 15,
+          "2017": 11,
+          "2018": 11,
+          "2019": 20,
+          "2020": 19,
+          "2021": 10,
+          "2022": 17,
+          "2023": 18,
+          "2024": 16,
+          "2025": 8
+        },
+        "note": "Cross-check including 2025 (8 deaths). Mean crude rate 2021-2025 45.3 per 100,000 (not age-standardised)."
+      },
+      "survival_relative_5y": {
+        "value": null,
+        "source_id": "fcr-survival",
+        "year": "2022-2024",
+        "is_estimate": false,
+        "note": "Not published by wellbeing services county. See cooperation_areas[\"ahvenanmaa\"] for the area-level figure, which must not be shown as this county's own value."
+      }
+    }
+  ]
+}
