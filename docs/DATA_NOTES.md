@@ -82,8 +82,9 @@ Mother tongue of 55–79-year-olds at the end of 2025, from [StatFin 11rl](https
 | --- | ---: | ---: |
 | Finnish | 89.8 % | 97.0 % |
 | + Swedish | 94.6 % | 97.2 % |
-| + Russian, Estonian | 96.9 % | 98.0 % |
-| + Ukrainian, English, Arabic | 97.9 % | 98.6 % |
+| + Sámi | 94.6 % | 98.0 % |
+| + Russian, Estonian | 97.0 % | 98.7 % |
+| + Ukrainian, English, Arabic | 97.9 % | 99.2 % |
 
 - **Whole country:** 1 375 463 people aged 55–79, of whom 73 611 (5.4 %) have a foreign mother tongue. The largest groups are Russian 21 265, Estonian 11 043, Ukrainian 4 545, English 4 003 and Arabic 3 960. Thai, Chinese, Somali, Kurdish and Farsi follow, each 1 600–1 900.
 - **Lapland:** 49 810 people aged 55–79, of whom 994 (2.0 %) have a foreign mother tongue. Sámi is registered for 406 of the 494 Sámi speakers in this age group nationwide.
