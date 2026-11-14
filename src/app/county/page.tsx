@@ -356,30 +356,10 @@ export default function CountyPage() {
         <p className="mt-1 text-sm text-slate-600">
           Työterveys on nopea ovi, terveyskeskus hidas, ja valtaosa sairastuneista tulee hitaan oven kautta.<SourceTag id="roadmap" />
         </p>
-        <div className="mt-4 grid gap-4 md:grid-cols-2">
-          <div className="space-y-3">
-            <DoorBar label="Työterveys tai yksityinen" days={doors.privateDaysToCt} max={maxDays} share={`noin ${fmt(doors.viaPrivateDoor)} potilasta vuodessa`} color="bg-emerald-500" source="kuitunen-2026" />
-            <DoorBar label="Terveyskeskus nyt" days={doors.publicDaysToCt} max={maxDays} share={`noin ${fmt(doors.viaPublicDoor)} potilasta vuodessa`} color="bg-rose-500" source="uh-acta-2025" />
-            <DoorBar label="Terveyskeskus pikakaistalla" days={doors.fastLaneDaysToCt} max={maxDays} color="bg-sky-600" source="jensen-2017" />
-          </div>
-          <div className="grid grid-cols-2 gap-3 text-sm">
-            <div className="rounded bg-rose-50 p-3">
-              <p className="text-2xl font-bold">{fmt(doors.gapDaysNow)} pv</p>
-              <p className="text-slate-600">ero ovien välillä nyt</p>
-            </div>
-            <div className="rounded bg-sky-50 p-3">
-              <p className="text-2xl font-bold">{fmt(doors.daysSavedPerPatient)} pv</p>
-              <p className="text-slate-600">nopeammin TT-kuvaukseen terveyskeskuksen kautta</p>
-            </div>
-            <div className="rounded bg-slate-50 p-3">
-              <p className="text-2xl font-bold">{fmt(doors.viaPublicDoor)}</p>
-              <p className="text-slate-600">keuhkosyöpäpotilasta vuodessa hyötyy</p>
-            </div>
-            <div className="rounded bg-slate-50 p-3">
-              <p className="text-2xl font-bold">{fmt(doors.ctReferralsPerWeek)}</p>
-              <p className="text-slate-600">pikakaistan TT-lähetettä viikossa (oletus)</p>
-            </div>
-          </div>
+        <div className="mt-4 space-y-3">
+          <DoorBar label="Työterveys tai yksityinen" days={doors.privateDaysToCt} max={maxDays} share={`noin ${fmt(doors.viaPrivateDoor)} potilasta vuodessa`} color="bg-emerald-500" source="kuitunen-2026" />
+          <DoorBar label="Terveyskeskus nyt" days={doors.publicDaysToCt} max={maxDays} share={`noin ${fmt(doors.viaPublicDoor)} potilasta vuodessa`} color="bg-rose-500" source="uh-acta-2025" />
+          <DoorBar label="Terveyskeskus pikakaistalla" days={doors.fastLaneDaysToCt} max={maxDays} color="bg-sky-600" source="jensen-2017" />
         </div>
         <More className="mt-3">
           <p>Lymfoomatutkimuksessa oireista hoitoon kului terveyskeskuksen kautta mediaani 127 päivää, työterveyden tai yksityisen kautta 76 päivää.<SourceTag id="kuitunen-2026" /> Vain noin kolmannes sairastuneista on työikäisiä.<SourceTag id="strategy" /></p>
