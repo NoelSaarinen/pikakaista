@@ -18,23 +18,23 @@ export function AiAnalyst({ countyId, countyName, overrides }: { countyId: strin
 
   useEffect(() => {
     let active = true;
-    fetch("/api/brief", { method: "POST", headers: { "Content-Type": "application/json" }, body: JSON.stringify({ countyId, overrides, mode: "doors_survey" }) })
+    fetch("/api/brief", { method: "POST", headers: { "Content-Type": "application/json" }, body: JSON.stringify({ countyId, overrides, mode: "doors_survey", fresh: nonce > 0 }) })
       .then((r) => (r.ok ? r.json() : null))
       .catch(() => null)
       .then((brief) => active && setLoaded({ key, brief }));
     return () => {
       active = false;
     };
-  }, [countyId, overrides, key]);
+  }, [countyId, overrides, key, nonce]);
 
   const brief = loaded?.key === key ? loaded.brief : null;
   const loading = loaded?.key !== key;
 
   return (
-    <section aria-live="polite" className="relative overflow-hidden rounded-2xl border border-violet-200 bg-gradient-to-br from-violet-50 via-white to-sky-50 p-5 shadow-sm">
+    <section aria-live="polite" className="relative overflow-hidden rounded-md border border-slate-200 bg-white p-5 shadow-sm">
       <div className="flex flex-wrap items-center justify-between gap-2">
-        <p className="flex items-center gap-2 text-sm font-semibold text-violet-900">
-          <span aria-hidden="true" className="grid h-7 w-7 place-items-center rounded-full bg-violet-700 text-sm text-white">
+        <p className="flex items-center gap-2 text-sm font-semibold text-brand-navy">
+          <span aria-hidden="true" className="grid h-7 w-7 place-items-center rounded-full bg-brand-blue text-sm text-white">
             ✦
           </span>
           Tekoälyanalyytikko · {countyName}
@@ -45,7 +45,7 @@ export function AiAnalyst({ countyId, countyName, overrides }: { countyId: strin
             type="button"
             onClick={() => setNonce((n) => n + 1)}
             disabled={loading}
-            className="rounded-full border border-violet-200 bg-white px-2.5 py-0.5 font-medium text-violet-800 hover:bg-violet-50 disabled:opacity-50"
+            className="rounded-sm border border-slate-200 bg-white px-2.5 py-0.5 font-medium text-sky-800 hover:bg-sky-50 disabled:opacity-50"
           >
             Kirjoita uudelleen
           </button>
@@ -53,9 +53,9 @@ export function AiAnalyst({ countyId, countyName, overrides }: { countyId: strin
       </div>
       {loading ? (
         <div className="mt-4 space-y-2" aria-label="Tekoäly analysoi alueen lukuja">
-          <p className="text-sm text-violet-800">Tekoäly analysoi alueen lukuja…</p>
+          <p className="text-sm text-slate-600">Tekoäly analysoi alueen lukuja…</p>
           {[92, 80, 86, 60].map((w) => (
-            <span key={w} className="block h-3 animate-pulse rounded bg-violet-100" style={{ width: `${w}%` }} />
+            <span key={w} className="block h-3 animate-pulse rounded bg-slate-100" style={{ width: `${w}%` }} />
           ))}
         </div>
       ) : brief ? (

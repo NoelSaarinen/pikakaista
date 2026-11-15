@@ -36,7 +36,7 @@ export function briefFacts(county: County, range: Range, doors: DoorsResult, mod
       lahde: "fcr-mortality",
     },
     alue: county.name,
-    malli: mode === "doors" ? "Kaksi ovea: terveyskeskuksen pikakaista" : "Kaksi ovea ja riskiryhmän oirekysely",
+    malli: mode === "doors" ? "Terveyskeskuksen pikakaista" : "Riskiryhmän oirekysely ja terveyskeskuksen pikakaista",
     keuhkosyopia_vuodessa: { arvo: fmt(county.lung_cancer_cases_per_year.value), lahde: county.lung_cancer_cases_per_year.source_id },
     levinneena_loydetyt: { arvo: "noin 65–70 %", lahde: "filha-2026" },
     tyoikaisia_sairastuneista: { arvo: "noin kolmannes", lahde: "strategy" },
@@ -57,7 +57,10 @@ export function briefFacts(county: County, range: Range, doors: DoorsResult, mod
     kysely_vastaamatta_jaavat_hoitajan_soitto: { arvo: span(range, "nonRespondents"), lahde: "laskelma" },
     kysely_tt_kuvauksia: { arvo: span(range, "ctScans"), lahde: "laskelma, oletus" },
     kysely_tt_aikoja_viikossa: { arvo: span(range, "ctSlotsPerWeek"), lahde: "laskelma" },
-    pelkka_pikakaista_tavoitti_tanskassa: { arvo: "27 % keuhkosyöpäpotilaista", lahde: "guldbrandt" },
+    pelkka_pikakaista_tavoitti_tanskassa: {
+      arvo: "Tanskassa pelkkä pikakaista ilman kyselyä tavoitti vain 27 % keuhkosyöpäpotilaista. Tämä on syy lisätä kysely, ei tämän alueen vaikutusarvio.",
+      lahde: "guldbrandt",
+    },
   };
 }
 
@@ -90,7 +93,11 @@ export function templateBrief(county: County, range: Range, doors: DoorsResult, 
 const SYSTEM = `Kirjoitat hyvinvointialueen päättäjälle kahden minuutin tiivistelmän keuhkosyövän pikakaistasta.
 Säännöt:
 - Suomeksi, enintään 160 sanaa, otsikot: Löydös, Missä polku jumittaa, Toimenpide, Odotettu vaikutus, Rajoitukset.
-- Kuvaa "malli"-kentän mukainen ratkaisu. Älä mainitse kyselyä, jos malli on pelkkä Kaksi ovea.
+- Kuvaa "malli"-kentän mukainen ratkaisu. Älä mainitse kyselyä, jos malli on pelkkä terveyskeskuksen pikakaista.
+- "Kaksi ovea" kuvaa nykytilaa: työterveys on nopea ovi ja terveyskeskus hidas. Se ei ole ratkaisu. Pikakaista on aina terveyskeskuksessa, ei työterveydessä.
+- Älä luettele kaikkia vaihteluvälejä. Toimenpiteessä ja vaikutuksessa riittää kaksi tai kolme tärkeintä lukua.
+- Tanskan 27 % kertoo, miksi pelkkä pikakaista ei riitä. Älä esitä sitä odotettuna vaikutuksena.
+- Kirjoita rajoituksiin, että laskelma ei arvioi elossaoloa.
 - Käytä VAIN annettuja lukuja. Älä keksi uusia lukuja, äläkä lupaa elossaolon paranemista.
 - Merkitse jokaisen luvun perään lähde hakasulkeissa, esim. [filha-2026] tai [laskelma].
 - Jos sisaltaa_mock_dataa on true, mainitse rajoituksissa, että osa luvuista on paikkamerkkejä.`;

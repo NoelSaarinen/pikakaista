@@ -33,7 +33,7 @@ export function PilotPanel({ county }: { county: County }) {
   ];
 
   return (
-    <section className="rounded-lg border border-violet-200 bg-violet-50/40 p-4" aria-label="Kansallinen seulontapilotti">
+    <section className="rounded-lg border-2 border-sky-700 bg-sky-50/60 p-4" aria-label="Kansallinen seulontapilotti">
       <div className="flex flex-wrap items-baseline justify-between gap-2">
         <h2 className="font-semibold">Miten kysely täydentää kansallista seulontapilottia</h2>
         <span className={`rounded px-2 py-0.5 text-xs font-semibold ${inPilot ? "bg-emerald-100 text-emerald-800" : "bg-slate-200 text-slate-700"}`}>
@@ -53,9 +53,9 @@ export function PilotPanel({ county }: { county: County }) {
         </thead>
         <tbody>
           {points.map((p) => (
-            <tr key={p.pilot} className="border-t border-violet-100 align-top">
+            <tr key={p.pilot} className="border-t border-sky-100 align-top">
               <td className="py-2 pr-3">{p.pilot}</td>
-              <td className="py-2 font-medium text-violet-950">{p.survey}</td>
+              <td className="py-2 font-medium text-sky-900">{p.survey}</td>
             </tr>
           ))}
         </tbody>

@@ -56,8 +56,8 @@ function DoorBar({ label, days, max, share, color, source }: { label: string; da
         </span>
         <span className="font-semibold tabular-nums">{fmt(days)} pv</span>
       </div>
-      <div className="mt-1 h-3 rounded bg-slate-100">
-        <div className={`h-3 rounded ${color}`} style={{ width: `${Math.max(2, Math.min(100, (days / max) * 100))}%` }} />
+      <div className="mt-1 h-3 rounded-xs bg-slate-100">
+        <div className={`h-3 rounded-xs ${color}`} style={{ width: `${Math.max(2, Math.min(100, (days / max) * 100))}%` }} />
       </div>
       {share && <p className="mt-0.5 text-xs text-slate-500">{share}</p>}
     </div>
@@ -83,7 +83,7 @@ export default function CountyPage() {
   const ranking = useMemo(() => curativeRanking(), []);
 
   return (
-    <div className="space-y-6">
+    <div className="view-sharp space-y-6">
       <div className="flex flex-wrap items-end justify-between gap-4">
         <div>
           <p className="text-xs font-semibold uppercase tracking-[0.14em] text-brand-teal">Päättäjänäkymä</p>
@@ -119,7 +119,7 @@ export default function CountyPage() {
         <div className="lg:col-span-3">
           <AiAnalyst countyId={countyId} countyName={county.name} overrides={overrides} />
         </div>
-        <section className="rounded-2xl border border-slate-200 bg-white p-4 lg:col-span-2">
+        <section className="rounded-md border border-slate-200 bg-white p-4 lg:col-span-2">
           <p className="text-sm font-semibold">Koko maa: keuhkosyöpäkuolleisuus alueittain</p>
           <p className="text-xs text-slate-500">
             Ikävakioitu, / 100 000, 2020–2024. Koko maa {nf1.format(NATIONAL_MORTALITY)}.<SourceTag id="fcr-mortality" /> Valitse alue napauttamalla.
@@ -138,9 +138,9 @@ export default function CountyPage() {
                     className={`flex w-full items-center gap-2 rounded px-1 py-0.5 text-left text-xs ${selected ? "bg-sky-50 font-semibold" : "hover:bg-slate-50"}`}
                   >
                     <span className="w-28 shrink-0 truncate">{m.name}</span>
-                    <span className="relative h-2.5 flex-1 rounded bg-slate-100">
+                    <span className="relative h-2.5 flex-1 rounded-xs bg-slate-100">
                       <span
-                        className={`absolute inset-y-0 left-0 rounded ${selected ? "bg-sky-700" : m.signal === "consistently_higher" ? "bg-rose-500" : m.signal === "consistently_lower" ? "bg-emerald-500" : "bg-slate-400"}`}
+                        className={`absolute inset-y-0 left-0 rounded-xs ${selected ? "bg-sky-700" : m.signal === "consistently_higher" ? "bg-rose-500" : m.signal === "consistently_lower" ? "bg-emerald-500" : "bg-slate-400"}`}
                         style={{ width: `${(m.value / mortality[0].value) * 100}%` }}
                       />
                       <span aria-hidden="true" className="absolute inset-y-[-2px] w-px bg-slate-700" style={{ left: `${(NATIONAL_MORTALITY / mortality[0].value) * 100}%` }} />
@@ -207,14 +207,6 @@ export default function CountyPage() {
               <span className="whitespace-nowrap tabular-nums">{fmt(params.currentCtQueueDays)} pv</span>
             </li>
           </ul>
-          <div className="mt-3 rounded-md bg-amber-50 p-2.5 text-sm text-amber-950">
-            <p className="font-semibold">Kaksi ovea: hitaampi ovi on suuremman riskin ovi</p>
-            <p className="mt-1">
-              Työterveyden kautta TT:hen pääsee noin {fmt(doors.privateDaysToCt)} päivässä, terveyskeskuksen kautta {fmt(doors.publicDaysToCt)} päivässä.
-              <SourceTag id="kuitunen-2026" /> Vain noin kolmannes sairastuneista on työikäisiä, joten eläkeläiset ja työttömät eli noin {pct(params.publicDoorShare)} tulee hitaamman oven kautta.
-              <SourceTag id="strategy" />
-            </p>
-          </div>
           <p className="mt-2 text-sm text-slate-600">Suomessa perusterveydenhuolto ei juuri käytä TT:tä, vaan ensin otetaan röntgen.<SourceTag id="uh-acta-2025" /></p>
           <More className="mt-1" label="Miksi">
             <p>Noin 65–70 % keuhkosyövistä löytyy vasta levinneenä.<SourceTag id="filha-2026" /></p>
@@ -287,10 +279,25 @@ export default function CountyPage() {
         </p>
       </section>
 
-
       <section className="rounded-lg border border-slate-200 bg-white p-4">
-        <h2 className="font-semibold">Tavoite 3: {county.name} verrattuna koko maahan</h2>
+        <h2 className="font-semibold">Kaksi ovea: kuka pääsee nopeasti?</h2>
         <p className="mt-1 text-sm text-slate-600">
+          Työterveys on nopea ovi, terveyskeskus hidas, ja valtaosa sairastuneista tulee hitaan oven kautta.<SourceTag id="roadmap" />
+        </p>
+        <div className="mt-4 space-y-3">
+          <DoorBar label="Työterveys tai yksityinen" days={doors.privateDaysToCt} max={maxDays} share={`noin ${fmt(doors.viaPrivateDoor)} potilasta vuodessa`} color="bg-emerald-500" source="kuitunen-2026" />
+          <DoorBar label="Terveyskeskus nyt" days={doors.publicDaysToCt} max={maxDays} share={`noin ${fmt(doors.viaPublicDoor)} potilasta vuodessa`} color="bg-rose-500" source="uh-acta-2025" />
+          <DoorBar label="Terveyskeskus pikakaistalla" days={doors.fastLaneDaysToCt} max={maxDays} color="bg-sky-600" source="jensen-2017" />
+        </div>
+        <More className="mt-3">
+          <p>Lymfoomatutkimuksessa oireista hoitoon kului terveyskeskuksen kautta mediaani 127 päivää, työterveyden tai yksityisen kautta 76 päivää.<SourceTag id="kuitunen-2026" /> Vain noin kolmannes sairastuneista on työikäisiä.<SourceTag id="strategy" /></p>
+          <p>Ovien ajat ja jakauma ovat arvioita lymfoomatutkimuksesta (160 potilasta, 2014–2020), koska keuhkosyövästä vastaavaa tietoa ei ole. Keuhkosyövän luvut kysytään mentoreilta.</p>
+        </More>
+      </section>
+
+      <details className="rounded-lg border border-slate-200 bg-white p-4">
+        <summary className="cursor-pointer font-semibold">Tavoite 3 -mittarit: {county.name} verrattuna koko maahan</summary>
+        <p className="mt-2 text-sm text-slate-600">
           Tavoite: elossaolo pohjoismaiselle tasolle.<SourceTag id="strategy" />
         </p>
         <div className="mt-4 grid gap-4 md:grid-cols-3">
@@ -336,9 +343,9 @@ export default function CountyPage() {
             {ranking.map((c) => (
               <li key={c.id} className="flex items-center gap-2">
                 <span className={`w-36 shrink-0 truncate ${c.id === countyId ? "font-semibold" : ""}`}>{c.name}</span>
-                <span className="h-2 flex-1 rounded bg-slate-100">
+                <span className="h-2 flex-1 rounded-xs bg-slate-100">
                   <span
-                    className={`block h-2 rounded ${c.id === countyId ? "bg-sky-700" : c.curative_share < findings.curativeNational ? "bg-rose-400" : "bg-emerald-400"}`}
+                    className={`block h-2 rounded-xs ${c.id === countyId ? "bg-sky-700" : c.curative_share < findings.curativeNational ? "bg-rose-400" : "bg-emerald-400"}`}
                     style={{ width: `${(c.curative_share / ranking[0].curative_share) * 100}%` }}
                   />
                 </span>
@@ -350,23 +357,7 @@ export default function CountyPage() {
             Ikävakioimattomat osuudet, 2019–2023. Pienten alueiden luvut vaihtelevat paljon, ja puuttuva hoitotieto voi johtua kirjauskäytännöistä.
           </p>
         </More>
-      </section>
-
-      <section className="rounded-lg border border-slate-200 bg-white p-4">
-        <h2 className="font-semibold">Kaksi ovea: kuka pääsee nopeasti?</h2>
-        <p className="mt-1 text-sm text-slate-600">
-          Työterveys on nopea ovi, terveyskeskus hidas, ja valtaosa sairastuneista tulee hitaan oven kautta.<SourceTag id="roadmap" />
-        </p>
-        <div className="mt-4 space-y-3">
-          <DoorBar label="Työterveys tai yksityinen" days={doors.privateDaysToCt} max={maxDays} share={`noin ${fmt(doors.viaPrivateDoor)} potilasta vuodessa`} color="bg-emerald-500" source="kuitunen-2026" />
-          <DoorBar label="Terveyskeskus nyt" days={doors.publicDaysToCt} max={maxDays} share={`noin ${fmt(doors.viaPublicDoor)} potilasta vuodessa`} color="bg-rose-500" source="uh-acta-2025" />
-          <DoorBar label="Terveyskeskus pikakaistalla" days={doors.fastLaneDaysToCt} max={maxDays} color="bg-sky-600" source="jensen-2017" />
-        </div>
-        <More className="mt-3">
-          <p>Lymfoomatutkimuksessa oireista hoitoon kului terveyskeskuksen kautta mediaani 127 päivää, työterveyden tai yksityisen kautta 76 päivää.<SourceTag id="kuitunen-2026" /> Vain noin kolmannes sairastuneista on työikäisiä.<SourceTag id="strategy" /></p>
-          <p>Ovien ajat ja jakauma ovat arvioita lymfoomatutkimuksesta (160 potilasta, 2014–2020), koska keuhkosyövästä vastaavaa tietoa ei ole. Keuhkosyövän luvut kysytään mentoreilta.</p>
-        </More>
-      </section>
+      </details>
 
       <details className="rounded-lg border border-slate-200 bg-white p-4">
         <summary className="cursor-pointer font-semibold">Kyselyn laskelma vaihteluväleinä (varovainen, perus, optimistinen)</summary>

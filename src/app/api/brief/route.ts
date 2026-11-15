@@ -12,14 +12,15 @@ const globalCache = globalThis as unknown as { __briefCache?: Map<string, { text
 const cache = (globalCache.__briefCache ??= new Map());
 
 export async function POST(request: Request) {
-  const { countyId, overrides, mode } = (await request.json()) as { countyId?: string; overrides?: Partial<SimulationParams>; mode?: BriefMode };
+  // `fresh` comes from the "Kirjoita uudelleen" button: skip the cache and replace the cached text.
+  const { countyId, overrides, mode, fresh } = (await request.json()) as { countyId?: string; overrides?: Partial<SimulationParams>; mode?: BriefMode; fresh?: boolean };
   const county = (counties as County[]).find((c) => c.id === countyId);
   if (!county) return NextResponse.json({ error: "not found" }, { status: 404 });
   const range = simulateRange(county, overrides ?? {});
   const doors = simulateDoors(county, { ...SCENARIOS.base, ...(overrides ?? {}) });
   const key = JSON.stringify([county.id, overrides ?? {}, mode ?? "doors_survey"]);
   const cached = cache.get(key);
-  if (cached) return NextResponse.json(cached);
+  if (cached && !fresh) return NextResponse.json(cached);
   const brief = await writeBrief(county, range, doors, mode === "doors" ? "doors" : "doors_survey", allSources);
   if (brief.generated_by === "llm") cache.set(key, brief);
   return NextResponse.json(brief);
