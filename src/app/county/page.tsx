@@ -14,6 +14,14 @@ import { PARAM_META, SCENARIOS, simulateDoors, simulateRange, type SimulationPar
 import type { County } from "@/lib/types";
 
 const counties = countiesData as County[];
+const countiesByName = [...counties].sort((a, b) => a.name.localeCompare(b.name, "fi"));
+
+/**
+ * This view's starting values on top of the shared base scenario. The survey round is
+ * spread over a year, so weekly slots read as a county's yearly plan (the pitch uses the
+ * same figures). SCENARIOS.base stays 12 weeks, so Delun's booking capacity is unchanged.
+ */
+const VIEW_DEFAULTS: Partial<SimulationParams> = { surveyWeeks: 52 };
 const sources = allSources;
 const pct = (share: number) => `${nf1.format(share * 100)} %`;
 const nf = new Intl.NumberFormat("fi-FI", { maximumFractionDigits: 0 });
@@ -71,14 +79,15 @@ export default function CountyPage() {
   const [overrides, setOverrides] = useState<Partial<SimulationParams>>({});
 
   const county = counties.find((c) => c.id === countyId)!;
-  const range = useMemo(() => simulateRange(county, overrides), [county, overrides]);
-  const doors = useMemo(() => simulateDoors(county, { ...SCENARIOS.base, ...overrides }), [county, overrides]);
+  const effective = useMemo(() => ({ ...VIEW_DEFAULTS, ...overrides }), [overrides]);
+  const range = useMemo(() => simulateRange(county, effective), [county, effective]);
+  const doors = useMemo(() => simulateDoors(county, { ...SCENARIOS.base, ...effective }), [county, effective]);
   const usesMock = [county.population_50_74, county.ever_smoker_share, county.lung_cancer_cases_per_year].some((v) => v.source_id === "mock");
   const maxDays = Math.max(doors.publicDaysToCt, doors.privateDaysToCt, doors.fastLaneDaysToCt);
   const findings = useMemo(() => regionalFindings(countyId), [countyId]);
   const mortality = useMemo(() => mortalityRanking(), []);
   const langs = useMemo(() => regionLanguages(countyId, SURVEY_LANGS.map((l) => l.code)), [countyId]);
-  const params = { ...SCENARIOS.base, ...overrides };
+  const params = { ...SCENARIOS.base, ...effective };
   const cost = { total: range.base.physicianVisits * VISIT_COST + range.base.ctScans * ctPrice };
   const ranking = useMemo(() => curativeRanking(), []);
 
@@ -99,7 +108,7 @@ export default function CountyPage() {
               setCountyId(e.target.value);
             }}
           >
-            {counties.map((c) => (
+            {countiesByName.map((c) => (
               <option key={c.id} value={c.id}>
                 {c.name}
               </option>
@@ -117,7 +126,7 @@ export default function CountyPage() {
 
       <div className="grid gap-4 lg:grid-cols-5">
         <div className="lg:col-span-3">
-          <AiAnalyst countyId={countyId} countyName={county.name} overrides={overrides} />
+          <AiAnalyst countyId={countyId} countyName={county.name} overrides={effective} />
         </div>
         <section className="rounded-md border border-slate-200 bg-white p-4 lg:col-span-2">
           <p className="text-sm font-semibold">Koko maa: keuhkosyöpäkuolleisuus alueittain</p>
@@ -163,7 +172,7 @@ export default function CountyPage() {
 
       <ol className="grid gap-4 md:grid-cols-3">
         <li className="rounded-lg border border-slate-200 bg-white p-4">
-          <p className="text-xs font-semibold uppercase tracking-wide text-rose-700">1 · Aukko</p>
+          <p className="text-xs font-semibold uppercase tracking-wide text-rose-700">1 · Aukko · Tavoite 3 -mittarit</p>
           {findings.mortalityAsr ? (
             <>
               <p className="mt-2 text-3xl font-bold tabular-nums">
@@ -285,7 +294,7 @@ export default function CountyPage() {
           Työterveys on nopea ovi, terveyskeskus hidas, ja valtaosa sairastuneista tulee hitaan oven kautta.<SourceTag id="roadmap" />
         </p>
         <div className="mt-4 space-y-3">
-          <DoorBar label="Työterveys tai yksityinen" days={doors.privateDaysToCt} max={maxDays} share={`noin ${fmt(doors.viaPrivateDoor)} potilasta vuodessa`} color="bg-emerald-500" source="kuitunen-2026" />
+          <DoorBar label="Työterveys tai yksityinen" days={doors.privateDaysToCt} max={maxDays} share={`noin ${fmt(doors.viaPrivateDoor)} potilasta vuodessa`} color="bg-emerald-500" source="assumption" />
           <DoorBar label="Terveyskeskus nyt" days={doors.publicDaysToCt} max={maxDays} share={`noin ${fmt(doors.viaPublicDoor)} potilasta vuodessa`} color="bg-rose-500" source="uh-acta-2025" />
           <DoorBar label="Terveyskeskus pikakaistalla" days={doors.fastLaneDaysToCt} max={maxDays} color="bg-sky-600" source="jensen-2017" />
         </div>
@@ -401,7 +410,7 @@ export default function CountyPage() {
         <p className="mt-2 text-sm text-slate-600">Liukusäädin korvaa arvon kaikissa skenaarioissa. Harmaa = oletus ilman lähdettä.</p>
         <div className="mt-3 grid gap-4 md:grid-cols-2">
           {PARAM_META.map((m) => {
-            const value = overrides[m.key] ?? SCENARIOS.base[m.key];
+            const value = effective[m.key] ?? SCENARIOS.base[m.key];
             return (
               <label key={m.key} className="block text-sm">
                 <span className="flex justify-between gap-2">

@@ -18,7 +18,8 @@ const SHORT: Record<string, string> = {
   "fcr-mortality": "Syöpärekisteri",
   "fcr-survival": "Syöpärekisteri",
   "fcr-quality-lung-2026": "Keuhkosyöpäraportti",
-  "kuitunen-2026": "Kuitunen 2026",
+  // The study is on lymphoma; the label says so wherever its figures are cited.
+  "kuitunen-2026": "Kuitunen 2026 · lymfooma",
   "pirha-hoitopolku": "Pirkanmaan hoitopolku",
   "mattila-2025": "Mattila 2025",
   "thl-tupakka-2023": "THL tupakkatilasto",

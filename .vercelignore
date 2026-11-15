@@ -1,0 +1,20 @@
+# Files the Vercel CLI must not upload when deploying from this machine.
+# Credentials stay local; the deployment gets its keys from Vercel's environment variables.
+.env
+.env.*
+!.env.example
+*.pem
+*.key
+credentials.local.json
+secrets.local.*
+
+# Local tooling, recordings and build outputs
+.claude/
+CLAUDE.md
+recordings/
+node_modules/
+.next/
+.vercel/
+coverage/
+*.log
+*.tsbuildinfo
