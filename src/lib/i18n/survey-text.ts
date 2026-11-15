@@ -184,6 +184,33 @@ const fi: SurveyText = {
   followUps: {},
 };
 
+/**
+ * Nurse's checklist at the health centre: the same questions in Finnish, in the third
+ * person because the nurse records the patient's answers. Follow-up questions stay in the
+ * second person and are framed as questions the nurse asks the patient.
+ */
+export const NURSE_TEXT_FI: SurveyText = {
+  ...fi,
+  steps: ["Potilas", "Tupakointi", "Oireet", "Lopuksi"],
+  age: "Potilaan ikä",
+  smokingQuestion: "Tupakoiko potilas tai onko hän tupakoinut?",
+  smokingCurrent: "Tupakoi",
+  smokingFormer: "On lopettanut",
+  smokingNever: "Ei koskaan",
+  yearsSinceQuit: "Kuinka monta vuotta sitten potilas lopetti tupakoinnin?",
+  coughWeeks: "Kuinka monta viikkoa potilaalla on ollut yskää? (0 = ei yskää)",
+  symptomsLegend: "Onko potilaalla ollut viimeisen kuukauden aikana:",
+  symptoms: { ...fi.symptoms, weight_loss: "Tahatonta laihtumista" },
+  bloodEmergency: "Runsas tai jatkuva verenyskä, tai samalla vaikea hengenahdistus tai rintakipu: ohjaa potilas päivystykseen tai soita 112.",
+  pneumonias: "Kuinka monta kertaa potilaalla on ollut keuhkokuume viimeisen vuoden aikana?",
+  visitQuestion: "Onko potilas käynyt lääkärissä hengitysoireiden takia?",
+  visit: { ...fi.visit, "": "Ei" },
+  freeText: "Lisätiedot (vapaaehtoinen)",
+  symptomReview: "Oireet ohjautuvat lääkärin arvioon. Tämä ei ole diagnoosi.",
+  followUpTitle: "Kysy potilaalta vielä",
+  newAnswer: "Uusi potilas",
+};
+
 const sv: SurveyText = {
   steps: ["Om dig","Rökning","Symtom","Till sist"],
   next: "Nästa",

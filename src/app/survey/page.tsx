@@ -7,7 +7,7 @@ import { More } from "@/components/More";
 import { ChoiceButtons, NumberStepper, ToggleCard } from "@/components/survey/Controls";
 import countiesData from "@/data/counties.json";
 import { regionLanguages } from "@/lib/i18n/region-languages";
-import { SURVEY_LANGS, surveyText, type SurveyLang, type SymptomKey, type VisitValue } from "@/lib/i18n/survey-text";
+import { NURSE_TEXT_FI, SURVEY_LANGS, surveyText, type SurveyLang, type SymptomKey, type VisitValue } from "@/lib/i18n/survey-text";
 import { PLACEMENT_LABEL, RULES_CONFIG } from "@/lib/rules";
 import type { Channel, RuleResult } from "@/lib/types";
 
@@ -86,9 +86,10 @@ export default function SurveyPage() {
     ...(showAllLangs || regionLangs.primary.every((p) => p.code !== lang) ? SURVEY_LANGS.filter((l) => regionLangs.more.includes(l.code) && (showAllLangs || l.code === lang)) : []),
   ];
 
-  // The nurse's checklist is for Finnish staff; the respondent survey follows the chosen language.
+  // The nurse's checklist is for Finnish staff and refers to "the patient"; the respondent
+  // survey follows the chosen language and speaks to the respondent.
   const uiLang: SurveyLang = channel === "survey" ? lang : "fi";
-  const t = surveyText(uiLang);
+  const t = channel === "survey" ? surveyText(uiLang) : NURSE_TEXT_FI;
   const langInfo = SURVEY_LANGS.find((l) => l.code === uiLang)!;
   const smoker = smoking === "current" || smoking === "former";
   const ageN = age === "" ? 0 : age;
