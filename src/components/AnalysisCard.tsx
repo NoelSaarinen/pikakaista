@@ -17,8 +17,9 @@ export const PRIORITY_BADGE: Record<RiskPriority["level"], string> = {
 };
 
 /**
- * PLCOm2012 risk badge. The model leaves out symptoms by design, so for people with
- * symptoms it is shown greyed out as a screening risk for people WITHOUT symptoms.
+ * PLCOm2012 risk badge, coloured by level for everyone: red ≥ 2 %, yellow 1–2 %, grey
+ * under 1 %. The model leaves out symptoms by design, so for people with symptoms the
+ * badge carries an asterisk and says it is a screening risk for people WITHOUT symptoms.
  * Urgency always comes from the alarm rules. Display only; the value is unchanged.
  */
 export function PlcoBadge({ priority, symptomatic, compact = false, className = "" }: { priority: RiskPriority; symptomatic: boolean; compact?: boolean; className?: string }) {
@@ -27,7 +28,7 @@ export function PlcoBadge({ priority, symptomatic, compact = false, className = 
   if (symptomatic) {
     return (
       <span
-        className={`rounded bg-slate-100 px-1.5 text-xs text-slate-500 ${className}`}
+        className={`rounded px-1.5 text-xs font-semibold ${PRIORITY_BADGE[priority.level]} ${className}`}
         title="PLCOm2012 arvioi oireettomien seulontariskiä eikä ota oireita huomioon. Kiireellisyys tulee oireista."
       >
         {compact ? `${risk}*` : `Seulontariski oireettomille (ei koske oireita): ${risk}`}
