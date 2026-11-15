@@ -6,6 +6,7 @@
 // AI picks follow-up questions only from a fixed, reviewed question bank, so it cannot
 // ask anything unsafe or off-topic. Without an API key the same choice is made by rules.
 
+import { smokingFi, symptomsFi, visitsFi } from "./answers-fi";
 import { completeJson } from "./llm";
 import { formatRisk, PRIORITY_LEVEL_LABEL, type RiskPriority } from "./priority";
 import { PLACEMENT_LABEL } from "./rules";
@@ -90,9 +91,9 @@ export async function analyzeSurvey(r: SurveyResponse, rule: RuleResult, priorit
   const fallback = templateAnalysis(r, rule, priority);
   const facts = {
     ikä: r.age,
-    tupakointi: r.smoking,
-    oireet: r.symptoms,
-    aiemmat_käynnit: r.previous_visits,
+    tupakointi: smokingFi(r),
+    oireet: symptomsFi(r),
+    aiemmat_käynnit: visitsFi(r),
     vapaa_teksti: r.free_text ?? null,
     sääntöjen_kiireellisyys: PLACEMENT_LABEL[rule.placement],
     hälytysmerkit: rule.reasons.map((x) => `${x.label}: ${x.answer}`),

@@ -40,8 +40,8 @@ const FREE_TEXT = {
 const VISIT_REASONS = ["yskä", "flunssa", "keuhkokuume", "astma", "selkäkipu", "verenpaine"];
 
 function makePerson(i) {
-  // Drawn first so the random stream (and every other field) stays the same; survey
-  // respondents are moved into the survey age range 50–74 once the channel is known.
+  // Drawn first so the random stream (and every other field) stays the same; everyone is
+  // then moved into the age range 50–74.
   const drawnAge = intBetween(50, 85);
   const smokingStatus = chance(0.15) ? "never" : chance(0.45) ? "current" : "former";
   const packYears = smokingStatus === "never" ? 0 : intBetween(5, 60);
@@ -67,8 +67,10 @@ function makePerson(i) {
   // Two Doors: some symptomatic people come in themselves; the nurse fills the same checklist.
   const channel = concerning && chance(0.4) ? "health_centre" : "survey";
   // The survey goes only to 50–74-year-olds (same as the screening pilot). The health
-  // centre checklist is for anyone, so those people keep any age.
-  const age = channel === "survey" && drawnAge > 74 ? 50 + (((drawnAge - 75) * 7) % 25) : drawnAge;
+  // centre checklist accepts any age, but the demo keeps those people in the same range
+  // too: PLCOm2012 was developed for ages 55–74, and over-80s at the top of the list
+  // distract from the story.
+  const age = drawnAge > 74 ? 50 + (((drawnAge - 75) * 7) % 25) : drawnAge;
 
   const person = {
     id: `p-${String(i + 1).padStart(4, "0")}`,

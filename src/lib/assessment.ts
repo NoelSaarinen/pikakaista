@@ -8,6 +8,7 @@
 // and a lower one is overruled by the rules. Without an API key the code writes the
 // summary and the suggestion equals the rule level.
 
+import { symptomsFi, visitsFi } from "./answers-fi";
 import type { Assessment, PriorityLevel } from "./assessment-labels";
 import { bookingTier } from "./booking";
 import { completeJson } from "./llm";
@@ -59,7 +60,7 @@ Säännöt:
 - Sääntöjen taso on jo päätetty. Ehdota omaa tasoa vain annettujen vastausten perusteella ja perustele se.
 - Ehdota korkeampaa tasoa vain, jos vapaa teksti tai jatkokysymysten vastaukset sisältävät hälyttävää tietoa, jota säännöt eivät kata.
 - Älä koskaan väitä, että jokin hälytysmerkki puuttuu tai on merkityksetön.
-- "evidence"-kohtiin lainaa vastaajan omia vastauksia sellaisinaan.
+- "evidence"-kohtiin lainaa vastaajan omia vastauksia sellaisinaan, suomeksi. Älä koskaan kirjoita kenttien teknisiä nimiä.
 - "uncertainties"-kohtiin kirjaa puuttuvat tai ristiriitaiset tiedot.
 - Kirjoita suomeksi. Yhteenveto enintään kolme lyhyttä virkettä, listoissa enintään kolme kohtaa.`;
 
@@ -90,8 +91,8 @@ export async function assessCase(
   const facts = {
     ikä: r.age,
     tupakointi: smokingText(r),
-    oireet: r.symptoms,
-    aiemmat_käynnit: r.previous_visits,
+    oireet: symptomsFi(r),
+    aiemmat_käynnit: visitsFi(r),
     vapaa_teksti: r.free_text ?? null,
     jatkokysymysten_vastaukset: followups,
     sääntöjen_löydökset: rule.reasons.map((x) => `${x.label}: ${x.answer}`),

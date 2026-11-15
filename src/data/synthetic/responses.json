@@ -3459,7 +3459,7 @@
   },
   {
     "id": "p-0111",
-    "age": 83,
+    "age": 56,
     "language": "sv",
     "smoking": {
       "status": "former",
@@ -3482,8 +3482,8 @@
       "copd": false,
       "personal_cancer_history": true,
       "family_history_lung_cancer": false,
-      "cigs_per_day": 24,
-      "smoking_years": 45,
+      "cigs_per_day": 60,
+      "smoking_years": 18,
       "years_since_quit": 17
     }
   },
@@ -3838,7 +3838,7 @@
   },
   {
     "id": "p-0123",
-    "age": 84,
+    "age": 63,
     "language": "fi",
     "smoking": {
       "status": "current",
@@ -3866,8 +3866,8 @@
       "copd": false,
       "personal_cancer_history": false,
       "family_history_lung_cancer": false,
-      "cigs_per_day": 14,
-      "smoking_years": 62,
+      "cigs_per_day": 21,
+      "smoking_years": 41,
       "years_since_quit": 0
     }
   },

@@ -2,6 +2,7 @@
 // the summary and may add a note from the free-text answer. It never removes a flag.
 
 import { QUESTION_BANK } from "./analysis";
+import { symptomsFi, visitsFi } from "./answers-fi";
 import { complete } from "./llm";
 import { PLACEMENT_LABEL } from "./rules";
 import type { CaseSummary, RuleResult, SurveyResponse } from "./types";
@@ -39,8 +40,8 @@ export async function summarizeCase(r: SurveyResponse, rule: RuleResult, followu
     jatkokysymysten_vastaukset: hasFollowups ? followupText(followups) : null,
     ikä: r.age,
     tupakointi: smokingText(r),
-    oireet: r.symptoms,
-    aiemmat_käynnit: r.previous_visits,
+    oireet: symptomsFi(r),
+    aiemmat_käynnit: visitsFi(r),
     vapaa_teksti: r.free_text ?? null,
     vastauksen_kieli: r.language,
     sääntöjen_löydökset: rule.reasons.map((x) => `${x.label}: ${x.answer}`),

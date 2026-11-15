@@ -17,7 +17,8 @@ export async function POST(request: Request) {
   if (!response) return NextResponse.json({ error: "not found" }, { status: 404 });
 
   const followups = store.followups[response.id] ?? {};
-  const key = `${response.id}:${JSON.stringify(followups)}`;
+  // "fi2": answers reach the model in Finnish words; older cached quotes used field names.
+  const key = `fi2:${response.id}:${JSON.stringify(followups)}`;
   let assessment = cache.get(key);
   if (!assessment) {
     assessment = await assessCase(response, evaluate(response), riskPriority(response), followups);
