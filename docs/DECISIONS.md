@@ -188,3 +188,11 @@ Add entries in chronological order. Link evidence, and link any later entry that
 - **Context** The survey used 55–80 (US screening criteria) while the national pilot ISC-LDCT uses 50–74. Two different age ranges made the pitch harder to explain.
 - **Decision** Survey risk group and screening list use ages 50–74. Population figures, language data, texts in all eight languages and tests were updated. The screening list flags ages 50–54, which are outside the PLCOm2012 development cohort (55–74), and its equity comparison counts invitees aged 65 or over instead of 75 or over.
 - **Trade-offs** People aged 75–80 are no longer invited, although lung cancer risk rises with age. People of any age with symptoms still reach the physician's list. The survey still complements the pilot by including former smokers and people with symptoms.
+- **Update 2026-11-15** At Noel's request, the synthetic demo patients are all aged 50–74, including the two who came through the nurse's checklist (`p-0111` 83 → 56, `p-0123` 84 → 63). The checklist itself still accepts any age. The Testivektorit sheet in `docs/tilastot/kaksi-ovea-tilastot.xlsx` still has the old ages for these two rows.
+
+## 2026-11-15 — The home page with the lung illustration stays
+
+- **Status** Decided by Noel on 2026-11-15, before the final submission. A redirect from `/` to the decision-maker view was tried locally the same morning and reverted before it was committed.
+- **Context** The redirect would have opened the demo straight in the decision-maker view, because its figures repeat the home page's and the brief asks that a decision-maker understands the finding and action within two minutes. It also removed Delun's animated lung illustration (`src/components/LungStory.tsx`).
+- **Decision** Keep the home page as it was. It tells the story for a judge who opens the link cold, shows Delun's illustration and a chooser for the four views, and its main button "Katso alueesi luvut →" opens the decision-maker view. The recording `recordings/00-etusivu.mp4` shows this page.
+- **Trade-offs** The decision-maker view is one click away instead of first.
