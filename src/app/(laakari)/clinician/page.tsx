@@ -245,7 +245,7 @@ export default function ClinicianPage() {
               <div>
                 <p className="font-semibold">Perustelut (henkilön omat vastaukset)</p>
                 {item.rule.symptomReviewRequired && (
-                  <p className="mt-1 rounded bg-amber-50 p-2 text-amber-900">Henkilö ilmoitti oireita. Ne pitää arvioida ammattilaisen kanssa; seulontarajan alittaminen ei poista tätä tarvetta. Sääntöpisteet eivät ole validoitu kliininen kriteeri.</p>
+                  <p className="mt-1 rounded bg-amber-50 p-2 text-amber-900">Henkilö ilmoitti oireita. Ne pitää arvioida ammattilaisen kanssa; seulontarajan alittaminen ei poista tätä tarvetta.</p>
                 )}
                 <ul className="mt-1 list-disc pl-5">
                   {item.rule.reasons.map((r) => (

@@ -169,7 +169,8 @@ export function AnalysisCard({
             Kerroin vertaa tekijää mallin keskivertohenkilöön (62-vuotias, keskimääräinen tupakointihistoria). Yli 1 nostaa ja alle 1 laskee riskiä. Ne eivät vaikuta oireiden kiireellisyyteen.
           </p>
           <ul className="mt-1 space-y-0.5 text-xs">
-            {p.contributions.map((c) => (
+            {/* Display order only: the factors that raise the risk most first, the lowering ones last. */}
+            {[...p.contributions].sort((a, b) => b.factor - a.factor).map((c) => (
               <li key={c.key} className="flex justify-between gap-2">
                 <span>{c.label}</span>
                 <span className={`tabular-nums ${c.logit > 0 ? "text-rose-700" : "text-sky-700"}`}>×{c.factor.toFixed(2)}</span>
